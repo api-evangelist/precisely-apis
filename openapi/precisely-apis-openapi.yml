@@ -3,9 +3,13 @@ info:
   contact:
     name: Precisely APIs Support
     url: https://support.precisely.com
-  description: >-
-    Enhance & enrich your data, applications, business processes, and workflows
-    with rich location, information, and identify APIs.
+  description: |-
+
+    Demographics. Audience Enrichment. Add local demographics and lifestyle
+    segmentation to your audience profiles. The Demographics API returns
+    household demographics and lifestyle characteristics with the input of an
+    address, location coordinate, or geographic boundary. This service covers
+    select countries.
   license:
     name: Apache 2.0
     url: http://springdoc.org
@@ -209,7 +213,8 @@ paths:
         - oAuth2Password: []
       summary: Addresses count by Boundary.
       tags:
-        - Addresses Service.
+        - Addresses
+        - Byboundary
       x-contentType: application/json
       x-accepts: application/json
   /addresses/v1/address/byboundary:
@@ -262,7 +267,9 @@ paths:
         - oAuth2Password: []
       summary: Addresses by Boundary.
       tags:
-        - Addresses Service.
+        - Addresses
+        - Address
+        - Addresses  Service.
       x-contentType: application/json
       x-accepts: application/json
   /addresses/v1/addresscount/byboundaryname:
@@ -343,7 +350,8 @@ paths:
         - oAuth2Password: []
       summary: Addresses Count by Boundary Name.
       tags:
-        - Addresses Service.
+        - Addresses
+        - Byboundaryname
       x-accepts: application/json
   /addresses/v1/address/byboundaryname:
     get:
@@ -443,7 +451,9 @@ paths:
         - oAuth2Password: []
       summary: Addresses by Boundary Name.
       tags:
-        - Addresses Service.
+        - Addresses
+        - Address
+        - Addresses  Service.
       x-accepts: application/json
   /demographics-segmentation/v1/advanced/demographics:
     post:
@@ -483,7 +493,9 @@ paths:
         - oAuth2Password: []
       summary: Demographics Advanced Endpoint
       tags:
-        - Demographics Service
+        - Segmentation
+        - Advanced
+        - Demographics  Service
       x-contentType: application/json
       x-accepts: application/json
   /demographics-segmentation/v1/segmentation/bylocation:
@@ -531,7 +543,8 @@ paths:
         - oAuth2Password: []
       summary: Segmentation By Location.
       tags:
-        - Demographics Service
+        - Segmentation
+        - Bylocation
       x-accepts: application/json
   /demographics-segmentation/v1/segmentation/byaddress:
     get:
@@ -580,7 +593,8 @@ paths:
         - oAuth2Password: []
       summary: Segmentation By Address.
       tags:
-        - Demographics Service
+        - Segmentation
+        - Byaddress
       x-accepts: application/json
   /demographics-segmentation/v1/demographics/bylocation:
     get:
@@ -661,7 +675,8 @@ paths:
         - oAuth2Password: []
       summary: Demographics By Location.
       tags:
-        - Demographics Service
+        - Segmentation
+        - Bylocation
       x-accepts: application/json
   /demographics-segmentation/v1/demographics/byboundaryids:
     get:
@@ -730,7 +745,8 @@ paths:
         - oAuth2Password: []
       summary: Demographics By Boundaryids.
       tags:
-        - Demographics Service
+        - Segmentation
+        - Byboundaryids
       x-accepts: application/json
   /demographics-segmentation/v1/demographics/byaddress:
     get:
@@ -813,7 +829,8 @@ paths:
         - oAuth2Password: []
       summary: Demographics By Address.
       tags:
-        - Demographics Service
+        - Segmentation
+        - Byaddress
       x-accepts: application/json
   /demographics-segmentation/v1/basic/demographics:
     get:
@@ -941,7 +958,9 @@ paths:
         - oAuth2Password: []
       summary: Demographics Basic
       tags:
-        - Demographics Service
+        - Segmentation
+        - Basic
+        - Demographics  Service
       x-accepts: application/json
   /geocode/v1/{datapackBundle}/reverseGeocode:
     get:
@@ -1034,7 +1053,9 @@ paths:
         - oAuth2Password: []
       summary: Get Reverse Geocode(Basic/Premium/Advanced)
       tags:
-        - Geocode Service
+        - Geocode
+        - Bundles
+        - Reverse
       x-accepts: application/json
     post:
       description: >-
@@ -1088,7 +1109,9 @@ paths:
         - oAuth2Password: []
       summary: Post Reverse Geocode
       tags:
-        - Geocode Service
+        - Geocode
+        - Bundles
+        - Reverse
       x-contentType: application/json
       x-accepts: application/json
   /geocode/v1/{datapackBundle}/geocode:
@@ -1244,7 +1267,8 @@ paths:
         - oAuth2Password: []
       summary: Get Forward Geocode(Basic/Premium/Advanced)
       tags:
-        - Geocode Service
+        - Geocode
+        - Bundles
       x-accepts: application/json
     post:
       description: >-
@@ -1295,7 +1319,8 @@ paths:
         - oAuth2Password: []
       summary: Post Forward Geocode
       tags:
-        - Geocode Service
+        - Geocode
+        - Bundles
       x-contentType: application/json
       x-accepts: application/json
   /geocode/v1/keylookup:
@@ -1355,7 +1380,8 @@ paths:
         - oAuth2Password: []
       summary: Get Key Lookup
       tags:
-        - Geocode Service
+        - Geocode
+        - Geocode  Service
       x-accepts: application/json
     post:
       description: >-
@@ -1400,7 +1426,8 @@ paths:
         - oAuth2Password: []
       summary: Post Key Lookup
       tags:
-        - Geocode Service
+        - Geocode
+        - Geocode  Service
       x-contentType: application/json
       x-accepts: application/json
   /geocode/v1/key/byaddress:
@@ -1454,7 +1481,9 @@ paths:
         - oAuth2Password: []
       summary: Get PreciselyID By Address
       tags:
-        - Geocode Service
+        - Geocode
+        - Key
+        - Geocode  Service
       x-accepts: application/json
     post:
       description: >-
@@ -1500,7 +1529,9 @@ paths:
         - oAuth2Password: []
       summary: Post PreciselyID By Address
       tags:
-        - Geocode Service
+        - Geocode
+        - Key
+        - Geocode  Service
       x-contentType: application/json
       x-accepts: application/json
   /localtax/v1/taxrate/{taxRateTypeId}/bylocation:
@@ -1561,7 +1592,11 @@ paths:
         - oAuth2Password: []
       summary: Get Taxrate By Location
       tags:
-        - Local Tax Service
+        - Taxrate
+        - Taxes
+        - Rates
+        - Type
+        - Local  Tax  Service
       x-accepts: application/json
     post:
       description: >-
@@ -1613,7 +1648,11 @@ paths:
         - oAuth2Password: []
       summary: Post Taxrate By Location
       tags:
-        - Local Tax Service
+        - Taxrate
+        - Taxes
+        - Rates
+        - Type
+        - Local  Tax  Service
       x-contentType: application/json
       x-accepts: application/json
   /localtax/v1/taxrate/{taxRateTypeId}/byaddress:
@@ -1668,7 +1707,11 @@ paths:
         - oAuth2Password: []
       summary: Get Taxrate By Address
       tags:
-        - Local Tax Service
+        - Taxrate
+        - Taxes
+        - Rates
+        - Type
+        - Local  Tax  Service
       x-accepts: application/json
     post:
       description: >-
@@ -1719,7 +1762,11 @@ paths:
         - oAuth2Password: []
       summary: Post Taxrate By Address
       tags:
-        - Local Tax Service
+        - Taxrate
+        - Taxes
+        - Rates
+        - Type
+        - Local  Tax  Service
       x-contentType: application/json
       x-accepts: application/json
   /localtax/v1/taxdistrict/ipd/byaddress:
@@ -1780,7 +1827,8 @@ paths:
         - oAuth2Password: []
       summary: Get IPD Tax by Address
       tags:
-        - Local Tax Service
+        - Taxdistrict
+        - Byaddress
       x-accepts: application/json
     post:
       description: >-
@@ -1827,7 +1875,8 @@ paths:
         - oAuth2Password: []
       summary: Get IPD Tax for batch requests.
       tags:
-        - Local Tax Service
+        - Taxdistrict
+        - Byaddress
       x-contentType: application/json
       x-accepts: application/json
   /localtax/v1/tax/{taxRateTypeId}/bylocation:
@@ -1894,7 +1943,11 @@ paths:
         - oAuth2Password: []
       summary: Get Tax By Location
       tags:
-        - Local Tax Service
+        - Tax
+        - Taxes
+        - Rates
+        - Type
+        - Local  Tax  Service
       x-accepts: application/json
     post:
       description: >-
@@ -1946,7 +1999,11 @@ paths:
         - oAuth2Password: []
       summary: Post Tax By Location
       tags:
-        - Local Tax Service
+        - Tax
+        - Taxes
+        - Rates
+        - Type
+        - Local  Tax  Service
       x-contentType: application/json
       x-accepts: application/json
   /localtax/v1/tax/{taxRateTypeId}/byaddress:
@@ -2007,7 +2064,11 @@ paths:
         - oAuth2Password: []
       summary: Get Tax By Address
       tags:
-        - Local Tax Service
+        - Tax
+        - Taxes
+        - Rates
+        - Type
+        - Local  Tax  Service
       x-accepts: application/json
     post:
       description: >-
@@ -2059,7 +2120,11 @@ paths:
         - oAuth2Password: []
       summary: Post Tax By Address
       tags:
-        - Local Tax Service
+        - Tax
+        - Taxes
+        - Rates
+        - Type
+        - Local  Tax  Service
       x-contentType: application/json
       x-accepts: application/json
   /neighborhoods/v1/place/bylocation:
@@ -2113,7 +2178,8 @@ paths:
         - oAuth2Password: []
       summary: Place By Location.
       tags:
-        - Neighborhoods Service.
+        - Place
+        - Neighborhoods  Service.
       x-accepts: application/json
   /places/v1/poicount:
     post:
@@ -2158,7 +2224,8 @@ paths:
         - oAuth2Password: []
       summary: Points Of Interest Count
       tags:
-        - Places Service.
+        - Places
+        - Places  Service.
       x-contentType: application/json
       x-accepts: application/json
   /places/v1/poi/byboundary:
@@ -2206,7 +2273,8 @@ paths:
         - oAuth2Password: []
       summary: Points Of Interest By Boundary
       tags:
-        - Places Service.
+        - Places
+        - Byboundary
       x-contentType: application/json
       x-accepts: application/json
   /places/v1/poi/{id}:
@@ -2246,7 +2314,8 @@ paths:
         - oAuth2Password: []
       summary: Points Of Interest Details By Id
       tags:
-        - Places Service.
+        - Places
+        - Places  Service.
       x-accepts: application/json
   /places/v1/poi/bylocation:
     get:
@@ -2426,7 +2495,8 @@ paths:
         - oAuth2Password: []
       summary: Get POIs By Location.
       tags:
-        - Places Service.
+        - Places
+        - Bylocation
       x-accepts: application/json
   /places/v1/poi/byarea:
     get:
@@ -2570,7 +2640,8 @@ paths:
         - oAuth2Password: []
       summary: GET Points Of Interest By Area.
       tags:
-        - Places Service.
+        - Places
+        - Byarea
       x-accepts: application/json
   /places/v1/poi/byaddress:
     get:
@@ -2751,7 +2822,8 @@ paths:
         - oAuth2Password: []
       summary: Get POIs By Address.
       tags:
-        - Places Service.
+        - Places
+        - Byaddress
       x-accepts: application/json
   /places/v1/poi/autocomplete:
     get:
@@ -2965,7 +3037,8 @@ paths:
         - oAuth2Password: []
       summary: Points Of Interest Autocomplete
       tags:
-        - Places Service.
+        - Places
+        - Autocomplete
       x-accepts: application/json
   /places/v1/metadata/sic:
     get:
@@ -3019,7 +3092,9 @@ paths:
         - oAuth2Password: []
       summary: Get SIC Metadata
       tags:
-        - Places Service.
+        - Places
+        - Metadata
+        - Sic
       x-accepts: application/json
   /places/v1/metadata/category:
     get:
@@ -3073,7 +3148,9 @@ paths:
         - oAuth2Password: []
       summary: Category Code Metadata.
       tags:
-        - Places Service.
+        - Places
+        - Metadata
+        - Categories
       x-accepts: application/json
   /property/v2/attributes/byaddress:
     get:
@@ -3121,7 +3198,9 @@ paths:
         - oAuth2Password: []
       summary: PropertyV2 Attributes By Address.
       tags:
-        - Property Information Service
+        - Properties
+        - Attributes
+        - Property  Information  Service
       x-accepts: application/json
     post:
       description: >-
@@ -3159,7 +3238,9 @@ paths:
         - oAuth2Password: []
       summary: PropertyV2 Attributes By Address Batch.
       tags:
-        - Property Information Service
+        - Properties
+        - Attributes
+        - Property  Information  Service
       x-contentType: application/json
       x-accepts: application/json
   /property/v2/parcelboundary/bylocation:
@@ -3204,7 +3285,8 @@ paths:
         - oAuth2Password: []
       summary: Get Parcel Boundary By Location
       tags:
-        - Property Information Service
+        - Properties
+        - Bylocation
       x-accepts: application/json
   /property/v2/parcelboundary/byaddress:
     get:
@@ -3242,7 +3324,8 @@ paths:
         - oAuth2Password: []
       summary: Get Parcel Boundary By Address
       tags:
-        - Property Information Service
+        - Properties
+        - Byaddress
       x-accepts: application/json
   /property/v2/parcelboundary/bypreciselyID:
     get:
@@ -3280,7 +3363,9 @@ paths:
         - oAuth2Password: []
       summary: Get Parcel Boundary By PreciselyID
       tags:
-        - Property Information Service
+        - Properties
+        - Byprecisely
+        - Property  Information  Service
       x-accepts: application/json
   /911/v1/psap/bylocation:
     get:
@@ -3327,7 +3412,8 @@ paths:
         - oAuth2Password: []
       summary: PSAP By Location.
       tags:
-        - PSAP/911 Service
+        - Psap
+        - P S A P/911  Service
       x-accepts: application/json
   /911/v1/psap/byaddress:
     get:
@@ -3368,7 +3454,8 @@ paths:
         - oAuth2Password: []
       summary: PSAP By Address.
       tags:
-        - PSAP/911 Service
+        - Psap
+        - P S A P/911  Service
       x-accepts: application/json
   /911/v1/ahj-psap/bylocation:
     get:
@@ -3417,7 +3504,8 @@ paths:
         - oAuth2Password: []
       summary: AHJ & PSAP By Location
       tags:
-        - PSAP/911 Service
+        - Ahj
+        - Bylocation
       x-accepts: application/json
   /911/v1/ahj-psap/byaddress:
     get:
@@ -3460,7 +3548,8 @@ paths:
         - oAuth2Password: []
       summary: AHJ & PSAP By Address.
       tags:
-        - PSAP/911 Service
+        - Ahj
+        - Byaddress
       x-accepts: application/json
   /911/v1/ahj-psap/byfccid:
     get:
@@ -3503,7 +3592,8 @@ paths:
         - oAuth2Password: []
       summary: AHJ & PSAP By Fccid
       tags:
-        - PSAP/911 Service
+        - Ahj
+        - Byfccid
       x-accepts: application/json
   /risks/v1/shoreline/distancetofloodhazard/bylocation:
     get:
@@ -3571,7 +3661,8 @@ paths:
         - oAuth2Password: []
       summary: Get Distance To Flood Hazard By Location
       tags:
-        - Risks Service
+        - Shoreline
+        - Bylocation
       x-accepts: application/json
     post:
       description: >-
@@ -3609,7 +3700,8 @@ paths:
         - oAuth2Password: []
       summary: Post Distance To Flood Hazard By Location
       tags:
-        - Risks Service
+        - Shoreline
+        - Bylocation
       x-contentType: application/json
       x-accepts: application/json
   /risks/v1/shoreline/distancetofloodhazard/byaddress:
@@ -3672,7 +3764,8 @@ paths:
         - oAuth2Password: []
       summary: Get Distance To Flood Hazard By Address
       tags:
-        - Risks Service
+        - Shoreline
+        - Byaddress
       x-accepts: application/json
     post:
       description: >-
@@ -3710,7 +3803,8 @@ paths:
         - oAuth2Password: []
       summary: Post Distance To Flood Hazard By Address
       tags:
-        - Risks Service
+        - Shoreline
+        - Byaddress
       x-contentType: application/json
       x-accepts: application/json
   /risks/v1/flood/bylocation:
@@ -3767,7 +3861,8 @@ paths:
         - oAuth2Password: []
       summary: Get Flood Risk By Location
       tags:
-        - Risks Service
+        - Flood
+        - Risks  Service
       x-accepts: application/json
     post:
       description: >-
@@ -3805,7 +3900,8 @@ paths:
         - oAuth2Password: []
       summary: Post Flood Risk By Location
       tags:
-        - Risks Service
+        - Flood
+        - Risks  Service
       x-contentType: application/json
       x-accepts: application/json
   /risks/v1/flood/byaddress:
@@ -3856,7 +3952,8 @@ paths:
         - oAuth2Password: []
       summary: Get Flood Risk By Address
       tags:
-        - Risks Service
+        - Flood
+        - Risks  Service
       x-accepts: application/json
     post:
       description: >-
@@ -3893,7 +3990,8 @@ paths:
         - oAuth2Password: []
       summary: Post Flood Risk By Address
       tags:
-        - Risks Service
+        - Flood
+        - Risks  Service
       x-contentType: application/json
       x-accepts: application/json
   /risks/v1/fire/bylocation:
@@ -3944,7 +4042,8 @@ paths:
         - oAuth2Password: []
       summary: Get Fire Risk By Location
       tags:
-        - Risks Service
+        - Fire
+        - Risks  Service
       x-accepts: application/json
     post:
       description: >-
@@ -3981,7 +4080,8 @@ paths:
         - oAuth2Password: []
       summary: Post Fire Risk By Location
       tags:
-        - Risks Service
+        - Fire
+        - Risks  Service
       x-contentType: application/json
       x-accepts: application/json
   /risks/v1/fire/byaddress:
@@ -4024,7 +4124,8 @@ paths:
         - oAuth2Password: []
       summary: Get Fire Risk By Address
       tags:
-        - Risks Service
+        - Fire
+        - Risks  Service
       x-accepts: application/json
     post:
       description: >-
@@ -4061,7 +4162,8 @@ paths:
         - oAuth2Password: []
       summary: Post Fire Risk By Address
       tags:
-        - Risks Service
+        - Fire
+        - Risks  Service
       x-contentType: application/json
       x-accepts: application/json
   /risks/v2/fire/bylocation:
@@ -4112,7 +4214,8 @@ paths:
         - oAuth2Password: []
       summary: Get Fire Risk By Location
       tags:
-        - Risks Service
+        - Fire
+        - Risks  Service
       x-accepts: application/json
     post:
       description: >-
@@ -4149,7 +4252,8 @@ paths:
         - oAuth2Password: []
       summary: Post Fire Risk By Location
       tags:
-        - Risks Service
+        - Fire
+        - Risks  Service
       x-contentType: application/json
       x-accepts: application/json
   /risks/v2/fire/byaddress:
@@ -4192,7 +4296,8 @@ paths:
         - oAuth2Password: []
       summary: Get Fire Risk By Address
       tags:
-        - Risks Service
+        - Fire
+        - Risks  Service
       x-accepts: application/json
     post:
       description: >-
@@ -4229,7 +4334,8 @@ paths:
         - oAuth2Password: []
       summary: Post Fire Risk By Address
       tags:
-        - Risks Service
+        - Fire
+        - Risks  Service
       x-contentType: application/json
       x-accepts: application/json
   /risks/v1/earthquake/bylocation:
@@ -4290,7 +4396,8 @@ paths:
         - oAuth2Password: []
       summary: Get Earthquake Risk By Location
       tags:
-        - Risks Service
+        - Earthquake
+        - Risks  Service
       x-accepts: application/json
     post:
       description: >-
@@ -4328,7 +4435,8 @@ paths:
         - oAuth2Password: []
       summary: Post Earthquake Risk By Location
       tags:
-        - Risks Service
+        - Earthquake
+        - Risks  Service
       x-contentType: application/json
       x-accepts: application/json
   /risks/v1/earthquake/byaddress:
@@ -4383,7 +4491,8 @@ paths:
         - oAuth2Password: []
       summary: Get Earthquake Risk By Address
       tags:
-        - Risks Service
+        - Earthquake
+        - Risks  Service
       x-accepts: application/json
     post:
       description: >-
@@ -4420,7 +4529,8 @@ paths:
         - oAuth2Password: []
       summary: Post Earthquake Risk By Address
       tags:
-        - Risks Service
+        - Earthquake
+        - Risks  Service
       x-contentType: application/json
       x-accepts: application/json
   /risks/v1/crime/bylocation:
@@ -4482,7 +4592,8 @@ paths:
         - oAuth2Password: []
       summary: Get Crime Risk By  Location
       tags:
-        - Risks Service
+        - Crime
+        - Risks  Service
       x-accepts: application/json
     post:
       description: >-
@@ -4519,7 +4630,8 @@ paths:
         - oAuth2Password: []
       summary: Post Crime Risk By Location
       tags:
-        - Risks Service
+        - Crime
+        - Risks  Service
       x-contentType: application/json
       x-accepts: application/json
   /risks/v1/crime/byaddress:
@@ -4573,7 +4685,8 @@ paths:
         - oAuth2Password: []
       summary: Get Crime Risk By Address
       tags:
-        - Risks Service
+        - Crime
+        - Risks  Service
       x-accepts: application/json
     post:
       description: >-
@@ -4610,7 +4723,8 @@ paths:
         - oAuth2Password: []
       summary: Post Crime Risk By Address
       tags:
-        - Risks Service
+        - Crime
+        - Risks  Service
       x-contentType: application/json
       x-accepts: application/json
   /risks/v1/firestation/bylocation:
@@ -4702,7 +4816,8 @@ paths:
         - oAuth2Password: []
       summary: Get Fire Station By Location
       tags:
-        - Risks Service
+        - Firestation
+        - Risks  Service
       x-accepts: application/json
   /risks/v1/firestation/byaddress:
     get:
@@ -4787,7 +4902,8 @@ paths:
         - oAuth2Password: []
       summary: Get Fire Station By Address
       tags:
-        - Risks Service
+        - Firestation
+        - Risks  Service
       x-accepts: application/json
   /risks/v1/firehistory:
     get:
@@ -4843,7 +4959,7 @@ paths:
         - oAuth2Password: []
       summary: Get Fire History
       tags:
-        - Risks Service
+        - Firehistory
       x-accepts: application/json
   /risks/v2/firehistory:
     get:
@@ -4899,7 +5015,7 @@ paths:
         - oAuth2Password: []
       summary: Get Fire History
       tags:
-        - Risks Service
+        - Firehistory
       x-accepts: application/json
   /risks/v1/earthquakehistory:
     get:
@@ -4967,7 +5083,7 @@ paths:
         - oAuth2Password: []
       summary: Earthquake History
       tags:
-        - Risks Service
+        - Earthquakehistory
       x-accepts: application/json
   /routing/v1/travelcostmatrix/bylocation:
     get:
@@ -5187,7 +5303,8 @@ paths:
         - oAuth2Password: []
       summary: Get Cost Matrix By Location.
       tags:
-        - Routing Service
+        - Routing
+        - Bylocation
       x-accepts: application/json
   /routing/v1/travelcostmatrix/byaddress:
     get:
@@ -5412,7 +5529,8 @@ paths:
         - oAuth2Password: []
       summary: Get Cost Matrix By Address.
       tags:
-        - Routing Service
+        - Routing
+        - Byaddress
       x-accepts: application/json
   /routing/v1/route/bylocation:
     get:
@@ -5687,7 +5805,9 @@ paths:
         - oAuth2Password: []
       summary: Gets Route By Location.
       tags:
-        - Routing Service
+        - Routing
+        - Route
+        - Routing  Service
       x-accepts: application/json
   /routing/v1/route/byaddress:
     get:
@@ -5969,7 +6089,9 @@ paths:
         - oAuth2Password: []
       summary: Gets Route By Address.
       tags:
-        - Routing Service
+        - Routing
+        - Route
+        - Routing  Service
       x-accepts: application/json
   /schools/v1/school/byaddress:
     get:
@@ -6109,7 +6231,8 @@ paths:
         - oAuth2Password: []
       summary: Search Nearby Schools by Address
       tags:
-        - Schools Service
+        - School
+        - Schools  Service
       x-accepts: application/json
   /streets/v1/speedlimit:
     get:
@@ -6151,7 +6274,7 @@ paths:
         - oAuth2Password: []
       summary: Nearest Speedlimit.
       tags:
-        - Streets Service
+        - Speedlimit
       x-accepts: application/json
   /streets/v1/intersection/bylocation:
     get:
@@ -6245,7 +6368,8 @@ paths:
         - oAuth2Password: []
       summary: Nearest Intesection By Location.
       tags:
-        - Streets Service
+        - Intersection
+        - Streets  Service
       x-accepts: application/json
   /streets/v1/intersection/byaddress:
     get:
@@ -6333,7 +6457,8 @@ paths:
         - oAuth2Password: []
       summary: Nearest Intesection By Address.
       tags:
-        - Streets Service
+        - Intersection
+        - Streets  Service
       x-accepts: application/json
   /telecomm/v1/ratecenter/bylocation:
     get:
@@ -6391,7 +6516,8 @@ paths:
         - oAuth2Password: []
       summary: Rate Center By Location.
       tags:
-        - Telecomm Info Service
+        - Ratecenter
+        - Telecomm  Info  Service
       x-accepts: application/json
   /telecomm/v1/ratecenter/byaddress:
     get:
@@ -6451,7 +6577,8 @@ paths:
         - oAuth2Password: []
       summary: Rate Center By Address.
       tags:
-        - Telecomm Info Service
+        - Ratecenter
+        - Telecomm  Info  Service
       x-accepts: application/json
   /timezone/v1/timezone/bylocation:
     get:
@@ -6502,7 +6629,8 @@ paths:
         - oAuth2Password: []
       summary: Timezone By Location.
       tags:
-        - Time Zone Service
+        - Timezone
+        - Time  Zone  Service
       x-accepts: application/json
     post:
       description: >-
@@ -6539,7 +6667,8 @@ paths:
         - oAuth2Password: []
       summary: Timezone Batch by Location.
       tags:
-        - Time Zone Service
+        - Timezone
+        - Time  Zone  Service
       x-contentType: application/json
       x-accepts: application/json
   /timezone/v1/timezone/byaddress:
@@ -6601,7 +6730,8 @@ paths:
         - oAuth2Password: []
       summary: Timezone By Address.
       tags:
-        - Time Zone Service
+        - Timezone
+        - Time  Zone  Service
       x-accepts: application/json
     post:
       description: >-
@@ -6638,7 +6768,8 @@ paths:
         - oAuth2Password: []
       summary: Timezone Batch by Address.
       tags:
-        - Time Zone Service
+        - Timezone
+        - Time  Zone  Service
       x-contentType: application/json
       x-accepts: application/json
   /typeahead/v1/locations:
@@ -6803,7 +6934,7 @@ paths:
         - oAuth2Password: []
       summary: Address Autocomplete Search
       tags:
-        - Address Autocomplete Service
+        - Locations
       x-accepts: application/json
   /zones/v1/poiboundary/bylocation:
     get:
@@ -6866,7 +6997,8 @@ paths:
         - oAuth2Password: []
       summary: Get Point of Interests Boundary by Location.
       tags:
-        - Zones Service
+        - Zones
+        - Bylocation
       x-accepts: application/json
     post:
       description: Batch method for getting Point of Interests Boundary by Location.
@@ -6900,7 +7032,8 @@ paths:
         - oAuth2Password: []
       summary: Batch method for getting Point of Interests Boundary by Location.
       tags:
-        - Zones Service
+        - Zones
+        - Bylocation
       x-contentType: application/json
       x-accepts: application/json
   /zones/v1/poiboundary/byaddress:
@@ -6958,7 +7091,8 @@ paths:
         - oAuth2Password: []
       summary: Gets Point of Interests Boundary by Address.
       tags:
-        - Zones Service
+        - Zones
+        - Byaddress
       x-accepts: application/json
     post:
       description: Batch method for getting Point of Interests Boundary by Address.
@@ -6992,7 +7126,8 @@ paths:
         - oAuth2Password: []
       summary: Batch method for getting Point of Interests Boundary by Address.
       tags:
-        - Zones Service
+        - Zones
+        - Byaddress
       x-contentType: application/json
       x-accepts: application/json
   /zones/v1/travelboundary/bytime:
@@ -7140,7 +7275,8 @@ paths:
         - oAuth2Password: []
       summary: Get TravelBoundary By Time.
       tags:
-        - Zones Service
+        - Zones
+        - Zones  Service
       x-accepts: application/json
   /zones/v1/travelboundary/bydistance:
     get:
@@ -7287,7 +7423,8 @@ paths:
         - oAuth2Password: []
       summary: Get TravelBoundary By Distance.
       tags:
-        - Zones Service
+        - Zones
+        - Bydistance
       x-accepts: application/json
   /zones/v1/basicboundary/bylocation:
     get:
@@ -7364,7 +7501,8 @@ paths:
         - oAuth2Password: []
       summary: Gets Basic Boundary by Location.
       tags:
-        - Zones Service
+        - Zones
+        - Bylocation
       x-accepts: application/json
   /zones/v1/basicboundary/byaddress:
     get:
@@ -7433,7 +7571,8 @@ paths:
         - oAuth2Password: []
       summary: Gets Basic Boundary by Address.
       tags:
-        - Zones Service
+        - Zones
+        - Byaddress
       x-accepts: application/json
   /addressverification/v1/getpostalcodes/results.json:
     post:
@@ -7477,7 +7616,8 @@ paths:
         - oAuth2Password: []
       summary: GetPostalCodes
       tags:
-        - Address Verification Service
+        - Getpostalcodes
+        - Address  Verification  Service
       x-codegen-request-body-name: InputAddress
       x-contentType: application/json
       x-accepts: application/json
@@ -7523,7 +7663,8 @@ paths:
         - oAuth2Password: []
       summary: GetCityStateProvince
       tags:
-        - Address Verification Service
+        - Getcitystateprovince
+        - Address  Verification  Service
       x-codegen-request-body-name: InputAddress
       x-contentType: application/json
       x-accepts: application/json
@@ -7571,7 +7712,8 @@ paths:
         - oAuth2Password: []
       summary: ValidateMailingAddressUSCAN
       tags:
-        - Address Verification Service
+        - Validatemailingaddressuscan
+        - Address  Verification  Service
       x-codegen-request-body-name: InputAddress
       x-contentType: application/json
       x-accepts: application/json
@@ -7618,7 +7760,8 @@ paths:
         - oAuth2Password: []
       summary: ValidateMailingAddress
       tags:
-        - Address Verification Service
+        - Validatemailingaddress
+        - Address  Verification  Service
       x-codegen-request-body-name: InputAddress
       x-contentType: application/json
       x-accepts: application/json
@@ -7664,7 +7807,8 @@ paths:
         - oAuth2Password: []
       summary: ValidateMailingAddressPro
       tags:
-        - Address Verification Service
+        - Validatemailingaddresspro
+        - Address  Verification  Service
       x-codegen-request-body-name: InputAddress
       x-contentType: application/json
       x-accepts: application/json
@@ -7711,7 +7855,8 @@ paths:
         - oAuth2Password: []
       summary: ValidateMailingAddressPremium
       tags:
-        - Address Verification Service
+        - Validatemailingaddresspremium
+        - Address  Verification  Service
       x-codegen-request-body-name: InputAddress
       x-contentType: application/json
       x-accepts: application/json
@@ -7757,7 +7902,8 @@ paths:
         - oAuth2Password: []
       summary: ValidateEmailAddress
       tags:
-        - Email Verification Service
+        - Validateemailaddress
+        - Email  Verification  Service
       x-codegen-request-body-name: InputEmailAddress
       x-contentType: application/json
       x-accepts: application/json
@@ -7805,7 +7951,8 @@ paths:
         - oAuth2Password: []
       summary: Phone verification.
       tags:
-        - Phone Verification Service
+        - Validatephonenumber
+        - Phone  Verification  Service
       x-contentType: application/json
       x-accepts: application/json
   /geolocation/v1/location/byipaddress:
@@ -7837,7 +7984,9 @@ paths:
         - oAuth2Password: []
       summary: Location By IP Address.
       tags:
-        - Geolocation Service
+        - Geolocation
+        - Location
+        - Geolocation  Service
       x-accepts: application/json
   /geolocation/v1/location/byaccesspoint:
     get:
@@ -7902,7 +8051,9 @@ paths:
         - oAuth2Password: []
       summary: Location by WiFi Access Point.
       tags:
-        - Geolocation Service
+        - Geolocation
+        - Location
+        - Geolocation  Service
       x-accepts: application/json
   /typeahead/v1/list/locations:
     get:
@@ -8102,7 +8253,7 @@ paths:
                 type: string
           description: Internal Server Error
       tags:
-        - Address Autocomplete Enterprise Service
+        - Locations
       x-accepts: application/json
   /typeahead/v1/list/select:
     get:
@@ -8145,7 +8296,7 @@ paths:
                 type: object
           description: OK
       tags:
-        - Address Autocomplete Enterprise Service
+        - Select
       x-accepts: application/json
 components:
   schemas:
