@@ -1,0 +1,176 @@
+openapi: 3.0.1
+info:
+  contact:
+    name: Precisely APIs Support
+    url: https://support.precisely.com
+  description: '
+
+    Demographics. Audience Enrichment. Add local demographics and lifestyle
+
+    segmentation to your audience profiles. The Demographics API returns
+
+    household demographics and lifestyle characteristics with the input of an
+
+    address, location coordinate, or geographic boundary. This service covers
+
+    select countries.'
+  license:
+    name: Apache 2.0
+    url: http://springdoc.org
+  termsOfService: http://swagger.io/terms/
+  title: Precisely APIs Speedlimit API
+  version: 18.1.0
+servers:
+- url: https://api.precisely.com
+security:
+- oAuth2Password:
+  - ''
+tags:
+- name: Speedlimit
+paths:
+  /streets/v1/speedlimit:
+    get:
+      description: This service accepts point coordinates of a path as input and returns the posted speed limit of the road segment on which this path will snap.
+      operationId: getNearestSpeedLimit
+      parameters:
+      - description: Accepts multiple points which will be snapped to the nearest road segment. Longitude and Latitude will be comma separated (longitude,latitude) and Point Coordinates will be separated by semi-colon(;)
+        in: query
+        name: path
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpeedLimit'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Nearest Speedlimit.
+      tags:
+      - Speedlimit
+      x-accepts: application/json
+components:
+  schemas:
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    road:
+      example:
+        endingLevel: endingLevel
+        routeNumber: routeNumber
+        trafficFlow: trafficFlow
+        surfaceType: surfaceType
+        roadClass: roadClass
+        beginningLevel: beginningLevel
+        name: name
+        lengthInMeters: lengthInMeters
+        id: id
+        altName: altName
+        type: type
+        isToll: isToll
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        altName:
+          type: string
+        roadClass:
+          type: string
+        type:
+          type: string
+        lengthInMeters:
+          type: string
+        routeNumber:
+          type: string
+        surfaceType:
+          type: string
+        trafficFlow:
+          type: string
+        isToll:
+          type: string
+        beginningLevel:
+          type: string
+        endingLevel:
+          type: string
+      type: object
+    SpeedLimit:
+      example:
+        speedUnit: speedUnit
+        speedVerification: speedVerification
+        pmPeakAvgSpeed: pmPeakAvgSpeed
+        amPeakAvgSpeed: amPeakAvgSpeed
+        offPeakAvgSpeed: offPeakAvgSpeed
+        road:
+          endingLevel: endingLevel
+          routeNumber: routeNumber
+          trafficFlow: trafficFlow
+          surfaceType: surfaceType
+          roadClass: roadClass
+          beginningLevel: beginningLevel
+          name: name
+          lengthInMeters: lengthInMeters
+          id: id
+          altName: altName
+          type: type
+          isToll: isToll
+        nightAvgSpeed: nightAvgSpeed
+        maxSpeed: maxSpeed
+        weekAvgSpeed: weekAvgSpeed
+      properties:
+        maxSpeed:
+          type: string
+        speedUnit:
+          type: string
+        speedVerification:
+          type: string
+        amPeakAvgSpeed:
+          type: string
+        pmPeakAvgSpeed:
+          type: string
+        offPeakAvgSpeed:
+          type: string
+        nightAvgSpeed:
+          type: string
+        weekAvgSpeed:
+          type: string
+        road:
+          $ref: '#/components/schemas/road'
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+  securitySchemes:
+    oAuth2Password:
+      flows:
+        implicit:
+          authorizationUrl: https://api.precisely.com/oauth/token
+          scopes:
+            bearer token: put your bearer token here.
+      type: oauth2
+externalDocs:
+  description: Online Documentation
+  url: https://docs.precisely.com/docs/sftw/precisely-apis/main/en-us/webhelp/apis/index.html

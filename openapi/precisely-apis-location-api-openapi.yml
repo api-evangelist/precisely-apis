@@ -1,0 +1,416 @@
+openapi: 3.0.1
+info:
+  contact:
+    name: Precisely APIs Support
+    url: https://support.precisely.com
+  description: '
+
+    Demographics. Audience Enrichment. Add local demographics and lifestyle
+
+    segmentation to your audience profiles. The Demographics API returns
+
+    household demographics and lifestyle characteristics with the input of an
+
+    address, location coordinate, or geographic boundary. This service covers
+
+    select countries.'
+  license:
+    name: Apache 2.0
+    url: http://springdoc.org
+  termsOfService: http://swagger.io/terms/
+  title: Precisely APIs Location API
+  version: 18.1.0
+servers:
+- url: https://api.precisely.com
+security:
+- oAuth2Password:
+  - ''
+tags:
+- name: Location
+paths:
+  /geolocation/v1/location/byipaddress:
+    get:
+      description: This service accepts an IP address and returns the location coordinates corresponding to that IP address.
+      operationId: getLocationByIPAddress
+      parameters:
+      - description: This is the ip address of network connected device. It must be a standard IPv4 octet and a valid external address.
+        in: query
+        name: ipAddress
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GeoLocationIpAddr'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeoLocationIpAddr'
+          description: successful operation
+      security:
+      - oAuth2Password: []
+      summary: Location By IP Address.
+      tags:
+      - Location
+      x-accepts: application/json
+  /geolocation/v1/location/byaccesspoint:
+    get:
+      description: This service accepts a WiFi access point MAC address and returns the location coordinates corresponding to that access point. Only mac or accessPoint are mandatory parameters (one of them has to be provided), rest are optional.
+      operationId: getLocationByWiFiAccessPoint
+      parameters:
+      - description: This should be the 48 bit mac address (or BSSID) of wireless access point. Accepted format is Six groups of two hexadecimal digits, separated by hyphens (-) or colons.
+        in: query
+        name: mac
+        schema:
+          type: string
+      - description: The service set identifier for wi-fi access point. It should be alphanumeric with maximum 32 characters.
+        in: query
+        name: ssid
+        schema:
+          type: string
+      - description: This is the received signal strength indicator from particular wi-fi access point. It should be a number from -113 to 0 and the unit of this strength is dBm.
+        in: query
+        name: rsid
+        schema:
+          type: string
+      - description: This is the connection speed for wi-fi. It should be a number from 0 to 6930 and the unit should be Mbps.
+        in: query
+        name: speed
+        schema:
+          type: string
+      - description: This is the JSON based list of wifi access points in the vicinity of device to be located. This parameter is helpful in case, multiple wifi points are visible and we want to make sure that the location of device is best calculated considering all the access points location.
+        in: query
+        name: accessPoint
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/GeoLocationAccessPoint'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeoLocationAccessPoint'
+          description: successful operation
+      security:
+      - oAuth2Password: []
+      summary: Location by WiFi Access Point.
+      tags:
+      - Location
+      x-accepts: application/json
+components:
+  schemas:
+    Carrier:
+      example:
+        asn: asn
+        value: value
+      properties:
+        asn:
+          type: string
+        value:
+          type: string
+      type: object
+    City:
+      example:
+        confidence: confidence
+        value: value
+      properties:
+        confidence:
+          type: string
+        value:
+          type: string
+      type: object
+    Network:
+      example:
+        organizationType:
+          isicCode: isicCode
+          value: value
+          naicsCode: naicsCode
+        carrier:
+          asn: asn
+          value: value
+        ipRouteType: ipRouteType
+        connectionFromHome: connectionFromHome
+        lineSpeed: lineSpeed
+        organization: organization
+        hostingFacility: hostingFacility
+        connectionType: connectionType
+      properties:
+        connectionFromHome:
+          type: string
+        organization:
+          type: string
+        carrier:
+          $ref: '#/components/schemas/Carrier'
+        organizationType:
+          $ref: '#/components/schemas/OrganizationType'
+        connectionType:
+          type: string
+        lineSpeed:
+          type: string
+        ipRouteType:
+          type: string
+        hostingFacility:
+          type: string
+      type: object
+    IpInfo:
+      example:
+        proxy:
+          level: level
+          anonymizerStatus: anonymizerStatus
+          lastDetected: lastDetected
+          type: type
+        ipAddress: ipAddress
+        place:
+          continent: continent
+          country:
+            code: code
+            confidence: confidence
+            value: value
+          postCodeConfidence: postCodeConfidence
+          city:
+            confidence: confidence
+            value: value
+          postCode: postCode
+          state:
+            confidence: confidence
+            value: value
+          consistencyCode:
+            description: description
+            value: value
+          region: region
+        network:
+          organizationType:
+            isicCode: isicCode
+            value: value
+            naicsCode: naicsCode
+          carrier:
+            asn: asn
+            value: value
+          ipRouteType: ipRouteType
+          connectionFromHome: connectionFromHome
+          lineSpeed: lineSpeed
+          organization: organization
+          hostingFacility: hostingFacility
+          connectionType: connectionType
+      properties:
+        ipAddress:
+          type: string
+        proxy:
+          $ref: '#/components/schemas/Proxy'
+        network:
+          $ref: '#/components/schemas/Network'
+        place:
+          $ref: '#/components/schemas/GeoLocationPlace'
+      type: object
+    Accuracy:
+      example:
+        unit: unit
+        value: value
+      properties:
+        unit:
+          type: string
+        value:
+          type: string
+      type: object
+    GeoLocationPlace:
+      example:
+        continent: continent
+        country:
+          code: code
+          confidence: confidence
+          value: value
+        postCodeConfidence: postCodeConfidence
+        city:
+          confidence: confidence
+          value: value
+        postCode: postCode
+        state:
+          confidence: confidence
+          value: value
+        consistencyCode:
+          description: description
+          value: value
+        region: region
+      properties:
+        continent:
+          type: string
+        country:
+          $ref: '#/components/schemas/GeoLocationCountry'
+        consistencyCode:
+          $ref: '#/components/schemas/ConsistencyCode'
+        region:
+          type: string
+        state:
+          $ref: '#/components/schemas/GeoLocationState'
+        city:
+          $ref: '#/components/schemas/City'
+        postCode:
+          type: string
+        postCodeConfidence:
+          type: string
+      type: object
+    GeoLocationAccessPoint:
+      example:
+        accuracy:
+          unit: unit
+          value: value
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+      properties:
+        geometry:
+          $ref: '#/components/schemas/GeolocationGeometry'
+        accuracy:
+          $ref: '#/components/schemas/Accuracy'
+      type: object
+    GeolocationGeometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    GeoLocationState:
+      example:
+        confidence: confidence
+        value: value
+      properties:
+        confidence:
+          type: string
+        value:
+          type: string
+      type: object
+    GeoLocationIpAddr:
+      example:
+        accuracy:
+          unit: unit
+          value: value
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        ipInfo:
+          proxy:
+            level: level
+            anonymizerStatus: anonymizerStatus
+            lastDetected: lastDetected
+            type: type
+          ipAddress: ipAddress
+          place:
+            continent: continent
+            country:
+              code: code
+              confidence: confidence
+              value: value
+            postCodeConfidence: postCodeConfidence
+            city:
+              confidence: confidence
+              value: value
+            postCode: postCode
+            state:
+              confidence: confidence
+              value: value
+            consistencyCode:
+              description: description
+              value: value
+            region: region
+          network:
+            organizationType:
+              isicCode: isicCode
+              value: value
+              naicsCode: naicsCode
+            carrier:
+              asn: asn
+              value: value
+            ipRouteType: ipRouteType
+            connectionFromHome: connectionFromHome
+            lineSpeed: lineSpeed
+            organization: organization
+            hostingFacility: hostingFacility
+            connectionType: connectionType
+      properties:
+        geometry:
+          $ref: '#/components/schemas/GeolocationGeometry'
+        accuracy:
+          $ref: '#/components/schemas/Accuracy'
+        ipInfo:
+          $ref: '#/components/schemas/IpInfo'
+      type: object
+    ConsistencyCode:
+      example:
+        description: description
+        value: value
+      properties:
+        description:
+          type: string
+        value:
+          type: string
+      type: object
+    OrganizationType:
+      example:
+        isicCode: isicCode
+        value: value
+        naicsCode: naicsCode
+      properties:
+        naicsCode:
+          type: string
+        isicCode:
+          type: string
+        value:
+          type: string
+      type: object
+    GeoLocationCountry:
+      example:
+        code: code
+        confidence: confidence
+        value: value
+      properties:
+        code:
+          type: string
+        confidence:
+          type: string
+        value:
+          type: string
+      type: object
+    Proxy:
+      example:
+        level: level
+        anonymizerStatus: anonymizerStatus
+        lastDetected: lastDetected
+        type: type
+      properties:
+        anonymizerStatus:
+          type: string
+        level:
+          type: string
+        lastDetected:
+          type: string
+        type:
+          type: string
+      type: object
+  securitySchemes:
+    oAuth2Password:
+      flows:
+        implicit:
+          authorizationUrl: https://api.precisely.com/oauth/token
+          scopes:
+            bearer token: put your bearer token here.
+      type: oauth2
+externalDocs:
+  description: Online Documentation
+  url: https://docs.precisely.com/docs/sftw/precisely-apis/main/en-us/webhelp/apis/index.html

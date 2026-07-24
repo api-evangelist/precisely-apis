@@ -1,0 +1,353 @@
+openapi: 3.0.1
+info:
+  contact:
+    name: Precisely APIs Support
+    url: https://support.precisely.com
+  description: '
+
+    Demographics. Audience Enrichment. Add local demographics and lifestyle
+
+    segmentation to your audience profiles. The Demographics API returns
+
+    household demographics and lifestyle characteristics with the input of an
+
+    address, location coordinate, or geographic boundary. This service covers
+
+    select countries.'
+  license:
+    name: Apache 2.0
+    url: http://springdoc.org
+  termsOfService: http://swagger.io/terms/
+  title: Precisely APIs Validateemailaddress API
+  version: 18.1.0
+servers:
+- url: https://api.precisely.com
+security:
+- oAuth2Password:
+  - ''
+tags:
+- name: Validateemailaddress
+paths:
+  /emailverification/v1/validateemailaddress/results.json:
+    post:
+      deprecated: false
+      description: Confirm that your customers mailing address exists and that mail and packages can be delivered to it.
+      operationId: ValidateEmailAddress
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidateEmailAddressAPIRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidateEmailAddressAPIResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: ValidateEmailAddress
+      tags:
+      - Validateemailaddress
+      x-codegen-request-body-name: InputEmailAddress
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    ValidateEmailAddressOutput:
+      example:
+        SUGG_COMMENT: SUGG_COMMENT
+        Status: Status
+        user_fields:
+        - name: name
+          value: value
+        - name: name
+          value: value
+        FINDING: FINDING
+        ERROR_RESPONSE: ERROR_RESPONSE
+        ERROR: ERROR
+        Status.Description: Status.Description
+        COMMENT_CODE: COMMENT_CODE
+        Status.Code: Status.Code
+        EMAIL: EMAIL
+        SUGG_EMAIL: SUGG_EMAIL
+        COMMENT: COMMENT
+      properties:
+        user_fields:
+          description: These fields are returned, unmodified, in the user_fields section of the response.
+          items:
+            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
+          type: array
+        EMAIL:
+          description: The email address submitted for verification.
+          type: string
+        FINDING:
+          description: One character code indicating the validity of the submitted email address.
+          type: string
+        COMMENT:
+          description: The comment string pertaining to the result of the submitted email address.
+          type: string
+        COMMENT_CODE:
+          description: A short code which maps to each returned COMMENT field value.
+          type: string
+        SUGG_EMAIL:
+          description: Suggested correction for submitted email address, if found. A suggestion will only be provided if it is valid and SafeToDeliver.
+          type: string
+        SUGG_COMMENT:
+          description: This field contains suggestion not SafeToDeliver when ValidateEmailAddress corrected the address and the corrected version of the email address failed one or more SafeToDeliver process checks.
+          type: string
+        ERROR_RESPONSE:
+          description: Pre-formatted response intended to be provided to user.
+          type: string
+        ERROR:
+          description: Field reserved for special features only.
+          type: string
+        Status:
+          type: string
+        Status.Code:
+          type: string
+        Status.Description:
+          type: string
+      type: object
+    GetPostalCodesAPIOutput_user_fields:
+      example:
+        name: name
+        value: value
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+      type: object
+    ValidateEmailAddressInputRow:
+      example:
+        rtc: rtc
+        bogus: bogus
+        atc: atc
+        emailAddress: emailAddress
+        user_fields:
+        - name: name
+          value: value
+        - name: name
+          value: value
+        role: role
+        emps: emps
+        fccwireless: fccwireless
+        rtc_timeout: rtc_timeout
+        language: language
+        complain: complain
+        disposable: disposable
+      properties:
+        user_fields:
+          description: These fields are returned, unmodified, in the user_fields section of the response.
+          items:
+            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
+          type: array
+        rtc:
+          description: Enables or disables real-time confirmation. If the deliverability of an email address cannot be determined via our knowledge base, a real-time confirmation can be attempted.
+          type: string
+        bogus:
+          description: Specifies whether to check if the email address is fictitious. For example, bgates@microsoft.com.
+          type: string
+        role:
+          description: Specifies whether to check if the email address has a non-personal handle, such as info@, sales@, or webmaster@. For example, sales@example.com.
+          type: string
+        emps:
+          description: Specifies whether to check if the email address appears on the Direct Marketing Association's Do Not Email list (Electronic Mail Preference Service).
+          type: string
+        fccwireless:
+          description: Specifies whether to check if the email address is associated with a domain that has restrictions on commercial email per the FCC.
+          type: string
+        language:
+          description: Specifies whether to check if the email address handle contains derogatory words.
+          type: string
+        complain:
+          description: Specifies whether to check if the owner of the email address is known to submit spam complaints.
+          type: string
+        disposable:
+          description: Specifies whether to check if the email address originates from a website that provides temporary email addresses, or if the email address appears to be temporary
+          type: string
+        atc:
+          description: 'One character code controlling the advanced suggestion behavior.The possible values are: a, c, and n'
+          type: string
+        emailAddress:
+          description: The email address you want to validate.
+          type: string
+        rtc_timeout:
+          description: Specifies the timeout for real-time confirmation. See the description of the rtc parameter. Specify the timeout value in milliseconds. Valid values are 0 to 4000. By default, the system allows 1200 milliseconds for this check.
+          type: string
+      type: object
+    ValidateEmailAddressAPIRequest:
+      example:
+        Input:
+          Row:
+          - rtc: rtc
+            bogus: bogus
+            atc: atc
+            emailAddress: emailAddress
+            user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            role: role
+            emps: emps
+            fccwireless: fccwireless
+            rtc_timeout: rtc_timeout
+            language: language
+            complain: complain
+            disposable: disposable
+          - rtc: rtc
+            bogus: bogus
+            atc: atc
+            emailAddress: emailAddress
+            user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            role: role
+            emps: emps
+            fccwireless: fccwireless
+            rtc_timeout: rtc_timeout
+            language: language
+            complain: complain
+            disposable: disposable
+        options: '{}'
+      properties:
+        options:
+          type: object
+        Input:
+          $ref: '#/components/schemas/ValidateEmailAddressInput'
+      type: object
+    ValidateEmailAddressAPIResponse:
+      example:
+        Output:
+        - SUGG_COMMENT: SUGG_COMMENT
+          Status: Status
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          FINDING: FINDING
+          ERROR_RESPONSE: ERROR_RESPONSE
+          ERROR: ERROR
+          Status.Description: Status.Description
+          COMMENT_CODE: COMMENT_CODE
+          Status.Code: Status.Code
+          EMAIL: EMAIL
+          SUGG_EMAIL: SUGG_EMAIL
+          COMMENT: COMMENT
+        - SUGG_COMMENT: SUGG_COMMENT
+          Status: Status
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          FINDING: FINDING
+          ERROR_RESPONSE: ERROR_RESPONSE
+          ERROR: ERROR
+          Status.Description: Status.Description
+          COMMENT_CODE: COMMENT_CODE
+          Status.Code: Status.Code
+          EMAIL: EMAIL
+          SUGG_EMAIL: SUGG_EMAIL
+          COMMENT: COMMENT
+      properties:
+        Output:
+          items:
+            $ref: '#/components/schemas/ValidateEmailAddressOutput'
+          type: array
+      type: object
+    ValidateEmailAddressInput:
+      example:
+        Row:
+        - rtc: rtc
+          bogus: bogus
+          atc: atc
+          emailAddress: emailAddress
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          role: role
+          emps: emps
+          fccwireless: fccwireless
+          rtc_timeout: rtc_timeout
+          language: language
+          complain: complain
+          disposable: disposable
+        - rtc: rtc
+          bogus: bogus
+          atc: atc
+          emailAddress: emailAddress
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          role: role
+          emps: emps
+          fccwireless: fccwireless
+          rtc_timeout: rtc_timeout
+          language: language
+          complain: complain
+          disposable: disposable
+      properties:
+        Row:
+          items:
+            $ref: '#/components/schemas/ValidateEmailAddressInputRow'
+          type: array
+      type: object
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+  securitySchemes:
+    oAuth2Password:
+      flows:
+        implicit:
+          authorizationUrl: https://api.precisely.com/oauth/token
+          scopes:
+            bearer token: put your bearer token here.
+      type: oauth2
+externalDocs:
+  description: Online Documentation
+  url: https://docs.precisely.com/docs/sftw/precisely-apis/main/en-us/webhelp/apis/index.html

@@ -1,0 +1,850 @@
+openapi: 3.0.1
+info:
+  contact:
+    name: Precisely APIs Support
+    url: https://support.precisely.com
+  description: '
+
+    Demographics. Audience Enrichment. Add local demographics and lifestyle
+
+    segmentation to your audience profiles. The Demographics API returns
+
+    household demographics and lifestyle characteristics with the input of an
+
+    address, location coordinate, or geographic boundary. This service covers
+
+    select countries.'
+  license:
+    name: Apache 2.0
+    url: http://springdoc.org
+  termsOfService: http://swagger.io/terms/
+  title: Precisely APIs Validatemailingaddresspremium API
+  version: 18.1.0
+servers:
+- url: https://api.precisely.com
+security:
+- oAuth2Password:
+  - ''
+tags:
+- name: Validatemailingaddresspremium
+paths:
+  /addressverification/v1/validatemailingaddresspremium/results.json:
+    post:
+      deprecated: false
+      description: ValidateMailing AddressPremium expands on the ValidateMailingAddressPro service by adding premium address data sources to get the best address validation result possible.
+      operationId: ValidateMailingAddressPremium
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidateMailingAddressPremiumRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidateMailingAddressPremiumResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: ValidateMailingAddressPremium
+      tags:
+      - Validatemailingaddresspremium
+      x-codegen-request-body-name: InputAddress
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    GetPostalCodesAPIOutput_user_fields:
+      example:
+        name: name
+        value: value
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+      type: object
+    ValidateMailingAddressPremiumOutput:
+      example:
+        StreetName: StreetName
+        ApartmentLabel2.Result: ApartmentLabel2.Result
+        POBox.Input: POBox.Input
+        Suburb: Suburb
+        Country.Input: Country.Input
+        RRHC.Input: RRHC.Input
+        TrailingDirectional: TrailingDirectional
+        Latitude: Latitude
+        Street.Result: Street.Result
+        PrivateMailbox: PrivateMailbox
+        PrivateMailbox.Input: PrivateMailbox.Input
+        StreetSuffix: StreetSuffix
+        PostalCode.Base: PostalCode.Base
+        user_fields:
+        - name: name
+          value: value
+        - name: name
+          value: value
+        Confidence: Confidence
+        StreetName.Input: StreetName.Input
+        LeadingDirectional: LeadingDirectional
+        FirmName.Input: FirmName.Input
+        RRHC: RRHC
+        Status: Status
+        PostalCode.Result: PostalCode.Result
+        StateProvince.Input: StateProvince.Input
+        FirmName: FirmName
+        Country.Result: Country.Result
+        StreetName.Alias.Type: StreetName.Alias.Type
+        ApartmentLabel.Result: ApartmentLabel.Result
+        Locality: Locality
+        StateProvince: StateProvince
+        LeadingDirectional.Input: LeadingDirectional.Input
+        CountryLevel: CountryLevel
+        AddressQuality: AddressQuality
+        City: City
+        CouldNotValidate: CouldNotValidate
+        Longitude: Longitude
+        PostalCode.Type: PostalCode.Type
+        AddressLine3: AddressLine3
+        StateProvince.Result: StateProvince.Result
+        AddressLine2: AddressLine2
+        AddressLine1: AddressLine1
+        TrailingDirectional.Result: TrailingDirectional.Result
+        AddressLine5: AddressLine5
+        AddressLine4: AddressLine4
+        HouseNumber.Input: HouseNumber.Input
+        Country: Country
+        HouseNumber.Result: HouseNumber.Result
+        ChangeScore: ChangeScore
+        Status.Description: Status.Description
+        ApartmentNumber2: ApartmentNumber2
+        LeadingDirectional.Result: LeadingDirectional.Result
+        PostalCode.AddOn: PostalCode.AddOn
+        POBox: POBox
+        TrailingDirectional.Input: TrailingDirectional.Input
+        StreetSuffix.Result: StreetSuffix.Result
+        ApartmentNumber2.Result: ApartmentNumber2.Result
+        HouseNumber: HouseNumber
+        StreetName.Result: StreetName.Result
+        FirmName.Result: FirmName.Result
+        BlockAddress: BlockAddress
+        ApartmentLabel: ApartmentLabel
+        ApartmentLabel.Input: ApartmentLabel.Input
+        PostalCode: PostalCode
+        ApartmentNumber: ApartmentNumber
+        AdditionalInputData: AdditionalInputData
+        POBox.Result: POBox.Result
+        PrivateMailbox.Type.Input: PrivateMailbox.Type.Input
+        PostalCodeCity.Result: PostalCodeCity.Result
+        RecordType: RecordType
+        PrivateMailbox.Type: PrivateMailbox.Type
+        ApartmentNumber.Result: ApartmentNumber.Result
+        RRHC.Result: RRHC.Result
+        StreetNamePreferredAlias.Result: StreetNamePreferredAlias.Result
+        ApartmentNumber.Input: ApartmentNumber.Input
+        AddressRecord.Result: AddressRecord.Result
+        City.Input: City.Input
+        ApartmentLabel2: ApartmentLabel2
+        StreetSuffix.Input: StreetSuffix.Input
+        PostalCode.Input: PostalCode.Input
+        AddressFormat: AddressFormat
+        PostalCode.Source: PostalCode.Source
+        Status.Code: Status.Code
+        Deliverability: Deliverability
+        StreetNameAbbreviatedAlias.Result: StreetNameAbbreviatedAlias.Result
+        RRHC.Type: RRHC.Type
+        City.Result: City.Result
+        AddressType: AddressType
+        RecordType.Default: RecordType.Default
+        MultipleMatches: MultipleMatches
+      properties:
+        user_fields:
+          description: These fields are returned, unmodified, in the user_fields section of the response.
+          items:
+            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
+          type: array
+        Status:
+          description: Reports the success or failure of the match attempt.
+          type: string
+        Status.Code:
+          description: Reason for failure, if there is one.
+          type: string
+        Status.Description:
+          description: Description of the problem, if there is one.
+          type: string
+        Confidence:
+          description: The level of confidence assigned to the address being returned.
+          type: string
+        RecordType:
+          description: Type of address record.
+          type: string
+        RecordType.Default:
+          description: Code indicating the default match.
+          type: string
+        MultipleMatches:
+          description: Indicates which address component had multiple matches.
+          type: string
+        CouldNotValidate:
+          description: Mentions the address component that could not be validated, in case no match is found.
+          type: string
+        CountryLevel:
+          description: The category of address matching available.
+          type: string
+        AddressFormat:
+          description: The type of address data being returned.
+          type: string
+        AddressLine1:
+          description: The first line of the validated address.
+          type: string
+        AddressLine2:
+          description: The second line of the validated address.
+          type: string
+        AddressLine3:
+          description: The third line of the validated address.
+          type: string
+        AddressLine4:
+          description: The fourth line of the validated address.
+          type: string
+        City:
+          description: The validated city name.
+          type: string
+        StateProvince:
+          description: The validated state or province abbreviation.
+          type: string
+        PostalCode:
+          description: The validated ZIP Code or postal code.
+          type: string
+        PostalCode.Base:
+          description: The 5-digit ZIP Code.
+          type: string
+        PostalCode.AddOn:
+          description: The 4-digit add-on part of the ZIP Code.
+          type: string
+        Country:
+          description: The country in the format determined by what you selected.
+          type: string
+        AdditionalInputData:
+          description: Input data that could not be matched to a particular address component.
+          type: string
+        FirmName:
+          description: The validated firm or company name.
+          type: string
+        HouseNumber:
+          description: House number.
+          type: string
+        LeadingDirectional:
+          description: Leading directional.
+          type: string
+        StreetName:
+          description: Street name.
+          type: string
+        StreetSuffix:
+          description: Street suffix.
+          type: string
+        TrailingDirectional:
+          description: Trailing directional.
+          type: string
+        ApartmentLabel:
+          description: Apartment designator (such as STE or APT).
+          type: string
+        ApartmentNumber:
+          description: Apartment number.
+          type: string
+        ApartmentLabel2:
+          description: Secondary apartment designator.
+          type: string
+        ApartmentNumber2:
+          description: Secondary apartment number.
+          type: string
+        RRHC:
+          description: Rural Route/Highway Contract indicator.
+          type: string
+        POBox:
+          description: Post office box number.
+          type: string
+        PrivateMailbox:
+          description: Private mailbox indicator.
+          type: string
+        PrivateMailbox.Type:
+          description: The type of private mailbox.
+          type: string
+        HouseNumber.Input:
+          description: House number.
+          type: string
+        LeadingDirectional.Input:
+          description: Leading directional.
+          type: string
+        StreetName.Input:
+          description: Street name.
+          type: string
+        StreetSuffix.Input:
+          description: Street suffix.
+          type: string
+        TrailingDirectional.Input:
+          description: Trailing directional.
+          type: string
+        ApartmentLabel.Input:
+          description: Apartment designator (such as STE or APT).
+          type: string
+        ApartmentNumber.Input:
+          description: Apartment number.
+          type: string
+        RRHC.Input:
+          description: Rural Route/Highway Contract indicator.
+          type: string
+        POBox.Input:
+          description: Post office box number.
+          type: string
+        PrivateMailbox.Input:
+          description: Private mailbox indicator.
+          type: string
+        PrivateMailbox.Type.Input:
+          description: The type of private mailbox.
+          type: string
+        City.Input:
+          description: Validated city name.
+          type: string
+        StateProvince.Input:
+          description: Validated state or province name.
+          type: string
+        PostalCode.Input:
+          description: Validated postal code.
+          type: string
+        Country.Input:
+          description: Country. Format is determined by what you selected in OutputCountryFormat.
+          type: string
+        FirmName.Input:
+          description: The validated firm or company name.
+          type: string
+        HouseNumber.Result:
+          description: The field-level result indicator for HouseNumber.
+          type: string
+        LeadingDirectional.Result:
+          description: The field-level result indicator for LeadingDirectional.
+          type: string
+        Street.Result:
+          description: The field-level result indicator for Street.
+          type: string
+        StreetName.Result:
+          description: The field-level result indicator for StreetName.
+          type: string
+        StreetName.Alias.Type:
+          description: The field-level result indicator for StreetName Alias.
+          type: string
+        StreetSuffix.Result:
+          description: The field-level result indicator for StreetSuffix.
+          type: string
+        TrailingDirectional.Result:
+          description: The field-level result indicator for TrailingDirectional.
+          type: string
+        ApartmentLabel.Result:
+          description: The field-level result indicator for ApartmentLabel.
+          type: string
+        ApartmentNumber.Result:
+          description: The field-level result indicator for ApartmentNumber.
+          type: string
+        ApartmentLabel2.Result:
+          description: The field-level result indicator for ApartmentLabel2.
+          type: string
+        ApartmentNumber2.Result:
+          description: The field-level result indicator for ApartmentNumber2.
+          type: string
+        RRHC.Result:
+          description: The field-level result indicator for RRHC.
+          type: string
+        RRHC.Type:
+          description: The field-level result indicator for RRHC Type.
+          type: string
+        POBox.Result:
+          description: The field-level result indicator for POBox.
+          type: string
+        City.Result:
+          description: The field-level result indicator for City.
+          type: string
+        StateProvince.Result:
+          description: The field-level result indicator for StateProvince.
+          type: string
+        PostalCode.Result:
+          description: The field-level result indicator for PostalCode.
+          type: string
+        PostalCodeCity.Result:
+          description: The field-level result indicator for PostalCodeCity.
+          type: string
+        AddressRecord.Result:
+          description: The field-level result indicator for AddressRecord.
+          type: string
+        PostalCode.Source:
+          description: The field-level result indicator for PostalCode Source.
+          type: string
+        PostalCode.Type:
+          description: Indicates the type of postal code returned.
+          type: string
+        Country.Result:
+          description: The validated firm or company name.
+          type: string
+        FirmName.Result:
+          description: Indicates if the firm name got validated.
+          type: string
+        StreetNamePreferredAlias.Result:
+          description: Indicates the result of preferred alias processing.
+          type: string
+        StreetNameAbbreviatedAlias.Result:
+          description: Indicates the result of abbreviated alias processing.
+          type: string
+        AddressLine5:
+          description: The fifth line of the validated address.
+          type: string
+        AddressQuality:
+          description: A two character code indicating overall quality of the resulting address.
+          type: string
+        Deliverability:
+          description: An estimate of confidence that an item mailed or shipped to this address would be successfully delivered.
+          type: string
+        AddressType:
+          description: A single letter code that indicates the type of address.
+          type: string
+        Locality:
+          description: A locality is a village in rural areas or it may be a suburb in urban areas.
+          type: string
+        ChangeScore:
+          description: A value of 0 and 100 that reflects how much the address has changed to make it valid.
+          type: string
+        Suburb:
+          description: The validated firm or company name.
+          type: string
+        BlockAddress:
+          description: It is the formatted address, as it would appear on a physical mail piece.
+          type: string
+        Latitude:
+          description: Seven-digit number in degrees, calculated to four decimal places.
+          type: string
+        Longitude:
+          description: Seven-digit number in degrees, calculated to four decimal places.
+          type: string
+      type: object
+    ValidateMailingAddressPremiumRequest:
+      example:
+        Input:
+          Row:
+          - AddressLine3: AddressLine3
+            AddressLine2: AddressLine2
+            AddressLine1: AddressLine1
+            user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            FirmName: FirmName
+            AddressLine5: AddressLine5
+            StateProvince: StateProvince
+            AddressLine4: AddressLine4
+            Country: Country
+            PostalCode: PostalCode
+            City: City
+          - AddressLine3: AddressLine3
+            AddressLine2: AddressLine2
+            AddressLine1: AddressLine1
+            user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            FirmName: FirmName
+            AddressLine5: AddressLine5
+            StateProvince: StateProvince
+            AddressLine4: AddressLine4
+            Country: Country
+            PostalCode: PostalCode
+            City: City
+        options:
+          OutputRecordType: A
+          OutputCasing: M
+          OutputAddressBlocks: Y
+          OutputCountryFormat: E
+          OutputFieldLevelReturnCodes: N
+          OutputScript: InputScript
+          KeepMultimatch: N
+          MaximumResults: '10'
+      properties:
+        options:
+          $ref: '#/components/schemas/ValidateMailingAddressPremiumOptions'
+        Input:
+          $ref: '#/components/schemas/ValidateMailingAddressPremiumInput'
+      type: object
+    ValidateMailingAddressPremiumInput:
+      example:
+        Row:
+        - AddressLine3: AddressLine3
+          AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          FirmName: FirmName
+          AddressLine5: AddressLine5
+          StateProvince: StateProvince
+          AddressLine4: AddressLine4
+          Country: Country
+          PostalCode: PostalCode
+          City: City
+        - AddressLine3: AddressLine3
+          AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          FirmName: FirmName
+          AddressLine5: AddressLine5
+          StateProvince: StateProvince
+          AddressLine4: AddressLine4
+          Country: Country
+          PostalCode: PostalCode
+          City: City
+      properties:
+        Row:
+          items:
+            $ref: '#/components/schemas/ValidateMailingAddressPremiumInputRow'
+          type: array
+      type: object
+    ValidateMailingAddressPremiumResponse:
+      example:
+        Output:
+        - StreetName: StreetName
+          ApartmentLabel2.Result: ApartmentLabel2.Result
+          POBox.Input: POBox.Input
+          Suburb: Suburb
+          Country.Input: Country.Input
+          RRHC.Input: RRHC.Input
+          TrailingDirectional: TrailingDirectional
+          Latitude: Latitude
+          Street.Result: Street.Result
+          PrivateMailbox: PrivateMailbox
+          PrivateMailbox.Input: PrivateMailbox.Input
+          StreetSuffix: StreetSuffix
+          PostalCode.Base: PostalCode.Base
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          Confidence: Confidence
+          StreetName.Input: StreetName.Input
+          LeadingDirectional: LeadingDirectional
+          FirmName.Input: FirmName.Input
+          RRHC: RRHC
+          Status: Status
+          PostalCode.Result: PostalCode.Result
+          StateProvince.Input: StateProvince.Input
+          FirmName: FirmName
+          Country.Result: Country.Result
+          StreetName.Alias.Type: StreetName.Alias.Type
+          ApartmentLabel.Result: ApartmentLabel.Result
+          Locality: Locality
+          StateProvince: StateProvince
+          LeadingDirectional.Input: LeadingDirectional.Input
+          CountryLevel: CountryLevel
+          AddressQuality: AddressQuality
+          City: City
+          CouldNotValidate: CouldNotValidate
+          Longitude: Longitude
+          PostalCode.Type: PostalCode.Type
+          AddressLine3: AddressLine3
+          StateProvince.Result: StateProvince.Result
+          AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          TrailingDirectional.Result: TrailingDirectional.Result
+          AddressLine5: AddressLine5
+          AddressLine4: AddressLine4
+          HouseNumber.Input: HouseNumber.Input
+          Country: Country
+          HouseNumber.Result: HouseNumber.Result
+          ChangeScore: ChangeScore
+          Status.Description: Status.Description
+          ApartmentNumber2: ApartmentNumber2
+          LeadingDirectional.Result: LeadingDirectional.Result
+          PostalCode.AddOn: PostalCode.AddOn
+          POBox: POBox
+          TrailingDirectional.Input: TrailingDirectional.Input
+          StreetSuffix.Result: StreetSuffix.Result
+          ApartmentNumber2.Result: ApartmentNumber2.Result
+          HouseNumber: HouseNumber
+          StreetName.Result: StreetName.Result
+          FirmName.Result: FirmName.Result
+          BlockAddress: BlockAddress
+          ApartmentLabel: ApartmentLabel
+          ApartmentLabel.Input: ApartmentLabel.Input
+          PostalCode: PostalCode
+          ApartmentNumber: ApartmentNumber
+          AdditionalInputData: AdditionalInputData
+          POBox.Result: POBox.Result
+          PrivateMailbox.Type.Input: PrivateMailbox.Type.Input
+          PostalCodeCity.Result: PostalCodeCity.Result
+          RecordType: RecordType
+          PrivateMailbox.Type: PrivateMailbox.Type
+          ApartmentNumber.Result: ApartmentNumber.Result
+          RRHC.Result: RRHC.Result
+          StreetNamePreferredAlias.Result: StreetNamePreferredAlias.Result
+          ApartmentNumber.Input: ApartmentNumber.Input
+          AddressRecord.Result: AddressRecord.Result
+          City.Input: City.Input
+          ApartmentLabel2: ApartmentLabel2
+          StreetSuffix.Input: StreetSuffix.Input
+          PostalCode.Input: PostalCode.Input
+          AddressFormat: AddressFormat
+          PostalCode.Source: PostalCode.Source
+          Status.Code: Status.Code
+          Deliverability: Deliverability
+          StreetNameAbbreviatedAlias.Result: StreetNameAbbreviatedAlias.Result
+          RRHC.Type: RRHC.Type
+          City.Result: City.Result
+          AddressType: AddressType
+          RecordType.Default: RecordType.Default
+          MultipleMatches: MultipleMatches
+        - StreetName: StreetName
+          ApartmentLabel2.Result: ApartmentLabel2.Result
+          POBox.Input: POBox.Input
+          Suburb: Suburb
+          Country.Input: Country.Input
+          RRHC.Input: RRHC.Input
+          TrailingDirectional: TrailingDirectional
+          Latitude: Latitude
+          Street.Result: Street.Result
+          PrivateMailbox: PrivateMailbox
+          PrivateMailbox.Input: PrivateMailbox.Input
+          StreetSuffix: StreetSuffix
+          PostalCode.Base: PostalCode.Base
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          Confidence: Confidence
+          StreetName.Input: StreetName.Input
+          LeadingDirectional: LeadingDirectional
+          FirmName.Input: FirmName.Input
+          RRHC: RRHC
+          Status: Status
+          PostalCode.Result: PostalCode.Result
+          StateProvince.Input: StateProvince.Input
+          FirmName: FirmName
+          Country.Result: Country.Result
+          StreetName.Alias.Type: StreetName.Alias.Type
+          ApartmentLabel.Result: ApartmentLabel.Result
+          Locality: Locality
+          StateProvince: StateProvince
+          LeadingDirectional.Input: LeadingDirectional.Input
+          CountryLevel: CountryLevel
+          AddressQuality: AddressQuality
+          City: City
+          CouldNotValidate: CouldNotValidate
+          Longitude: Longitude
+          PostalCode.Type: PostalCode.Type
+          AddressLine3: AddressLine3
+          StateProvince.Result: StateProvince.Result
+          AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          TrailingDirectional.Result: TrailingDirectional.Result
+          AddressLine5: AddressLine5
+          AddressLine4: AddressLine4
+          HouseNumber.Input: HouseNumber.Input
+          Country: Country
+          HouseNumber.Result: HouseNumber.Result
+          ChangeScore: ChangeScore
+          Status.Description: Status.Description
+          ApartmentNumber2: ApartmentNumber2
+          LeadingDirectional.Result: LeadingDirectional.Result
+          PostalCode.AddOn: PostalCode.AddOn
+          POBox: POBox
+          TrailingDirectional.Input: TrailingDirectional.Input
+          StreetSuffix.Result: StreetSuffix.Result
+          ApartmentNumber2.Result: ApartmentNumber2.Result
+          HouseNumber: HouseNumber
+          StreetName.Result: StreetName.Result
+          FirmName.Result: FirmName.Result
+          BlockAddress: BlockAddress
+          ApartmentLabel: ApartmentLabel
+          ApartmentLabel.Input: ApartmentLabel.Input
+          PostalCode: PostalCode
+          ApartmentNumber: ApartmentNumber
+          AdditionalInputData: AdditionalInputData
+          POBox.Result: POBox.Result
+          PrivateMailbox.Type.Input: PrivateMailbox.Type.Input
+          PostalCodeCity.Result: PostalCodeCity.Result
+          RecordType: RecordType
+          PrivateMailbox.Type: PrivateMailbox.Type
+          ApartmentNumber.Result: ApartmentNumber.Result
+          RRHC.Result: RRHC.Result
+          StreetNamePreferredAlias.Result: StreetNamePreferredAlias.Result
+          ApartmentNumber.Input: ApartmentNumber.Input
+          AddressRecord.Result: AddressRecord.Result
+          City.Input: City.Input
+          ApartmentLabel2: ApartmentLabel2
+          StreetSuffix.Input: StreetSuffix.Input
+          PostalCode.Input: PostalCode.Input
+          AddressFormat: AddressFormat
+          PostalCode.Source: PostalCode.Source
+          Status.Code: Status.Code
+          Deliverability: Deliverability
+          StreetNameAbbreviatedAlias.Result: StreetNameAbbreviatedAlias.Result
+          RRHC.Type: RRHC.Type
+          City.Result: City.Result
+          AddressType: AddressType
+          RecordType.Default: RecordType.Default
+          MultipleMatches: MultipleMatches
+      properties:
+        Output:
+          items:
+            $ref: '#/components/schemas/ValidateMailingAddressPremiumOutput'
+          type: array
+      type: object
+    ValidateMailingAddressPremiumInputRow:
+      example:
+        AddressLine3: AddressLine3
+        AddressLine2: AddressLine2
+        AddressLine1: AddressLine1
+        user_fields:
+        - name: name
+          value: value
+        - name: name
+          value: value
+        FirmName: FirmName
+        AddressLine5: AddressLine5
+        StateProvince: StateProvince
+        AddressLine4: AddressLine4
+        Country: Country
+        PostalCode: PostalCode
+        City: City
+      properties:
+        user_fields:
+          description: These fields are returned, unmodified, in the user_fields section of the response.
+          items:
+            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
+          type: array
+        AddressLine1:
+          description: The first address line.
+          type: string
+        AddressLine2:
+          description: The second address line.
+          type: string
+        AddressLine3:
+          description: The third address line.
+          type: string
+        AddressLine4:
+          description: The fourth address line.
+          type: string
+        AddressLine5:
+          description: The fifth address line.
+          type: string
+        FirmName:
+          description: The company or firm name.
+          type: string
+        City:
+          description: The city name.
+          type: string
+        StateProvince:
+          description: The state or province.
+          type: string
+        Country:
+          description: The country code or name.
+          type: string
+        PostalCode:
+          description: The postal code for the address.
+          type: string
+      type: object
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    ValidateMailingAddressPremiumOptions:
+      example:
+        OutputRecordType: A
+        OutputCasing: M
+        OutputAddressBlocks: Y
+        OutputCountryFormat: E
+        OutputFieldLevelReturnCodes: N
+        OutputScript: InputScript
+        KeepMultimatch: N
+        MaximumResults: '10'
+      properties:
+        OutputAddressBlocks:
+          default: Y
+          description: Specifies whether to return a formatted version of the address as it would be printed on a physical mail piece.
+          type: string
+        KeepMultimatch:
+          default: N
+          description: Specifies whether to return multiple address for those input addresses that have more than one possible match.
+          type: string
+        OutputCountryFormat:
+          default: E
+          description: Specifies the format to use for the country name returned in the Country output field.
+          type: string
+        OutputRecordType:
+          default: A
+          description: Specifies the type of output record you get.
+          type: string
+        OutputFieldLevelReturnCodes:
+          default: N
+          description: Specifies whether to include field-level result indicators.
+          type: string
+        OutputScript:
+          default: InputScript
+          description: Specifies the alphabet or script in which the output should be returned.
+          type: string
+        OutputCasing:
+          default: M
+          description: Specify the casing of the output data.
+          type: string
+        MaximumResults:
+          default: '10'
+          description: A number between 1 and 10 that indicates the maximum number of addresses to return.
+          type: string
+      type: object
+  securitySchemes:
+    oAuth2Password:
+      flows:
+        implicit:
+          authorizationUrl: https://api.precisely.com/oauth/token
+          scopes:
+            bearer token: put your bearer token here.
+      type: oauth2
+externalDocs:
+  description: Online Documentation
+  url: https://docs.precisely.com/docs/sftw/precisely-apis/main/en-us/webhelp/apis/index.html

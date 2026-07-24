@@ -1,0 +1,762 @@
+openapi: 3.0.1
+info:
+  contact:
+    name: Precisely APIs Support
+    url: https://support.precisely.com
+  description: '
+
+    Demographics. Audience Enrichment. Add local demographics and lifestyle
+
+    segmentation to your audience profiles. The Demographics API returns
+
+    household demographics and lifestyle characteristics with the input of an
+
+    address, location coordinate, or geographic boundary. This service covers
+
+    select countries.'
+  license:
+    name: Apache 2.0
+    url: http://springdoc.org
+  termsOfService: http://swagger.io/terms/
+  title: Precisely APIs Firestation API
+  version: 18.1.0
+servers:
+- url: https://api.precisely.com
+security:
+- oAuth2Password:
+  - ''
+tags:
+- name: Firestation
+paths:
+  /risks/v1/firestation/bylocation:
+    get:
+      description: Accepts latitude & longitude as input and Returns nearest fire stations.
+      operationId: getFireStationByLocation
+      parameters:
+      - description: Longitude of Location
+        in: query
+        name: longitude
+        required: true
+        schema:
+          type: string
+      - description: Latitude of Location
+        in: query
+        name: latitude
+        required: true
+        schema:
+          type: string
+      - description: Specifies the maximum number of fire stations that this service retrieves. The default value is 3 and maximum value is 5. The retrieved results are traveldistance sorted from the input location.
+        in: query
+        name: maxCandidates
+        required: false
+        schema:
+          type: string
+      - description: Max travel time from input location to fire station. Maximum allowed is 2 hours
+        in: query
+        name: travelTime
+        required: false
+        schema:
+          type: string
+      - description: minutes (default), hours, seconds, milliseconds
+        in: query
+        name: travelTimeUnit
+        required: false
+        schema:
+          type: string
+      - description: Max travel distance from input location to fire station. Maximum allowed is 50 miles
+        in: query
+        name: travelDistance
+        required: false
+        schema:
+          type: string
+      - description: Feet (default), Kilometers, Miles, Meters
+        in: query
+        name: travelDistanceUnit
+        required: false
+        schema:
+          type: string
+      - description: time (default), distance
+        in: query
+        name: sortBy
+        required: false
+        schema:
+          type: string
+      - description: Historic traffic time slab
+        in: query
+        name: historicTrafficTimeBucket
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fireStations'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Get Fire Station By Location
+      tags:
+      - Firestation
+      x-accepts: application/json
+  /risks/v1/firestation/byaddress:
+    get:
+      description: Accepts addresses as input and Returns nearest fire stations.
+      operationId: getFireStationByAddress
+      parameters:
+      - description: Free Address
+        in: query
+        name: address
+        required: true
+        schema:
+          type: string
+      - description: Specifies the maximum number of fire stations that this service retrieves. The default value is 3 and maximum value is 5. The retrieved results are traveldistance sorted from the input location.
+        in: query
+        name: maxCandidates
+        required: false
+        schema:
+          type: string
+      - description: Max travel time from input location to fire station. Maximum allowed is 2 hours
+        in: query
+        name: travelTime
+        required: false
+        schema:
+          type: string
+      - description: minutes (default), hours, seconds, milliseconds
+        in: query
+        name: travelTimeUnit
+        required: false
+        schema:
+          type: string
+      - description: Max travel distance from input location to fire station. Maximum allowed is 50 miles
+        in: query
+        name: travelDistance
+        required: false
+        schema:
+          type: string
+      - description: Feet (default), Kilometers, Miles, Meters
+        in: query
+        name: travelDistanceUnit
+        required: false
+        schema:
+          type: string
+      - description: time (default), distance
+        in: query
+        name: sortBy
+        required: false
+        schema:
+          type: string
+      - description: Historic traffic time slab
+        in: query
+        name: historicTrafficTimeBucket
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/fireStations'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Get Fire Station By Address
+      tags:
+      - Firestation
+      x-accepts: application/json
+components:
+  schemas:
+    fireStation:
+      example:
+        numWithinDepartment: numWithinDepartment
+        travelTime:
+          unit: unit
+          value: value
+        travelDistance:
+          unit: unit
+          value: value
+        fireDepartment:
+          name: name
+          numberOfStations: 0
+          administrativeOfficeOnly: true
+          type: type
+          contactDetails:
+            address:
+              country: country
+              streetSide: streetSide
+              city: city
+              displayName: displayName
+              postalCode: postalCode
+              latitude: latitude
+              businessName: businessName
+              county: county
+              unitType: unitType
+              streetName: streetName
+              formattedAddress: formattedAddress
+              addressLine1: addressLine1
+              mainAddressLine: mainAddressLine
+              addressLine2: addressLine2
+              addressLine3: addressLine3
+              objectId: objectId
+              addressLastLine: addressLastLine
+              longitude: longitude
+              unitValue: unitValue
+              stateProvince: stateProvince
+              urbanizationName: urbanizationName
+              areaName1: areaName1
+              areaName2: areaName2
+              areaName3: areaName3
+              areaName4: areaName4
+              addressNumber: addressNumber
+              postCode: postCode
+              postCodeExt: postCodeExt
+              placeName: placeName
+              status: status
+            phone: phone
+            fax: fax
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        locationReference: locationReference
+        contactDetails:
+          address:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          phone: phone
+          fax: fax
+      properties:
+        numWithinDepartment:
+          type: string
+        locationReference:
+          type: string
+        travelDistance:
+          $ref: '#/components/schemas/distance'
+        travelTime:
+          $ref: '#/components/schemas/Time'
+        contactDetails:
+          $ref: '#/components/schemas/FireStationContactDetails'
+        fireDepartment:
+          $ref: '#/components/schemas/FireDepartment'
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+      type: object
+    FireStationContactDetails:
+      example:
+        address:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        phone: phone
+        fax: fax
+      properties:
+        address:
+          $ref: '#/components/schemas/RiskAddress'
+        phone:
+          type: string
+        fax:
+          type: string
+      type: object
+    fireStations:
+      example:
+        fireStation:
+        - numWithinDepartment: numWithinDepartment
+          travelTime:
+            unit: unit
+            value: value
+          travelDistance:
+            unit: unit
+            value: value
+          fireDepartment:
+            name: name
+            numberOfStations: 0
+            administrativeOfficeOnly: true
+            type: type
+            contactDetails:
+              address:
+                country: country
+                streetSide: streetSide
+                city: city
+                displayName: displayName
+                postalCode: postalCode
+                latitude: latitude
+                businessName: businessName
+                county: county
+                unitType: unitType
+                streetName: streetName
+                formattedAddress: formattedAddress
+                addressLine1: addressLine1
+                mainAddressLine: mainAddressLine
+                addressLine2: addressLine2
+                addressLine3: addressLine3
+                objectId: objectId
+                addressLastLine: addressLastLine
+                longitude: longitude
+                unitValue: unitValue
+                stateProvince: stateProvince
+                urbanizationName: urbanizationName
+                areaName1: areaName1
+                areaName2: areaName2
+                areaName3: areaName3
+                areaName4: areaName4
+                addressNumber: addressNumber
+                postCode: postCode
+                postCodeExt: postCodeExt
+                placeName: placeName
+                status: status
+              phone: phone
+              fax: fax
+          geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          locationReference: locationReference
+          contactDetails:
+            address:
+              country: country
+              streetSide: streetSide
+              city: city
+              displayName: displayName
+              postalCode: postalCode
+              latitude: latitude
+              businessName: businessName
+              county: county
+              unitType: unitType
+              streetName: streetName
+              formattedAddress: formattedAddress
+              addressLine1: addressLine1
+              mainAddressLine: mainAddressLine
+              addressLine2: addressLine2
+              addressLine3: addressLine3
+              objectId: objectId
+              addressLastLine: addressLastLine
+              longitude: longitude
+              unitValue: unitValue
+              stateProvince: stateProvince
+              urbanizationName: urbanizationName
+              areaName1: areaName1
+              areaName2: areaName2
+              areaName3: areaName3
+              areaName4: areaName4
+              addressNumber: addressNumber
+              postCode: postCode
+              postCodeExt: postCodeExt
+              placeName: placeName
+              status: status
+            phone: phone
+            fax: fax
+        - numWithinDepartment: numWithinDepartment
+          travelTime:
+            unit: unit
+            value: value
+          travelDistance:
+            unit: unit
+            value: value
+          fireDepartment:
+            name: name
+            numberOfStations: 0
+            administrativeOfficeOnly: true
+            type: type
+            contactDetails:
+              address:
+                country: country
+                streetSide: streetSide
+                city: city
+                displayName: displayName
+                postalCode: postalCode
+                latitude: latitude
+                businessName: businessName
+                county: county
+                unitType: unitType
+                streetName: streetName
+                formattedAddress: formattedAddress
+                addressLine1: addressLine1
+                mainAddressLine: mainAddressLine
+                addressLine2: addressLine2
+                addressLine3: addressLine3
+                objectId: objectId
+                addressLastLine: addressLastLine
+                longitude: longitude
+                unitValue: unitValue
+                stateProvince: stateProvince
+                urbanizationName: urbanizationName
+                areaName1: areaName1
+                areaName2: areaName2
+                areaName3: areaName3
+                areaName4: areaName4
+                addressNumber: addressNumber
+                postCode: postCode
+                postCodeExt: postCodeExt
+                placeName: placeName
+                status: status
+              phone: phone
+              fax: fax
+          geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          locationReference: locationReference
+          contactDetails:
+            address:
+              country: country
+              streetSide: streetSide
+              city: city
+              displayName: displayName
+              postalCode: postalCode
+              latitude: latitude
+              businessName: businessName
+              county: county
+              unitType: unitType
+              streetName: streetName
+              formattedAddress: formattedAddress
+              addressLine1: addressLine1
+              mainAddressLine: mainAddressLine
+              addressLine2: addressLine2
+              addressLine3: addressLine3
+              objectId: objectId
+              addressLastLine: addressLastLine
+              longitude: longitude
+              unitValue: unitValue
+              stateProvince: stateProvince
+              urbanizationName: urbanizationName
+              areaName1: areaName1
+              areaName2: areaName2
+              areaName3: areaName3
+              areaName4: areaName4
+              addressNumber: addressNumber
+              postCode: postCode
+              postCodeExt: postCodeExt
+              placeName: placeName
+              status: status
+            phone: phone
+            fax: fax
+        matchedAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+      properties:
+        fireStation:
+          items:
+            $ref: '#/components/schemas/fireStation'
+          type: array
+        matchedAddress:
+          $ref: '#/components/schemas/RiskAddress'
+      type: object
+    Time:
+      example:
+        unit: unit
+        value: value
+      properties:
+        value:
+          type: string
+        unit:
+          type: string
+      type: object
+    distance:
+      example:
+        unit: unit
+        value: value
+      properties:
+        unit:
+          type: string
+        value:
+          type: string
+      type: object
+    Geometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    FireDepartment:
+      example:
+        name: name
+        numberOfStations: 0
+        administrativeOfficeOnly: true
+        type: type
+        contactDetails:
+          address:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          phone: phone
+          fax: fax
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        numberOfStations:
+          format: int32
+          type: integer
+        administrativeOfficeOnly:
+          type: boolean
+        contactDetails:
+          $ref: '#/components/schemas/FireStationContactDetails'
+      type: object
+    RiskAddress:
+      example:
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
+      properties:
+        objectId:
+          type: string
+        displayName:
+          type: string
+        streetSide:
+          type: string
+        businessName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+  securitySchemes:
+    oAuth2Password:
+      flows:
+        implicit:
+          authorizationUrl: https://api.precisely.com/oauth/token
+          scopes:
+            bearer token: put your bearer token here.
+      type: oauth2
+externalDocs:
+  description: Online Documentation
+  url: https://docs.precisely.com/docs/sftw/precisely-apis/main/en-us/webhelp/apis/index.html

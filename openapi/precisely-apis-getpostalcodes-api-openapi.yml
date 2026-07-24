@@ -1,0 +1,264 @@
+openapi: 3.0.1
+info:
+  contact:
+    name: Precisely APIs Support
+    url: https://support.precisely.com
+  description: '
+
+    Demographics. Audience Enrichment. Add local demographics and lifestyle
+
+    segmentation to your audience profiles. The Demographics API returns
+
+    household demographics and lifestyle characteristics with the input of an
+
+    address, location coordinate, or geographic boundary. This service covers
+
+    select countries.'
+  license:
+    name: Apache 2.0
+    url: http://springdoc.org
+  termsOfService: http://swagger.io/terms/
+  title: Precisely APIs Getpostalcodes API
+  version: 18.1.0
+servers:
+- url: https://api.precisely.com
+security:
+- oAuth2Password:
+  - ''
+tags:
+- name: Getpostalcodes
+paths:
+  /addressverification/v1/getpostalcodes/results.json:
+    post:
+      deprecated: false
+      description: GetPostalCodes takes a city and state as input for U.S. addresses and returns the postal codes for that city.
+      operationId: GetPostalCodes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetPostalCodesAPIRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPostalCodesAPIResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: GetPostalCodes
+      tags:
+      - Getpostalcodes
+      x-codegen-request-body-name: InputAddress
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    GetPostalCodesAPIRequest:
+      example:
+        Input:
+          Row:
+          - user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            StateProvince: StateProvince
+            City: City
+          - user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            StateProvince: StateProvince
+            City: City
+        options:
+          OutputVanityCity: N
+          OutputCityType: N
+      properties:
+        options:
+          $ref: '#/components/schemas/GetPostalCodesAPIOptions'
+        Input:
+          $ref: '#/components/schemas/GetPostalCodesAPIInput'
+      type: object
+    GetPostalCodesAPIOutput:
+      example:
+        Status: Status
+        user_fields:
+        - name: name
+          value: value
+        - name: name
+          value: value
+        PostalCode: PostalCode
+        Status.Description: Status.Description
+        Status.Code: Status.Code
+        City.Type: City.Type
+      properties:
+        user_fields:
+          description: These fields are returned, unmodified, in the user_fields section of the response.
+          items:
+            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
+          type: array
+        PostalCode:
+          description: The validated ZIP Code or postal code.
+          type: string
+        City.Type:
+          description: City.Type
+          type: string
+        Status:
+          description: Reports the success or failure of the match attempt.
+          type: string
+        Status.Code:
+          description: Reason for failure, if there is one.
+          type: string
+        Status.Description:
+          description: Description of the problem, if there is one.
+          type: string
+      type: object
+    GetPostalCodesAPIOutput_user_fields:
+      example:
+        name: name
+        value: value
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+      type: object
+    GetPostalCodesAPIInputRow:
+      example:
+        user_fields:
+        - name: name
+          value: value
+        - name: name
+          value: value
+        StateProvince: StateProvince
+        City: City
+      properties:
+        user_fields:
+          description: These fields are returned, unmodified, in the user_fields section of the response.
+          items:
+            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
+          type: array
+        City:
+          description: The city name.
+          type: string
+        StateProvince:
+          description: The state or province.
+          type: string
+      type: object
+    GetPostalCodesAPIInput:
+      example:
+        Row:
+        - user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          StateProvince: StateProvince
+          City: City
+        - user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          StateProvince: StateProvince
+          City: City
+      properties:
+        Row:
+          items:
+            $ref: '#/components/schemas/GetPostalCodesAPIInputRow'
+          type: array
+      type: object
+    GetPostalCodesAPIOptions:
+      example:
+        OutputVanityCity: N
+        OutputCityType: N
+      properties:
+        OutputCityType:
+          default: N
+          description: Output CityType.
+          type: string
+        OutputVanityCity:
+          default: N
+          description: Output VanityCity.
+          type: string
+      type: object
+    GetPostalCodesAPIResponse:
+      example:
+        Output:
+        - Status: Status
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          PostalCode: PostalCode
+          Status.Description: Status.Description
+          Status.Code: Status.Code
+          City.Type: City.Type
+        - Status: Status
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          PostalCode: PostalCode
+          Status.Description: Status.Description
+          Status.Code: Status.Code
+          City.Type: City.Type
+      properties:
+        Output:
+          items:
+            $ref: '#/components/schemas/GetPostalCodesAPIOutput'
+          type: array
+      type: object
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+  securitySchemes:
+    oAuth2Password:
+      flows:
+        implicit:
+          authorizationUrl: https://api.precisely.com/oauth/token
+          scopes:
+            bearer token: put your bearer token here.
+      type: oauth2
+externalDocs:
+  description: Online Documentation
+  url: https://docs.precisely.com/docs/sftw/precisely-apis/main/en-us/webhelp/apis/index.html

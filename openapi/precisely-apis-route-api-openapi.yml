@@ -1,0 +1,672 @@
+openapi: 3.0.1
+info:
+  contact:
+    name: Precisely APIs Support
+    url: https://support.precisely.com
+  description: '
+
+    Demographics. Audience Enrichment. Add local demographics and lifestyle
+
+    segmentation to your audience profiles. The Demographics API returns
+
+    household demographics and lifestyle characteristics with the input of an
+
+    address, location coordinate, or geographic boundary. This service covers
+
+    select countries.'
+  license:
+    name: Apache 2.0
+    url: http://springdoc.org
+  termsOfService: http://swagger.io/terms/
+  title: Precisely APIs Route API
+  version: 18.1.0
+servers:
+- url: https://api.precisely.com
+security:
+- oAuth2Password:
+  - ''
+tags:
+- name: Route
+paths:
+  /routing/v1/route/bylocation:
+    get:
+      description: Accepts latitude & longitude as input and Returns Point-to-Point and Multi-Point travel directions by various travel modes.
+      operationId: getRouteByLocation
+      parameters:
+      - description: Start Point in 'Lat,Long,coordsys' format.
+        in: query
+        name: startPoint
+        required: false
+        schema:
+          type: string
+      - description: End Point in 'Lat,Long,coordsys' format.
+        in: query
+        name: endPoint
+        required: false
+        schema:
+          type: string
+      - description: Mode of commute.
+        in: query
+        name: db
+        required: false
+        schema:
+          default: driving
+          type: string
+      - description: List of intermediate points of the route.
+        in: query
+        name: intermediatePoints
+        required: false
+        schema:
+          type: string
+      - description: returnIntermediatePoints route.
+        in: query
+        name: returnIntermediatePoints
+        required: false
+        schema:
+          default: 'false'
+          type: string
+      - description: Specifies whether waypoints need to be optimized.
+        in: query
+        name: oip
+        required: false
+        schema:
+          default: 'false'
+          type: string
+      - description: Specifies the desired coordinate system of the returned route.
+        in: query
+        name: destinationSrs
+        required: false
+        schema:
+          type: string
+      - description: Specifies whether the route should be optimized by time or distance.
+        in: query
+        name: optimizeBy
+        required: false
+        schema:
+          default: time
+          type: string
+      - description: Specifies whether distance needs to be part of direction information in response.
+        in: query
+        name: returnDistance
+        required: false
+        schema:
+          default: 'true'
+          type: string
+      - description: Return Distance Unit such as ft(Foot), km(Kilometer), mi(Mile), m(Meter) or yd(Yard).
+        in: query
+        name: distanceUnit
+        required: false
+        schema:
+          default: m
+          type: string
+      - description: Specifies whether time needs to be part of direction information in response.
+        in: query
+        name: returnTime
+        required: false
+        schema:
+          default: 'true'
+          type: string
+      - description: Return time unit such as min(Minute), h(Hour), s(Second) or msec(Millisecond)
+        in: query
+        name: timeUnit
+        required: false
+        schema:
+          default: min
+          type: string
+      - description: Specifies the language of travel directions.
+        in: query
+        name: language
+        required: false
+        schema:
+          type: string
+      - description: Specifies whether route directions text is to be returned in the response and in what detail (Normal or Terse).
+        in: query
+        name: directionsStyle
+        required: false
+        schema:
+          default: None
+          type: string
+      - description: Specifies whether the route geometry is to be returned in the response and in what detail (End or All).
+        in: query
+        name: segmentGeometryStyle
+        required: false
+        schema:
+          default: none
+          type: string
+      - description: If true then only the primary street name is returned otherwise all the names for a street.
+        in: query
+        name: primaryNameOnly
+        required: false
+        schema:
+          default: 'false'
+          type: string
+      - description: Whether to include all roads in route calculation or just major roads.
+        in: query
+        name: majorRoads
+        required: false
+        schema:
+          default: 'false'
+          type: string
+      - description: Specifies whether routing calculation uses the historic traffic speeds.
+        in: query
+        name: historicTrafficTimeBucket
+        required: false
+        schema:
+          default: None
+          type: string
+      - description: Whether to include geometry associated with each route instruction in response.
+        in: query
+        name: returnDirectionGeometry
+        required: false
+        schema:
+          default: 'false'
+          type: string
+      - description: This parameter will enable/disable CVR (Commercial Vehicle Restrictions) capability in our APIs.
+        in: query
+        name: useCvr
+        required: false
+        schema:
+          default: N
+          type: string
+      - description: Specifies that barriers will be removed when determining the route.
+        in: query
+        name: looseningBarrierRestrictions
+        required: false
+        schema:
+          default: Y
+          type: string
+      - description: vehicle type.
+        in: query
+        name: vehicleType
+        required: false
+        schema:
+          default: ALL
+          type: string
+      - description: Specifies the maximum weight of a vehicle. Any vehicles over this value will be restricted when determining the route.
+        in: query
+        name: weight
+        required: false
+        schema:
+          default: ''
+          type: string
+      - description: The unit of weight eg. kg(kilogram), lb(pound), mt(metric ton), t(ton).
+        in: query
+        name: weightUnit
+        required: false
+        schema:
+          default: kg
+          type: string
+      - description: Specifies the maximum height of a vehicle. Any vehicles over this value will be restricted when determining the route.
+        in: query
+        name: height
+        required: false
+        schema:
+          default: ''
+          type: string
+      - description: The unit of height e.g m(meter), km(kilometer), yd(yard), ft(foot), mi(mile).
+        in: query
+        name: heightUnit
+        required: false
+        schema:
+          default: ft
+          type: string
+      - description: Specifies the maximum length of a vehicle. Any vehicles over this value will be restricted when determining the route.
+        in: query
+        name: length
+        required: false
+        schema:
+          default: ''
+          type: string
+      - description: The unit of length eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile).
+        in: query
+        name: lengthUnit
+        required: false
+        schema:
+          default: ft
+          type: string
+      - description: Specifies the maximum width of a vehicle. Any vehicles over this value will be restricted when determining the route.
+        in: query
+        name: width
+        required: false
+        schema:
+          default: ''
+          type: string
+      - description: The unit of width eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile).
+        in: query
+        name: widthUnit
+        required: false
+        schema:
+          default: ft
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RouteResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Gets Route By Location.
+      tags:
+      - Route
+      x-accepts: application/json
+  /routing/v1/route/byaddress:
+    get:
+      description: Accepts addresses as input and Returns Point-to-Point and Multi-Point travel directions by various travel modes.
+      operationId: getRouteByAddress
+      parameters:
+      - description: Starting address of the route.
+        in: query
+        name: startAddress
+        required: false
+        schema:
+          type: string
+      - description: Ending address of the route.
+        in: query
+        name: endAddress
+        required: false
+        schema:
+          type: string
+      - description: Mode of commute.
+        in: query
+        name: db
+        required: false
+        schema:
+          default: driving
+          type: string
+      - description: Three digit ISO country code.
+        in: query
+        name: country
+        required: false
+        schema:
+          default: USA
+          type: string
+      - description: List of intermediate points of the route.
+        in: query
+        name: intermediateAddresses
+        required: false
+        schema:
+          type: string
+      - description: return intermediate points
+        in: query
+        name: returnIntermediatePoints
+        required: false
+        schema:
+          default: 'false'
+          type: string
+      - description: Specifies whether waypoints need to be optimized.
+        in: query
+        name: oip
+        required: false
+        schema:
+          default: 'false'
+          type: string
+      - description: Specifies the desired coordinate system of the returned route.
+        in: query
+        name: destinationSrs
+        required: false
+        schema:
+          type: string
+      - description: Specifies whether the route should be optimized by time or distance.
+        in: query
+        name: optimizeBy
+        required: false
+        schema:
+          default: time
+          type: string
+      - description: Specifies whether distance needs to be part of direction information in response.
+        in: query
+        name: returnDistance
+        required: false
+        schema:
+          default: 'true'
+          type: string
+      - description: Return Distance Unit such as ft(Foot), km(Kilometer), mi(Mile), m(Meter) or yd(Yard).
+        in: query
+        name: distanceUnit
+        required: false
+        schema:
+          default: m
+          type: string
+      - description: Specifies whether time needs to be part of direction information in response.
+        in: query
+        name: returnTime
+        required: false
+        schema:
+          default: 'true'
+          type: string
+      - description: Return time unit such as min(Minute), h(Hour), s(Second) or msec(Millisecond)
+        in: query
+        name: timeUnit
+        required: false
+        schema:
+          default: min
+          type: string
+      - description: Specifies the language of travel directions.
+        in: query
+        name: language
+        required: false
+        schema:
+          type: string
+      - description: Specifies whether route directions text is to be returned in the response and in what detail (Normal or Terse).
+        in: query
+        name: directionsStyle
+        required: false
+        schema:
+          default: None
+          type: string
+      - description: Specifies whether the route geometry is to be returned in the response and in what detail (End or All).
+        in: query
+        name: segmentGeometryStyle
+        required: false
+        schema:
+          default: none
+          type: string
+      - description: If true then only the primary street name is returned otherwise all the names for a street.
+        in: query
+        name: primaryNameOnly
+        required: false
+        schema:
+          default: 'false'
+          type: string
+      - description: Whether to include all roads in route calculation or just major roads.
+        in: query
+        name: majorRoads
+        required: false
+        schema:
+          default: 'false'
+          type: string
+      - description: Specifies whether routing calculation uses the historic traffic speeds.
+        in: query
+        name: historicTrafficTimeBucket
+        required: false
+        schema:
+          default: None
+          type: string
+      - description: Whether to include geometry associated with each route instruction in response.
+        in: query
+        name: returnDirectionGeometry
+        required: false
+        schema:
+          default: 'false'
+          type: string
+      - description: This parameter will enable/disable CVR (Commercial Vehicle Restrictions) capability in our APIs.
+        in: query
+        name: useCvr
+        required: false
+        schema:
+          default: N
+          type: string
+      - description: Specifies that barriers will be removed when determining the route.
+        in: query
+        name: looseningBarrierRestrictions
+        required: false
+        schema:
+          default: Y
+          type: string
+      - description: vehicle type.
+        in: query
+        name: vehicleType
+        required: false
+        schema:
+          default: ALL
+          type: string
+      - description: Specifies the maximum weight of a vehicle. Any vehicles over this value will be restricted when determining the route.
+        in: query
+        name: weight
+        required: false
+        schema:
+          default: ''
+          type: string
+      - description: The unit of weight eg. kg(kilogram), lb(pound), mt(metric ton), t(ton).
+        in: query
+        name: weightUnit
+        required: false
+        schema:
+          default: kg
+          type: string
+      - description: Specifies the maximum height of a vehicle. Any vehicles over this value will be restricted when determining the route.
+        in: query
+        name: height
+        required: false
+        schema:
+          default: ''
+          type: string
+      - description: The unit of height e.g m(meter), km(kilometer), yd(yard), ft(foot), mi(mile).
+        in: query
+        name: heightUnit
+        required: false
+        schema:
+          default: ft
+          type: string
+      - description: Specifies the maximum length of a vehicle. Any vehicles over this value will be restricted when determining the route.
+        in: query
+        name: length
+        required: false
+        schema:
+          default: ''
+          type: string
+      - description: The unit of length eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile).
+        in: query
+        name: lengthUnit
+        required: false
+        schema:
+          default: ft
+          type: string
+      - description: Specifies the maximum width of a vehicle. Any vehicles over this value will be restricted when determining the route.
+        in: query
+        name: width
+        required: false
+        schema:
+          default: ''
+          type: string
+      - description: The unit of width eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile).
+        in: query
+        name: widthUnit
+        required: false
+        schema:
+          default: ft
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RouteResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Gets Route By Address.
+      tags:
+      - Route
+      x-accepts: application/json
+components:
+  schemas:
+    RouteGeometry:
+      example:
+        coordinates:
+        - - 1.4658129805029452
+          - 1.4658129805029452
+        - - 1.4658129805029452
+          - 1.4658129805029452
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            items:
+              format: double
+              type: number
+            type: array
+          type: array
+      type: object
+    RouteDirection:
+      example:
+        distanceUnit: distanceUnit
+        distance: 5.962133916683182
+        instruction: instruction
+        time: 5.637376656633329
+        timeUnit: timeUnit
+        directionGeometry:
+          coordinates:
+          - - 1.4658129805029452
+            - 1.4658129805029452
+          - - 1.4658129805029452
+            - 1.4658129805029452
+          type: type
+      properties:
+        distance:
+          type: number
+        distanceUnit:
+          type: string
+        timeUnit:
+          type: string
+        time:
+          type: number
+        instruction:
+          type: string
+        directionGeometry:
+          $ref: '#/components/schemas/RouteGeometry'
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    RouteResponse:
+      example:
+        routeDirections:
+        - distanceUnit: distanceUnit
+          distance: 5.962133916683182
+          instruction: instruction
+          time: 5.637376656633329
+          timeUnit: timeUnit
+          directionGeometry:
+            coordinates:
+            - - 1.4658129805029452
+              - 1.4658129805029452
+            - - 1.4658129805029452
+              - 1.4658129805029452
+            type: type
+        - distanceUnit: distanceUnit
+          distance: 5.962133916683182
+          instruction: instruction
+          time: 5.637376656633329
+          timeUnit: timeUnit
+          directionGeometry:
+            coordinates:
+            - - 1.4658129805029452
+              - 1.4658129805029452
+            - - 1.4658129805029452
+              - 1.4658129805029452
+            type: type
+        distanceUnit: distanceUnit
+        distance: 0.8008281904610115
+        directionsStyle: directionsStyle
+        language: language
+        geometry:
+          coordinates:
+          - - 1.4658129805029452
+            - 1.4658129805029452
+          - - 1.4658129805029452
+            - 1.4658129805029452
+          type: type
+        time: 6.027456183070403
+        intermediatePoints:
+          coordinates:
+          - - 2.3021358869347655
+            - 2.3021358869347655
+          - - 2.3021358869347655
+            - 2.3021358869347655
+          type: type
+        timeUnit: timeUnit
+      properties:
+        directionsStyle:
+          type: string
+        distance:
+          type: number
+        distanceUnit:
+          type: string
+        language:
+          type: string
+        timeUnit:
+          type: string
+        time:
+          type: number
+        geometry:
+          $ref: '#/components/schemas/RouteGeometry'
+        routeDirections:
+          items:
+            $ref: '#/components/schemas/RouteDirection'
+          properties:
+            empty:
+              type: boolean
+          type: array
+        intermediatePoints:
+          $ref: '#/components/schemas/IntermediatePoints'
+      type: object
+    IntermediatePoints:
+      example:
+        coordinates:
+        - - 2.3021358869347655
+          - 2.3021358869347655
+        - - 2.3021358869347655
+          - 2.3021358869347655
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            items:
+              format: double
+              type: number
+            type: array
+          type: array
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+  securitySchemes:
+    oAuth2Password:
+      flows:
+        implicit:
+          authorizationUrl: https://api.precisely.com/oauth/token
+          scopes:
+            bearer token: put your bearer token here.
+      type: oauth2
+externalDocs:
+  description: Online Documentation
+  url: https://docs.precisely.com/docs/sftw/precisely-apis/main/en-us/webhelp/apis/index.html

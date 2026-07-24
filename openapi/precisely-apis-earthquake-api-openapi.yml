@@ -1,0 +1,788 @@
+openapi: 3.0.1
+info:
+  contact:
+    name: Precisely APIs Support
+    url: https://support.precisely.com
+  description: '
+
+    Demographics. Audience Enrichment. Add local demographics and lifestyle
+
+    segmentation to your audience profiles. The Demographics API returns
+
+    household demographics and lifestyle characteristics with the input of an
+
+    address, location coordinate, or geographic boundary. This service covers
+
+    select countries.'
+  license:
+    name: Apache 2.0
+    url: http://springdoc.org
+  termsOfService: http://swagger.io/terms/
+  title: Precisely APIs Earthquake API
+  version: 18.1.0
+servers:
+- url: https://api.precisely.com
+security:
+- oAuth2Password:
+  - ''
+tags:
+- name: Earthquake
+paths:
+  /risks/v1/earthquake/bylocation:
+    get:
+      description: Accepts latitude & longitude as input and Returns counts of earthquakes for various richter measurements and values.
+      operationId: getEarthquakeRiskByLocation
+      parameters:
+      - description: The longitude of the location
+        in: query
+        name: longitude
+        required: true
+        schema:
+          type: string
+      - description: The latitude of the location
+        in: query
+        name: latitude
+        required: true
+        schema:
+          type: string
+      - description: all (default value), R0, R1, R2, R3, R4, R5, R6, R7, R0_GE, R1_GE, R2_GE, R3_GE, R4_GE, R5_GE, R6_GE, R7_GE
+        in: query
+        name: richterValue
+        required: false
+        schema:
+          type: string
+      - description: Y or N (default is N) - if it is Y, then geometry will be part of response
+        in: query
+        name: includeGeometry
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EarthquakeRiskResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Get Earthquake Risk By Location
+      tags:
+      - Earthquake
+      x-accepts: application/json
+    post:
+      description: This is a Batch offering for 'Earthquake Risk By Location' service. It accepts a single location coordinate or a list of location coordinates and retrieve counts of earthquakes for various richter measurements and values.
+      operationId: getEarthquakeRiskByLocationBatch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EarthquakeRiskByLocationRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EarthquakeRiskResponseList'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Post Earthquake Risk By Location
+      tags:
+      - Earthquake
+      x-contentType: application/json
+      x-accepts: application/json
+  /risks/v1/earthquake/byaddress:
+    get:
+      description: Accepts addresses as input and Returns counts of earthquakes for various richter measurements and values.
+      operationId: getEarthquakeRiskByAddress
+      parameters:
+      - description: free form address text
+        in: query
+        name: address
+        required: true
+        schema:
+          type: string
+      - description: all (default value), R0, R1, R2, R3, R4, R5, R6, R7, R0_GE, R1_GE, R2_GE, R3_GE, R4_GE, R5_GE, R6_GE, R7_GE
+        in: query
+        name: richterValue
+        required: false
+        schema:
+          type: string
+      - description: Y or N (default is N) - if it is Y, then geometry will be part of response
+        in: query
+        name: includeGeometry
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EarthquakeRiskResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Get Earthquake Risk By Address
+      tags:
+      - Earthquake
+      x-accepts: application/json
+    post:
+      description: This is a Batch offering for 'Earthquake Risk By Address' service. It accepts a single address or a list of addresses and retrieve counts of earthquakes for various richter measurements and values.
+      operationId: getEarthquakeRiskByAddressBatch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EarthquakeRiskByAddressRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EarthquakeRiskResponseList'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Post Earthquake Risk By Address
+      tags:
+      - Earthquake
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    RiskGeometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      required:
+      - type
+      type: object
+    RiskLocations:
+      example:
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        objectId: objectId
+        purchaseAmount: purchaseAmount
+      properties:
+        geometry:
+          $ref: '#/components/schemas/RiskGeometry'
+        purchaseAmount:
+          type: string
+        objectId:
+          type: string
+      required:
+      - geometry
+      type: object
+    RiskAddress:
+      example:
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
+      properties:
+        objectId:
+          type: string
+        displayName:
+          type: string
+        streetSide:
+          type: string
+        businessName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+      type: object
+    EarthquakeRiskResponseList:
+      example:
+        earthquakeRisk:
+        - riskLevel: riskLevel
+          grid:
+            code: code
+            geometry:
+              crs:
+                type: type
+                properties:
+                  name: name
+              coordinates: '{}'
+              type: type
+          eventsCount:
+            r2: r2
+            r1_ge: r1_ge
+            r3: r3
+            r4: r4
+            r0_ge: r0_ge
+            r5: r5
+            r2_ge: r2_ge
+            r3_ge: r3_ge
+            r6: r6
+            r4_ge: r4_ge
+            r7: r7
+            total: total
+            r7_ge: r7_ge
+            r6_ge: r6_ge
+            r5_ge: r5_ge
+            r0: r0
+            r1: r1
+          objectId: objectId
+          matchedAddress:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+        - riskLevel: riskLevel
+          grid:
+            code: code
+            geometry:
+              crs:
+                type: type
+                properties:
+                  name: name
+              coordinates: '{}'
+              type: type
+          eventsCount:
+            r2: r2
+            r1_ge: r1_ge
+            r3: r3
+            r4: r4
+            r0_ge: r0_ge
+            r5: r5
+            r2_ge: r2_ge
+            r3_ge: r3_ge
+            r6: r6
+            r4_ge: r4_ge
+            r7: r7
+            total: total
+            r7_ge: r7_ge
+            r6_ge: r6_ge
+            r5_ge: r5_ge
+            r0: r0
+            r1: r1
+          objectId: objectId
+          matchedAddress:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+      properties:
+        earthquakeRisk:
+          items:
+            $ref: '#/components/schemas/EarthquakeRiskResponse'
+          type: array
+      type: object
+    EarthquakeRiskByLocationRequest:
+      example:
+        preferences:
+          richterValue: richterValue
+          includeZoneDesc: includeZoneDesc
+          includeGeometry: includeGeometry
+        locations:
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+      properties:
+        locations:
+          items:
+            $ref: '#/components/schemas/RiskLocations'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/RiskPreferences'
+      required:
+      - locations
+      type: object
+    GeometryProperties:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+      type: object
+    CommonGeometry:
+      example:
+        crs:
+          type: type
+          properties:
+            name: name
+        coordinates: '{}'
+        type: type
+      properties:
+        type:
+          type: string
+        crs:
+          $ref: '#/components/schemas/RisksGeometryCRC'
+        coordinates:
+          type: object
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    Grid:
+      example:
+        code: code
+        geometry:
+          crs:
+            type: type
+            properties:
+              name: name
+          coordinates: '{}'
+          type: type
+      properties:
+        code:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/CommonGeometry'
+      type: object
+    RiskPreferences:
+      example:
+        richterValue: richterValue
+        includeZoneDesc: includeZoneDesc
+        includeGeometry: includeGeometry
+      properties:
+        includeGeometry:
+          type: string
+        includeZoneDesc:
+          type: string
+        richterValue:
+          type: string
+      type: object
+    EarthquakeRiskResponse:
+      example:
+        riskLevel: riskLevel
+        grid:
+          code: code
+          geometry:
+            crs:
+              type: type
+              properties:
+                name: name
+            coordinates: '{}'
+            type: type
+        eventsCount:
+          r2: r2
+          r1_ge: r1_ge
+          r3: r3
+          r4: r4
+          r0_ge: r0_ge
+          r5: r5
+          r2_ge: r2_ge
+          r3_ge: r3_ge
+          r6: r6
+          r4_ge: r4_ge
+          r7: r7
+          total: total
+          r7_ge: r7_ge
+          r6_ge: r6_ge
+          r5_ge: r5_ge
+          r0: r0
+          r1: r1
+        objectId: objectId
+        matchedAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+      properties:
+        objectId:
+          type: string
+        riskLevel:
+          type: string
+        eventsCount:
+          $ref: '#/components/schemas/EventsCount'
+        grid:
+          $ref: '#/components/schemas/Grid'
+        matchedAddress:
+          $ref: '#/components/schemas/RiskAddress'
+      type: object
+    EarthquakeRiskByAddressRequest:
+      example:
+        addresses:
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        preferences:
+          richterValue: richterValue
+          includeZoneDesc: includeZoneDesc
+          includeGeometry: includeGeometry
+      properties:
+        addresses:
+          items:
+            $ref: '#/components/schemas/RiskAddress'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/RiskPreferences'
+      required:
+      - addresses
+      type: object
+    RisksGeometryCRC:
+      example:
+        type: type
+        properties:
+          name: name
+      properties:
+        type:
+          type: string
+        properties:
+          $ref: '#/components/schemas/GeometryProperties'
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    EventsCount:
+      example:
+        r2: r2
+        r1_ge: r1_ge
+        r3: r3
+        r4: r4
+        r0_ge: r0_ge
+        r5: r5
+        r2_ge: r2_ge
+        r3_ge: r3_ge
+        r6: r6
+        r4_ge: r4_ge
+        r7: r7
+        total: total
+        r7_ge: r7_ge
+        r6_ge: r6_ge
+        r5_ge: r5_ge
+        r0: r0
+        r1: r1
+      properties:
+        total:
+          type: string
+        r0:
+          type: string
+        r1:
+          type: string
+        r2:
+          type: string
+        r3:
+          type: string
+        r4:
+          type: string
+        r5:
+          type: string
+        r6:
+          type: string
+        r7:
+          type: string
+        r0_ge:
+          type: string
+        r1_ge:
+          type: string
+        r2_ge:
+          type: string
+        r3_ge:
+          type: string
+        r4_ge:
+          type: string
+        r5_ge:
+          type: string
+        r6_ge:
+          type: string
+        r7_ge:
+          type: string
+      type: object
+  securitySchemes:
+    oAuth2Password:
+      flows:
+        implicit:
+          authorizationUrl: https://api.precisely.com/oauth/token
+          scopes:
+            bearer token: put your bearer token here.
+      type: oauth2
+externalDocs:
+  description: Online Documentation
+  url: https://docs.precisely.com/docs/sftw/precisely-apis/main/en-us/webhelp/apis/index.html

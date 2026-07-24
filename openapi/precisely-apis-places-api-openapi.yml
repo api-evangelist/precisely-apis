@@ -1,0 +1,2197 @@
+openapi: 3.0.1
+info:
+  contact:
+    name: Precisely APIs Support
+    url: https://support.precisely.com
+  description: '
+
+    Demographics. Audience Enrichment. Add local demographics and lifestyle
+
+    segmentation to your audience profiles. The Demographics API returns
+
+    household demographics and lifestyle characteristics with the input of an
+
+    address, location coordinate, or geographic boundary. This service covers
+
+    select countries.'
+  license:
+    name: Apache 2.0
+    url: http://springdoc.org
+  termsOfService: http://swagger.io/terms/
+  title: Precisely APIs Places API
+  version: 18.1.0
+servers:
+- url: https://api.precisely.com
+security:
+- oAuth2Password:
+  - ''
+tags:
+- name: Places
+paths:
+  /places/v1/poicount:
+    post:
+      description: Accepts a user-defined boundary as input and returns the Count number of POIs within the boundary. Additionally, user can request the count of filtered POIs by name, type, standard industrial classifications and category codes within the given polygon.
+      operationId: getPOIsCount
+      parameters:
+      - in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PoiCountRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/poiCount'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Points Of Interest Count
+      tags:
+      - Places
+      x-contentType: application/json
+      x-accepts: application/json
+  /places/v1/poi/byboundary:
+    post:
+      description: Accepts a user-defined boundary as input and returns all Points of Interest within the boundary. Additionally, user can filter the response by name, type, standard industrial classifications and category codes.
+      operationId: getPOIsByGeometry
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/POIByGeometryRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlacesResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/PlacesResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            text/csv:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Points Of Interest By Boundary
+      tags:
+      - Places
+      x-contentType: application/json
+      x-accepts: application/json
+  /places/v1/poi/{id}:
+    get:
+      description: This service returns complete details of a chosen point of interest by an identifier. The identifier could be selected from Autocomplete API response.
+      operationId: getPOIById
+      parameters:
+      - description: POI unique Identifier.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/poi'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Points Of Interest Details By Id
+      tags:
+      - Places
+      x-accepts: application/json
+  /places/v1/poi/bylocation:
+    get:
+      description: This service accepts latitude/longitude as input and returns nearby points-of-interest places around that location. Additional input features include retrieving data by name, type, standard industrial classifications and category codes, as well as geographic filtering by radius, travel times and travel distances. Response features include JSON as well as CSV download
+      operationId: getPOIsByLocation
+      parameters:
+      - description: Longitude of the location.
+        in: query
+        name: longitude
+        required: true
+        schema:
+          type: string
+      - description: Latitude of the location.
+        in: query
+        name: latitude
+        required: true
+        schema:
+          type: string
+      - description: Specifies the name of the place (POI) to be searched. Also performs search on partially specified names. It requires minimum 3 characters to search.
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+      - description: Filters the points of interest (POIs) by place types.
+        in: query
+        name: type
+        required: false
+        schema:
+          type: string
+      - description: Acts as a filter to narrow down and refine POI search results. The category codes are unique 4, 6, or 11 digit numeric values.
+        in: query
+        name: categoryCode
+        required: false
+        schema:
+          type: string
+      - description: Acts as a filter to narrow down and refine POI search results. The SIC codes are unique 4 or 8 digit numerical values
+        in: query
+        name: sicCode
+        required: false
+        schema:
+          type: string
+      - description: Maximum number of POIs that can be retrieved
+        in: query
+        name: maxCandidates
+        required: false
+        schema:
+          type: string
+      - description: Radius range within which search is performed.
+        in: query
+        name: searchRadius
+        required: false
+        schema:
+          type: string
+      - description: Radius unit such as Feet, Kilometers, Miles or Meters (default).
+        in: query
+        name: searchRadiusUnit
+        required: false
+        schema:
+          type: string
+      - description: Travel time within which search is performed (POIs which can be reached within travel time).
+        in: query
+        name: travelTime
+        required: false
+        schema:
+          type: string
+      - description: Travel time unit such as minutes (default), hours, seconds or milliseconds.
+        in: query
+        name: travelTimeUnit
+        required: false
+        schema:
+          type: string
+      - description: Travel distance within which search is performed (POIs which can be reached within travel distance).
+        in: query
+        name: travelDistance
+        required: false
+        schema:
+          type: string
+      - description: Travel distance unit such as Feet (default), Kilometers, Miles or Meters.
+        in: query
+        name: travelDistanceUnit
+        required: false
+        schema:
+          type: string
+      - description: Mode of commute.
+        in: query
+        name: travelMode
+        required: false
+        schema:
+          type: string
+      - description: Whether to sort the results based on relevance (best match) or by nearest distance from input location.
+        in: query
+        name: sortBy
+        required: false
+        schema:
+          type: string
+      - description: Whether to allow fuzzy seacrh on name input.
+        in: query
+        name: fuzzyOnName
+        required: false
+        schema:
+          type: string
+      - description: Specifies the page number of results where page size is the value of maxCandidates input in request.
+        in: query
+        name: page
+        required: false
+        schema:
+          type: string
+      - description: Determine the leniency used to make a match between the input name and the reference data.
+        in: query
+        name: matchMode
+        required: false
+        schema:
+          type: string
+      - description: Specifies the field for the Specific Match Mode.
+        in: query
+        name: specificMatchOn
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlacesResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/PlacesResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            text/csv:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Get POIs By Location.
+      tags:
+      - Places
+      x-accepts: application/json
+  /places/v1/poi/byarea:
+    get:
+      description: This service accepts city or postcode (alongwith country) and returns points-of-interest places within a city or postcode. Additional input features include retrieving data by name, type, standard industrial classifications and category codes, as well as geographic filtering by radius, travel times and travel distances. Response features include JSON as well as CSV download.
+      operationId: getPOIsByArea
+      parameters:
+      - description: Specifies the largest geographical area, typically a state or province
+        in: query
+        name: areaName1
+        required: false
+        schema:
+          type: string
+      - description: Specifies a city or town name
+        in: query
+        name: areaName3
+        required: false
+        schema:
+          type: string
+      - description: Specifies the postcode(ZIP code) in the appropriate format for the country
+        in: query
+        name: postcode1
+        required: false
+        schema:
+          type: string
+      - description: Specifies the postcode(ZIP code) extension
+        in: query
+        name: postcode2
+        required: false
+        schema:
+          type: string
+      - description: Country ISO code
+        in: query
+        name: country
+        required: false
+        schema:
+          type: string
+      - description: Specifies the name of the place (POI) to be searched. Also performs search on partially specified names. It requires minimum 3 characters to search
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+      - description: Filters the points of interest (POIs) by place types
+        in: query
+        name: type
+        required: false
+        schema:
+          type: string
+      - description: Acts as a filter to narrow down and refine POI search results. The category codes are unique 4, 6, or 11 digit numeric values
+        in: query
+        name: categoryCode
+        required: false
+        schema:
+          type: string
+      - description: Acts as a filter to narrow down and refine POI search results. The SIC codes are unique 4 or 8 digit numerical values
+        in: query
+        name: sicCode
+        required: false
+        schema:
+          type: string
+      - description: Maximum number of POIs that can be retrieved
+        in: query
+        name: maxCandidates
+        required: false
+        schema:
+          type: string
+      - description: Whether to allow fuzzy seacrh on name input
+        in: query
+        name: fuzzyOnName
+        required: false
+        schema:
+          type: string
+      - description: Specifies the page number of results where page size is the value of maxCandidates input in request
+        in: query
+        name: page
+        required: false
+        schema:
+          type: string
+      - description: Determine the leniency used to make a match between the input name and the reference data
+        in: query
+        name: matchMode
+        required: false
+        schema:
+          type: string
+      - description: Specifies the field for the Specific Match Mode
+        in: query
+        name: specificMatchOn
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlacesResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/PlacesResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            text/csv:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: GET Points Of Interest By Area.
+      tags:
+      - Places
+      x-accepts: application/json
+  /places/v1/poi/byaddress:
+    get:
+      description: This service accepts an address as input and returns nearby points-of-interest places around that address. Additional input features include retrieving data by name, type, standard industrial classifications and category codes, as well as geographic filtering by radius, travel times and travel distances. Response features include JSON as well as CSV download.
+      operationId: getPOIsByAddress
+      parameters:
+      - description: The address to be searched.
+        in: query
+        name: address
+        required: false
+        schema:
+          type: string
+      - description: Country ISO code.
+        in: query
+        name: country
+        required: false
+        schema:
+          type: string
+      - description: Specifies the name of the place (POI) to be searched. Also performs search on partially specified names. It requires minimum 3 characters to search.
+        in: query
+        name: name
+        required: false
+        schema:
+          type: string
+      - description: Filters the points of interest (POIs) by place types.
+        in: query
+        name: type
+        required: false
+        schema:
+          type: string
+      - description: Acts as a filter to narrow down and refine POI search results. The category codes are unique 4, 6, or 11 digit numeric values.
+        in: query
+        name: categoryCode
+        required: false
+        schema:
+          type: string
+      - description: Acts as a filter to narrow down and refine POI search results. The SIC codes are unique 4 or 8 digit numerical values
+        in: query
+        name: sicCode
+        required: false
+        schema:
+          type: string
+      - description: Maximum number of POIs that can be retrieved
+        in: query
+        name: maxCandidates
+        required: false
+        schema:
+          type: string
+      - description: Radius range within which search is performed.
+        in: query
+        name: searchRadius
+        required: false
+        schema:
+          type: string
+      - description: Radius unit such as Feet, Kilometers, Miles or Meters (default).
+        in: query
+        name: searchRadiusUnit
+        required: false
+        schema:
+          type: string
+      - description: Travel time within which search is performed (POIs which can be reached within travel time).
+        in: query
+        name: travelTime
+        required: false
+        schema:
+          type: string
+      - description: Travel time unit such as minutes (default), hours, seconds or milliseconds.
+        in: query
+        name: travelTimeUnit
+        required: false
+        schema:
+          type: string
+      - description: Travel distance within which search is performed (POIs which can be reached within travel distance).
+        in: query
+        name: travelDistance
+        required: false
+        schema:
+          type: string
+      - description: Travel distance unit such as Feet (default), Kilometers, Miles or Meters.
+        in: query
+        name: travelDistanceUnit
+        required: false
+        schema:
+          type: string
+      - description: Mode of commute.
+        in: query
+        name: travelMode
+        required: false
+        schema:
+          default: driving
+          type: string
+      - description: Whether to sort the results based on relevance (best match) or by nearest distance from input location.
+        in: query
+        name: sortBy
+        required: false
+        schema:
+          type: string
+      - description: Whether to allow fuzzy seacrh on name input.
+        in: query
+        name: fuzzyOnName
+        required: false
+        schema:
+          type: string
+      - description: Specifies the page number of results where page size is the value of maxCandidates input in request.
+        in: query
+        name: page
+        required: false
+        schema:
+          type: string
+      - description: Determine the leniency used to make a match between the input name and the reference data.
+        in: query
+        name: matchMode
+        required: false
+        schema:
+          type: string
+      - description: Specifies the field for the Specific Match Mode.
+        in: query
+        name: specificMatchOn
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlacesResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/PlacesResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            text/csv:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Get POIs By Address.
+      tags:
+      - Places
+      x-accepts: application/json
+  /places/v1/poi/autocomplete:
+    get:
+      description: This service accepts partial text input and returns matching points of interest, sorted by relevance or distance.
+      operationId: poisAutocomplete
+      parameters:
+      - in: header
+        name: X-Forwarded-For
+        required: false
+        schema:
+          type: string
+      - description: Longitude of the location.
+        in: query
+        name: longitude
+        required: false
+        schema:
+          type: string
+      - description: Latitude of the location.
+        in: query
+        name: latitude
+        required: false
+        schema:
+          type: string
+      - description: Free text which will accept a multi-word string. Combination of POI name and address is possible.
+        in: query
+        name: searchText
+        required: false
+        schema:
+          type: string
+      - in: query
+        name: searchOnNameOnly
+        required: false
+        schema:
+          default: N
+          type: string
+      - description: Radius range within which search is performed.
+        in: query
+        name: searchRadius
+        required: false
+        schema:
+          type: string
+      - description: Radius unit such as Feet, Kilometers, Miles or Meters (default).
+        in: query
+        name: searchRadiusUnit
+        required: false
+        schema:
+          type: string
+      - description: Travel time within which search is performed (POIs which can be reached within travel time).
+        in: query
+        name: travelTime
+        required: false
+        schema:
+          type: string
+      - description: Travel time unit such as minutes (default), hours, seconds or milliseconds.
+        in: query
+        name: travelTimeUnit
+        required: false
+        schema:
+          type: string
+      - description: Travel distance within which search is performed (POIs which can be reached within travel distance).
+        in: query
+        name: travelDistance
+        required: false
+        schema:
+          type: string
+      - description: Travel distance unit such as Feet (default), Kilometers, Miles or Meters.
+        in: query
+        name: travelDistanceUnit
+        required: false
+        schema:
+          type: string
+      - description: Mode of commute.
+        in: query
+        name: travelMode
+        required: false
+        schema:
+          default: driving
+          type: string
+      - description: Country ISO code.
+        in: query
+        name: country
+        required: false
+        schema:
+          type: string
+      - description: Specifies the largest geographical area, typically a state or province.
+        in: query
+        name: areaName1
+        required: false
+        schema:
+          type: string
+      - description: Specifies a city or town name.
+        in: query
+        name: areaName3
+        required: false
+        schema:
+          type: string
+      - description: Specifies the postcode(ZIP code) in the appropriate format for the country.
+        in: query
+        name: postcode1
+        required: false
+        schema:
+          type: string
+      - description: Specifies the postcode(ZIP code) extension.
+        in: query
+        name: postcode2
+        required: false
+        schema:
+          type: string
+      - description: IP address which will be used to auto detect the location in order to serve contextually relevant results.
+        in: query
+        name: ipAddress
+        required: false
+        schema:
+          type: string
+      - description: Specifies whether to detect client's location using IP address. If IP address(below) is not provided and autoDetectLocation is set 'True' then IP address will be picked from HTTP request automatically.
+        in: query
+        name: autoDetectLocation
+        required: false
+        schema:
+          type: string
+      - description: Filters the points of interest (POIs) by place types.
+        in: query
+        name: type
+        required: false
+        schema:
+          type: string
+      - description: Acts as a filter to narrow down and refine POI search results. The category codes are unique 4, 6, or 11 digit numeric values.
+        in: query
+        name: categoryCode
+        required: false
+        schema:
+          type: string
+      - description: Acts as a filter to narrow down and refine POI search results. The SIC codes are unique 4 or 8 digit numerical values.
+        in: query
+        name: sicCode
+        required: false
+        schema:
+          type: string
+      - description: Maximum number of POIs that can be retrieved.
+        in: query
+        name: maxCandidates
+        required: false
+        schema:
+          type: string
+      - description: sortBy
+        in: query
+        name: sortBy
+        required: false
+        schema:
+          type: string
+      - description: Determine the leniency used to make a match between the input name and the reference data.
+        in: query
+        name: matchMode
+        required: false
+        schema:
+          type: string
+      - description: Specifies the field for the Specific Match Mode.
+        in: query
+        name: specificMatchOn
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlacesResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Points Of Interest Autocomplete
+      tags:
+      - Places
+      x-accepts: application/json
+  /places/v1/metadata/sic:
+    get:
+      description: This service returns a list of standard industrial classification codes & associated metadata which can then be used as inputs for querying the Points of Interest By Address or Location methods listed above.
+      operationId: getSICMetadata
+      parameters:
+      - description: 4 or 8 digits SIC code to filter the response.
+        in: query
+        name: sicCode
+        required: false
+        schema:
+          type: string
+      - description: 1 or 2.
+        in: query
+        name: level
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetadataResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/MetadataResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            text/csv:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Get SIC Metadata
+      tags:
+      - Places
+      x-accepts: application/json
+  /places/v1/metadata/category:
+    get:
+      description: This service returns a list of Category codes & associated metadata which can then be used as inputs for querying the Points of Interest By Address or Location methods listed above.
+      operationId: getCategoryCodeMetadata
+      parameters:
+      - description: 4, 6, or 11 digits category code to filter the response.
+        in: query
+        name: categoryCode
+        required: false
+        schema:
+          type: string
+      - description: 1, 2, or 3.
+        in: query
+        name: level
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetadataResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/MetadataResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            text/csv:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Category Code Metadata.
+      tags:
+      - Places
+      x-accepts: application/json
+components:
+  schemas:
+    CategoryMetadata:
+      example:
+        tradeGroup: tradeGroup
+        code: code
+        subClass: subClass
+        tradeDivision: tradeDivision
+        description: description
+        sic: sic
+        class: class
+      properties:
+        code:
+          type: string
+        sic:
+          type: string
+        tradeDivision:
+          type: string
+        tradeGroup:
+          type: string
+        class:
+          type: string
+        subClass:
+          type: string
+        description:
+          type: string
+      type: object
+    address_1:
+      example:
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
+      properties:
+        objectId:
+          type: string
+        displayName:
+          type: string
+        streetSide:
+          type: string
+        businessName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+      type: object
+    distance:
+      example:
+        unit: unit
+        value: value
+      properties:
+        unit:
+          type: string
+        value:
+          type: string
+      type: object
+    businessId:
+      example:
+        type: type
+        value: value
+      properties:
+        type:
+          type: string
+        value:
+          type: string
+      type: object
+    GlobalUltimateBusiness:
+      example:
+        address:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        name: name
+        id: id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        address:
+          $ref: '#/components/schemas/address_1'
+      type: object
+    ContactDetails:
+      example:
+        address:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        phone: phone
+        countryAccessCode: countryAccessCode
+        fax: fax
+        email: email
+        url: url
+      properties:
+        address:
+          $ref: '#/components/schemas/address_1'
+        phone:
+          type: string
+        fax:
+          type: string
+        countryAccessCode:
+          type: string
+        email:
+          type: string
+        url:
+          type: string
+      type: object
+    EmployeeCount:
+      example:
+        inLocalBranch: inLocalBranch
+        inOrganization: inOrganization
+      properties:
+        inLocalBranch:
+          type: string
+        inOrganization:
+          type: string
+      type: object
+    PoiClassification:
+      example:
+        alternateIndustryCode: alternateIndustryCode
+        sic:
+          sicCode: sicCode
+          primarySicCode: primarySicCode
+          businessLine: businessLine
+          sicCodeDescription: sicCodeDescription
+          secondarySicCode: secondarySicCode
+        category:
+          tradeGroup: tradeGroup
+          subClass: subClass
+          tradeDivision: tradeDivision
+          categoryCode: categoryCode
+          class: class
+      properties:
+        sic:
+          $ref: '#/components/schemas/Sic'
+        category:
+          $ref: '#/components/schemas/Category'
+        alternateIndustryCode:
+          type: string
+      type: object
+    Category:
+      example:
+        tradeGroup: tradeGroup
+        subClass: subClass
+        tradeDivision: tradeDivision
+        categoryCode: categoryCode
+        class: class
+      properties:
+        categoryCode:
+          type: string
+        tradeDivision:
+          type: string
+        tradeGroup:
+          type: string
+        subClass:
+          type: string
+        class:
+          type: string
+      type: object
+    DomesticUltimateBusiness:
+      example:
+        address:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        name: name
+        id: id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        address:
+          $ref: '#/components/schemas/address_1'
+      type: object
+    Sic:
+      example:
+        sicCode: sicCode
+        primarySicCode: primarySicCode
+        businessLine: businessLine
+        sicCodeDescription: sicCodeDescription
+        secondarySicCode: secondarySicCode
+      properties:
+        businessLine:
+          type: string
+        sicCode:
+          type: string
+        sicCodeDescription:
+          type: string
+        primarySicCode:
+          type: string
+        secondarySicCode:
+          type: string
+      type: object
+    poiCount:
+      example:
+        totalPoisFound: 0
+      properties:
+        totalPoisFound:
+          format: int32
+          type: integer
+      type: object
+    MetadataResponse:
+      example:
+        sic:
+        - tradeGroup: tradeGroup
+          code: code
+          subClass: subClass
+          tradeDivision: tradeDivision
+          description: description
+          categoryCode: categoryCode
+          class: class
+        - tradeGroup: tradeGroup
+          code: code
+          subClass: subClass
+          tradeDivision: tradeDivision
+          description: description
+          categoryCode: categoryCode
+          class: class
+        category:
+        - tradeGroup: tradeGroup
+          code: code
+          subClass: subClass
+          tradeDivision: tradeDivision
+          description: description
+          sic: sic
+          class: class
+        - tradeGroup: tradeGroup
+          code: code
+          subClass: subClass
+          tradeDivision: tradeDivision
+          description: description
+          sic: sic
+          class: class
+      properties:
+        sic:
+          items:
+            $ref: '#/components/schemas/SicMetadata'
+          type: array
+        category:
+          items:
+            $ref: '#/components/schemas/CategoryMetadata'
+          type: array
+      type: object
+    PlacesResponse:
+      example:
+        candidates: candidates
+        page: page
+        poi:
+        - parentPbkey: parentPbkey
+          distance:
+            unit: unit
+            value: value
+          salesVolume:
+          - currencyCode: currencyCode
+            worldBaseCurrencyCode: worldBaseCurrencyCode
+            value: value
+          - currencyCode: currencyCode
+            worldBaseCurrencyCode: worldBaseCurrencyCode
+            value: value
+          hierarchyCode: hierarchyCode
+          businessId:
+            type: type
+            value: value
+          open24Hours: open24Hours
+          employeeCount:
+            inLocalBranch: inLocalBranch
+            inOrganization: inOrganization
+          subsidaryIndicator: subsidaryIndicator
+          domesticUltimateBusiness:
+            address:
+              country: country
+              streetSide: streetSide
+              city: city
+              displayName: displayName
+              postalCode: postalCode
+              latitude: latitude
+              businessName: businessName
+              county: county
+              unitType: unitType
+              streetName: streetName
+              formattedAddress: formattedAddress
+              addressLine1: addressLine1
+              mainAddressLine: mainAddressLine
+              addressLine2: addressLine2
+              addressLine3: addressLine3
+              objectId: objectId
+              addressLastLine: addressLastLine
+              longitude: longitude
+              unitValue: unitValue
+              stateProvince: stateProvince
+              urbanizationName: urbanizationName
+              areaName1: areaName1
+              areaName2: areaName2
+              areaName3: areaName3
+              areaName4: areaName4
+              addressNumber: addressNumber
+              postCode: postCode
+              postCodeExt: postCodeExt
+              placeName: placeName
+              status: status
+            name: name
+            id: id
+          globalUltimateBusiness:
+            address:
+              country: country
+              streetSide: streetSide
+              city: city
+              displayName: displayName
+              postalCode: postalCode
+              latitude: latitude
+              businessName: businessName
+              county: county
+              unitType: unitType
+              streetName: streetName
+              formattedAddress: formattedAddress
+              addressLine1: addressLine1
+              mainAddressLine: mainAddressLine
+              addressLine2: addressLine2
+              addressLine3: addressLine3
+              objectId: objectId
+              addressLastLine: addressLastLine
+              longitude: longitude
+              unitValue: unitValue
+              stateProvince: stateProvince
+              urbanizationName: urbanizationName
+              areaName1: areaName1
+              areaName2: areaName2
+              areaName3: areaName3
+              areaName4: areaName4
+              addressNumber: addressNumber
+              postCode: postCode
+              postCodeExt: postCodeExt
+              placeName: placeName
+              status: status
+            name: name
+            id: id
+          familyMembers: familyMembers
+          poiClassification:
+            alternateIndustryCode: alternateIndustryCode
+            sic:
+              sicCode: sicCode
+              primarySicCode: primarySicCode
+              businessLine: businessLine
+              sicCodeDescription: sicCodeDescription
+              secondarySicCode: secondarySicCode
+            category:
+              tradeGroup: tradeGroup
+              subClass: subClass
+              tradeDivision: tradeDivision
+              categoryCode: categoryCode
+              class: class
+          globalUltimateIndicator: globalUltimateIndicator
+          tradeName: tradeName
+          geocodeConfidence: geocodeConfidence
+          goodsAgentCodeDescription: goodsAgentCodeDescription
+          organizationStatusCodeDescription: organizationStatusCodeDescription
+          subsidaryIndicatorDescription: subsidaryIndicatorDescription
+          parentBusiness:
+            address:
+              country: country
+              streetSide: streetSide
+              city: city
+              displayName: displayName
+              postalCode: postalCode
+              latitude: latitude
+              businessName: businessName
+              county: county
+              unitType: unitType
+              streetName: streetName
+              formattedAddress: formattedAddress
+              addressLine1: addressLine1
+              mainAddressLine: mainAddressLine
+              addressLine2: addressLine2
+              addressLine3: addressLine3
+              objectId: objectId
+              addressLastLine: addressLastLine
+              longitude: longitude
+              unitValue: unitValue
+              stateProvince: stateProvince
+              urbanizationName: urbanizationName
+              areaName1: areaName1
+              areaName2: areaName2
+              areaName3: areaName3
+              areaName4: areaName4
+              addressNumber: addressNumber
+              postCode: postCode
+              postCodeExt: postCodeExt
+              placeName: placeName
+              status: status
+            name: name
+            id: id
+          id: id
+          poiId: poiId
+          ceoName: ceoName
+          yearStart: yearStart
+          franchiseName: franchiseName
+          brandName: brandName
+          tickerSymbol: tickerSymbol
+          contactDetails:
+            address:
+              country: country
+              streetSide: streetSide
+              city: city
+              displayName: displayName
+              postalCode: postalCode
+              latitude: latitude
+              businessName: businessName
+              county: county
+              unitType: unitType
+              streetName: streetName
+              formattedAddress: formattedAddress
+              addressLine1: addressLine1
+              mainAddressLine: mainAddressLine
+              addressLine2: addressLine2
+              addressLine3: addressLine3
+              objectId: objectId
+              addressLastLine: addressLastLine
+              longitude: longitude
+              unitValue: unitValue
+              stateProvince: stateProvince
+              urbanizationName: urbanizationName
+              areaName1: areaName1
+              areaName2: areaName2
+              areaName3: areaName3
+              areaName4: areaName4
+              addressNumber: addressNumber
+              postCode: postCode
+              postCodeExt: postCodeExt
+              placeName: placeName
+              status: status
+            phone: phone
+            countryAccessCode: countryAccessCode
+            fax: fax
+            email: email
+            url: url
+          ceoTitle: ceoTitle
+          goodsAgentCode: goodsAgentCode
+          organizationStatusCode: organizationStatusCode
+          relevanceScore: relevanceScore
+          pbkey: pbkey
+          name: name
+          exchangeName: exchangeName
+          geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          legalStatusCode: legalStatusCode
+        - parentPbkey: parentPbkey
+          distance:
+            unit: unit
+            value: value
+          salesVolume:
+          - currencyCode: currencyCode
+            worldBaseCurrencyCode: worldBaseCurrencyCode
+            value: value
+          - currencyCode: currencyCode
+            worldBaseCurrencyCode: worldBaseCurrencyCode
+            value: value
+          hierarchyCode: hierarchyCode
+          businessId:
+            type: type
+            value: value
+          open24Hours: open24Hours
+          employeeCount:
+            inLocalBranch: inLocalBranch
+            inOrganization: inOrganization
+          subsidaryIndicator: subsidaryIndicator
+          domesticUltimateBusiness:
+            address:
+              country: country
+              streetSide: streetSide
+              city: city
+              displayName: displayName
+              postalCode: postalCode
+              latitude: latitude
+              businessName: businessName
+              county: county
+              unitType: unitType
+              streetName: streetName
+              formattedAddress: formattedAddress
+              addressLine1: addressLine1
+              mainAddressLine: mainAddressLine
+              addressLine2: addressLine2
+              addressLine3: addressLine3
+              objectId: objectId
+              addressLastLine: addressLastLine
+              longitude: longitude
+              unitValue: unitValue
+              stateProvince: stateProvince
+              urbanizationName: urbanizationName
+              areaName1: areaName1
+              areaName2: areaName2
+              areaName3: areaName3
+              areaName4: areaName4
+              addressNumber: addressNumber
+              postCode: postCode
+              postCodeExt: postCodeExt
+              placeName: placeName
+              status: status
+            name: name
+            id: id
+          globalUltimateBusiness:
+            address:
+              country: country
+              streetSide: streetSide
+              city: city
+              displayName: displayName
+              postalCode: postalCode
+              latitude: latitude
+              businessName: businessName
+              county: county
+              unitType: unitType
+              streetName: streetName
+              formattedAddress: formattedAddress
+              addressLine1: addressLine1
+              mainAddressLine: mainAddressLine
+              addressLine2: addressLine2
+              addressLine3: addressLine3
+              objectId: objectId
+              addressLastLine: addressLastLine
+              longitude: longitude
+              unitValue: unitValue
+              stateProvince: stateProvince
+              urbanizationName: urbanizationName
+              areaName1: areaName1
+              areaName2: areaName2
+              areaName3: areaName3
+              areaName4: areaName4
+              addressNumber: addressNumber
+              postCode: postCode
+              postCodeExt: postCodeExt
+              placeName: placeName
+              status: status
+            name: name
+            id: id
+          familyMembers: familyMembers
+          poiClassification:
+            alternateIndustryCode: alternateIndustryCode
+            sic:
+              sicCode: sicCode
+              primarySicCode: primarySicCode
+              businessLine: businessLine
+              sicCodeDescription: sicCodeDescription
+              secondarySicCode: secondarySicCode
+            category:
+              tradeGroup: tradeGroup
+              subClass: subClass
+              tradeDivision: tradeDivision
+              categoryCode: categoryCode
+              class: class
+          globalUltimateIndicator: globalUltimateIndicator
+          tradeName: tradeName
+          geocodeConfidence: geocodeConfidence
+          goodsAgentCodeDescription: goodsAgentCodeDescription
+          organizationStatusCodeDescription: organizationStatusCodeDescription
+          subsidaryIndicatorDescription: subsidaryIndicatorDescription
+          parentBusiness:
+            address:
+              country: country
+              streetSide: streetSide
+              city: city
+              displayName: displayName
+              postalCode: postalCode
+              latitude: latitude
+              businessName: businessName
+              county: county
+              unitType: unitType
+              streetName: streetName
+              formattedAddress: formattedAddress
+              addressLine1: addressLine1
+              mainAddressLine: mainAddressLine
+              addressLine2: addressLine2
+              addressLine3: addressLine3
+              objectId: objectId
+              addressLastLine: addressLastLine
+              longitude: longitude
+              unitValue: unitValue
+              stateProvince: stateProvince
+              urbanizationName: urbanizationName
+              areaName1: areaName1
+              areaName2: areaName2
+              areaName3: areaName3
+              areaName4: areaName4
+              addressNumber: addressNumber
+              postCode: postCode
+              postCodeExt: postCodeExt
+              placeName: placeName
+              status: status
+            name: name
+            id: id
+          id: id
+          poiId: poiId
+          ceoName: ceoName
+          yearStart: yearStart
+          franchiseName: franchiseName
+          brandName: brandName
+          tickerSymbol: tickerSymbol
+          contactDetails:
+            address:
+              country: country
+              streetSide: streetSide
+              city: city
+              displayName: displayName
+              postalCode: postalCode
+              latitude: latitude
+              businessName: businessName
+              county: county
+              unitType: unitType
+              streetName: streetName
+              formattedAddress: formattedAddress
+              addressLine1: addressLine1
+              mainAddressLine: mainAddressLine
+              addressLine2: addressLine2
+              addressLine3: addressLine3
+              objectId: objectId
+              addressLastLine: addressLastLine
+              longitude: longitude
+              unitValue: unitValue
+              stateProvince: stateProvince
+              urbanizationName: urbanizationName
+              areaName1: areaName1
+              areaName2: areaName2
+              areaName3: areaName3
+              areaName4: areaName4
+              addressNumber: addressNumber
+              postCode: postCode
+              postCodeExt: postCodeExt
+              placeName: placeName
+              status: status
+            phone: phone
+            countryAccessCode: countryAccessCode
+            fax: fax
+            email: email
+            url: url
+          ceoTitle: ceoTitle
+          goodsAgentCode: goodsAgentCode
+          organizationStatusCode: organizationStatusCode
+          relevanceScore: relevanceScore
+          pbkey: pbkey
+          name: name
+          exchangeName: exchangeName
+          geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          legalStatusCode: legalStatusCode
+        totalMatchingCandidates: totalMatchingCandidates
+        matchedAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+      properties:
+        page:
+          type: string
+        candidates:
+          type: string
+        totalMatchingCandidates:
+          type: string
+        poi:
+          items:
+            $ref: '#/components/schemas/poi'
+          type: array
+        matchedAddress:
+          $ref: '#/components/schemas/address_1'
+      type: object
+    salesVolume:
+      example:
+        currencyCode: currencyCode
+        worldBaseCurrencyCode: worldBaseCurrencyCode
+        value: value
+      properties:
+        currencyCode:
+          type: string
+        worldBaseCurrencyCode:
+          type: string
+        value:
+          type: string
+      type: object
+    PoiCountRequest:
+      example:
+        fuzzyOnName: fuzzyOnName
+        sicCode: sicCode
+        name: name
+        specificMatchOn: specificMatchOn
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        categoryCode: categoryCode
+        type: type
+        matchMode: matchMode
+        geometryAsText: geometryAsText
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        categoryCode:
+          type: string
+        sicCode:
+          type: string
+        fuzzyOnName:
+          type: string
+        matchMode:
+          type: string
+        specificMatchOn:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+        geometryAsText:
+          type: string
+      type: object
+    poi:
+      example:
+        parentPbkey: parentPbkey
+        distance:
+          unit: unit
+          value: value
+        salesVolume:
+        - currencyCode: currencyCode
+          worldBaseCurrencyCode: worldBaseCurrencyCode
+          value: value
+        - currencyCode: currencyCode
+          worldBaseCurrencyCode: worldBaseCurrencyCode
+          value: value
+        hierarchyCode: hierarchyCode
+        businessId:
+          type: type
+          value: value
+        open24Hours: open24Hours
+        employeeCount:
+          inLocalBranch: inLocalBranch
+          inOrganization: inOrganization
+        subsidaryIndicator: subsidaryIndicator
+        domesticUltimateBusiness:
+          address:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          name: name
+          id: id
+        globalUltimateBusiness:
+          address:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          name: name
+          id: id
+        familyMembers: familyMembers
+        poiClassification:
+          alternateIndustryCode: alternateIndustryCode
+          sic:
+            sicCode: sicCode
+            primarySicCode: primarySicCode
+            businessLine: businessLine
+            sicCodeDescription: sicCodeDescription
+            secondarySicCode: secondarySicCode
+          category:
+            tradeGroup: tradeGroup
+            subClass: subClass
+            tradeDivision: tradeDivision
+            categoryCode: categoryCode
+            class: class
+        globalUltimateIndicator: globalUltimateIndicator
+        tradeName: tradeName
+        geocodeConfidence: geocodeConfidence
+        goodsAgentCodeDescription: goodsAgentCodeDescription
+        organizationStatusCodeDescription: organizationStatusCodeDescription
+        subsidaryIndicatorDescription: subsidaryIndicatorDescription
+        parentBusiness:
+          address:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          name: name
+          id: id
+        id: id
+        poiId: poiId
+        ceoName: ceoName
+        yearStart: yearStart
+        franchiseName: franchiseName
+        brandName: brandName
+        tickerSymbol: tickerSymbol
+        contactDetails:
+          address:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          phone: phone
+          countryAccessCode: countryAccessCode
+          fax: fax
+          email: email
+          url: url
+        ceoTitle: ceoTitle
+        goodsAgentCode: goodsAgentCode
+        organizationStatusCode: organizationStatusCode
+        relevanceScore: relevanceScore
+        pbkey: pbkey
+        name: name
+        exchangeName: exchangeName
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        legalStatusCode: legalStatusCode
+      properties:
+        id:
+          type: string
+        poiId:
+          type: string
+        name:
+          type: string
+        pbkey:
+          type: string
+        parentPbkey:
+          type: string
+        geocodeConfidence:
+          type: string
+        brandName:
+          type: string
+        tradeName:
+          type: string
+        franchiseName:
+          type: string
+        open24Hours:
+          type: string
+        distance:
+          $ref: '#/components/schemas/distance'
+        businessId:
+          $ref: '#/components/schemas/businessId'
+        relevanceScore:
+          type: string
+        contactDetails:
+          $ref: '#/components/schemas/ContactDetails'
+        poiClassification:
+          $ref: '#/components/schemas/PoiClassification'
+        salesVolume:
+          items:
+            $ref: '#/components/schemas/salesVolume'
+          type: array
+        employeeCount:
+          $ref: '#/components/schemas/EmployeeCount'
+        yearStart:
+          type: string
+        goodsAgentCode:
+          type: string
+        goodsAgentCodeDescription:
+          type: string
+        legalStatusCode:
+          type: string
+        organizationStatusCode:
+          type: string
+        organizationStatusCodeDescription:
+          type: string
+        subsidaryIndicator:
+          type: string
+        subsidaryIndicatorDescription:
+          type: string
+        parentBusiness:
+          $ref: '#/components/schemas/ParentBusiness'
+        domesticUltimateBusiness:
+          $ref: '#/components/schemas/DomesticUltimateBusiness'
+        globalUltimateIndicator:
+          type: string
+        globalUltimateBusiness:
+          $ref: '#/components/schemas/GlobalUltimateBusiness'
+        familyMembers:
+          type: string
+        hierarchyCode:
+          type: string
+        tickerSymbol:
+          type: string
+        exchangeName:
+          type: string
+        ceoName:
+          type: string
+        ceoTitle:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+      type: object
+    ParentBusiness:
+      example:
+        address:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        name: name
+        id: id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        address:
+          $ref: '#/components/schemas/address_1'
+      type: object
+    Geometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    SicMetadata:
+      example:
+        tradeGroup: tradeGroup
+        code: code
+        subClass: subClass
+        tradeDivision: tradeDivision
+        description: description
+        categoryCode: categoryCode
+        class: class
+      properties:
+        code:
+          type: string
+        categoryCode:
+          type: string
+        tradeDivision:
+          type: string
+        tradeGroup:
+          type: string
+        class:
+          type: string
+        subClass:
+          type: string
+        description:
+          type: string
+      type: object
+    POIByGeometryRequest:
+      example:
+        maxCandidates: maxCandidates
+        fuzzyOnName: fuzzyOnName
+        sicCode: sicCode
+        name: name
+        specificMatchOn: specificMatchOn
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        categoryCode: categoryCode
+        page: page
+        type: type
+        matchMode: matchMode
+        geometryAsText: geometryAsText
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        categoryCode:
+          type: string
+        sicCode:
+          type: string
+        maxCandidates:
+          type: string
+        fuzzyOnName:
+          type: string
+        page:
+          type: string
+        matchMode:
+          type: string
+        specificMatchOn:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+        geometryAsText:
+          type: string
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+  securitySchemes:
+    oAuth2Password:
+      flows:
+        implicit:
+          authorizationUrl: https://api.precisely.com/oauth/token
+          scopes:
+            bearer token: put your bearer token here.
+      type: oauth2
+externalDocs:
+  description: Online Documentation
+  url: https://docs.precisely.com/docs/sftw/precisely-apis/main/en-us/webhelp/apis/index.html

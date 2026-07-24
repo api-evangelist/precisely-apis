@@ -1,0 +1,2023 @@
+openapi: 3.0.1
+info:
+  contact:
+    name: Precisely APIs Support
+    url: https://support.precisely.com
+  description: '
+
+    Demographics. Audience Enrichment. Add local demographics and lifestyle
+
+    segmentation to your audience profiles. The Demographics API returns
+
+    household demographics and lifestyle characteristics with the input of an
+
+    address, location coordinate, or geographic boundary. This service covers
+
+    select countries.'
+  license:
+    name: Apache 2.0
+    url: http://springdoc.org
+  termsOfService: http://swagger.io/terms/
+  title: Precisely APIs Local  Tax  Service API
+  version: 18.1.0
+servers:
+- url: https://api.precisely.com
+security:
+- oAuth2Password:
+  - ''
+tags:
+- name: Local  Tax  Service
+paths:
+  /localtax/v1/taxrate/{taxRateTypeId}/bylocation:
+    get:
+      description: Retrieves tax rates applicable to a specific location. This service accepts longitude, latitude and supported tax rate type as inputs to retrieve applicable tax rates.
+      operationId: getSpecificTaxRateByLocation
+      parameters:
+      - description: The tax rate id
+        in: path
+        name: taxRateTypeId
+        required: true
+        schema:
+          type: string
+      - description: Latitude of the location
+        in: query
+        name: latitude
+        required: true
+        schema:
+          type: string
+      - description: Longitude of the location
+        in: query
+        name: longitude
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxRateResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TaxRateResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Get Taxrate By Location
+      tags:
+      - Local  Tax  Service
+      x-accepts: application/json
+    post:
+      description: This is a Batch offering for 'Taxrate By Location' service. It accepts a single location coordinate or a list of location coordinates and retrieve applicable tax rates.
+      operationId: getBatchTaxRateByLocation
+      parameters:
+      - in: path
+        name: taxRateTypeId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaxRateLocationRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/taxResponses'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/taxResponses'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Post Taxrate By Location
+      tags:
+      - Local  Tax  Service
+      x-contentType: application/json
+      x-accepts: application/json
+  /localtax/v1/taxrate/{taxRateTypeId}/byaddress:
+    get:
+      description: Retrieves tax rates applicable to a specific address. This service accepts address and supported tax rate type as inputs to retrieve applicable tax rates.
+      operationId: getSpecificTaxRateByAddress
+      parameters:
+      - description: The tax rate id
+        in: path
+        name: taxRateTypeId
+        required: true
+        schema:
+          type: string
+      - description: The address to be searched.
+        in: query
+        name: address
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxRateResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TaxRateResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Get Taxrate By Address
+      tags:
+      - Local  Tax  Service
+      x-accepts: application/json
+    post:
+      description: This is a Batch offering for 'Taxrate By Address' service. It accepts a single address or a list of addresses and retrieve applicable tax rates.
+      operationId: getBatchTaxRateByAddress
+      parameters:
+      - in: path
+        name: taxRateTypeId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaxRateAddressRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/taxResponses'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/taxResponses'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Post Taxrate By Address
+      tags:
+      - Local  Tax  Service
+      x-contentType: application/json
+      x-accepts: application/json
+  /localtax/v1/tax/{taxRateTypeId}/bylocation:
+    get:
+      description: This service calculates and returns tax applicable at a specific location. Longitude, latitude, purchase amount and supported tax rate type are inputs to the service.
+      operationId: getSpecificTaxByLocation
+      parameters:
+      - description: The tax rate id
+        in: path
+        name: taxRateTypeId
+        required: true
+        schema:
+          type: string
+      - description: Latitude of the location
+        in: query
+        name: latitude
+        required: true
+        schema:
+          type: string
+      - description: Longitude of the location
+        in: query
+        name: longitude
+        required: true
+        schema:
+          type: string
+      - description: The amount on which tax to be calculated
+        in: query
+        name: purchaseAmount
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxRateResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TaxRateResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Get Tax By Location
+      tags:
+      - Local  Tax  Service
+      x-accepts: application/json
+    post:
+      description: This is a Batch offering for 'Tax By Location' service. It accepts a single location coordinate, purchase amount or a list of location coordinates, purchase amounts and retrieve applicable tax.
+      operationId: getBatchTaxByLocation
+      parameters:
+      - in: path
+        name: taxRateTypeId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaxLocationRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/taxResponses'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/taxResponses'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Post Tax By Location
+      tags:
+      - Local  Tax  Service
+      x-contentType: application/json
+      x-accepts: application/json
+  /localtax/v1/tax/{taxRateTypeId}/byaddress:
+    get:
+      description: This service calculates and returns taxes applicable at a specific address. Address, purchase amount and supported tax rate type are inputs to the service.
+      operationId: getSpecificTaxByAddress
+      parameters:
+      - description: The tax rate id
+        in: path
+        name: taxRateTypeId
+        required: true
+        schema:
+          type: string
+      - description: The address to be searched.
+        in: query
+        name: address
+        required: true
+        schema:
+          type: string
+      - description: The amount on which tax to be calculated
+        in: query
+        name: purchaseAmount
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaxRateResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/TaxRateResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Get Tax By Address
+      tags:
+      - Local  Tax  Service
+      x-accepts: application/json
+    post:
+      description: This is a Batch offering for 'Tax By Address' service. It accepts a single address, purchase amount or a list of addresses, purchase amounts and retrieve applicable taxes.
+      operationId: getBatchTaxByAddress
+      parameters:
+      - in: path
+        name: taxRateTypeId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaxAddressRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/taxResponses'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/taxResponses'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Post Tax By Address
+      tags:
+      - Local  Tax  Service
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    taxResponses:
+      example:
+        taxResponses:
+        - address:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            postCode1: postCode1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          gnisCode: gnisCode
+          confidence: 0.8008281904610115
+          jurisdiction:
+            county:
+              code: code
+              name: name
+            spds:
+            - updateDate: updateDate
+              districtCode: districtCode
+              districtName: districtName
+              compiledDate: compiledDate
+              versionDate: versionDate
+              districtNumber: districtNumber
+              effectiveDate: effectiveDate
+            - updateDate: updateDate
+              districtCode: districtCode
+              districtName: districtName
+              compiledDate: compiledDate
+              versionDate: versionDate
+              districtNumber: districtNumber
+              effectiveDate: effectiveDate
+            state:
+              code: code
+              name: name
+            place:
+              lastVerifiedDate: lastVerifiedDate
+              classCode: classCode
+              lastAnnexedDate: lastAnnexedDate
+              lastUpdatedDate: lastUpdatedDate
+              code: code
+              gnisCode: gnisCode
+              name: name
+              selfCollected: true
+              incorporatedFlag: incorporatedFlag
+          census:
+            cbsa:
+              code: code
+              name: name
+            matchCode: matchCode
+            tract: tract
+            matchLevel: matchLevel
+            mcd:
+              code: code
+              name: name
+          latLongFields:
+            matchCode: matchCode
+            matchLevel: matchLevel
+            geometry:
+              coordinates:
+              - coordinates
+              - coordinates
+              type: type
+            streetMatchCode: streetMatchCode
+            streetMatchLevel: streetMatchLevel
+          vendorName: vendorName
+          salesTax:
+            specialTaxRulesApplied: true
+            stateTaxRate: 5.962133916683182
+            municipalTaxRate: 9.301444243932576
+            totalTaxRate: 6.027456183070403
+            municipalTaxAmount: 3.616076749251911
+            countyTaxRate: 2.3021358869347655
+            totalTaxAmount: 1.4658129805029452
+            countyTaxAmount: 7.061401241503109
+            spdsTax:
+            - taxRate: 2.027123023002322
+              taxAmount: 4.145608029883936
+              districtNumber: districtNumber
+            - taxRate: 2.027123023002322
+              taxAmount: 4.145608029883936
+              districtNumber: districtNumber
+            specialTaxRulesDescriptor: specialTaxRulesDescriptor
+            stateTaxAmount: 5.637376656633329
+          objectId: objectId
+          useTax:
+            specialTaxRulesApplied: true
+            stateTaxRate: 1.0246457001441578
+            municipalTaxRate: 1.1730742509559433
+            totalTaxRate: 7.386281948385884
+            municipalTaxAmount: 4.965218492984954
+            countyTaxRate: 6.84685269835264
+            totalTaxAmount: 1.2315135367772556
+            countyTaxAmount: 7.457744773683766
+            spdsTax:
+            - taxRate: 2.027123023002322
+              taxAmount: 4.145608029883936
+              districtNumber: districtNumber
+            - taxRate: 2.027123023002322
+              taxAmount: 4.145608029883936
+              districtNumber: districtNumber
+            specialTaxRulesDescriptor: specialTaxRulesDescriptor
+            stateTaxAmount: 1.4894159098541704
+          matchedAddress:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            postCode1: postCode1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+        - address:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            postCode1: postCode1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          gnisCode: gnisCode
+          confidence: 0.8008281904610115
+          jurisdiction:
+            county:
+              code: code
+              name: name
+            spds:
+            - updateDate: updateDate
+              districtCode: districtCode
+              districtName: districtName
+              compiledDate: compiledDate
+              versionDate: versionDate
+              districtNumber: districtNumber
+              effectiveDate: effectiveDate
+            - updateDate: updateDate
+              districtCode: districtCode
+              districtName: districtName
+              compiledDate: compiledDate
+              versionDate: versionDate
+              districtNumber: districtNumber
+              effectiveDate: effectiveDate
+            state:
+              code: code
+              name: name
+            place:
+              lastVerifiedDate: lastVerifiedDate
+              classCode: classCode
+              lastAnnexedDate: lastAnnexedDate
+              lastUpdatedDate: lastUpdatedDate
+              code: code
+              gnisCode: gnisCode
+              name: name
+              selfCollected: true
+              incorporatedFlag: incorporatedFlag
+          census:
+            cbsa:
+              code: code
+              name: name
+            matchCode: matchCode
+            tract: tract
+            matchLevel: matchLevel
+            mcd:
+              code: code
+              name: name
+          latLongFields:
+            matchCode: matchCode
+            matchLevel: matchLevel
+            geometry:
+              coordinates:
+              - coordinates
+              - coordinates
+              type: type
+            streetMatchCode: streetMatchCode
+            streetMatchLevel: streetMatchLevel
+          vendorName: vendorName
+          salesTax:
+            specialTaxRulesApplied: true
+            stateTaxRate: 5.962133916683182
+            municipalTaxRate: 9.301444243932576
+            totalTaxRate: 6.027456183070403
+            municipalTaxAmount: 3.616076749251911
+            countyTaxRate: 2.3021358869347655
+            totalTaxAmount: 1.4658129805029452
+            countyTaxAmount: 7.061401241503109
+            spdsTax:
+            - taxRate: 2.027123023002322
+              taxAmount: 4.145608029883936
+              districtNumber: districtNumber
+            - taxRate: 2.027123023002322
+              taxAmount: 4.145608029883936
+              districtNumber: districtNumber
+            specialTaxRulesDescriptor: specialTaxRulesDescriptor
+            stateTaxAmount: 5.637376656633329
+          objectId: objectId
+          useTax:
+            specialTaxRulesApplied: true
+            stateTaxRate: 1.0246457001441578
+            municipalTaxRate: 1.1730742509559433
+            totalTaxRate: 7.386281948385884
+            municipalTaxAmount: 4.965218492984954
+            countyTaxRate: 6.84685269835264
+            totalTaxAmount: 1.2315135367772556
+            countyTaxAmount: 7.457744773683766
+            spdsTax:
+            - taxRate: 2.027123023002322
+              taxAmount: 4.145608029883936
+              districtNumber: districtNumber
+            - taxRate: 2.027123023002322
+              taxAmount: 4.145608029883936
+              districtNumber: districtNumber
+            specialTaxRulesDescriptor: specialTaxRulesDescriptor
+            stateTaxAmount: 1.4894159098541704
+          matchedAddress:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            postCode1: postCode1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+      properties:
+        taxResponses:
+          items:
+            $ref: '#/components/schemas/TaxRateResponse'
+          type: array
+      type: object
+      xml:
+        name: taxResponses
+    LocalTaxPreferences:
+      example:
+        squeeze: squeeze
+        customPreferences:
+          key: '{}'
+        defaultBufferWidth: defaultBufferWidth
+        taxRatetypeID: taxRatetypeID
+        latLongFormat: latLongFormat
+        outputCasing: outputCasing
+        useGeoTaxAuxiliaryFile: useGeoTaxAuxiliaryFile
+        returnLatLongFields: returnLatLongFields
+        distanceUnits: distanceUnits
+        fallbackToGeographic: fallbackToGeographic
+        latLongOffset: latLongOffset
+        matchMode: matchMode
+        returnCensusFields: returnCensusFields
+      properties:
+        customPreferences:
+          additionalProperties:
+            type: object
+          type: object
+        defaultBufferWidth:
+          type: string
+        distanceUnits:
+          type: string
+        fallbackToGeographic:
+          type: string
+        latLongFormat:
+          type: string
+        latLongOffset:
+          type: string
+        matchMode:
+          type: string
+        outputCasing:
+          type: string
+        returnCensusFields:
+          type: string
+        returnLatLongFields:
+          type: string
+        squeeze:
+          type: string
+        taxRatetypeID:
+          type: string
+        useGeoTaxAuxiliaryFile:
+          type: string
+      required:
+      - fallbackToGeographic
+      type: object
+    TaxState:
+      example:
+        code: code
+        name: name
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+      type: object
+    TaxLocations:
+      example:
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        objectId: objectId
+        purchaseAmount: purchaseAmount
+      properties:
+        geometry:
+          $ref: '#/components/schemas/TaxGeometry'
+        purchaseAmount:
+          type: string
+        objectId:
+          type: string
+      required:
+      - geometry
+      type: object
+    SalesTax:
+      example:
+        specialTaxRulesApplied: true
+        stateTaxRate: 5.962133916683182
+        municipalTaxRate: 9.301444243932576
+        totalTaxRate: 6.027456183070403
+        municipalTaxAmount: 3.616076749251911
+        countyTaxRate: 2.3021358869347655
+        totalTaxAmount: 1.4658129805029452
+        countyTaxAmount: 7.061401241503109
+        spdsTax:
+        - taxRate: 2.027123023002322
+          taxAmount: 4.145608029883936
+          districtNumber: districtNumber
+        - taxRate: 2.027123023002322
+          taxAmount: 4.145608029883936
+          districtNumber: districtNumber
+        specialTaxRulesDescriptor: specialTaxRulesDescriptor
+        stateTaxAmount: 5.637376656633329
+      properties:
+        specialTaxRulesApplied:
+          type: boolean
+        specialTaxRulesDescriptor:
+          type: string
+        totalTaxRate:
+          format: double
+          type: number
+        totalTaxAmount:
+          format: double
+          type: number
+        stateTaxRate:
+          format: double
+          type: number
+        stateTaxAmount:
+          format: double
+          type: number
+        countyTaxRate:
+          format: double
+          type: number
+        countyTaxAmount:
+          format: double
+          type: number
+        municipalTaxRate:
+          format: double
+          type: number
+        municipalTaxAmount:
+          format: double
+          type: number
+        spdsTax:
+          items:
+            $ref: '#/components/schemas/SpecialPurposeDistrictTax'
+          type: array
+          xml:
+            wrapped: true
+      type: object
+    SpecialPurposeDistrict:
+      example:
+        updateDate: updateDate
+        districtCode: districtCode
+        districtName: districtName
+        compiledDate: compiledDate
+        versionDate: versionDate
+        districtNumber: districtNumber
+        effectiveDate: effectiveDate
+      properties:
+        districtName:
+          type: string
+        districtCode:
+          type: string
+        districtNumber:
+          type: string
+          xml:
+            attribute: true
+        versionDate:
+          type: string
+        effectiveDate:
+          type: string
+        compiledDate:
+          type: string
+        updateDate:
+          type: string
+      type: object
+      xml:
+        name: spd
+    TaxPlace:
+      example:
+        lastVerifiedDate: lastVerifiedDate
+        classCode: classCode
+        lastAnnexedDate: lastAnnexedDate
+        lastUpdatedDate: lastUpdatedDate
+        code: code
+        gnisCode: gnisCode
+        name: name
+        selfCollected: true
+        incorporatedFlag: incorporatedFlag
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+        gnisCode:
+          type: string
+        selfCollected:
+          type: boolean
+        classCode:
+          type: string
+        incorporatedFlag:
+          type: string
+        lastAnnexedDate:
+          type: string
+        lastUpdatedDate:
+          type: string
+        lastVerifiedDate:
+          type: string
+      type: object
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
+    TaxRateLocationRequest:
+      example:
+        preferences:
+          squeeze: squeeze
+          customPreferences:
+            key: '{}'
+          defaultBufferWidth: defaultBufferWidth
+          taxRatetypeID: taxRatetypeID
+          latLongFormat: latLongFormat
+          outputCasing: outputCasing
+          useGeoTaxAuxiliaryFile: useGeoTaxAuxiliaryFile
+          returnLatLongFields: returnLatLongFields
+          distanceUnits: distanceUnits
+          fallbackToGeographic: fallbackToGeographic
+          latLongOffset: latLongOffset
+          matchMode: matchMode
+          returnCensusFields: returnCensusFields
+        locations:
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+      properties:
+        preferences:
+          $ref: '#/components/schemas/LocalTaxPreferences'
+        locations:
+          items:
+            $ref: '#/components/schemas/TaxLocations'
+          type: array
+      required:
+      - locations
+      type: object
+      xml:
+        name: taxRateLocationRequest
+    UseTax:
+      example:
+        specialTaxRulesApplied: true
+        stateTaxRate: 1.0246457001441578
+        municipalTaxRate: 1.1730742509559433
+        totalTaxRate: 7.386281948385884
+        municipalTaxAmount: 4.965218492984954
+        countyTaxRate: 6.84685269835264
+        totalTaxAmount: 1.2315135367772556
+        countyTaxAmount: 7.457744773683766
+        spdsTax:
+        - taxRate: 2.027123023002322
+          taxAmount: 4.145608029883936
+          districtNumber: districtNumber
+        - taxRate: 2.027123023002322
+          taxAmount: 4.145608029883936
+          districtNumber: districtNumber
+        specialTaxRulesDescriptor: specialTaxRulesDescriptor
+        stateTaxAmount: 1.4894159098541704
+      properties:
+        specialTaxRulesApplied:
+          type: boolean
+        specialTaxRulesDescriptor:
+          type: string
+        totalTaxRate:
+          format: double
+          type: number
+        totalTaxAmount:
+          format: double
+          type: number
+        stateTaxRate:
+          format: double
+          type: number
+        stateTaxAmount:
+          format: double
+          type: number
+        countyTaxRate:
+          format: double
+          type: number
+        countyTaxAmount:
+          format: double
+          type: number
+        municipalTaxRate:
+          format: double
+          type: number
+        municipalTaxAmount:
+          format: double
+          type: number
+        spdsTax:
+          items:
+            $ref: '#/components/schemas/SpecialPurposeDistrictTax'
+          type: array
+          xml:
+            wrapped: true
+      type: object
+    LocalTaxGeometry:
+      example:
+        coordinates:
+        - coordinates
+        - coordinates
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            type: string
+          type: array
+      required:
+      - type
+      type: object
+    Mcd:
+      example:
+        code: code
+        name: name
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+      type: object
+    LatLongFields:
+      example:
+        matchCode: matchCode
+        matchLevel: matchLevel
+        geometry:
+          coordinates:
+          - coordinates
+          - coordinates
+          type: type
+        streetMatchCode: streetMatchCode
+        streetMatchLevel: streetMatchLevel
+      properties:
+        matchCode:
+          type: string
+        matchLevel:
+          type: string
+        streetMatchCode:
+          type: string
+        streetMatchLevel:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/LocalTaxGeometry'
+      type: object
+    Cbsa:
+      example:
+        code: code
+        name: name
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+      type: object
+    TaxJurisdiction:
+      example:
+        county:
+          code: code
+          name: name
+        spds:
+        - updateDate: updateDate
+          districtCode: districtCode
+          districtName: districtName
+          compiledDate: compiledDate
+          versionDate: versionDate
+          districtNumber: districtNumber
+          effectiveDate: effectiveDate
+        - updateDate: updateDate
+          districtCode: districtCode
+          districtName: districtName
+          compiledDate: compiledDate
+          versionDate: versionDate
+          districtNumber: districtNumber
+          effectiveDate: effectiveDate
+        state:
+          code: code
+          name: name
+        place:
+          lastVerifiedDate: lastVerifiedDate
+          classCode: classCode
+          lastAnnexedDate: lastAnnexedDate
+          lastUpdatedDate: lastUpdatedDate
+          code: code
+          gnisCode: gnisCode
+          name: name
+          selfCollected: true
+          incorporatedFlag: incorporatedFlag
+      properties:
+        state:
+          $ref: '#/components/schemas/TaxState'
+        county:
+          $ref: '#/components/schemas/TaxCounty'
+        place:
+          $ref: '#/components/schemas/TaxPlace'
+        spds:
+          items:
+            $ref: '#/components/schemas/SpecialPurposeDistrict'
+          type: array
+          xml:
+            wrapped: true
+      type: object
+    TaxCounty:
+      example:
+        code: code
+        name: name
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+      type: object
+    TaxRateAddressRequest:
+      example:
+        taxRateAddresses:
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          userBufferWidth: userBufferWidth
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          bufferWidth: bufferWidth
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          postCode1: postCode1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          distanceUnits: distanceUnits
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          userBufferWidth: userBufferWidth
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          bufferWidth: bufferWidth
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          postCode1: postCode1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          distanceUnits: distanceUnits
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        preferences:
+          squeeze: squeeze
+          customPreferences:
+            key: '{}'
+          defaultBufferWidth: defaultBufferWidth
+          taxRatetypeID: taxRatetypeID
+          latLongFormat: latLongFormat
+          outputCasing: outputCasing
+          useGeoTaxAuxiliaryFile: useGeoTaxAuxiliaryFile
+          returnLatLongFields: returnLatLongFields
+          distanceUnits: distanceUnits
+          fallbackToGeographic: fallbackToGeographic
+          latLongOffset: latLongOffset
+          matchMode: matchMode
+          returnCensusFields: returnCensusFields
+      properties:
+        preferences:
+          $ref: '#/components/schemas/LocalTaxPreferences'
+        taxRateAddresses:
+          items:
+            $ref: '#/components/schemas/TaxRateAddress'
+          type: array
+      required:
+      - taxRateAddresses
+      type: object
+      xml:
+        name: taxRateAddressRequest
+    TaxAddress:
+      example:
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        userBufferWidth: userBufferWidth
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        bufferWidth: bufferWidth
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        purchaseAmount: purchaseAmount
+        areaName1: areaName1
+        postCode1: postCode1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        distanceUnits: distanceUnits
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
+      properties:
+        objectId:
+          type: string
+        displayName:
+          type: string
+        streetSide:
+          type: string
+        businessName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCode1:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+        distanceUnits:
+          type: string
+        bufferWidth:
+          type: string
+        userBufferWidth:
+          type: string
+        purchaseAmount:
+          type: string
+      type: object
+      xml:
+        name: TaxAddress
+    Census:
+      example:
+        cbsa:
+          code: code
+          name: name
+        matchCode: matchCode
+        tract: tract
+        matchLevel: matchLevel
+        mcd:
+          code: code
+          name: name
+      properties:
+        cbsa:
+          $ref: '#/components/schemas/Cbsa'
+        matchLevel:
+          type: string
+        matchCode:
+          type: string
+        tract:
+          type: string
+        mcd:
+          $ref: '#/components/schemas/Mcd'
+      type: object
+    TaxRateAddress:
+      example:
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        userBufferWidth: userBufferWidth
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        bufferWidth: bufferWidth
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        postCode1: postCode1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        distanceUnits: distanceUnits
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
+      properties:
+        objectId:
+          type: string
+        displayName:
+          type: string
+        streetSide:
+          type: string
+        businessName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCode1:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+        distanceUnits:
+          type: string
+        bufferWidth:
+          type: string
+        userBufferWidth:
+          type: string
+      type: object
+      xml:
+        name: TaxRateAddress
+    TaxAddressRequest:
+      example:
+        taxAddresses:
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          userBufferWidth: userBufferWidth
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          bufferWidth: bufferWidth
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          purchaseAmount: purchaseAmount
+          areaName1: areaName1
+          postCode1: postCode1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          distanceUnits: distanceUnits
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          userBufferWidth: userBufferWidth
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          bufferWidth: bufferWidth
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          purchaseAmount: purchaseAmount
+          areaName1: areaName1
+          postCode1: postCode1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          distanceUnits: distanceUnits
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        preferences:
+          squeeze: squeeze
+          customPreferences:
+            key: '{}'
+          defaultBufferWidth: defaultBufferWidth
+          taxRatetypeID: taxRatetypeID
+          latLongFormat: latLongFormat
+          outputCasing: outputCasing
+          useGeoTaxAuxiliaryFile: useGeoTaxAuxiliaryFile
+          returnLatLongFields: returnLatLongFields
+          distanceUnits: distanceUnits
+          fallbackToGeographic: fallbackToGeographic
+          latLongOffset: latLongOffset
+          matchMode: matchMode
+          returnCensusFields: returnCensusFields
+      properties:
+        preferences:
+          $ref: '#/components/schemas/LocalTaxPreferences'
+        taxAddresses:
+          items:
+            $ref: '#/components/schemas/TaxAddress'
+          type: array
+      required:
+      - taxAddresses
+      type: object
+      xml:
+        name: taxAddressRequest
+    TaxLocationRequest:
+      example:
+        preferences:
+          squeeze: squeeze
+          customPreferences:
+            key: '{}'
+          defaultBufferWidth: defaultBufferWidth
+          taxRatetypeID: taxRatetypeID
+          latLongFormat: latLongFormat
+          outputCasing: outputCasing
+          useGeoTaxAuxiliaryFile: useGeoTaxAuxiliaryFile
+          returnLatLongFields: returnLatLongFields
+          distanceUnits: distanceUnits
+          fallbackToGeographic: fallbackToGeographic
+          latLongOffset: latLongOffset
+          matchMode: matchMode
+          returnCensusFields: returnCensusFields
+        locations:
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+      properties:
+        preferences:
+          $ref: '#/components/schemas/LocalTaxPreferences'
+        locations:
+          items:
+            $ref: '#/components/schemas/TaxLocations'
+          type: array
+      required:
+      - locations
+      type: object
+      xml:
+        name: taxLocationRequest
+    TaxRateResponse:
+      example:
+        address:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          postCode1: postCode1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        gnisCode: gnisCode
+        confidence: 0.8008281904610115
+        jurisdiction:
+          county:
+            code: code
+            name: name
+          spds:
+          - updateDate: updateDate
+            districtCode: districtCode
+            districtName: districtName
+            compiledDate: compiledDate
+            versionDate: versionDate
+            districtNumber: districtNumber
+            effectiveDate: effectiveDate
+          - updateDate: updateDate
+            districtCode: districtCode
+            districtName: districtName
+            compiledDate: compiledDate
+            versionDate: versionDate
+            districtNumber: districtNumber
+            effectiveDate: effectiveDate
+          state:
+            code: code
+            name: name
+          place:
+            lastVerifiedDate: lastVerifiedDate
+            classCode: classCode
+            lastAnnexedDate: lastAnnexedDate
+            lastUpdatedDate: lastUpdatedDate
+            code: code
+            gnisCode: gnisCode
+            name: name
+            selfCollected: true
+            incorporatedFlag: incorporatedFlag
+        census:
+          cbsa:
+            code: code
+            name: name
+          matchCode: matchCode
+          tract: tract
+          matchLevel: matchLevel
+          mcd:
+            code: code
+            name: name
+        latLongFields:
+          matchCode: matchCode
+          matchLevel: matchLevel
+          geometry:
+            coordinates:
+            - coordinates
+            - coordinates
+            type: type
+          streetMatchCode: streetMatchCode
+          streetMatchLevel: streetMatchLevel
+        vendorName: vendorName
+        salesTax:
+          specialTaxRulesApplied: true
+          stateTaxRate: 5.962133916683182
+          municipalTaxRate: 9.301444243932576
+          totalTaxRate: 6.027456183070403
+          municipalTaxAmount: 3.616076749251911
+          countyTaxRate: 2.3021358869347655
+          totalTaxAmount: 1.4658129805029452
+          countyTaxAmount: 7.061401241503109
+          spdsTax:
+          - taxRate: 2.027123023002322
+            taxAmount: 4.145608029883936
+            districtNumber: districtNumber
+          - taxRate: 2.027123023002322
+            taxAmount: 4.145608029883936
+            districtNumber: districtNumber
+          specialTaxRulesDescriptor: specialTaxRulesDescriptor
+          stateTaxAmount: 5.637376656633329
+        objectId: objectId
+        useTax:
+          specialTaxRulesApplied: true
+          stateTaxRate: 1.0246457001441578
+          municipalTaxRate: 1.1730742509559433
+          totalTaxRate: 7.386281948385884
+          municipalTaxAmount: 4.965218492984954
+          countyTaxRate: 6.84685269835264
+          totalTaxAmount: 1.2315135367772556
+          countyTaxAmount: 7.457744773683766
+          spdsTax:
+          - taxRate: 2.027123023002322
+            taxAmount: 4.145608029883936
+            districtNumber: districtNumber
+          - taxRate: 2.027123023002322
+            taxAmount: 4.145608029883936
+            districtNumber: districtNumber
+          specialTaxRulesDescriptor: specialTaxRulesDescriptor
+          stateTaxAmount: 1.4894159098541704
+        matchedAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          postCode1: postCode1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+      properties:
+        objectId:
+          type: string
+        vendorName:
+          type: string
+        gnisCode:
+          type: string
+        confidence:
+          format: double
+          type: number
+        jurisdiction:
+          $ref: '#/components/schemas/TaxJurisdiction'
+        matchedAddress:
+          $ref: '#/components/schemas/TaxRateMatchedAddress'
+        salesTax:
+          $ref: '#/components/schemas/SalesTax'
+        useTax:
+          $ref: '#/components/schemas/UseTax'
+        census:
+          $ref: '#/components/schemas/Census'
+        latLongFields:
+          $ref: '#/components/schemas/LatLongFields'
+        address:
+          $ref: '#/components/schemas/TaxRateMatchedAddress'
+      type: object
+      xml:
+        name: taxResponse
+    TaxRateMatchedAddress:
+      example:
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        postCode1: postCode1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
+      properties:
+        objectId:
+          type: string
+        displayName:
+          type: string
+        streetSide:
+          type: string
+        businessName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCode1:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+      type: object
+      xml:
+        name: address
+    SpecialPurposeDistrictTax:
+      example:
+        taxRate: 2.027123023002322
+        taxAmount: 4.145608029883936
+        districtNumber: districtNumber
+      properties:
+        districtNumber:
+          type: string
+          xml:
+            attribute: true
+        taxRate:
+          format: double
+          type: number
+        taxAmount:
+          format: double
+          type: number
+      type: object
+      xml:
+        name: spdTax
+    TaxGeometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      required:
+      - type
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+  securitySchemes:
+    oAuth2Password:
+      flows:
+        implicit:
+          authorizationUrl: https://api.precisely.com/oauth/token
+          scopes:
+            bearer token: put your bearer token here.
+      type: oauth2
+externalDocs:
+  description: Online Documentation
+  url: https://docs.precisely.com/docs/sftw/precisely-apis/main/en-us/webhelp/apis/index.html

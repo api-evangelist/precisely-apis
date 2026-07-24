@@ -1,0 +1,200 @@
+openapi: 3.0.1
+info:
+  contact:
+    name: Precisely APIs Support
+    url: https://support.precisely.com
+  description: '
+
+    Demographics. Audience Enrichment. Add local demographics and lifestyle
+
+    segmentation to your audience profiles. The Demographics API returns
+
+    household demographics and lifestyle characteristics with the input of an
+
+    address, location coordinate, or geographic boundary. This service covers
+
+    select countries.'
+  license:
+    name: Apache 2.0
+    url: http://springdoc.org
+  termsOfService: http://swagger.io/terms/
+  title: Precisely APIs Categories API
+  version: 18.1.0
+servers:
+- url: https://api.precisely.com
+security:
+- oAuth2Password:
+  - ''
+tags:
+- name: Categories
+paths:
+  /places/v1/metadata/category:
+    get:
+      description: This service returns a list of Category codes & associated metadata which can then be used as inputs for querying the Points of Interest By Address or Location methods listed above.
+      operationId: getCategoryCodeMetadata
+      parameters:
+      - description: 4, 6, or 11 digits category code to filter the response.
+        in: query
+        name: categoryCode
+        required: false
+        schema:
+          type: string
+      - description: 1, 2, or 3.
+        in: query
+        name: level
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetadataResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/MetadataResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            text/csv:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Category Code Metadata.
+      tags:
+      - Categories
+      x-accepts: application/json
+components:
+  schemas:
+    CategoryMetadata:
+      example:
+        tradeGroup: tradeGroup
+        code: code
+        subClass: subClass
+        tradeDivision: tradeDivision
+        description: description
+        sic: sic
+        class: class
+      properties:
+        code:
+          type: string
+        sic:
+          type: string
+        tradeDivision:
+          type: string
+        tradeGroup:
+          type: string
+        class:
+          type: string
+        subClass:
+          type: string
+        description:
+          type: string
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    SicMetadata:
+      example:
+        tradeGroup: tradeGroup
+        code: code
+        subClass: subClass
+        tradeDivision: tradeDivision
+        description: description
+        categoryCode: categoryCode
+        class: class
+      properties:
+        code:
+          type: string
+        categoryCode:
+          type: string
+        tradeDivision:
+          type: string
+        tradeGroup:
+          type: string
+        class:
+          type: string
+        subClass:
+          type: string
+        description:
+          type: string
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    MetadataResponse:
+      example:
+        sic:
+        - tradeGroup: tradeGroup
+          code: code
+          subClass: subClass
+          tradeDivision: tradeDivision
+          description: description
+          categoryCode: categoryCode
+          class: class
+        - tradeGroup: tradeGroup
+          code: code
+          subClass: subClass
+          tradeDivision: tradeDivision
+          description: description
+          categoryCode: categoryCode
+          class: class
+        category:
+        - tradeGroup: tradeGroup
+          code: code
+          subClass: subClass
+          tradeDivision: tradeDivision
+          description: description
+          sic: sic
+          class: class
+        - tradeGroup: tradeGroup
+          code: code
+          subClass: subClass
+          tradeDivision: tradeDivision
+          description: description
+          sic: sic
+          class: class
+      properties:
+        sic:
+          items:
+            $ref: '#/components/schemas/SicMetadata'
+          type: array
+        category:
+          items:
+            $ref: '#/components/schemas/CategoryMetadata'
+          type: array
+      type: object
+  securitySchemes:
+    oAuth2Password:
+      flows:
+        implicit:
+          authorizationUrl: https://api.precisely.com/oauth/token
+          scopes:
+            bearer token: put your bearer token here.
+      type: oauth2
+externalDocs:
+  description: Online Documentation
+  url: https://docs.precisely.com/docs/sftw/precisely-apis/main/en-us/webhelp/apis/index.html

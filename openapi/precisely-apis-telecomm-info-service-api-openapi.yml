@@ -1,0 +1,433 @@
+openapi: 3.0.1
+info:
+  contact:
+    name: Precisely APIs Support
+    url: https://support.precisely.com
+  description: '
+
+    Demographics. Audience Enrichment. Add local demographics and lifestyle
+
+    segmentation to your audience profiles. The Demographics API returns
+
+    household demographics and lifestyle characteristics with the input of an
+
+    address, location coordinate, or geographic boundary. This service covers
+
+    select countries.'
+  license:
+    name: Apache 2.0
+    url: http://springdoc.org
+  termsOfService: http://swagger.io/terms/
+  title: Precisely APIs Telecomm  Info  Service API
+  version: 18.1.0
+servers:
+- url: https://api.precisely.com
+security:
+- oAuth2Password:
+  - ''
+tags:
+- name: Telecomm  Info  Service
+paths:
+  /telecomm/v1/ratecenter/bylocation:
+    get:
+      description: Accepts latitude & longitude as input and returns Incumbent Local Exchange Carrier (ILEC) doing-business-as names.
+      operationId: getRateCenterByLocation
+      parameters:
+      - description: Longitude of the location
+        in: query
+        name: longitude
+        required: false
+        schema:
+          type: string
+      - description: Latitude of the location
+        in: query
+        name: latitude
+        required: false
+        schema:
+          type: string
+      - description: Specifies whether area code information will be part of response.Allowed values True,False.
+        in: query
+        name: areaCodeInfo
+        required: false
+        schema:
+          type: string
+      - description: Level (basic/detail).Allowed values detail,basic.
+        in: query
+        name: level
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateCenterResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Rate Center By Location.
+      tags:
+      - Telecomm  Info  Service
+      x-accepts: application/json
+  /telecomm/v1/ratecenter/byaddress:
+    get:
+      description: Accepts addresses as input and returns Incumbent Local Exchange Carrier (ILEC) doing-business-as names.
+      operationId: getRateCenterByAddress
+      parameters:
+      - description: The address to be searched
+        in: query
+        name: address
+        required: false
+        schema:
+          type: string
+      - description: 3 letter ISO code of the country to be searched. Allowed values USA,CAN
+        in: query
+        name: country
+        required: false
+        schema:
+          type: string
+      - description: Specifies whether area code information will be part of response.Allowed values True,False.
+        in: query
+        name: areaCodeInfo
+        required: false
+        schema:
+          type: string
+      - description: Level (basic/detail).Allowed values detail,basic.
+        in: query
+        name: level
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RateCenterResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Rate Center By Address.
+      tags:
+      - Telecomm  Info  Service
+      x-accepts: application/json
+components:
+  schemas:
+    match:
+      example:
+        matchCode: matchCode
+        confidence: confidence
+        percentGeocode: percentGeocode
+        locationCode: locationCode
+        precisionLevel: precisionLevel
+      properties:
+        confidence:
+          type: string
+        percentGeocode:
+          type: string
+        precisionLevel:
+          type: string
+        locationCode:
+          type: string
+        matchCode:
+          type: string
+      type: object
+    address_1:
+      example:
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
+      properties:
+        objectId:
+          type: string
+        displayName:
+          type: string
+        streetSide:
+          type: string
+        businessName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+      type: object
+    Geometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    RateCenterResponse:
+      example:
+        areaName1: areaName1
+        name: name
+        match:
+          matchCode: matchCode
+          confidence: confidence
+          percentGeocode: percentGeocode
+          locationCode: locationCode
+          precisionLevel: precisionLevel
+        county:
+          name: name
+          fips: fips
+        count: 0
+        alternateName: alternateName
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        id: id
+        areaCodeInfoList:
+        - startRange: startRange
+          lata: lata
+          areaName4: areaName4
+          companyName: companyName
+          endRange: endRange
+          ocn: ocn
+          ocnCategory: ocnCategory
+          npa: npa
+          nxx: nxx
+        - startRange: startRange
+          lata: lata
+          areaName4: areaName4
+          companyName: companyName
+          endRange: endRange
+          ocn: ocn
+          ocnCategory: ocnCategory
+          npa: npa
+          nxx: nxx
+        product_code: product_code
+        matchedAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        alternateName:
+          type: string
+        areaName1:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+        areaCodeInfoList:
+          items:
+            $ref: '#/components/schemas/areaCodeInfo'
+          type: array
+        matchedAddress:
+          $ref: '#/components/schemas/address_1'
+        match:
+          $ref: '#/components/schemas/match'
+        county:
+          $ref: '#/components/schemas/county'
+        count:
+          format: int32
+          type: integer
+        product_code:
+          type: string
+      type: object
+    county:
+      example:
+        name: name
+        fips: fips
+      properties:
+        name:
+          type: string
+        fips:
+          type: string
+      type: object
+    areaCodeInfo:
+      example:
+        startRange: startRange
+        lata: lata
+        areaName4: areaName4
+        companyName: companyName
+        endRange: endRange
+        ocn: ocn
+        ocnCategory: ocnCategory
+        npa: npa
+        nxx: nxx
+      properties:
+        companyName:
+          type: string
+        ocn:
+          type: string
+        ocnCategory:
+          type: string
+        npa:
+          type: string
+        nxx:
+          type: string
+        startRange:
+          type: string
+        endRange:
+          type: string
+        lata:
+          type: string
+        areaName4:
+          type: string
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+  securitySchemes:
+    oAuth2Password:
+      flows:
+        implicit:
+          authorizationUrl: https://api.precisely.com/oauth/token
+          scopes:
+            bearer token: put your bearer token here.
+      type: oauth2
+externalDocs:
+  description: Online Documentation
+  url: https://docs.precisely.com/docs/sftw/precisely-apis/main/en-us/webhelp/apis/index.html

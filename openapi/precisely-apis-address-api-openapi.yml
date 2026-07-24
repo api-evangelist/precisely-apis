@@ -1,0 +1,416 @@
+openapi: 3.0.1
+info:
+  contact:
+    name: Precisely APIs Support
+    url: https://support.precisely.com
+  description: '
+
+    Demographics. Audience Enrichment. Add local demographics and lifestyle
+
+    segmentation to your audience profiles. The Demographics API returns
+
+    household demographics and lifestyle characteristics with the input of an
+
+    address, location coordinate, or geographic boundary. This service covers
+
+    select countries.'
+  license:
+    name: Apache 2.0
+    url: http://springdoc.org
+  termsOfService: http://swagger.io/terms/
+  title: Precisely APIs Address API
+  version: 18.1.0
+servers:
+- url: https://api.precisely.com
+security:
+- oAuth2Password:
+  - ''
+tags:
+- name: Address
+paths:
+  /addresses/v1/address/byboundary:
+    post:
+      description: This service accepts custom geographic boundaries or drive time & drive distance, returns all known & valid addresses within these boundaries.
+      operationId: getAddressesbyBoundary
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddressesByBoundaryRequest'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/AddressesByBoundaryRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddressesResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AddressesResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/AddressesResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+            text/csv:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Addresses by Boundary.
+      tags:
+      - Address
+      x-contentType: application/json
+      x-accepts: application/json
+  /addresses/v1/address/byboundaryname:
+    get:
+      description: This service accepts zip code, neighborhood, county, or city names, and returns all known & valid addresses associated with these names.
+      operationId: getAddressesbyBoundaryName
+      parameters:
+      - description: Specifies the largest geographical area, typically a state or province.
+        in: query
+        name: areaName1
+        required: false
+        schema:
+          type: string
+      - description: Specifies the secondary geographic area, typically a county or district.
+        in: query
+        name: areaName2
+        required: false
+        schema:
+          type: string
+      - description: Specifies a city or town name.
+        in: query
+        name: areaName3
+        required: false
+        schema:
+          type: string
+      - description: Specifies a city subdivision or locality/neighborhood.
+        in: query
+        name: areaName4
+        required: false
+        schema:
+          type: string
+      - description: Specifies the postcode (ZIP code) in the appropriate format for the country.
+        in: query
+        name: postCode
+        required: false
+        schema:
+          type: string
+      - description: Name of country. Acceptable values are CAN, USA.
+        in: query
+        name: country
+        required: true
+        schema:
+          type: string
+      - description: Maximum number of addresses to be returned in response. Max. value is 100 for XML/JSON, and 2000 for CSV.
+        in: query
+        name: maxCandidates
+        required: false
+        schema:
+          type: string
+      - description: Response will indicate the page number.
+        in: query
+        name: page
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddressesResponse'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AddressesResponse'
+            text/csv:
+              schema:
+                $ref: '#/components/schemas/AddressesResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+            text/csv:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Addresses by Boundary Name.
+      tags:
+      - Address
+      x-accepts: application/json
+components:
+  schemas:
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    AddressType:
+      example:
+        description: description
+        value: value
+      properties:
+        value:
+          type: string
+        description:
+          type: string
+      type: object
+    AddressesPreferences:
+      example:
+        maxCandidates: maxCandidates
+        page: page
+      properties:
+        maxCandidates:
+          type: string
+        page:
+          type: string
+      type: object
+    Geometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    AddressesResponse:
+      example:
+        candidates: candidates
+        addressList:
+        - country: country
+          parentPbKey: parentPbKey
+          type:
+            description: description
+            value: value
+          unitType: unitType
+          areaName1: areaName1
+          streetName: streetName
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          propertyType: propertyType
+          geoId: geoId
+          addressNumber: addressNumber
+          propertyTypeDescription: propertyTypeDescription
+          pbKey: pbKey
+          postCode: postCode
+          geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          postCodeExt: postCodeExt
+          unitValue: unitValue
+        - country: country
+          parentPbKey: parentPbKey
+          type:
+            description: description
+            value: value
+          unitType: unitType
+          areaName1: areaName1
+          streetName: streetName
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          propertyType: propertyType
+          geoId: geoId
+          addressNumber: addressNumber
+          propertyTypeDescription: propertyTypeDescription
+          pbKey: pbKey
+          postCode: postCode
+          geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          postCodeExt: postCodeExt
+          unitValue: unitValue
+        page: page
+      properties:
+        page:
+          type: string
+          xml:
+            attribute: true
+        candidates:
+          type: string
+          xml:
+            attribute: true
+        addressList:
+          items:
+            $ref: '#/components/schemas/AddressesDTO'
+          type: array
+          xml:
+            name: address
+      type: object
+      xml:
+        name: addresses
+    AddressesDTO:
+      example:
+        country: country
+        parentPbKey: parentPbKey
+        type:
+          description: description
+          value: value
+        unitType: unitType
+        areaName1: areaName1
+        streetName: streetName
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        propertyType: propertyType
+        geoId: geoId
+        addressNumber: addressNumber
+        propertyTypeDescription: propertyTypeDescription
+        pbKey: pbKey
+        postCode: postCode
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        postCodeExt: postCodeExt
+        unitValue: unitValue
+      properties:
+        pbKey:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+        type:
+          $ref: '#/components/schemas/AddressType'
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+        propertyType:
+          type: string
+        propertyTypeDescription:
+          type: string
+        parentPbKey:
+          type: string
+        geoId:
+          type: string
+      type: object
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
+    AddressesByBoundaryRequest:
+      example:
+        travelDistanceUnit: travelDistanceUnit
+        preferences:
+          maxCandidates: maxCandidates
+          page: page
+        travelTime: travelTime
+        latitude: 6.027456183070403
+        travelTimeUnit: travelTimeUnit
+        travelDistance: travelDistance
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        geometryAsText: geometryAsText
+        longitude: 1.4658129805029452
+        travelMode: travelMode
+      properties:
+        preferences:
+          $ref: '#/components/schemas/AddressesPreferences'
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+        geometryAsText:
+          type: string
+        latitude:
+          format: double
+          type: number
+        longitude:
+          format: double
+          type: number
+        travelTime:
+          type: string
+        travelTimeUnit:
+          type: string
+        travelDistance:
+          type: string
+        travelDistanceUnit:
+          type: string
+        travelMode:
+          type: string
+      type: object
+      xml:
+        name: addressesByBoundaryRequest
+  securitySchemes:
+    oAuth2Password:
+      flows:
+        implicit:
+          authorizationUrl: https://api.precisely.com/oauth/token
+          scopes:
+            bearer token: put your bearer token here.
+      type: oauth2
+externalDocs:
+  description: Online Documentation
+  url: https://docs.precisely.com/docs/sftw/precisely-apis/main/en-us/webhelp/apis/index.html

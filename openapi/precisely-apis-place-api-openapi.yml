@@ -1,0 +1,184 @@
+openapi: 3.0.1
+info:
+  contact:
+    name: Precisely APIs Support
+    url: https://support.precisely.com
+  description: '
+
+    Demographics. Audience Enrichment. Add local demographics and lifestyle
+
+    segmentation to your audience profiles. The Demographics API returns
+
+    household demographics and lifestyle characteristics with the input of an
+
+    address, location coordinate, or geographic boundary. This service covers
+
+    select countries.'
+  license:
+    name: Apache 2.0
+    url: http://springdoc.org
+  termsOfService: http://swagger.io/terms/
+  title: Precisely APIs Place API
+  version: 18.1.0
+servers:
+- url: https://api.precisely.com
+security:
+- oAuth2Password:
+  - ''
+tags:
+- name: Place
+paths:
+  /neighborhoods/v1/place/bylocation:
+    get:
+      description: Identifies and retrieves the nearest neighborhood around a specific location. This service accepts latitude & longitude as input and returns a place name.
+      operationId: getPlaceByLocation
+      parameters:
+      - description: Longitude of the location.
+        in: query
+        name: longitude
+        required: false
+        schema:
+          type: string
+      - description: Latitude of the location.
+        in: query
+        name: latitude
+        required: false
+        schema:
+          type: string
+      - description: Numeric code of geographic hierarchy level which is classified at six levels.Allowed values 1,2,3,4,5,6
+        in: query
+        name: levelHint
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NeighborhoodsResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Place By Location.
+      tags:
+      - Place
+      x-accepts: application/json
+components:
+  schemas:
+    place:
+      example:
+        level: level
+        name:
+        - langISOCode: langISOCode
+          langType: langType
+          value: value
+        - langISOCode: langISOCode
+          langType: langType
+          value: value
+        levelName: levelName
+      properties:
+        name:
+          items:
+            $ref: '#/components/schemas/name'
+          type: array
+        levelName:
+          type: string
+        level:
+          type: string
+      type: object
+    name:
+      example:
+        langISOCode: langISOCode
+        langType: langType
+        value: value
+      properties:
+        langISOCode:
+          type: string
+        langType:
+          type: string
+        value:
+          type: string
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    NeighborhoodsResponse:
+      example:
+        location:
+        - place:
+            level: level
+            name:
+            - langISOCode: langISOCode
+              langType: langType
+              value: value
+            - langISOCode: langISOCode
+              langType: langType
+              value: value
+            levelName: levelName
+        - place:
+            level: level
+            name:
+            - langISOCode: langISOCode
+              langType: langType
+              value: value
+            - langISOCode: langISOCode
+              langType: langType
+              value: value
+            levelName: levelName
+      properties:
+        location:
+          items:
+            $ref: '#/components/schemas/location'
+          type: array
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    location:
+      example:
+        place:
+          level: level
+          name:
+          - langISOCode: langISOCode
+            langType: langType
+            value: value
+          - langISOCode: langISOCode
+            langType: langType
+            value: value
+          levelName: levelName
+      properties:
+        place:
+          $ref: '#/components/schemas/place'
+      type: object
+  securitySchemes:
+    oAuth2Password:
+      flows:
+        implicit:
+          authorizationUrl: https://api.precisely.com/oauth/token
+          scopes:
+            bearer token: put your bearer token here.
+      type: oauth2
+externalDocs:
+  description: Online Documentation
+  url: https://docs.precisely.com/docs/sftw/precisely-apis/main/en-us/webhelp/apis/index.html

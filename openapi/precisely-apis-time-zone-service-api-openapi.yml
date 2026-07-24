@@ -1,0 +1,579 @@
+openapi: 3.0.1
+info:
+  contact:
+    name: Precisely APIs Support
+    url: https://support.precisely.com
+  description: '
+
+    Demographics. Audience Enrichment. Add local demographics and lifestyle
+
+    segmentation to your audience profiles. The Demographics API returns
+
+    household demographics and lifestyle characteristics with the input of an
+
+    address, location coordinate, or geographic boundary. This service covers
+
+    select countries.'
+  license:
+    name: Apache 2.0
+    url: http://springdoc.org
+  termsOfService: http://swagger.io/terms/
+  title: Precisely APIs Time  Zone  Service API
+  version: 18.1.0
+servers:
+- url: https://api.precisely.com
+security:
+- oAuth2Password:
+  - ''
+tags:
+- name: Time  Zone  Service
+paths:
+  /timezone/v1/timezone/bylocation:
+    get:
+      description: Identifies and retrieves the local time of any location in the world for a given latitude, longitude and time. The input and retrieved time format is in milliseconds.
+      operationId: getTimezoneByLocation
+      parameters:
+      - description: Timestamp in miliseconds.
+        in: query
+        name: timestamp
+        required: true
+        schema:
+          type: string
+      - description: Longitude of the location.
+        in: query
+        name: longitude
+        required: true
+        schema:
+          type: string
+      - description: Latitude of the location.
+        in: query
+        name: latitude
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimezoneResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Timezone By Location.
+      tags:
+      - Time  Zone  Service
+      x-accepts: application/json
+    post:
+      description: Identifies and retrieves the local time of any location in the world for a given latitude, longitude and time. The input and retrieved time format is in milliseconds.
+      operationId: getBatchTimezoneByLocation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/timezoneLocationRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimezoneResponseList'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Timezone Batch by Location.
+      tags:
+      - Time  Zone  Service
+      x-contentType: application/json
+      x-accepts: application/json
+  /timezone/v1/timezone/byaddress:
+    get:
+      description: Identifies and retrieves the local time of any location in the world for a given address and time. The input and retrieved time format is in milliseconds.
+      operationId: getTimezoneByAddress
+      parameters:
+      - description: Timestamp in miliseconds.
+        in: query
+        name: timestamp
+        required: true
+        schema:
+          type: string
+      - description: The address to be searched.
+        in: query
+        name: address
+        required: true
+        schema:
+          type: string
+      - description: Match modes determine the leniency used to make a match between the input address and the reference data (Default is relaxed)
+        example: Relaxed
+        in: query
+        name: matchMode
+        required: false
+        schema:
+          type: string
+      - description: Country ISO code (Default is USA)
+        example: USA
+        in: query
+        name: country
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimezoneResponse'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Timezone By Address.
+      tags:
+      - Time  Zone  Service
+      x-accepts: application/json
+    post:
+      description: Identifies and retrieves the local time of any location in the world for a given address and time. The input and retrieved time format is in milliseconds.
+      operationId: getTimezoneByAddressBatch
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/timezoneAddressRequest'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimezoneResponseList'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorInfo_1'
+          description: Bad Request
+        '500':
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Internal Server Error
+      security:
+      - oAuth2Password: []
+      summary: Timezone Batch by Address.
+      tags:
+      - Time  Zone  Service
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    TimezoneGeometry:
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      required:
+      - type
+      type: object
+    TimezoneResponse:
+      example:
+        tzValidFrom: tzValidFrom
+        country: country
+        dstEndTime: dstEndTime
+        dstEndDateFormat: dstEndDateFormat
+        utcOffset: 0
+        dstStartDate: dstStartDate
+        dstStartTime: dstStartTime
+        zoneType: zoneType
+        dstOffset: 6
+        dstValidFrom: dstValidFrom
+        tzValidUntill: tzValidUntill
+        matchedAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        dstRule: dstRule
+        timezoneName: timezoneName
+        dstStartDateFormat: dstStartDateFormat
+        dstValidUntill: dstValidUntill
+        objectId: objectId
+        timestamp: 1
+        dstEndDate: dstEndDate
+      properties:
+        objectId:
+          type: string
+        timezoneName:
+          type: string
+        zoneType:
+          type: string
+        utcOffset:
+          format: int64
+          type: integer
+        dstOffset:
+          format: int64
+          type: integer
+        timestamp:
+          format: int64
+          type: integer
+        matchedAddress:
+          $ref: '#/components/schemas/address_1'
+        country:
+          type: string
+        tzValidFrom:
+          type: string
+        tzValidUntill:
+          type: string
+        dstRule:
+          type: string
+        dstValidFrom:
+          type: string
+        dstValidUntill:
+          type: string
+        dstStartDateFormat:
+          type: string
+        dstEndDateFormat:
+          type: string
+        dstStartDate:
+          type: string
+        dstStartTime:
+          type: string
+        dstEndTime:
+          type: string
+        dstEndDate:
+          type: string
+      type: object
+    address_1:
+      example:
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
+      properties:
+        objectId:
+          type: string
+        displayName:
+          type: string
+        streetSide:
+          type: string
+        businessName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+      type: object
+    timezoneAddressRequest:
+      properties:
+        preferences:
+          $ref: '#/components/schemas/PreferencTimeZone'
+        addressTime:
+          items:
+            $ref: '#/components/schemas/addressTime'
+          type: array
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    addressTime:
+      properties:
+        timestamp:
+          type: string
+        address:
+          $ref: '#/components/schemas/address_1'
+      type: object
+    locationTime:
+      properties:
+        geometry:
+          $ref: '#/components/schemas/TimezoneGeometry'
+        purchaseAmount:
+          type: string
+        objectId:
+          type: string
+        timestamp:
+          type: string
+      required:
+      - geometry
+      type: object
+    TimezoneResponseList:
+      example:
+        timezone:
+        - tzValidFrom: tzValidFrom
+          country: country
+          dstEndTime: dstEndTime
+          dstEndDateFormat: dstEndDateFormat
+          utcOffset: 0
+          dstStartDate: dstStartDate
+          dstStartTime: dstStartTime
+          zoneType: zoneType
+          dstOffset: 6
+          dstValidFrom: dstValidFrom
+          tzValidUntill: tzValidUntill
+          matchedAddress:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          dstRule: dstRule
+          timezoneName: timezoneName
+          dstStartDateFormat: dstStartDateFormat
+          dstValidUntill: dstValidUntill
+          objectId: objectId
+          timestamp: 1
+          dstEndDate: dstEndDate
+        - tzValidFrom: tzValidFrom
+          country: country
+          dstEndTime: dstEndTime
+          dstEndDateFormat: dstEndDateFormat
+          utcOffset: 0
+          dstStartDate: dstStartDate
+          dstStartTime: dstStartTime
+          zoneType: zoneType
+          dstOffset: 6
+          dstValidFrom: dstValidFrom
+          tzValidUntill: tzValidUntill
+          matchedAddress:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          dstRule: dstRule
+          timezoneName: timezoneName
+          dstStartDateFormat: dstStartDateFormat
+          dstValidUntill: dstValidUntill
+          objectId: objectId
+          timestamp: 1
+          dstEndDate: dstEndDate
+      properties:
+        timezone:
+          items:
+            $ref: '#/components/schemas/TimezoneResponse'
+          type: array
+      type: object
+    timezoneLocationRequest:
+      properties:
+        locationTime:
+          items:
+            $ref: '#/components/schemas/locationTime'
+          type: array
+      type: object
+    PreferencTimeZone:
+      properties:
+        matchMode:
+          type: string
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+  securitySchemes:
+    oAuth2Password:
+      flows:
+        implicit:
+          authorizationUrl: https://api.precisely.com/oauth/token
+          scopes:
+            bearer token: put your bearer token here.
+      type: oauth2
+externalDocs:
+  description: Online Documentation
+  url: https://docs.precisely.com/docs/sftw/precisely-apis/main/en-us/webhelp/apis/index.html
