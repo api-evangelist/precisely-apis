@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Byprecisely API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Byprecisely",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Parcel Boundary By PreciselyID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/property/v2/parcelboundary/bypreciselyID",
+            "params": [
+              {
+                "name": "preciselyID",
+                "value": "",
+                "type": "query",
+                "description": "precisely ID"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts PB key as input and returns property attributes for the matched address."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

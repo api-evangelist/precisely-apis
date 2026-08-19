@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Getpostalcodes API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Getpostalcodes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GetPostalCodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/addressverification/v1/getpostalcodes/results.json",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "GetPostalCodes takes a city and state as input for U.S. addresses and returns the postal codes for that city."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

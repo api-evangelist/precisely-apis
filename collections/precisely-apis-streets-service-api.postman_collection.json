@@ -1,0 +1,747 @@
+{
+  "item": [
+    {
+      "id": "c3b511ac-0e6a-4645-bdda-4092ff1cf098",
+      "name": "Streets  Service",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "12b9aa6e-dd44-4613-b539-11295bc13fd1",
+          "name": "Nearest Intesection By Location.",
+          "request": {
+            "name": "Nearest Intesection By Location.",
+            "description": {
+              "content": "This service accepts latitude/longitude as input and returns the Nearest Intersection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "streets",
+                "v1",
+                "intersection",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "longitude",
+                  "value": "<string>",
+                  "description": "Longitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "latitude",
+                  "value": "<string>",
+                  "description": "Latitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "roadClass",
+                  "value": "<string>",
+                  "description": "Filters roads with specified class, allowed values are (Major, Secondary, Other and All), default is All"
+                },
+                {
+                  "disabled": false,
+                  "key": "driveTime",
+                  "value": "<string>",
+                  "description": "Returns Intersection in specified drive time"
+                },
+                {
+                  "disabled": false,
+                  "key": "driveTimeUnit",
+                  "value": "<string>",
+                  "description": "Drive time unit, allowed values are (hours, minutes, seconds and milliseconds), default is minutes"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchRadius",
+                  "value": "<string>",
+                  "description": "Search radius within which user wants to search, default is 50 miles"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchRadiusUnit",
+                  "value": "<string>",
+                  "description": "Search radius unit, allowed values are (feet, meter, kilometers and miles)"
+                },
+                {
+                  "disabled": false,
+                  "key": "historicSpeed",
+                  "value": "<string>",
+                  "description": "Traffic flow in peak time, allowed values are (AMPEAK,PMPEAK,OFFPEAK,NIGHT)"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxCandidates",
+                  "value": "<string>",
+                  "description": "max candidates to be returned default is 1"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a3393b7d-d7fa-4d7d-9d0a-310949ab02c4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streets",
+                    "v1",
+                    "intersection",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "roadClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "driveTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "driveTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadius",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadiusUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historicSpeed",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"intersection\": [\n    {\n      \"distance\": {\n        \"unit\": \"unit\",\n        \"value\": 0.8008281904610115\n      },\n      \"driveTime\": {\n        \"unit\": \"unit\",\n        \"value\": 0.8008281904610115\n      },\n      \"driveDistance\": {\n        \"unit\": \"unit\",\n        \"value\": 0.8008281904610115\n      },\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"roads\": [\n        {\n          \"endingLevel\": \"endingLevel\",\n          \"routeNumber\": \"routeNumber\",\n          \"trafficFlow\": \"trafficFlow\",\n          \"surfaceType\": \"surfaceType\",\n          \"roadClass\": \"roadClass\",\n          \"beginningLevel\": \"beginningLevel\",\n          \"name\": \"name\",\n          \"lengthInMeters\": \"lengthInMeters\",\n          \"altName\": \"altName\",\n          \"type\": \"type\",\n          \"isToll\": \"isToll\"\n        }\n      ]\n    },\n    {\n      \"distance\": {\n        \"unit\": \"unit\",\n        \"value\": 0.8008281904610115\n      },\n      \"driveTime\": {\n        \"unit\": \"unit\",\n        \"value\": 0.8008281904610115\n      },\n      \"driveDistance\": {\n        \"unit\": \"unit\",\n        \"value\": 0.8008281904610115\n      },\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"roads\": [\n        {\n          \"endingLevel\": \"endingLevel\",\n          \"routeNumber\": \"routeNumber\",\n          \"trafficFlow\": \"trafficFlow\",\n          \"surfaceType\": \"surfaceType\",\n          \"roadClass\": \"roadClass\",\n          \"beginningLevel\": \"beginningLevel\",\n          \"name\": \"name\",\n          \"lengthInMeters\": \"lengthInMeters\",\n          \"altName\": \"altName\",\n          \"type\": \"type\",\n          \"isToll\": \"isToll\"\n        }\n      ]\n    }\n  ],\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9f2b7388-5fac-4701-94fe-6a76a18c4b3e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streets",
+                    "v1",
+                    "intersection",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "roadClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "driveTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "driveTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadius",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadiusUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historicSpeed",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "32e23c30-48b4-4158-a145-cd37a68d50e0",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streets",
+                    "v1",
+                    "intersection",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "roadClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "driveTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "driveTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadius",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadiusUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historicSpeed",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94e7b369-dd09-45d2-8f3c-20c6bdeefe00",
+          "name": "Nearest Intesection By Address.",
+          "request": {
+            "name": "Nearest Intesection By Address.",
+            "description": {
+              "content": "This service accepts an address as input and returns the Nearest Intersection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "streets",
+                "v1",
+                "intersection",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "Address"
+                },
+                {
+                  "disabled": false,
+                  "key": "roadClass",
+                  "value": "<string>",
+                  "description": "Filters roads with specified class, allowed values are (Major, Secondary, Other and All), default is All"
+                },
+                {
+                  "disabled": false,
+                  "key": "driveTime",
+                  "value": "<string>",
+                  "description": "Returns Intersection in specified drive time"
+                },
+                {
+                  "disabled": false,
+                  "key": "driveTimeUnit",
+                  "value": "<string>",
+                  "description": "Drive time unit, allowed values are (hours, minutes, seconds and milliseconds), default is minutes"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchRadius",
+                  "value": "<string>",
+                  "description": "Search radius within which user wants to search, default is 50 miles"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchRadiusUnit",
+                  "value": "<string>",
+                  "description": "Search radius unit, allowed values are (feet, meter, kilometers and miles)"
+                },
+                {
+                  "disabled": false,
+                  "key": "historicSpeed",
+                  "value": "<string>",
+                  "description": "Traffic flow in peak time, allowed values are (AMPEAK,PMPEAK,OFFPEAK,NIGHT)"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxCandidates",
+                  "value": "<string>",
+                  "description": "max candidates to be returned default is 1"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5b628afb-a0bc-4fee-9250-bf770332be8d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streets",
+                    "v1",
+                    "intersection",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "roadClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "driveTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "driveTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadius",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadiusUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historicSpeed",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"intersection\": [\n    {\n      \"distance\": {\n        \"unit\": \"unit\",\n        \"value\": 0.8008281904610115\n      },\n      \"driveTime\": {\n        \"unit\": \"unit\",\n        \"value\": 0.8008281904610115\n      },\n      \"driveDistance\": {\n        \"unit\": \"unit\",\n        \"value\": 0.8008281904610115\n      },\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"roads\": [\n        {\n          \"endingLevel\": \"endingLevel\",\n          \"routeNumber\": \"routeNumber\",\n          \"trafficFlow\": \"trafficFlow\",\n          \"surfaceType\": \"surfaceType\",\n          \"roadClass\": \"roadClass\",\n          \"beginningLevel\": \"beginningLevel\",\n          \"name\": \"name\",\n          \"lengthInMeters\": \"lengthInMeters\",\n          \"altName\": \"altName\",\n          \"type\": \"type\",\n          \"isToll\": \"isToll\"\n        }\n      ]\n    },\n    {\n      \"distance\": {\n        \"unit\": \"unit\",\n        \"value\": 0.8008281904610115\n      },\n      \"driveTime\": {\n        \"unit\": \"unit\",\n        \"value\": 0.8008281904610115\n      },\n      \"driveDistance\": {\n        \"unit\": \"unit\",\n        \"value\": 0.8008281904610115\n      },\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"roads\": [\n        {\n          \"endingLevel\": \"endingLevel\",\n          \"routeNumber\": \"routeNumber\",\n          \"trafficFlow\": \"trafficFlow\",\n          \"surfaceType\": \"surfaceType\",\n          \"roadClass\": \"roadClass\",\n          \"beginningLevel\": \"beginningLevel\",\n          \"name\": \"name\",\n          \"lengthInMeters\": \"lengthInMeters\",\n          \"altName\": \"altName\",\n          \"type\": \"type\",\n          \"isToll\": \"isToll\"\n        }\n      ]\n    }\n  ],\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3bc0cdc-1433-48c2-b97c-7df39c3e12af",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streets",
+                    "v1",
+                    "intersection",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "roadClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "driveTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "driveTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadius",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadiusUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historicSpeed",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2007b39b-f5d0-4580-9bc4-3939a9fbee1e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streets",
+                    "v1",
+                    "intersection",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "roadClass",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "driveTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "driveTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadius",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadiusUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historicSpeed",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d256477b-675a-4f1d-8afc-1189cba74e40",
+    "name": "Precisely APIs Streets  Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

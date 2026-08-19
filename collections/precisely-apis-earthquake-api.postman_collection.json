@@ -1,0 +1,1025 @@
+{
+  "item": [
+    {
+      "id": "e98177ae-0a0f-49f6-95f8-40b700b259d7",
+      "name": "Earthquake",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f9a358c1-f9e6-416f-a54b-1b29a0933bed",
+          "name": "Get Earthquake Risk By Location",
+          "request": {
+            "name": "Get Earthquake Risk By Location",
+            "description": {
+              "content": "Accepts latitude & longitude as input and Returns counts of earthquakes for various richter measurements and values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "risks",
+                "v1",
+                "earthquake",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "longitude",
+                  "value": "<string>",
+                  "description": "(Required) The longitude of the location"
+                },
+                {
+                  "disabled": false,
+                  "key": "latitude",
+                  "value": "<string>",
+                  "description": "(Required) The latitude of the location"
+                },
+                {
+                  "disabled": false,
+                  "key": "richterValue",
+                  "value": "<string>",
+                  "description": "all (default value), R0, R1, R2, R3, R4, R5, R6, R7, R0_GE, R1_GE, R2_GE, R3_GE, R4_GE, R5_GE, R6_GE, R7_GE"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeGeometry",
+                  "value": "<string>",
+                  "description": "Y or N (default is N) - if it is Y, then geometry will be part of response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5e4bb246-14bc-4193-97c4-f5cdc05f67b9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "earthquake",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "richterValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objectId\": \"string\",\n  \"riskLevel\": \"string\",\n  \"eventsCount\": {\n    \"r2\": \"r2\",\n    \"r1_ge\": \"r1_ge\",\n    \"r3\": \"r3\",\n    \"r4\": \"r4\",\n    \"r0_ge\": \"r0_ge\",\n    \"r5\": \"r5\",\n    \"r2_ge\": \"r2_ge\",\n    \"r3_ge\": \"r3_ge\",\n    \"r6\": \"r6\",\n    \"r4_ge\": \"r4_ge\",\n    \"r7\": \"r7\",\n    \"total\": \"total\",\n    \"r7_ge\": \"r7_ge\",\n    \"r6_ge\": \"r6_ge\",\n    \"r5_ge\": \"r5_ge\",\n    \"r0\": \"r0\",\n    \"r1\": \"r1\"\n  },\n  \"grid\": {\n    \"code\": \"string\",\n    \"geometry\": {\n      \"type\": \"string\",\n      \"crs\": {\n        \"type\": \"type\",\n        \"properties\": {\n          \"name\": \"name\"\n        }\n      },\n      \"coordinates\": {}\n    }\n  },\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a128f3e-9918-47dd-9a36-1674bd83e152",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "earthquake",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "richterValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e9c6efc-0aa3-428e-88fa-dba1b03c52db",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "earthquake",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "richterValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd150400-2f75-478c-ae4c-2dc7c62ad658",
+          "name": "Post Earthquake Risk By Location",
+          "request": {
+            "name": "Post Earthquake Risk By Location",
+            "description": {
+              "content": "This is a Batch offering for 'Earthquake Risk By Location' service. It accepts a single location coordinate or a list of location coordinates and retrieve counts of earthquakes for various richter measurements and values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "risks",
+                "v1",
+                "earthquake",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\"\n    },\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\"\n    }\n  ],\n  \"preferences\": {\n    \"includeGeometry\": \"<string>\",\n    \"includeZoneDesc\": \"<string>\",\n    \"richterValue\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c1a6ed8e-01f8-4c8d-89de-6934b807bcef",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "earthquake",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  },\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    },\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"earthquakeRisk\": [\n    {\n      \"objectId\": \"string\",\n      \"riskLevel\": \"string\",\n      \"eventsCount\": {\n        \"r2\": \"r2\",\n        \"r1_ge\": \"r1_ge\",\n        \"r3\": \"r3\",\n        \"r4\": \"r4\",\n        \"r0_ge\": \"r0_ge\",\n        \"r5\": \"r5\",\n        \"r2_ge\": \"r2_ge\",\n        \"r3_ge\": \"r3_ge\",\n        \"r6\": \"r6\",\n        \"r4_ge\": \"r4_ge\",\n        \"r7\": \"r7\",\n        \"total\": \"total\",\n        \"r7_ge\": \"r7_ge\",\n        \"r6_ge\": \"r6_ge\",\n        \"r5_ge\": \"r5_ge\",\n        \"r0\": \"r0\",\n        \"r1\": \"r1\"\n      },\n      \"grid\": {\n        \"code\": \"string\",\n        \"geometry\": {\n          \"type\": \"string\",\n          \"crs\": {\n            \"type\": \"type\",\n            \"properties\": {\n              \"name\": \"name\"\n            }\n          },\n          \"coordinates\": {}\n        }\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    },\n    {\n      \"objectId\": \"string\",\n      \"riskLevel\": \"string\",\n      \"eventsCount\": {\n        \"r2\": \"r2\",\n        \"r1_ge\": \"r1_ge\",\n        \"r3\": \"r3\",\n        \"r4\": \"r4\",\n        \"r0_ge\": \"r0_ge\",\n        \"r5\": \"r5\",\n        \"r2_ge\": \"r2_ge\",\n        \"r3_ge\": \"r3_ge\",\n        \"r6\": \"r6\",\n        \"r4_ge\": \"r4_ge\",\n        \"r7\": \"r7\",\n        \"total\": \"total\",\n        \"r7_ge\": \"r7_ge\",\n        \"r6_ge\": \"r6_ge\",\n        \"r5_ge\": \"r5_ge\",\n        \"r0\": \"r0\",\n        \"r1\": \"r1\"\n      },\n      \"grid\": {\n        \"code\": \"string\",\n        \"geometry\": {\n          \"type\": \"string\",\n          \"crs\": {\n            \"type\": \"type\",\n            \"properties\": {\n              \"name\": \"name\"\n            }\n          },\n          \"coordinates\": {}\n        }\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "181e7616-ebfa-4cdb-8637-2be4447ed3d8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "earthquake",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  },\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    },\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3679a73b-d589-4b7d-8a6e-6edd9b371391",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "earthquake",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  },\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    },\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3dc28693-04e2-4d20-94fa-e72a9f8c832a",
+          "name": "Get Earthquake Risk By Address",
+          "request": {
+            "name": "Get Earthquake Risk By Address",
+            "description": {
+              "content": "Accepts addresses as input and Returns counts of earthquakes for various richter measurements and values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "risks",
+                "v1",
+                "earthquake",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "(Required) free form address text"
+                },
+                {
+                  "disabled": false,
+                  "key": "richterValue",
+                  "value": "<string>",
+                  "description": "all (default value), R0, R1, R2, R3, R4, R5, R6, R7, R0_GE, R1_GE, R2_GE, R3_GE, R4_GE, R5_GE, R6_GE, R7_GE"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeGeometry",
+                  "value": "<string>",
+                  "description": "Y or N (default is N) - if it is Y, then geometry will be part of response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3a535e15-63a0-4d01-ae79-cd5ee91c2671",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "earthquake",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "richterValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objectId\": \"string\",\n  \"riskLevel\": \"string\",\n  \"eventsCount\": {\n    \"r2\": \"r2\",\n    \"r1_ge\": \"r1_ge\",\n    \"r3\": \"r3\",\n    \"r4\": \"r4\",\n    \"r0_ge\": \"r0_ge\",\n    \"r5\": \"r5\",\n    \"r2_ge\": \"r2_ge\",\n    \"r3_ge\": \"r3_ge\",\n    \"r6\": \"r6\",\n    \"r4_ge\": \"r4_ge\",\n    \"r7\": \"r7\",\n    \"total\": \"total\",\n    \"r7_ge\": \"r7_ge\",\n    \"r6_ge\": \"r6_ge\",\n    \"r5_ge\": \"r5_ge\",\n    \"r0\": \"r0\",\n    \"r1\": \"r1\"\n  },\n  \"grid\": {\n    \"code\": \"string\",\n    \"geometry\": {\n      \"type\": \"string\",\n      \"crs\": {\n        \"type\": \"type\",\n        \"properties\": {\n          \"name\": \"name\"\n        }\n      },\n      \"coordinates\": {}\n    }\n  },\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e8e2a9c-5f65-4ebc-af6d-c183b6d20839",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "earthquake",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "richterValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f8d40a51-aa14-4345-8b8c-3c8eae5b5c8f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "earthquake",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "richterValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0963c49-5795-4e5d-9a5e-2f165529e4fe",
+          "name": "Post Earthquake Risk By Address",
+          "request": {
+            "name": "Post Earthquake Risk By Address",
+            "description": {
+              "content": "This is a Batch offering for 'Earthquake Risk By Address' service. It accepts a single address or a list of addresses and retrieve counts of earthquakes for various richter measurements and values.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "risks",
+                "v1",
+                "earthquake",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"addresses\": [\n    {\n      \"objectId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"streetSide\": \"<string>\",\n      \"businessName\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateProvince\": \"<string>\",\n      \"county\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\",\n      \"status\": \"<string>\",\n      \"urbanizationName\": \"<string>\",\n      \"formattedAddress\": \"<string>\",\n      \"mainAddressLine\": \"<string>\",\n      \"addressLastLine\": \"<string>\",\n      \"placeName\": \"<string>\",\n      \"areaName1\": \"<string>\",\n      \"areaName2\": \"<string>\",\n      \"areaName3\": \"<string>\",\n      \"areaName4\": \"<string>\",\n      \"postCode\": \"<string>\",\n      \"postCodeExt\": \"<string>\",\n      \"country\": \"<string>\",\n      \"addressNumber\": \"<string>\",\n      \"streetName\": \"<string>\",\n      \"unitType\": \"<string>\",\n      \"unitValue\": \"<string>\"\n    },\n    {\n      \"objectId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"streetSide\": \"<string>\",\n      \"businessName\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateProvince\": \"<string>\",\n      \"county\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\",\n      \"status\": \"<string>\",\n      \"urbanizationName\": \"<string>\",\n      \"formattedAddress\": \"<string>\",\n      \"mainAddressLine\": \"<string>\",\n      \"addressLastLine\": \"<string>\",\n      \"placeName\": \"<string>\",\n      \"areaName1\": \"<string>\",\n      \"areaName2\": \"<string>\",\n      \"areaName3\": \"<string>\",\n      \"areaName4\": \"<string>\",\n      \"postCode\": \"<string>\",\n      \"postCodeExt\": \"<string>\",\n      \"country\": \"<string>\",\n      \"addressNumber\": \"<string>\",\n      \"streetName\": \"<string>\",\n      \"unitType\": \"<string>\",\n      \"unitValue\": \"<string>\"\n    }\n  ],\n  \"preferences\": {\n    \"includeGeometry\": \"<string>\",\n    \"includeZoneDesc\": \"<string>\",\n    \"richterValue\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e6003653-c45b-4879-b3ba-327a2eff3909",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "earthquake",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"addresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ],\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"earthquakeRisk\": [\n    {\n      \"objectId\": \"string\",\n      \"riskLevel\": \"string\",\n      \"eventsCount\": {\n        \"r2\": \"r2\",\n        \"r1_ge\": \"r1_ge\",\n        \"r3\": \"r3\",\n        \"r4\": \"r4\",\n        \"r0_ge\": \"r0_ge\",\n        \"r5\": \"r5\",\n        \"r2_ge\": \"r2_ge\",\n        \"r3_ge\": \"r3_ge\",\n        \"r6\": \"r6\",\n        \"r4_ge\": \"r4_ge\",\n        \"r7\": \"r7\",\n        \"total\": \"total\",\n        \"r7_ge\": \"r7_ge\",\n        \"r6_ge\": \"r6_ge\",\n        \"r5_ge\": \"r5_ge\",\n        \"r0\": \"r0\",\n        \"r1\": \"r1\"\n      },\n      \"grid\": {\n        \"code\": \"string\",\n        \"geometry\": {\n          \"type\": \"string\",\n          \"crs\": {\n            \"type\": \"type\",\n            \"properties\": {\n              \"name\": \"name\"\n            }\n          },\n          \"coordinates\": {}\n        }\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    },\n    {\n      \"objectId\": \"string\",\n      \"riskLevel\": \"string\",\n      \"eventsCount\": {\n        \"r2\": \"r2\",\n        \"r1_ge\": \"r1_ge\",\n        \"r3\": \"r3\",\n        \"r4\": \"r4\",\n        \"r0_ge\": \"r0_ge\",\n        \"r5\": \"r5\",\n        \"r2_ge\": \"r2_ge\",\n        \"r3_ge\": \"r3_ge\",\n        \"r6\": \"r6\",\n        \"r4_ge\": \"r4_ge\",\n        \"r7\": \"r7\",\n        \"total\": \"total\",\n        \"r7_ge\": \"r7_ge\",\n        \"r6_ge\": \"r6_ge\",\n        \"r5_ge\": \"r5_ge\",\n        \"r0\": \"r0\",\n        \"r1\": \"r1\"\n      },\n      \"grid\": {\n        \"code\": \"string\",\n        \"geometry\": {\n          \"type\": \"string\",\n          \"crs\": {\n            \"type\": \"type\",\n            \"properties\": {\n              \"name\": \"name\"\n            }\n          },\n          \"coordinates\": {}\n        }\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f40575ec-ac04-42ae-be77-2febe54cbb55",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "earthquake",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"addresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ],\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "39ca11cf-0760-4cf8-9f26-f985ff2d9923",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "earthquake",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"addresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ],\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "14b34230-71fe-4b2b-8b2a-8b0a8ab89644",
+    "name": "Precisely APIs Earthquake API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

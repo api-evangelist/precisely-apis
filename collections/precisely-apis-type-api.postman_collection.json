@@ -1,0 +1,2181 @@
+{
+  "item": [
+    {
+      "id": "6c89c414-c40d-4434-8be6-fbf90de36a7a",
+      "name": "Type",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "caa856d1-8dc0-4486-b3cf-1874c588d5d3",
+          "name": "Get Taxrate By Location",
+          "request": {
+            "name": "Get Taxrate By Location",
+            "description": {
+              "content": "Retrieves tax rates applicable to a specific location. This service accepts longitude, latitude and supported tax rate type as inputs to retrieve applicable tax rates.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "localtax",
+                "v1",
+                "taxrate",
+                ":taxRateTypeId",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "latitude",
+                  "value": "<string>",
+                  "description": "(Required) Latitude of the location"
+                },
+                {
+                  "disabled": false,
+                  "key": "longitude",
+                  "value": "<string>",
+                  "description": "(Required) Longitude of the location"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taxRateTypeId",
+                  "description": "(Required) The tax rate id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "72dc7f61-be39-44bf-aa5b-895a8f9fe4d3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "taxrate",
+                    ":taxRateTypeId",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) The tax rate id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"postCode1\": \"postCode1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  },\n  \"gnisCode\": \"gnisCode\",\n  \"confidence\": 0.8008281904610115,\n  \"jurisdiction\": {\n    \"county\": {\n      \"code\": \"code\",\n      \"name\": \"name\"\n    },\n    \"spds\": [\n      {\n        \"updateDate\": \"updateDate\",\n        \"districtCode\": \"districtCode\",\n        \"districtName\": \"districtName\",\n        \"compiledDate\": \"compiledDate\",\n        \"versionDate\": \"versionDate\",\n        \"districtNumber\": \"districtNumber\",\n        \"effectiveDate\": \"effectiveDate\"\n      },\n      {\n        \"updateDate\": \"updateDate\",\n        \"districtCode\": \"districtCode\",\n        \"districtName\": \"districtName\",\n        \"compiledDate\": \"compiledDate\",\n        \"versionDate\": \"versionDate\",\n        \"districtNumber\": \"districtNumber\",\n        \"effectiveDate\": \"effectiveDate\"\n      }\n    ],\n    \"state\": {\n      \"code\": \"code\",\n      \"name\": \"name\"\n    },\n    \"place\": {\n      \"lastVerifiedDate\": \"lastVerifiedDate\",\n      \"classCode\": \"classCode\",\n      \"lastAnnexedDate\": \"lastAnnexedDate\",\n      \"lastUpdatedDate\": \"lastUpdatedDate\",\n      \"code\": \"code\",\n      \"gnisCode\": \"gnisCode\",\n      \"name\": \"name\",\n      \"selfCollected\": true,\n      \"incorporatedFlag\": \"incorporatedFlag\"\n    }\n  },\n  \"census\": {\n    \"cbsa\": {\n      \"code\": \"code\",\n      \"name\": \"name\"\n    },\n    \"matchCode\": \"matchCode\",\n    \"tract\": \"tract\",\n    \"matchLevel\": \"matchLevel\",\n    \"mcd\": {\n      \"code\": \"code\",\n      \"name\": \"name\"\n    }\n  },\n  \"latLongFields\": {\n    \"matchCode\": \"matchCode\",\n    \"matchLevel\": \"matchLevel\",\n    \"geometry\": {\n      \"coordinates\": [\n        \"coordinates\",\n        \"coordinates\"\n      ],\n      \"type\": \"type\"\n    },\n    \"streetMatchCode\": \"streetMatchCode\",\n    \"streetMatchLevel\": \"streetMatchLevel\"\n  },\n  \"vendorName\": \"vendorName\",\n  \"salesTax\": {\n    \"specialTaxRulesApplied\": true,\n    \"stateTaxRate\": 5.962133916683182,\n    \"municipalTaxRate\": 9.301444243932576,\n    \"totalTaxRate\": 6.027456183070403,\n    \"municipalTaxAmount\": 3.616076749251911,\n    \"countyTaxRate\": 2.3021358869347655,\n    \"totalTaxAmount\": 1.4658129805029452,\n    \"countyTaxAmount\": 7.061401241503109,\n    \"spdsTax\": [\n      {\n        \"taxRate\": 2.027123023002322,\n        \"taxAmount\": 4.145608029883936,\n        \"districtNumber\": \"districtNumber\"\n      },\n      {\n        \"taxRate\": 2.027123023002322,\n        \"taxAmount\": 4.145608029883936,\n        \"districtNumber\": \"districtNumber\"\n      }\n    ],\n    \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n    \"stateTaxAmount\": 5.637376656633329\n  },\n  \"objectId\": \"objectId\",\n  \"useTax\": {\n    \"specialTaxRulesApplied\": true,\n    \"stateTaxRate\": 1.0246457001441578,\n    \"municipalTaxRate\": 1.1730742509559433,\n    \"totalTaxRate\": 7.386281948385884,\n    \"municipalTaxAmount\": 4.965218492984954,\n    \"countyTaxRate\": 6.84685269835264,\n    \"totalTaxAmount\": 1.2315135367772556,\n    \"countyTaxAmount\": 7.457744773683766,\n    \"spdsTax\": [\n      {\n        \"taxRate\": 2.027123023002322,\n        \"taxAmount\": 4.145608029883936,\n        \"districtNumber\": \"districtNumber\"\n      },\n      {\n        \"taxRate\": 2.027123023002322,\n        \"taxAmount\": 4.145608029883936,\n        \"districtNumber\": \"districtNumber\"\n      }\n    ],\n    \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n    \"stateTaxAmount\": 1.4894159098541704\n  },\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"postCode1\": \"postCode1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0e1fb4d-c8c1-4dd9-96c5-0efece1cd205",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "taxrate",
+                    ":taxRateTypeId",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) The tax rate id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b789d12-4fe0-4b66-95a1-78657df5b35f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "taxrate",
+                    ":taxRateTypeId",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) The tax rate id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f7253526-b256-4ad7-8bb8-f6eb9a25d96a",
+          "name": "Post Taxrate By Location",
+          "request": {
+            "name": "Post Taxrate By Location",
+            "description": {
+              "content": "This is a Batch offering for 'Taxrate By Location' service. It accepts a single location coordinate or a list of location coordinates and retrieve applicable tax rates.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "localtax",
+                "v1",
+                "taxrate",
+                ":taxRateTypeId",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taxRateTypeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\"\n    },\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\"\n    }\n  ],\n  \"preferences\": {\n    \"fallbackToGeographic\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\",\n      \"key_2\": \"<object>\"\n    },\n    \"defaultBufferWidth\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"outputCasing\": \"<string>\",\n    \"returnCensusFields\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"taxRatetypeID\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a21cded0-94cd-4f65-9b4b-27056a292688",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "taxrate",
+                    ":taxRateTypeId",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    },\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    }\n  ],\n  \"preferences\": {\n    \"fallbackToGeographic\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\"\n    },\n    \"defaultBufferWidth\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"outputCasing\": \"<string>\",\n    \"returnCensusFields\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"taxRatetypeID\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"taxResponses\": [\n    {\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"postCode1\": \"postCode1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"gnisCode\": \"gnisCode\",\n      \"confidence\": 0.8008281904610115,\n      \"jurisdiction\": {\n        \"county\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"spds\": [\n          {\n            \"updateDate\": \"updateDate\",\n            \"districtCode\": \"districtCode\",\n            \"districtName\": \"districtName\",\n            \"compiledDate\": \"compiledDate\",\n            \"versionDate\": \"versionDate\",\n            \"districtNumber\": \"districtNumber\",\n            \"effectiveDate\": \"effectiveDate\"\n          },\n          {\n            \"updateDate\": \"updateDate\",\n            \"districtCode\": \"districtCode\",\n            \"districtName\": \"districtName\",\n            \"compiledDate\": \"compiledDate\",\n            \"versionDate\": \"versionDate\",\n            \"districtNumber\": \"districtNumber\",\n            \"effectiveDate\": \"effectiveDate\"\n          }\n        ],\n        \"state\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"place\": {\n          \"lastVerifiedDate\": \"lastVerifiedDate\",\n          \"classCode\": \"classCode\",\n          \"lastAnnexedDate\": \"lastAnnexedDate\",\n          \"lastUpdatedDate\": \"lastUpdatedDate\",\n          \"code\": \"code\",\n          \"gnisCode\": \"gnisCode\",\n          \"name\": \"name\",\n          \"selfCollected\": true,\n          \"incorporatedFlag\": \"incorporatedFlag\"\n        }\n      },\n      \"census\": {\n        \"cbsa\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"matchCode\": \"matchCode\",\n        \"tract\": \"tract\",\n        \"matchLevel\": \"matchLevel\",\n        \"mcd\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        }\n      },\n      \"latLongFields\": {\n        \"matchCode\": \"matchCode\",\n        \"matchLevel\": \"matchLevel\",\n        \"geometry\": {\n          \"coordinates\": [\n            \"coordinates\",\n            \"coordinates\"\n          ],\n          \"type\": \"type\"\n        },\n        \"streetMatchCode\": \"streetMatchCode\",\n        \"streetMatchLevel\": \"streetMatchLevel\"\n      },\n      \"vendorName\": \"vendorName\",\n      \"salesTax\": {\n        \"specialTaxRulesApplied\": true,\n        \"stateTaxRate\": 5.962133916683182,\n        \"municipalTaxRate\": 9.301444243932576,\n        \"totalTaxRate\": 6.027456183070403,\n        \"municipalTaxAmount\": 3.616076749251911,\n        \"countyTaxRate\": 2.3021358869347655,\n        \"totalTaxAmount\": 1.4658129805029452,\n        \"countyTaxAmount\": 7.061401241503109,\n        \"spdsTax\": [\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          },\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          }\n        ],\n        \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n        \"stateTaxAmount\": 5.637376656633329\n      },\n      \"objectId\": \"objectId\",\n      \"useTax\": {\n        \"specialTaxRulesApplied\": true,\n        \"stateTaxRate\": 1.0246457001441578,\n        \"municipalTaxRate\": 1.1730742509559433,\n        \"totalTaxRate\": 7.386281948385884,\n        \"municipalTaxAmount\": 4.965218492984954,\n        \"countyTaxRate\": 6.84685269835264,\n        \"totalTaxAmount\": 1.2315135367772556,\n        \"countyTaxAmount\": 7.457744773683766,\n        \"spdsTax\": [\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          },\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          }\n        ],\n        \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n        \"stateTaxAmount\": 1.4894159098541704\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"postCode1\": \"postCode1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    },\n    {\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"postCode1\": \"postCode1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"gnisCode\": \"gnisCode\",\n      \"confidence\": 0.8008281904610115,\n      \"jurisdiction\": {\n        \"county\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"spds\": [\n          {\n            \"updateDate\": \"updateDate\",\n            \"districtCode\": \"districtCode\",\n            \"districtName\": \"districtName\",\n            \"compiledDate\": \"compiledDate\",\n            \"versionDate\": \"versionDate\",\n            \"districtNumber\": \"districtNumber\",\n            \"effectiveDate\": \"effectiveDate\"\n          },\n          {\n            \"updateDate\": \"updateDate\",\n            \"districtCode\": \"districtCode\",\n            \"districtName\": \"districtName\",\n            \"compiledDate\": \"compiledDate\",\n            \"versionDate\": \"versionDate\",\n            \"districtNumber\": \"districtNumber\",\n            \"effectiveDate\": \"effectiveDate\"\n          }\n        ],\n        \"state\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"place\": {\n          \"lastVerifiedDate\": \"lastVerifiedDate\",\n          \"classCode\": \"classCode\",\n          \"lastAnnexedDate\": \"lastAnnexedDate\",\n          \"lastUpdatedDate\": \"lastUpdatedDate\",\n          \"code\": \"code\",\n          \"gnisCode\": \"gnisCode\",\n          \"name\": \"name\",\n          \"selfCollected\": true,\n          \"incorporatedFlag\": \"incorporatedFlag\"\n        }\n      },\n      \"census\": {\n        \"cbsa\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"matchCode\": \"matchCode\",\n        \"tract\": \"tract\",\n        \"matchLevel\": \"matchLevel\",\n        \"mcd\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        }\n      },\n      \"latLongFields\": {\n        \"matchCode\": \"matchCode\",\n        \"matchLevel\": \"matchLevel\",\n        \"geometry\": {\n          \"coordinates\": [\n            \"coordinates\",\n            \"coordinates\"\n          ],\n          \"type\": \"type\"\n        },\n        \"streetMatchCode\": \"streetMatchCode\",\n        \"streetMatchLevel\": \"streetMatchLevel\"\n      },\n      \"vendorName\": \"vendorName\",\n      \"salesTax\": {\n        \"specialTaxRulesApplied\": true,\n        \"stateTaxRate\": 5.962133916683182,\n        \"municipalTaxRate\": 9.301444243932576,\n        \"totalTaxRate\": 6.027456183070403,\n        \"municipalTaxAmount\": 3.616076749251911,\n        \"countyTaxRate\": 2.3021358869347655,\n        \"totalTaxAmount\": 1.4658129805029452,\n        \"countyTaxAmount\": 7.061401241503109,\n        \"spdsTax\": [\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          },\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          }\n        ],\n        \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n        \"stateTaxAmount\": 5.637376656633329\n      },\n      \"objectId\": \"objectId\",\n      \"useTax\": {\n        \"specialTaxRulesApplied\": true,\n        \"stateTaxRate\": 1.0246457001441578,\n        \"municipalTaxRate\": 1.1730742509559433,\n        \"totalTaxRate\": 7.386281948385884,\n        \"municipalTaxAmount\": 4.965218492984954,\n        \"countyTaxRate\": 6.84685269835264,\n        \"totalTaxAmount\": 1.2315135367772556,\n        \"countyTaxAmount\": 7.457744773683766,\n        \"spdsTax\": [\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          },\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          }\n        ],\n        \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n        \"stateTaxAmount\": 1.4894159098541704\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"postCode1\": \"postCode1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b695d25-6d28-41d4-b98a-5e9a2856ec20",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "taxrate",
+                    ":taxRateTypeId",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    },\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    }\n  ],\n  \"preferences\": {\n    \"fallbackToGeographic\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\"\n    },\n    \"defaultBufferWidth\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"outputCasing\": \"<string>\",\n    \"returnCensusFields\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"taxRatetypeID\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1f61cb3-d82e-4b54-b93b-60c183cdb7b2",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "taxrate",
+                    ":taxRateTypeId",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    },\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    }\n  ],\n  \"preferences\": {\n    \"fallbackToGeographic\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\"\n    },\n    \"defaultBufferWidth\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"outputCasing\": \"<string>\",\n    \"returnCensusFields\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"taxRatetypeID\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b495275-ad35-46ff-99ff-35cefdfe3ce8",
+          "name": "Get Taxrate By Address",
+          "request": {
+            "name": "Get Taxrate By Address",
+            "description": {
+              "content": "Retrieves tax rates applicable to a specific address. This service accepts address and supported tax rate type as inputs to retrieve applicable tax rates.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "localtax",
+                "v1",
+                "taxrate",
+                ":taxRateTypeId",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "(Required) The address to be searched."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taxRateTypeId",
+                  "description": "(Required) The tax rate id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e69083aa-3f79-4c8e-855a-efe706989ef0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "taxrate",
+                    ":taxRateTypeId",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) The tax rate id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"postCode1\": \"postCode1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  },\n  \"gnisCode\": \"gnisCode\",\n  \"confidence\": 0.8008281904610115,\n  \"jurisdiction\": {\n    \"county\": {\n      \"code\": \"code\",\n      \"name\": \"name\"\n    },\n    \"spds\": [\n      {\n        \"updateDate\": \"updateDate\",\n        \"districtCode\": \"districtCode\",\n        \"districtName\": \"districtName\",\n        \"compiledDate\": \"compiledDate\",\n        \"versionDate\": \"versionDate\",\n        \"districtNumber\": \"districtNumber\",\n        \"effectiveDate\": \"effectiveDate\"\n      },\n      {\n        \"updateDate\": \"updateDate\",\n        \"districtCode\": \"districtCode\",\n        \"districtName\": \"districtName\",\n        \"compiledDate\": \"compiledDate\",\n        \"versionDate\": \"versionDate\",\n        \"districtNumber\": \"districtNumber\",\n        \"effectiveDate\": \"effectiveDate\"\n      }\n    ],\n    \"state\": {\n      \"code\": \"code\",\n      \"name\": \"name\"\n    },\n    \"place\": {\n      \"lastVerifiedDate\": \"lastVerifiedDate\",\n      \"classCode\": \"classCode\",\n      \"lastAnnexedDate\": \"lastAnnexedDate\",\n      \"lastUpdatedDate\": \"lastUpdatedDate\",\n      \"code\": \"code\",\n      \"gnisCode\": \"gnisCode\",\n      \"name\": \"name\",\n      \"selfCollected\": true,\n      \"incorporatedFlag\": \"incorporatedFlag\"\n    }\n  },\n  \"census\": {\n    \"cbsa\": {\n      \"code\": \"code\",\n      \"name\": \"name\"\n    },\n    \"matchCode\": \"matchCode\",\n    \"tract\": \"tract\",\n    \"matchLevel\": \"matchLevel\",\n    \"mcd\": {\n      \"code\": \"code\",\n      \"name\": \"name\"\n    }\n  },\n  \"latLongFields\": {\n    \"matchCode\": \"matchCode\",\n    \"matchLevel\": \"matchLevel\",\n    \"geometry\": {\n      \"coordinates\": [\n        \"coordinates\",\n        \"coordinates\"\n      ],\n      \"type\": \"type\"\n    },\n    \"streetMatchCode\": \"streetMatchCode\",\n    \"streetMatchLevel\": \"streetMatchLevel\"\n  },\n  \"vendorName\": \"vendorName\",\n  \"salesTax\": {\n    \"specialTaxRulesApplied\": true,\n    \"stateTaxRate\": 5.962133916683182,\n    \"municipalTaxRate\": 9.301444243932576,\n    \"totalTaxRate\": 6.027456183070403,\n    \"municipalTaxAmount\": 3.616076749251911,\n    \"countyTaxRate\": 2.3021358869347655,\n    \"totalTaxAmount\": 1.4658129805029452,\n    \"countyTaxAmount\": 7.061401241503109,\n    \"spdsTax\": [\n      {\n        \"taxRate\": 2.027123023002322,\n        \"taxAmount\": 4.145608029883936,\n        \"districtNumber\": \"districtNumber\"\n      },\n      {\n        \"taxRate\": 2.027123023002322,\n        \"taxAmount\": 4.145608029883936,\n        \"districtNumber\": \"districtNumber\"\n      }\n    ],\n    \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n    \"stateTaxAmount\": 5.637376656633329\n  },\n  \"objectId\": \"objectId\",\n  \"useTax\": {\n    \"specialTaxRulesApplied\": true,\n    \"stateTaxRate\": 1.0246457001441578,\n    \"municipalTaxRate\": 1.1730742509559433,\n    \"totalTaxRate\": 7.386281948385884,\n    \"municipalTaxAmount\": 4.965218492984954,\n    \"countyTaxRate\": 6.84685269835264,\n    \"totalTaxAmount\": 1.2315135367772556,\n    \"countyTaxAmount\": 7.457744773683766,\n    \"spdsTax\": [\n      {\n        \"taxRate\": 2.027123023002322,\n        \"taxAmount\": 4.145608029883936,\n        \"districtNumber\": \"districtNumber\"\n      },\n      {\n        \"taxRate\": 2.027123023002322,\n        \"taxAmount\": 4.145608029883936,\n        \"districtNumber\": \"districtNumber\"\n      }\n    ],\n    \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n    \"stateTaxAmount\": 1.4894159098541704\n  },\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"postCode1\": \"postCode1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e2a605c-0f99-42c5-9a66-a72439e57fc9",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "taxrate",
+                    ":taxRateTypeId",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) The tax rate id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c4be88fe-09b1-4414-b004-6b516cf04b3f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "taxrate",
+                    ":taxRateTypeId",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) The tax rate id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fcbfd4d0-fca0-4eee-a3b2-1332e0dff20c",
+          "name": "Post Taxrate By Address",
+          "request": {
+            "name": "Post Taxrate By Address",
+            "description": {
+              "content": "This is a Batch offering for 'Taxrate By Address' service. It accepts a single address or a list of addresses and retrieve applicable tax rates.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "localtax",
+                "v1",
+                "taxrate",
+                ":taxRateTypeId",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taxRateTypeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"taxRateAddresses\": [\n    {\n      \"objectId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"streetSide\": \"<string>\",\n      \"businessName\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateProvince\": \"<string>\",\n      \"county\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\",\n      \"status\": \"<string>\",\n      \"urbanizationName\": \"<string>\",\n      \"formattedAddress\": \"<string>\",\n      \"mainAddressLine\": \"<string>\",\n      \"addressLastLine\": \"<string>\",\n      \"placeName\": \"<string>\",\n      \"areaName1\": \"<string>\",\n      \"areaName2\": \"<string>\",\n      \"areaName3\": \"<string>\",\n      \"areaName4\": \"<string>\",\n      \"postCode\": \"<string>\",\n      \"postCode1\": \"<string>\",\n      \"postCodeExt\": \"<string>\",\n      \"country\": \"<string>\",\n      \"addressNumber\": \"<string>\",\n      \"streetName\": \"<string>\",\n      \"unitType\": \"<string>\",\n      \"unitValue\": \"<string>\",\n      \"distanceUnits\": \"<string>\",\n      \"bufferWidth\": \"<string>\",\n      \"userBufferWidth\": \"<string>\"\n    },\n    {\n      \"objectId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"streetSide\": \"<string>\",\n      \"businessName\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateProvince\": \"<string>\",\n      \"county\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\",\n      \"status\": \"<string>\",\n      \"urbanizationName\": \"<string>\",\n      \"formattedAddress\": \"<string>\",\n      \"mainAddressLine\": \"<string>\",\n      \"addressLastLine\": \"<string>\",\n      \"placeName\": \"<string>\",\n      \"areaName1\": \"<string>\",\n      \"areaName2\": \"<string>\",\n      \"areaName3\": \"<string>\",\n      \"areaName4\": \"<string>\",\n      \"postCode\": \"<string>\",\n      \"postCode1\": \"<string>\",\n      \"postCodeExt\": \"<string>\",\n      \"country\": \"<string>\",\n      \"addressNumber\": \"<string>\",\n      \"streetName\": \"<string>\",\n      \"unitType\": \"<string>\",\n      \"unitValue\": \"<string>\",\n      \"distanceUnits\": \"<string>\",\n      \"bufferWidth\": \"<string>\",\n      \"userBufferWidth\": \"<string>\"\n    }\n  ],\n  \"preferences\": {\n    \"fallbackToGeographic\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\"\n    },\n    \"defaultBufferWidth\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"outputCasing\": \"<string>\",\n    \"returnCensusFields\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"taxRatetypeID\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7becb424-143b-4a0c-89a3-da70e8e9b72f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "taxrate",
+                    ":taxRateTypeId",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"taxRateAddresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"userBufferWidth\": \"userBufferWidth\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"bufferWidth\": \"bufferWidth\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"postCode1\": \"postCode1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"distanceUnits\": \"distanceUnits\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"userBufferWidth\": \"userBufferWidth\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"bufferWidth\": \"bufferWidth\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"postCode1\": \"postCode1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"distanceUnits\": \"distanceUnits\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ],\n  \"preferences\": {\n    \"fallbackToGeographic\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\"\n    },\n    \"defaultBufferWidth\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"outputCasing\": \"<string>\",\n    \"returnCensusFields\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"taxRatetypeID\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"taxResponses\": [\n    {\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"postCode1\": \"postCode1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"gnisCode\": \"gnisCode\",\n      \"confidence\": 0.8008281904610115,\n      \"jurisdiction\": {\n        \"county\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"spds\": [\n          {\n            \"updateDate\": \"updateDate\",\n            \"districtCode\": \"districtCode\",\n            \"districtName\": \"districtName\",\n            \"compiledDate\": \"compiledDate\",\n            \"versionDate\": \"versionDate\",\n            \"districtNumber\": \"districtNumber\",\n            \"effectiveDate\": \"effectiveDate\"\n          },\n          {\n            \"updateDate\": \"updateDate\",\n            \"districtCode\": \"districtCode\",\n            \"districtName\": \"districtName\",\n            \"compiledDate\": \"compiledDate\",\n            \"versionDate\": \"versionDate\",\n            \"districtNumber\": \"districtNumber\",\n            \"effectiveDate\": \"effectiveDate\"\n          }\n        ],\n        \"state\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"place\": {\n          \"lastVerifiedDate\": \"lastVerifiedDate\",\n          \"classCode\": \"classCode\",\n          \"lastAnnexedDate\": \"lastAnnexedDate\",\n          \"lastUpdatedDate\": \"lastUpdatedDate\",\n          \"code\": \"code\",\n          \"gnisCode\": \"gnisCode\",\n          \"name\": \"name\",\n          \"selfCollected\": true,\n          \"incorporatedFlag\": \"incorporatedFlag\"\n        }\n      },\n      \"census\": {\n        \"cbsa\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"matchCode\": \"matchCode\",\n        \"tract\": \"tract\",\n        \"matchLevel\": \"matchLevel\",\n        \"mcd\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        }\n      },\n      \"latLongFields\": {\n        \"matchCode\": \"matchCode\",\n        \"matchLevel\": \"matchLevel\",\n        \"geometry\": {\n          \"coordinates\": [\n            \"coordinates\",\n            \"coordinates\"\n          ],\n          \"type\": \"type\"\n        },\n        \"streetMatchCode\": \"streetMatchCode\",\n        \"streetMatchLevel\": \"streetMatchLevel\"\n      },\n      \"vendorName\": \"vendorName\",\n      \"salesTax\": {\n        \"specialTaxRulesApplied\": true,\n        \"stateTaxRate\": 5.962133916683182,\n        \"municipalTaxRate\": 9.301444243932576,\n        \"totalTaxRate\": 6.027456183070403,\n        \"municipalTaxAmount\": 3.616076749251911,\n        \"countyTaxRate\": 2.3021358869347655,\n        \"totalTaxAmount\": 1.4658129805029452,\n        \"countyTaxAmount\": 7.061401241503109,\n        \"spdsTax\": [\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          },\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          }\n        ],\n        \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n        \"stateTaxAmount\": 5.637376656633329\n      },\n      \"objectId\": \"objectId\",\n      \"useTax\": {\n        \"specialTaxRulesApplied\": true,\n        \"stateTaxRate\": 1.0246457001441578,\n        \"municipalTaxRate\": 1.1730742509559433,\n        \"totalTaxRate\": 7.386281948385884,\n        \"municipalTaxAmount\": 4.965218492984954,\n        \"countyTaxRate\": 6.84685269835264,\n        \"totalTaxAmount\": 1.2315135367772556,\n        \"countyTaxAmount\": 7.457744773683766,\n        \"spdsTax\": [\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          },\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          }\n        ],\n        \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n        \"stateTaxAmount\": 1.4894159098541704\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"postCode1\": \"postCode1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    },\n    {\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"postCode1\": \"postCode1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"gnisCode\": \"gnisCode\",\n      \"confidence\": 0.8008281904610115,\n      \"jurisdiction\": {\n        \"county\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"spds\": [\n          {\n            \"updateDate\": \"updateDate\",\n            \"districtCode\": \"districtCode\",\n            \"districtName\": \"districtName\",\n            \"compiledDate\": \"compiledDate\",\n            \"versionDate\": \"versionDate\",\n            \"districtNumber\": \"districtNumber\",\n            \"effectiveDate\": \"effectiveDate\"\n          },\n          {\n            \"updateDate\": \"updateDate\",\n            \"districtCode\": \"districtCode\",\n            \"districtName\": \"districtName\",\n            \"compiledDate\": \"compiledDate\",\n            \"versionDate\": \"versionDate\",\n            \"districtNumber\": \"districtNumber\",\n            \"effectiveDate\": \"effectiveDate\"\n          }\n        ],\n        \"state\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"place\": {\n          \"lastVerifiedDate\": \"lastVerifiedDate\",\n          \"classCode\": \"classCode\",\n          \"lastAnnexedDate\": \"lastAnnexedDate\",\n          \"lastUpdatedDate\": \"lastUpdatedDate\",\n          \"code\": \"code\",\n          \"gnisCode\": \"gnisCode\",\n          \"name\": \"name\",\n          \"selfCollected\": true,\n          \"incorporatedFlag\": \"incorporatedFlag\"\n        }\n      },\n      \"census\": {\n        \"cbsa\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"matchCode\": \"matchCode\",\n        \"tract\": \"tract\",\n        \"matchLevel\": \"matchLevel\",\n        \"mcd\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        }\n      },\n      \"latLongFields\": {\n        \"matchCode\": \"matchCode\",\n        \"matchLevel\": \"matchLevel\",\n        \"geometry\": {\n          \"coordinates\": [\n            \"coordinates\",\n            \"coordinates\"\n          ],\n          \"type\": \"type\"\n        },\n        \"streetMatchCode\": \"streetMatchCode\",\n        \"streetMatchLevel\": \"streetMatchLevel\"\n      },\n      \"vendorName\": \"vendorName\",\n      \"salesTax\": {\n        \"specialTaxRulesApplied\": true,\n        \"stateTaxRate\": 5.962133916683182,\n        \"municipalTaxRate\": 9.301444243932576,\n        \"totalTaxRate\": 6.027456183070403,\n        \"municipalTaxAmount\": 3.616076749251911,\n        \"countyTaxRate\": 2.3021358869347655,\n        \"totalTaxAmount\": 1.4658129805029452,\n        \"countyTaxAmount\": 7.061401241503109,\n        \"spdsTax\": [\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          },\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          }\n        ],\n        \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n        \"stateTaxAmount\": 5.637376656633329\n      },\n      \"objectId\": \"objectId\",\n      \"useTax\": {\n        \"specialTaxRulesApplied\": true,\n        \"stateTaxRate\": 1.0246457001441578,\n        \"municipalTaxRate\": 1.1730742509559433,\n        \"totalTaxRate\": 7.386281948385884,\n        \"municipalTaxAmount\": 4.965218492984954,\n        \"countyTaxRate\": 6.84685269835264,\n        \"totalTaxAmount\": 1.2315135367772556,\n        \"countyTaxAmount\": 7.457744773683766,\n        \"spdsTax\": [\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          },\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          }\n        ],\n        \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n        \"stateTaxAmount\": 1.4894159098541704\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"postCode1\": \"postCode1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ccf0ff99-80cb-4f65-8706-042885d8d3f6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "taxrate",
+                    ":taxRateTypeId",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"taxRateAddresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"userBufferWidth\": \"userBufferWidth\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"bufferWidth\": \"bufferWidth\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"postCode1\": \"postCode1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"distanceUnits\": \"distanceUnits\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"userBufferWidth\": \"userBufferWidth\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"bufferWidth\": \"bufferWidth\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"postCode1\": \"postCode1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"distanceUnits\": \"distanceUnits\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ],\n  \"preferences\": {\n    \"fallbackToGeographic\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\"\n    },\n    \"defaultBufferWidth\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"outputCasing\": \"<string>\",\n    \"returnCensusFields\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"taxRatetypeID\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "10d6394a-721a-4bd9-9db1-9051416e7557",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "taxrate",
+                    ":taxRateTypeId",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"taxRateAddresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"userBufferWidth\": \"userBufferWidth\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"bufferWidth\": \"bufferWidth\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"postCode1\": \"postCode1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"distanceUnits\": \"distanceUnits\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"userBufferWidth\": \"userBufferWidth\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"bufferWidth\": \"bufferWidth\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"postCode1\": \"postCode1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"distanceUnits\": \"distanceUnits\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ],\n  \"preferences\": {\n    \"fallbackToGeographic\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\"\n    },\n    \"defaultBufferWidth\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"outputCasing\": \"<string>\",\n    \"returnCensusFields\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"taxRatetypeID\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e596dc3-fd02-40e8-8683-5ae75aaabec4",
+          "name": "Get Tax By Location",
+          "request": {
+            "name": "Get Tax By Location",
+            "description": {
+              "content": "This service calculates and returns tax applicable at a specific location. Longitude, latitude, purchase amount and supported tax rate type are inputs to the service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "localtax",
+                "v1",
+                "tax",
+                ":taxRateTypeId",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "latitude",
+                  "value": "<string>",
+                  "description": "(Required) Latitude of the location"
+                },
+                {
+                  "disabled": false,
+                  "key": "longitude",
+                  "value": "<string>",
+                  "description": "(Required) Longitude of the location"
+                },
+                {
+                  "disabled": false,
+                  "key": "purchaseAmount",
+                  "value": "<string>",
+                  "description": "(Required) The amount on which tax to be calculated"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taxRateTypeId",
+                  "description": "(Required) The tax rate id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d3f743fd-24bc-48d4-a973-a05ff827e457",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "tax",
+                    ":taxRateTypeId",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purchaseAmount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) The tax rate id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"postCode1\": \"postCode1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  },\n  \"gnisCode\": \"gnisCode\",\n  \"confidence\": 0.8008281904610115,\n  \"jurisdiction\": {\n    \"county\": {\n      \"code\": \"code\",\n      \"name\": \"name\"\n    },\n    \"spds\": [\n      {\n        \"updateDate\": \"updateDate\",\n        \"districtCode\": \"districtCode\",\n        \"districtName\": \"districtName\",\n        \"compiledDate\": \"compiledDate\",\n        \"versionDate\": \"versionDate\",\n        \"districtNumber\": \"districtNumber\",\n        \"effectiveDate\": \"effectiveDate\"\n      },\n      {\n        \"updateDate\": \"updateDate\",\n        \"districtCode\": \"districtCode\",\n        \"districtName\": \"districtName\",\n        \"compiledDate\": \"compiledDate\",\n        \"versionDate\": \"versionDate\",\n        \"districtNumber\": \"districtNumber\",\n        \"effectiveDate\": \"effectiveDate\"\n      }\n    ],\n    \"state\": {\n      \"code\": \"code\",\n      \"name\": \"name\"\n    },\n    \"place\": {\n      \"lastVerifiedDate\": \"lastVerifiedDate\",\n      \"classCode\": \"classCode\",\n      \"lastAnnexedDate\": \"lastAnnexedDate\",\n      \"lastUpdatedDate\": \"lastUpdatedDate\",\n      \"code\": \"code\",\n      \"gnisCode\": \"gnisCode\",\n      \"name\": \"name\",\n      \"selfCollected\": true,\n      \"incorporatedFlag\": \"incorporatedFlag\"\n    }\n  },\n  \"census\": {\n    \"cbsa\": {\n      \"code\": \"code\",\n      \"name\": \"name\"\n    },\n    \"matchCode\": \"matchCode\",\n    \"tract\": \"tract\",\n    \"matchLevel\": \"matchLevel\",\n    \"mcd\": {\n      \"code\": \"code\",\n      \"name\": \"name\"\n    }\n  },\n  \"latLongFields\": {\n    \"matchCode\": \"matchCode\",\n    \"matchLevel\": \"matchLevel\",\n    \"geometry\": {\n      \"coordinates\": [\n        \"coordinates\",\n        \"coordinates\"\n      ],\n      \"type\": \"type\"\n    },\n    \"streetMatchCode\": \"streetMatchCode\",\n    \"streetMatchLevel\": \"streetMatchLevel\"\n  },\n  \"vendorName\": \"vendorName\",\n  \"salesTax\": {\n    \"specialTaxRulesApplied\": true,\n    \"stateTaxRate\": 5.962133916683182,\n    \"municipalTaxRate\": 9.301444243932576,\n    \"totalTaxRate\": 6.027456183070403,\n    \"municipalTaxAmount\": 3.616076749251911,\n    \"countyTaxRate\": 2.3021358869347655,\n    \"totalTaxAmount\": 1.4658129805029452,\n    \"countyTaxAmount\": 7.061401241503109,\n    \"spdsTax\": [\n      {\n        \"taxRate\": 2.027123023002322,\n        \"taxAmount\": 4.145608029883936,\n        \"districtNumber\": \"districtNumber\"\n      },\n      {\n        \"taxRate\": 2.027123023002322,\n        \"taxAmount\": 4.145608029883936,\n        \"districtNumber\": \"districtNumber\"\n      }\n    ],\n    \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n    \"stateTaxAmount\": 5.637376656633329\n  },\n  \"objectId\": \"objectId\",\n  \"useTax\": {\n    \"specialTaxRulesApplied\": true,\n    \"stateTaxRate\": 1.0246457001441578,\n    \"municipalTaxRate\": 1.1730742509559433,\n    \"totalTaxRate\": 7.386281948385884,\n    \"municipalTaxAmount\": 4.965218492984954,\n    \"countyTaxRate\": 6.84685269835264,\n    \"totalTaxAmount\": 1.2315135367772556,\n    \"countyTaxAmount\": 7.457744773683766,\n    \"spdsTax\": [\n      {\n        \"taxRate\": 2.027123023002322,\n        \"taxAmount\": 4.145608029883936,\n        \"districtNumber\": \"districtNumber\"\n      },\n      {\n        \"taxRate\": 2.027123023002322,\n        \"taxAmount\": 4.145608029883936,\n        \"districtNumber\": \"districtNumber\"\n      }\n    ],\n    \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n    \"stateTaxAmount\": 1.4894159098541704\n  },\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"postCode1\": \"postCode1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63d84da9-ad27-41d5-bc93-9e7330d4f09c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "tax",
+                    ":taxRateTypeId",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purchaseAmount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) The tax rate id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "05d3231c-8446-485e-9f20-4613c65ff6ed",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "tax",
+                    ":taxRateTypeId",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purchaseAmount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) The tax rate id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9eea19f5-2400-4cdc-a0ca-55918a55162c",
+          "name": "Post Tax By Location",
+          "request": {
+            "name": "Post Tax By Location",
+            "description": {
+              "content": "This is a Batch offering for 'Tax By Location' service. It accepts a single location coordinate, purchase amount or a list of location coordinates, purchase amounts and retrieve applicable tax.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "localtax",
+                "v1",
+                "tax",
+                ":taxRateTypeId",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taxRateTypeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\"\n    },\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\"\n    }\n  ],\n  \"preferences\": {\n    \"fallbackToGeographic\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\"\n    },\n    \"defaultBufferWidth\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"outputCasing\": \"<string>\",\n    \"returnCensusFields\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"taxRatetypeID\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "64d2240e-ef7e-4d73-be5f-12f625a0ebbd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "tax",
+                    ":taxRateTypeId",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    },\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    }\n  ],\n  \"preferences\": {\n    \"fallbackToGeographic\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\",\n      \"key_2\": \"<object>\"\n    },\n    \"defaultBufferWidth\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"outputCasing\": \"<string>\",\n    \"returnCensusFields\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"taxRatetypeID\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"taxResponses\": [\n    {\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"postCode1\": \"postCode1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"gnisCode\": \"gnisCode\",\n      \"confidence\": 0.8008281904610115,\n      \"jurisdiction\": {\n        \"county\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"spds\": [\n          {\n            \"updateDate\": \"updateDate\",\n            \"districtCode\": \"districtCode\",\n            \"districtName\": \"districtName\",\n            \"compiledDate\": \"compiledDate\",\n            \"versionDate\": \"versionDate\",\n            \"districtNumber\": \"districtNumber\",\n            \"effectiveDate\": \"effectiveDate\"\n          },\n          {\n            \"updateDate\": \"updateDate\",\n            \"districtCode\": \"districtCode\",\n            \"districtName\": \"districtName\",\n            \"compiledDate\": \"compiledDate\",\n            \"versionDate\": \"versionDate\",\n            \"districtNumber\": \"districtNumber\",\n            \"effectiveDate\": \"effectiveDate\"\n          }\n        ],\n        \"state\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"place\": {\n          \"lastVerifiedDate\": \"lastVerifiedDate\",\n          \"classCode\": \"classCode\",\n          \"lastAnnexedDate\": \"lastAnnexedDate\",\n          \"lastUpdatedDate\": \"lastUpdatedDate\",\n          \"code\": \"code\",\n          \"gnisCode\": \"gnisCode\",\n          \"name\": \"name\",\n          \"selfCollected\": true,\n          \"incorporatedFlag\": \"incorporatedFlag\"\n        }\n      },\n      \"census\": {\n        \"cbsa\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"matchCode\": \"matchCode\",\n        \"tract\": \"tract\",\n        \"matchLevel\": \"matchLevel\",\n        \"mcd\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        }\n      },\n      \"latLongFields\": {\n        \"matchCode\": \"matchCode\",\n        \"matchLevel\": \"matchLevel\",\n        \"geometry\": {\n          \"coordinates\": [\n            \"coordinates\",\n            \"coordinates\"\n          ],\n          \"type\": \"type\"\n        },\n        \"streetMatchCode\": \"streetMatchCode\",\n        \"streetMatchLevel\": \"streetMatchLevel\"\n      },\n      \"vendorName\": \"vendorName\",\n      \"salesTax\": {\n        \"specialTaxRulesApplied\": true,\n        \"stateTaxRate\": 5.962133916683182,\n        \"municipalTaxRate\": 9.301444243932576,\n        \"totalTaxRate\": 6.027456183070403,\n        \"municipalTaxAmount\": 3.616076749251911,\n        \"countyTaxRate\": 2.3021358869347655,\n        \"totalTaxAmount\": 1.4658129805029452,\n        \"countyTaxAmount\": 7.061401241503109,\n        \"spdsTax\": [\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          },\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          }\n        ],\n        \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n        \"stateTaxAmount\": 5.637376656633329\n      },\n      \"objectId\": \"objectId\",\n      \"useTax\": {\n        \"specialTaxRulesApplied\": true,\n        \"stateTaxRate\": 1.0246457001441578,\n        \"municipalTaxRate\": 1.1730742509559433,\n        \"totalTaxRate\": 7.386281948385884,\n        \"municipalTaxAmount\": 4.965218492984954,\n        \"countyTaxRate\": 6.84685269835264,\n        \"totalTaxAmount\": 1.2315135367772556,\n        \"countyTaxAmount\": 7.457744773683766,\n        \"spdsTax\": [\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          },\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          }\n        ],\n        \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n        \"stateTaxAmount\": 1.4894159098541704\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"postCode1\": \"postCode1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    },\n    {\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"postCode1\": \"postCode1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"gnisCode\": \"gnisCode\",\n      \"confidence\": 0.8008281904610115,\n      \"jurisdiction\": {\n        \"county\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"spds\": [\n          {\n            \"updateDate\": \"updateDate\",\n            \"districtCode\": \"districtCode\",\n            \"districtName\": \"districtName\",\n            \"compiledDate\": \"compiledDate\",\n            \"versionDate\": \"versionDate\",\n            \"districtNumber\": \"districtNumber\",\n            \"effectiveDate\": \"effectiveDate\"\n          },\n          {\n            \"updateDate\": \"updateDate\",\n            \"districtCode\": \"districtCode\",\n            \"districtName\": \"districtName\",\n            \"compiledDate\": \"compiledDate\",\n            \"versionDate\": \"versionDate\",\n            \"districtNumber\": \"districtNumber\",\n            \"effectiveDate\": \"effectiveDate\"\n          }\n        ],\n        \"state\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"place\": {\n          \"lastVerifiedDate\": \"lastVerifiedDate\",\n          \"classCode\": \"classCode\",\n          \"lastAnnexedDate\": \"lastAnnexedDate\",\n          \"lastUpdatedDate\": \"lastUpdatedDate\",\n          \"code\": \"code\",\n          \"gnisCode\": \"gnisCode\",\n          \"name\": \"name\",\n          \"selfCollected\": true,\n          \"incorporatedFlag\": \"incorporatedFlag\"\n        }\n      },\n      \"census\": {\n        \"cbsa\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"matchCode\": \"matchCode\",\n        \"tract\": \"tract\",\n        \"matchLevel\": \"matchLevel\",\n        \"mcd\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        }\n      },\n      \"latLongFields\": {\n        \"matchCode\": \"matchCode\",\n        \"matchLevel\": \"matchLevel\",\n        \"geometry\": {\n          \"coordinates\": [\n            \"coordinates\",\n            \"coordinates\"\n          ],\n          \"type\": \"type\"\n        },\n        \"streetMatchCode\": \"streetMatchCode\",\n        \"streetMatchLevel\": \"streetMatchLevel\"\n      },\n      \"vendorName\": \"vendorName\",\n      \"salesTax\": {\n        \"specialTaxRulesApplied\": true,\n        \"stateTaxRate\": 5.962133916683182,\n        \"municipalTaxRate\": 9.301444243932576,\n        \"totalTaxRate\": 6.027456183070403,\n        \"municipalTaxAmount\": 3.616076749251911,\n        \"countyTaxRate\": 2.3021358869347655,\n        \"totalTaxAmount\": 1.4658129805029452,\n        \"countyTaxAmount\": 7.061401241503109,\n        \"spdsTax\": [\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          },\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          }\n        ],\n        \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n        \"stateTaxAmount\": 5.637376656633329\n      },\n      \"objectId\": \"objectId\",\n      \"useTax\": {\n        \"specialTaxRulesApplied\": true,\n        \"stateTaxRate\": 1.0246457001441578,\n        \"municipalTaxRate\": 1.1730742509559433,\n        \"totalTaxRate\": 7.386281948385884,\n        \"municipalTaxAmount\": 4.965218492984954,\n        \"countyTaxRate\": 6.84685269835264,\n        \"totalTaxAmount\": 1.2315135367772556,\n        \"countyTaxAmount\": 7.457744773683766,\n        \"spdsTax\": [\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          },\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          }\n        ],\n        \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n        \"stateTaxAmount\": 1.4894159098541704\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"postCode1\": \"postCode1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "05b68842-13f9-4939-9acc-ed4b4e4e03bd",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "tax",
+                    ":taxRateTypeId",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    },\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    }\n  ],\n  \"preferences\": {\n    \"fallbackToGeographic\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\",\n      \"key_2\": \"<object>\"\n    },\n    \"defaultBufferWidth\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"outputCasing\": \"<string>\",\n    \"returnCensusFields\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"taxRatetypeID\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "939b8ff9-b79e-4990-b399-aeeac2270f15",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "tax",
+                    ":taxRateTypeId",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    },\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    }\n  ],\n  \"preferences\": {\n    \"fallbackToGeographic\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\",\n      \"key_2\": \"<object>\"\n    },\n    \"defaultBufferWidth\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"outputCasing\": \"<string>\",\n    \"returnCensusFields\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"taxRatetypeID\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4bfaed7d-a78a-45ec-a703-aa64ac6ae0f6",
+          "name": "Get Tax By Address",
+          "request": {
+            "name": "Get Tax By Address",
+            "description": {
+              "content": "This service calculates and returns taxes applicable at a specific address. Address, purchase amount and supported tax rate type are inputs to the service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "localtax",
+                "v1",
+                "tax",
+                ":taxRateTypeId",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "(Required) The address to be searched."
+                },
+                {
+                  "disabled": false,
+                  "key": "purchaseAmount",
+                  "value": "<string>",
+                  "description": "(Required) The amount on which tax to be calculated"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taxRateTypeId",
+                  "description": "(Required) The tax rate id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "df071537-87c5-4c2f-bda2-000915d3a521",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "tax",
+                    ":taxRateTypeId",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purchaseAmount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) The tax rate id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"postCode1\": \"postCode1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  },\n  \"gnisCode\": \"gnisCode\",\n  \"confidence\": 0.8008281904610115,\n  \"jurisdiction\": {\n    \"county\": {\n      \"code\": \"code\",\n      \"name\": \"name\"\n    },\n    \"spds\": [\n      {\n        \"updateDate\": \"updateDate\",\n        \"districtCode\": \"districtCode\",\n        \"districtName\": \"districtName\",\n        \"compiledDate\": \"compiledDate\",\n        \"versionDate\": \"versionDate\",\n        \"districtNumber\": \"districtNumber\",\n        \"effectiveDate\": \"effectiveDate\"\n      },\n      {\n        \"updateDate\": \"updateDate\",\n        \"districtCode\": \"districtCode\",\n        \"districtName\": \"districtName\",\n        \"compiledDate\": \"compiledDate\",\n        \"versionDate\": \"versionDate\",\n        \"districtNumber\": \"districtNumber\",\n        \"effectiveDate\": \"effectiveDate\"\n      }\n    ],\n    \"state\": {\n      \"code\": \"code\",\n      \"name\": \"name\"\n    },\n    \"place\": {\n      \"lastVerifiedDate\": \"lastVerifiedDate\",\n      \"classCode\": \"classCode\",\n      \"lastAnnexedDate\": \"lastAnnexedDate\",\n      \"lastUpdatedDate\": \"lastUpdatedDate\",\n      \"code\": \"code\",\n      \"gnisCode\": \"gnisCode\",\n      \"name\": \"name\",\n      \"selfCollected\": true,\n      \"incorporatedFlag\": \"incorporatedFlag\"\n    }\n  },\n  \"census\": {\n    \"cbsa\": {\n      \"code\": \"code\",\n      \"name\": \"name\"\n    },\n    \"matchCode\": \"matchCode\",\n    \"tract\": \"tract\",\n    \"matchLevel\": \"matchLevel\",\n    \"mcd\": {\n      \"code\": \"code\",\n      \"name\": \"name\"\n    }\n  },\n  \"latLongFields\": {\n    \"matchCode\": \"matchCode\",\n    \"matchLevel\": \"matchLevel\",\n    \"geometry\": {\n      \"coordinates\": [\n        \"coordinates\",\n        \"coordinates\"\n      ],\n      \"type\": \"type\"\n    },\n    \"streetMatchCode\": \"streetMatchCode\",\n    \"streetMatchLevel\": \"streetMatchLevel\"\n  },\n  \"vendorName\": \"vendorName\",\n  \"salesTax\": {\n    \"specialTaxRulesApplied\": true,\n    \"stateTaxRate\": 5.962133916683182,\n    \"municipalTaxRate\": 9.301444243932576,\n    \"totalTaxRate\": 6.027456183070403,\n    \"municipalTaxAmount\": 3.616076749251911,\n    \"countyTaxRate\": 2.3021358869347655,\n    \"totalTaxAmount\": 1.4658129805029452,\n    \"countyTaxAmount\": 7.061401241503109,\n    \"spdsTax\": [\n      {\n        \"taxRate\": 2.027123023002322,\n        \"taxAmount\": 4.145608029883936,\n        \"districtNumber\": \"districtNumber\"\n      },\n      {\n        \"taxRate\": 2.027123023002322,\n        \"taxAmount\": 4.145608029883936,\n        \"districtNumber\": \"districtNumber\"\n      }\n    ],\n    \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n    \"stateTaxAmount\": 5.637376656633329\n  },\n  \"objectId\": \"objectId\",\n  \"useTax\": {\n    \"specialTaxRulesApplied\": true,\n    \"stateTaxRate\": 1.0246457001441578,\n    \"municipalTaxRate\": 1.1730742509559433,\n    \"totalTaxRate\": 7.386281948385884,\n    \"municipalTaxAmount\": 4.965218492984954,\n    \"countyTaxRate\": 6.84685269835264,\n    \"totalTaxAmount\": 1.2315135367772556,\n    \"countyTaxAmount\": 7.457744773683766,\n    \"spdsTax\": [\n      {\n        \"taxRate\": 2.027123023002322,\n        \"taxAmount\": 4.145608029883936,\n        \"districtNumber\": \"districtNumber\"\n      },\n      {\n        \"taxRate\": 2.027123023002322,\n        \"taxAmount\": 4.145608029883936,\n        \"districtNumber\": \"districtNumber\"\n      }\n    ],\n    \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n    \"stateTaxAmount\": 1.4894159098541704\n  },\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"postCode1\": \"postCode1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c42e9ff3-a6ff-4b4d-a53b-9648260af1ae",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "tax",
+                    ":taxRateTypeId",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purchaseAmount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) The tax rate id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "08032c97-571d-48e3-a3ff-c1c1d748a711",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "tax",
+                    ":taxRateTypeId",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "purchaseAmount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) The tax rate id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2604cf26-577e-4dbf-a043-73ac3184c67a",
+          "name": "Post Tax By Address",
+          "request": {
+            "name": "Post Tax By Address",
+            "description": {
+              "content": "This is a Batch offering for 'Tax By Address' service. It accepts a single address, purchase amount or a list of addresses, purchase amounts and retrieve applicable taxes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "localtax",
+                "v1",
+                "tax",
+                ":taxRateTypeId",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taxRateTypeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"taxAddresses\": [\n    {\n      \"objectId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"streetSide\": \"<string>\",\n      \"businessName\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateProvince\": \"<string>\",\n      \"county\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\",\n      \"status\": \"<string>\",\n      \"urbanizationName\": \"<string>\",\n      \"formattedAddress\": \"<string>\",\n      \"mainAddressLine\": \"<string>\",\n      \"addressLastLine\": \"<string>\",\n      \"placeName\": \"<string>\",\n      \"areaName1\": \"<string>\",\n      \"areaName2\": \"<string>\",\n      \"areaName3\": \"<string>\",\n      \"areaName4\": \"<string>\",\n      \"postCode\": \"<string>\",\n      \"postCode1\": \"<string>\",\n      \"postCodeExt\": \"<string>\",\n      \"country\": \"<string>\",\n      \"addressNumber\": \"<string>\",\n      \"streetName\": \"<string>\",\n      \"unitType\": \"<string>\",\n      \"unitValue\": \"<string>\",\n      \"distanceUnits\": \"<string>\",\n      \"bufferWidth\": \"<string>\",\n      \"userBufferWidth\": \"<string>\",\n      \"purchaseAmount\": \"<string>\"\n    },\n    {\n      \"objectId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"streetSide\": \"<string>\",\n      \"businessName\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateProvince\": \"<string>\",\n      \"county\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\",\n      \"status\": \"<string>\",\n      \"urbanizationName\": \"<string>\",\n      \"formattedAddress\": \"<string>\",\n      \"mainAddressLine\": \"<string>\",\n      \"addressLastLine\": \"<string>\",\n      \"placeName\": \"<string>\",\n      \"areaName1\": \"<string>\",\n      \"areaName2\": \"<string>\",\n      \"areaName3\": \"<string>\",\n      \"areaName4\": \"<string>\",\n      \"postCode\": \"<string>\",\n      \"postCode1\": \"<string>\",\n      \"postCodeExt\": \"<string>\",\n      \"country\": \"<string>\",\n      \"addressNumber\": \"<string>\",\n      \"streetName\": \"<string>\",\n      \"unitType\": \"<string>\",\n      \"unitValue\": \"<string>\",\n      \"distanceUnits\": \"<string>\",\n      \"bufferWidth\": \"<string>\",\n      \"userBufferWidth\": \"<string>\",\n      \"purchaseAmount\": \"<string>\"\n    }\n  ],\n  \"preferences\": {\n    \"fallbackToGeographic\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\"\n    },\n    \"defaultBufferWidth\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"outputCasing\": \"<string>\",\n    \"returnCensusFields\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"taxRatetypeID\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e2f64df5-019b-4f4b-9e36-a225fb8b9876",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "tax",
+                    ":taxRateTypeId",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"taxAddresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"userBufferWidth\": \"userBufferWidth\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"bufferWidth\": \"bufferWidth\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"purchaseAmount\": \"purchaseAmount\",\n      \"areaName1\": \"areaName1\",\n      \"postCode1\": \"postCode1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"distanceUnits\": \"distanceUnits\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"userBufferWidth\": \"userBufferWidth\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"bufferWidth\": \"bufferWidth\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"purchaseAmount\": \"purchaseAmount\",\n      \"areaName1\": \"areaName1\",\n      \"postCode1\": \"postCode1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"distanceUnits\": \"distanceUnits\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ],\n  \"preferences\": {\n    \"fallbackToGeographic\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\"\n    },\n    \"defaultBufferWidth\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"outputCasing\": \"<string>\",\n    \"returnCensusFields\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"taxRatetypeID\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"taxResponses\": [\n    {\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"postCode1\": \"postCode1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"gnisCode\": \"gnisCode\",\n      \"confidence\": 0.8008281904610115,\n      \"jurisdiction\": {\n        \"county\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"spds\": [\n          {\n            \"updateDate\": \"updateDate\",\n            \"districtCode\": \"districtCode\",\n            \"districtName\": \"districtName\",\n            \"compiledDate\": \"compiledDate\",\n            \"versionDate\": \"versionDate\",\n            \"districtNumber\": \"districtNumber\",\n            \"effectiveDate\": \"effectiveDate\"\n          },\n          {\n            \"updateDate\": \"updateDate\",\n            \"districtCode\": \"districtCode\",\n            \"districtName\": \"districtName\",\n            \"compiledDate\": \"compiledDate\",\n            \"versionDate\": \"versionDate\",\n            \"districtNumber\": \"districtNumber\",\n            \"effectiveDate\": \"effectiveDate\"\n          }\n        ],\n        \"state\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"place\": {\n          \"lastVerifiedDate\": \"lastVerifiedDate\",\n          \"classCode\": \"classCode\",\n          \"lastAnnexedDate\": \"lastAnnexedDate\",\n          \"lastUpdatedDate\": \"lastUpdatedDate\",\n          \"code\": \"code\",\n          \"gnisCode\": \"gnisCode\",\n          \"name\": \"name\",\n          \"selfCollected\": true,\n          \"incorporatedFlag\": \"incorporatedFlag\"\n        }\n      },\n      \"census\": {\n        \"cbsa\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"matchCode\": \"matchCode\",\n        \"tract\": \"tract\",\n        \"matchLevel\": \"matchLevel\",\n        \"mcd\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        }\n      },\n      \"latLongFields\": {\n        \"matchCode\": \"matchCode\",\n        \"matchLevel\": \"matchLevel\",\n        \"geometry\": {\n          \"coordinates\": [\n            \"coordinates\",\n            \"coordinates\"\n          ],\n          \"type\": \"type\"\n        },\n        \"streetMatchCode\": \"streetMatchCode\",\n        \"streetMatchLevel\": \"streetMatchLevel\"\n      },\n      \"vendorName\": \"vendorName\",\n      \"salesTax\": {\n        \"specialTaxRulesApplied\": true,\n        \"stateTaxRate\": 5.962133916683182,\n        \"municipalTaxRate\": 9.301444243932576,\n        \"totalTaxRate\": 6.027456183070403,\n        \"municipalTaxAmount\": 3.616076749251911,\n        \"countyTaxRate\": 2.3021358869347655,\n        \"totalTaxAmount\": 1.4658129805029452,\n        \"countyTaxAmount\": 7.061401241503109,\n        \"spdsTax\": [\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          },\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          }\n        ],\n        \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n        \"stateTaxAmount\": 5.637376656633329\n      },\n      \"objectId\": \"objectId\",\n      \"useTax\": {\n        \"specialTaxRulesApplied\": true,\n        \"stateTaxRate\": 1.0246457001441578,\n        \"municipalTaxRate\": 1.1730742509559433,\n        \"totalTaxRate\": 7.386281948385884,\n        \"municipalTaxAmount\": 4.965218492984954,\n        \"countyTaxRate\": 6.84685269835264,\n        \"totalTaxAmount\": 1.2315135367772556,\n        \"countyTaxAmount\": 7.457744773683766,\n        \"spdsTax\": [\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          },\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          }\n        ],\n        \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n        \"stateTaxAmount\": 1.4894159098541704\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"postCode1\": \"postCode1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    },\n    {\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"postCode1\": \"postCode1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"gnisCode\": \"gnisCode\",\n      \"confidence\": 0.8008281904610115,\n      \"jurisdiction\": {\n        \"county\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"spds\": [\n          {\n            \"updateDate\": \"updateDate\",\n            \"districtCode\": \"districtCode\",\n            \"districtName\": \"districtName\",\n            \"compiledDate\": \"compiledDate\",\n            \"versionDate\": \"versionDate\",\n            \"districtNumber\": \"districtNumber\",\n            \"effectiveDate\": \"effectiveDate\"\n          },\n          {\n            \"updateDate\": \"updateDate\",\n            \"districtCode\": \"districtCode\",\n            \"districtName\": \"districtName\",\n            \"compiledDate\": \"compiledDate\",\n            \"versionDate\": \"versionDate\",\n            \"districtNumber\": \"districtNumber\",\n            \"effectiveDate\": \"effectiveDate\"\n          }\n        ],\n        \"state\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"place\": {\n          \"lastVerifiedDate\": \"lastVerifiedDate\",\n          \"classCode\": \"classCode\",\n          \"lastAnnexedDate\": \"lastAnnexedDate\",\n          \"lastUpdatedDate\": \"lastUpdatedDate\",\n          \"code\": \"code\",\n          \"gnisCode\": \"gnisCode\",\n          \"name\": \"name\",\n          \"selfCollected\": true,\n          \"incorporatedFlag\": \"incorporatedFlag\"\n        }\n      },\n      \"census\": {\n        \"cbsa\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        },\n        \"matchCode\": \"matchCode\",\n        \"tract\": \"tract\",\n        \"matchLevel\": \"matchLevel\",\n        \"mcd\": {\n          \"code\": \"code\",\n          \"name\": \"name\"\n        }\n      },\n      \"latLongFields\": {\n        \"matchCode\": \"matchCode\",\n        \"matchLevel\": \"matchLevel\",\n        \"geometry\": {\n          \"coordinates\": [\n            \"coordinates\",\n            \"coordinates\"\n          ],\n          \"type\": \"type\"\n        },\n        \"streetMatchCode\": \"streetMatchCode\",\n        \"streetMatchLevel\": \"streetMatchLevel\"\n      },\n      \"vendorName\": \"vendorName\",\n      \"salesTax\": {\n        \"specialTaxRulesApplied\": true,\n        \"stateTaxRate\": 5.962133916683182,\n        \"municipalTaxRate\": 9.301444243932576,\n        \"totalTaxRate\": 6.027456183070403,\n        \"municipalTaxAmount\": 3.616076749251911,\n        \"countyTaxRate\": 2.3021358869347655,\n        \"totalTaxAmount\": 1.4658129805029452,\n        \"countyTaxAmount\": 7.061401241503109,\n        \"spdsTax\": [\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          },\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          }\n        ],\n        \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n        \"stateTaxAmount\": 5.637376656633329\n      },\n      \"objectId\": \"objectId\",\n      \"useTax\": {\n        \"specialTaxRulesApplied\": true,\n        \"stateTaxRate\": 1.0246457001441578,\n        \"municipalTaxRate\": 1.1730742509559433,\n        \"totalTaxRate\": 7.386281948385884,\n        \"municipalTaxAmount\": 4.965218492984954,\n        \"countyTaxRate\": 6.84685269835264,\n        \"totalTaxAmount\": 1.2315135367772556,\n        \"countyTaxAmount\": 7.457744773683766,\n        \"spdsTax\": [\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          },\n          {\n            \"taxRate\": 2.027123023002322,\n            \"taxAmount\": 4.145608029883936,\n            \"districtNumber\": \"districtNumber\"\n          }\n        ],\n        \"specialTaxRulesDescriptor\": \"specialTaxRulesDescriptor\",\n        \"stateTaxAmount\": 1.4894159098541704\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"postCode1\": \"postCode1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "989c9c12-ceea-4579-a9c0-16224cec6d35",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "tax",
+                    ":taxRateTypeId",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"taxAddresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"userBufferWidth\": \"userBufferWidth\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"bufferWidth\": \"bufferWidth\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"purchaseAmount\": \"purchaseAmount\",\n      \"areaName1\": \"areaName1\",\n      \"postCode1\": \"postCode1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"distanceUnits\": \"distanceUnits\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"userBufferWidth\": \"userBufferWidth\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"bufferWidth\": \"bufferWidth\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"purchaseAmount\": \"purchaseAmount\",\n      \"areaName1\": \"areaName1\",\n      \"postCode1\": \"postCode1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"distanceUnits\": \"distanceUnits\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ],\n  \"preferences\": {\n    \"fallbackToGeographic\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\"\n    },\n    \"defaultBufferWidth\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"outputCasing\": \"<string>\",\n    \"returnCensusFields\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"taxRatetypeID\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d74a77b-35b3-465d-9efc-b7f48ded94cd",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "localtax",
+                    "v1",
+                    "tax",
+                    ":taxRateTypeId",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxRateTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"taxAddresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"userBufferWidth\": \"userBufferWidth\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"bufferWidth\": \"bufferWidth\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"purchaseAmount\": \"purchaseAmount\",\n      \"areaName1\": \"areaName1\",\n      \"postCode1\": \"postCode1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"distanceUnits\": \"distanceUnits\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"userBufferWidth\": \"userBufferWidth\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"bufferWidth\": \"bufferWidth\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"purchaseAmount\": \"purchaseAmount\",\n      \"areaName1\": \"areaName1\",\n      \"postCode1\": \"postCode1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"distanceUnits\": \"distanceUnits\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ],\n  \"preferences\": {\n    \"fallbackToGeographic\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\"\n    },\n    \"defaultBufferWidth\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"outputCasing\": \"<string>\",\n    \"returnCensusFields\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"taxRatetypeID\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8b1970d7-4690-4263-843b-d386048a15f2",
+    "name": "Precisely APIs Type API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

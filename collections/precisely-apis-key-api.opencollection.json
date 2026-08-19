@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Key API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Key",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get PreciselyID By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/geocode/v1/key/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "The address to be searched."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "3 letter ISO code of the country to be searched."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service accepts an address and returns the corresponding PreciselyID"
+        },
+        {
+          "info": {
+            "name": "Post PreciselyID By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/geocode/v1/key/byaddress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'PreciselyID By Address' service. It accepts a single address or a list of addresses and returns the corresponding PreciselyID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

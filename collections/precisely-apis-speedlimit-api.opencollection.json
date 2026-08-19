@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Speedlimit API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Speedlimit",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nearest Speedlimit.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/streets/v1/speedlimit",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "query",
+                "description": "Accepts multiple points which will be snapped to the nearest road segment. Longitude and Latitude will be comma separated (longitude,latitude) and Point Coordinates will be separated by semi-colon(;)"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service accepts point coordinates of a path as input and returns the posted speed limit of the road segment on which this path will snap."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

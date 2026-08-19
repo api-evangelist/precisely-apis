@@ -1,0 +1,349 @@
+{
+  "item": [
+    {
+      "id": "53d70c86-d620-4101-b726-4160021028a9",
+      "name": "Earthquakehistory",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d597baff-3537-4d4d-a967-023ecc72de30",
+          "name": "Earthquake History",
+          "request": {
+            "name": "Earthquake History",
+            "description": {
+              "content": "Accepts postcode as input and Returns historical earthquake details for a particular postcode.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "risks",
+                "v1",
+                "earthquakehistory"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "postCode",
+                  "value": "<string>",
+                  "description": "(Required) 5 digit Postal code to search"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>",
+                  "description": "Start time in milliseconds(UTC)"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>",
+                  "description": "End time in milliseconds(UTC)"
+                },
+                {
+                  "disabled": false,
+                  "key": "minMagnitude",
+                  "value": "<string>",
+                  "description": "Minimum richter scale magnitude"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxMagnitude",
+                  "value": "<string>",
+                  "description": "Maximum Richter scale magnitude"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxCandidates",
+                  "value": "<string>",
+                  "description": "Maximum response events"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d0d61557-ab60-45b0-a584-d156e7d51d40",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "earthquakehistory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "postCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minMagnitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxMagnitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"county\": \"county\",\n  \"stateCode\": \"stateCode\",\n  \"postCode\": \"postCode\",\n  \"events\": {\n    \"earthuakeEvents\": [\n      {\n        \"dateTime\": {\n          \"date\": \"date\",\n          \"time\": \"time\"\n        },\n        \"intensity\": 9,\n        \"culturalEffect\": \"culturalEffect\",\n        \"depth\": {\n          \"unit\": \"unit\",\n          \"value\": 6\n        },\n        \"diastrophism\": \"diastrophism\",\n        \"cause\": \"cause\",\n        \"magnitude\": {\n          \"surfaceWave\": 5.637376656633329,\n          \"bodyWave\": 5.962133916683182,\n          \"bodyWaveValue\": 7.061401241503109,\n          \"scale\": \"scale\",\n          \"surfaceWaveValue\": 2.3021358869347655,\n          \"value\": 1.4658129805029452\n        },\n        \"location\": {\n          \"coordinates\": [\n            3.616076749251911,\n            3.616076749251911\n          ],\n          \"type\": \"type\"\n        },\n        \"miscPhenomena\": \"miscPhenomena\",\n        \"seismicRegionNumber\": 0\n      },\n      {\n        \"dateTime\": {\n          \"date\": \"date\",\n          \"time\": \"time\"\n        },\n        \"intensity\": 9,\n        \"culturalEffect\": \"culturalEffect\",\n        \"depth\": {\n          \"unit\": \"unit\",\n          \"value\": 6\n        },\n        \"diastrophism\": \"diastrophism\",\n        \"cause\": \"cause\",\n        \"magnitude\": {\n          \"surfaceWave\": 5.637376656633329,\n          \"bodyWave\": 5.962133916683182,\n          \"bodyWaveValue\": 7.061401241503109,\n          \"scale\": \"scale\",\n          \"surfaceWaveValue\": 2.3021358869347655,\n          \"value\": 1.4658129805029452\n        },\n        \"location\": {\n          \"coordinates\": [\n            3.616076749251911,\n            3.616076749251911\n          ],\n          \"type\": \"type\"\n        },\n        \"miscPhenomena\": \"miscPhenomena\",\n        \"seismicRegionNumber\": 0\n      }\n    ],\n    \"event\": [\n      {\n        \"dateTime\": {\n          \"date\": \"date\",\n          \"time\": \"time\"\n        },\n        \"intensity\": 9,\n        \"culturalEffect\": \"culturalEffect\",\n        \"depth\": {\n          \"unit\": \"unit\",\n          \"value\": 6\n        },\n        \"diastrophism\": \"diastrophism\",\n        \"cause\": \"cause\",\n        \"magnitude\": {\n          \"surfaceWave\": 5.637376656633329,\n          \"bodyWave\": 5.962133916683182,\n          \"bodyWaveValue\": 7.061401241503109,\n          \"scale\": \"scale\",\n          \"surfaceWaveValue\": 2.3021358869347655,\n          \"value\": 1.4658129805029452\n        },\n        \"location\": {\n          \"coordinates\": [\n            3.616076749251911,\n            3.616076749251911\n          ],\n          \"type\": \"type\"\n        },\n        \"miscPhenomena\": \"miscPhenomena\",\n        \"seismicRegionNumber\": 0\n      },\n      {\n        \"dateTime\": {\n          \"date\": \"date\",\n          \"time\": \"time\"\n        },\n        \"intensity\": 9,\n        \"culturalEffect\": \"culturalEffect\",\n        \"depth\": {\n          \"unit\": \"unit\",\n          \"value\": 6\n        },\n        \"diastrophism\": \"diastrophism\",\n        \"cause\": \"cause\",\n        \"magnitude\": {\n          \"surfaceWave\": 5.637376656633329,\n          \"bodyWave\": 5.962133916683182,\n          \"bodyWaveValue\": 7.061401241503109,\n          \"scale\": \"scale\",\n          \"surfaceWaveValue\": 2.3021358869347655,\n          \"value\": 1.4658129805029452\n        },\n        \"location\": {\n          \"coordinates\": [\n            3.616076749251911,\n            3.616076749251911\n          ],\n          \"type\": \"type\"\n        },\n        \"miscPhenomena\": \"miscPhenomena\",\n        \"seismicRegionNumber\": 0\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "734edc45-7fb4-41da-a589-7bf52c36dbe7",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "earthquakehistory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "postCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minMagnitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxMagnitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3de4519e-c97b-41b7-b9cd-9e3668c8b388",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "earthquakehistory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "postCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minMagnitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxMagnitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "029a7d96-a9f4-4c28-a64b-30086a1f3533",
+    "name": "Precisely APIs Earthquakehistory API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

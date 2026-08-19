@@ -1,0 +1,278 @@
+{
+  "item": [
+    {
+      "id": "eba81a38-9057-444f-ad34-bec6d5bee9f6",
+      "name": "Getpostalcodes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bfc47022-5d58-4562-82af-88e985b227bc",
+          "name": "GetPostalCodes",
+          "request": {
+            "name": "GetPostalCodes",
+            "description": {
+              "content": "GetPostalCodes takes a city and state as input for U.S. addresses and returns the postal codes for that city.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "addressverification",
+                "v1",
+                "getpostalcodes",
+                "results.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"options\": {\n    \"OutputCityType\": \"N\",\n    \"OutputVanityCity\": \"N\"\n  },\n  \"Input\": {\n    \"Row\": [\n      {\n        \"user_fields\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"City\": \"<string>\",\n        \"StateProvince\": \"<string>\"\n      },\n      {\n        \"user_fields\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"City\": \"<string>\",\n        \"StateProvince\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3bbf0e87-8bd3-4c1a-aab0-be9040fbf3a3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addressverification",
+                    "v1",
+                    "getpostalcodes",
+                    "results.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Input\": {\n    \"Row\": [\n      {\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"StateProvince\": \"StateProvince\",\n        \"City\": \"City\"\n      },\n      {\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"StateProvince\": \"StateProvince\",\n        \"City\": \"City\"\n      }\n    ]\n  },\n  \"options\": {\n    \"OutputVanityCity\": \"N\",\n    \"OutputCityType\": \"N\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Output\": [\n    {\n      \"Status\": \"Status\",\n      \"user_fields\": [\n        {\n          \"name\": \"name\",\n          \"value\": \"value\"\n        },\n        {\n          \"name\": \"name\",\n          \"value\": \"value\"\n        }\n      ],\n      \"PostalCode\": \"PostalCode\",\n      \"Status.Description\": \"Status.Description\",\n      \"Status.Code\": \"Status.Code\",\n      \"City.Type\": \"City.Type\"\n    },\n    {\n      \"Status\": \"Status\",\n      \"user_fields\": [\n        {\n          \"name\": \"name\",\n          \"value\": \"value\"\n        },\n        {\n          \"name\": \"name\",\n          \"value\": \"value\"\n        }\n      ],\n      \"PostalCode\": \"PostalCode\",\n      \"Status.Description\": \"Status.Description\",\n      \"Status.Code\": \"Status.Code\",\n      \"City.Type\": \"City.Type\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b699de5f-1279-4303-88c2-6f10b30ac9ea",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addressverification",
+                    "v1",
+                    "getpostalcodes",
+                    "results.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Input\": {\n    \"Row\": [\n      {\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"StateProvince\": \"StateProvince\",\n        \"City\": \"City\"\n      },\n      {\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"StateProvince\": \"StateProvince\",\n        \"City\": \"City\"\n      }\n    ]\n  },\n  \"options\": {\n    \"OutputVanityCity\": \"N\",\n    \"OutputCityType\": \"N\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6ddc93b0-55bb-4f06-b2fa-590bf9776b09",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addressverification",
+                    "v1",
+                    "getpostalcodes",
+                    "results.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Input\": {\n    \"Row\": [\n      {\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"StateProvince\": \"StateProvince\",\n        \"City\": \"City\"\n      },\n      {\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"StateProvince\": \"StateProvince\",\n        \"City\": \"City\"\n      }\n    ]\n  },\n  \"options\": {\n    \"OutputVanityCity\": \"N\",\n    \"OutputCityType\": \"N\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9c4db6a4-fcfd-4ccd-b163-45b0d951ce90",
+    "name": "Precisely APIs Getpostalcodes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

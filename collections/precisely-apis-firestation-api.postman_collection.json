@@ -1,0 +1,747 @@
+{
+  "item": [
+    {
+      "id": "119afd3d-063a-4e00-8266-71cbd80b12f4",
+      "name": "Firestation",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2726f1dd-6c2a-45b8-8564-4b85f0bd34a0",
+          "name": "Get Fire Station By Location",
+          "request": {
+            "name": "Get Fire Station By Location",
+            "description": {
+              "content": "Accepts latitude & longitude as input and Returns nearest fire stations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "risks",
+                "v1",
+                "firestation",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "longitude",
+                  "value": "<string>",
+                  "description": "(Required) Longitude of Location"
+                },
+                {
+                  "disabled": false,
+                  "key": "latitude",
+                  "value": "<string>",
+                  "description": "(Required) Latitude of Location"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxCandidates",
+                  "value": "<string>",
+                  "description": "Specifies the maximum number of fire stations that this service retrieves. The default value is 3 and maximum value is 5. The retrieved results are traveldistance sorted from the input location."
+                },
+                {
+                  "disabled": false,
+                  "key": "travelTime",
+                  "value": "<string>",
+                  "description": "Max travel time from input location to fire station. Maximum allowed is 2 hours"
+                },
+                {
+                  "disabled": false,
+                  "key": "travelTimeUnit",
+                  "value": "<string>",
+                  "description": "minutes (default), hours, seconds, milliseconds"
+                },
+                {
+                  "disabled": false,
+                  "key": "travelDistance",
+                  "value": "<string>",
+                  "description": "Max travel distance from input location to fire station. Maximum allowed is 50 miles"
+                },
+                {
+                  "disabled": false,
+                  "key": "travelDistanceUnit",
+                  "value": "<string>",
+                  "description": "Feet (default), Kilometers, Miles, Meters"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "time (default), distance"
+                },
+                {
+                  "disabled": false,
+                  "key": "historicTrafficTimeBucket",
+                  "value": "<string>",
+                  "description": "Historic traffic time slab"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "730de4c9-4e7e-4da9-90bd-e524efd0d4ca",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "firestation",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistanceUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fireStation\": [\n    {\n      \"numWithinDepartment\": \"numWithinDepartment\",\n      \"travelTime\": {\n        \"unit\": \"unit\",\n        \"value\": \"value\"\n      },\n      \"travelDistance\": {\n        \"unit\": \"unit\",\n        \"value\": \"value\"\n      },\n      \"fireDepartment\": {\n        \"name\": \"name\",\n        \"numberOfStations\": 0,\n        \"administrativeOfficeOnly\": true,\n        \"type\": \"type\",\n        \"contactDetails\": {\n          \"address\": {\n            \"country\": \"country\",\n            \"streetSide\": \"streetSide\",\n            \"city\": \"city\",\n            \"displayName\": \"displayName\",\n            \"postalCode\": \"postalCode\",\n            \"latitude\": \"latitude\",\n            \"businessName\": \"businessName\",\n            \"county\": \"county\",\n            \"unitType\": \"unitType\",\n            \"streetName\": \"streetName\",\n            \"formattedAddress\": \"formattedAddress\",\n            \"addressLine1\": \"addressLine1\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"addressLine2\": \"addressLine2\",\n            \"addressLine3\": \"addressLine3\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"longitude\": \"longitude\",\n            \"unitValue\": \"unitValue\",\n            \"stateProvince\": \"stateProvince\",\n            \"urbanizationName\": \"urbanizationName\",\n            \"areaName1\": \"areaName1\",\n            \"areaName2\": \"areaName2\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"postCode\": \"postCode\",\n            \"postCodeExt\": \"postCodeExt\",\n            \"placeName\": \"placeName\",\n            \"status\": \"status\"\n          },\n          \"phone\": \"phone\",\n          \"fax\": \"fax\"\n        }\n      },\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"locationReference\": \"locationReference\",\n      \"contactDetails\": {\n        \"address\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"phone\": \"phone\",\n        \"fax\": \"fax\"\n      }\n    },\n    {\n      \"numWithinDepartment\": \"numWithinDepartment\",\n      \"travelTime\": {\n        \"unit\": \"unit\",\n        \"value\": \"value\"\n      },\n      \"travelDistance\": {\n        \"unit\": \"unit\",\n        \"value\": \"value\"\n      },\n      \"fireDepartment\": {\n        \"name\": \"name\",\n        \"numberOfStations\": 0,\n        \"administrativeOfficeOnly\": true,\n        \"type\": \"type\",\n        \"contactDetails\": {\n          \"address\": {\n            \"country\": \"country\",\n            \"streetSide\": \"streetSide\",\n            \"city\": \"city\",\n            \"displayName\": \"displayName\",\n            \"postalCode\": \"postalCode\",\n            \"latitude\": \"latitude\",\n            \"businessName\": \"businessName\",\n            \"county\": \"county\",\n            \"unitType\": \"unitType\",\n            \"streetName\": \"streetName\",\n            \"formattedAddress\": \"formattedAddress\",\n            \"addressLine1\": \"addressLine1\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"addressLine2\": \"addressLine2\",\n            \"addressLine3\": \"addressLine3\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"longitude\": \"longitude\",\n            \"unitValue\": \"unitValue\",\n            \"stateProvince\": \"stateProvince\",\n            \"urbanizationName\": \"urbanizationName\",\n            \"areaName1\": \"areaName1\",\n            \"areaName2\": \"areaName2\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"postCode\": \"postCode\",\n            \"postCodeExt\": \"postCodeExt\",\n            \"placeName\": \"placeName\",\n            \"status\": \"status\"\n          },\n          \"phone\": \"phone\",\n          \"fax\": \"fax\"\n        }\n      },\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"locationReference\": \"locationReference\",\n      \"contactDetails\": {\n        \"address\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"phone\": \"phone\",\n        \"fax\": \"fax\"\n      }\n    }\n  ],\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0aac85e-0c0b-45dd-a4b5-1a4659da0892",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "firestation",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistanceUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd4ecffe-7ee8-4750-ab37-876f7348f563",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "firestation",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistanceUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f719911c-8344-4087-88bb-36c522f5db23",
+          "name": "Get Fire Station By Address",
+          "request": {
+            "name": "Get Fire Station By Address",
+            "description": {
+              "content": "Accepts addresses as input and Returns nearest fire stations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "risks",
+                "v1",
+                "firestation",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "(Required) Free Address"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxCandidates",
+                  "value": "<string>",
+                  "description": "Specifies the maximum number of fire stations that this service retrieves. The default value is 3 and maximum value is 5. The retrieved results are traveldistance sorted from the input location."
+                },
+                {
+                  "disabled": false,
+                  "key": "travelTime",
+                  "value": "<string>",
+                  "description": "Max travel time from input location to fire station. Maximum allowed is 2 hours"
+                },
+                {
+                  "disabled": false,
+                  "key": "travelTimeUnit",
+                  "value": "<string>",
+                  "description": "minutes (default), hours, seconds, milliseconds"
+                },
+                {
+                  "disabled": false,
+                  "key": "travelDistance",
+                  "value": "<string>",
+                  "description": "Max travel distance from input location to fire station. Maximum allowed is 50 miles"
+                },
+                {
+                  "disabled": false,
+                  "key": "travelDistanceUnit",
+                  "value": "<string>",
+                  "description": "Feet (default), Kilometers, Miles, Meters"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "time (default), distance"
+                },
+                {
+                  "disabled": false,
+                  "key": "historicTrafficTimeBucket",
+                  "value": "<string>",
+                  "description": "Historic traffic time slab"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4744e313-4971-42a1-8962-27efe5b69f82",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "firestation",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistanceUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fireStation\": [\n    {\n      \"numWithinDepartment\": \"numWithinDepartment\",\n      \"travelTime\": {\n        \"unit\": \"unit\",\n        \"value\": \"value\"\n      },\n      \"travelDistance\": {\n        \"unit\": \"unit\",\n        \"value\": \"value\"\n      },\n      \"fireDepartment\": {\n        \"name\": \"name\",\n        \"numberOfStations\": 0,\n        \"administrativeOfficeOnly\": true,\n        \"type\": \"type\",\n        \"contactDetails\": {\n          \"address\": {\n            \"country\": \"country\",\n            \"streetSide\": \"streetSide\",\n            \"city\": \"city\",\n            \"displayName\": \"displayName\",\n            \"postalCode\": \"postalCode\",\n            \"latitude\": \"latitude\",\n            \"businessName\": \"businessName\",\n            \"county\": \"county\",\n            \"unitType\": \"unitType\",\n            \"streetName\": \"streetName\",\n            \"formattedAddress\": \"formattedAddress\",\n            \"addressLine1\": \"addressLine1\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"addressLine2\": \"addressLine2\",\n            \"addressLine3\": \"addressLine3\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"longitude\": \"longitude\",\n            \"unitValue\": \"unitValue\",\n            \"stateProvince\": \"stateProvince\",\n            \"urbanizationName\": \"urbanizationName\",\n            \"areaName1\": \"areaName1\",\n            \"areaName2\": \"areaName2\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"postCode\": \"postCode\",\n            \"postCodeExt\": \"postCodeExt\",\n            \"placeName\": \"placeName\",\n            \"status\": \"status\"\n          },\n          \"phone\": \"phone\",\n          \"fax\": \"fax\"\n        }\n      },\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"locationReference\": \"locationReference\",\n      \"contactDetails\": {\n        \"address\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"phone\": \"phone\",\n        \"fax\": \"fax\"\n      }\n    },\n    {\n      \"numWithinDepartment\": \"numWithinDepartment\",\n      \"travelTime\": {\n        \"unit\": \"unit\",\n        \"value\": \"value\"\n      },\n      \"travelDistance\": {\n        \"unit\": \"unit\",\n        \"value\": \"value\"\n      },\n      \"fireDepartment\": {\n        \"name\": \"name\",\n        \"numberOfStations\": 0,\n        \"administrativeOfficeOnly\": true,\n        \"type\": \"type\",\n        \"contactDetails\": {\n          \"address\": {\n            \"country\": \"country\",\n            \"streetSide\": \"streetSide\",\n            \"city\": \"city\",\n            \"displayName\": \"displayName\",\n            \"postalCode\": \"postalCode\",\n            \"latitude\": \"latitude\",\n            \"businessName\": \"businessName\",\n            \"county\": \"county\",\n            \"unitType\": \"unitType\",\n            \"streetName\": \"streetName\",\n            \"formattedAddress\": \"formattedAddress\",\n            \"addressLine1\": \"addressLine1\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"addressLine2\": \"addressLine2\",\n            \"addressLine3\": \"addressLine3\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"longitude\": \"longitude\",\n            \"unitValue\": \"unitValue\",\n            \"stateProvince\": \"stateProvince\",\n            \"urbanizationName\": \"urbanizationName\",\n            \"areaName1\": \"areaName1\",\n            \"areaName2\": \"areaName2\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"postCode\": \"postCode\",\n            \"postCodeExt\": \"postCodeExt\",\n            \"placeName\": \"placeName\",\n            \"status\": \"status\"\n          },\n          \"phone\": \"phone\",\n          \"fax\": \"fax\"\n        }\n      },\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"locationReference\": \"locationReference\",\n      \"contactDetails\": {\n        \"address\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"phone\": \"phone\",\n        \"fax\": \"fax\"\n      }\n    }\n  ],\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "61597305-670d-46ff-bfec-19bfd267e6d7",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "firestation",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistanceUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d77b20d-386b-43dc-a5e0-e063cadbc1a7",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "firestation",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistanceUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bbfeee08-4bc3-4e6f-bad1-1337259414d6",
+    "name": "Precisely APIs Firestation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

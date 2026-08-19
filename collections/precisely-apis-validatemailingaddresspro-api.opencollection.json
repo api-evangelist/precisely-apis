@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Validatemailingaddresspro API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Validatemailingaddresspro",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ValidateMailingAddressPro",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/addressverification/v1/validatemailingaddresspro/results.json",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "ValidateMailingAddressPro builds upon the ValidateMailingAddress service by using additional address databases so it can provide enhanced detail."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

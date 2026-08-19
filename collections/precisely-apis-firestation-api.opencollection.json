@@ -1,0 +1,172 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Firestation API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Firestation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Fire Station By Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v1/firestation/bylocation",
+            "params": [
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of Location"
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of Location"
+              },
+              {
+                "name": "maxCandidates",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum number of fire stations that this service retrieves. The default value is 3 and maximum value is 5. The retrieved results are traveldistance sorted from the input location."
+              },
+              {
+                "name": "travelTime",
+                "value": "",
+                "type": "query",
+                "description": "Max travel time from input location to fire station. Maximum allowed is 2 hours"
+              },
+              {
+                "name": "travelTimeUnit",
+                "value": "",
+                "type": "query",
+                "description": "minutes (default), hours, seconds, milliseconds"
+              },
+              {
+                "name": "travelDistance",
+                "value": "",
+                "type": "query",
+                "description": "Max travel distance from input location to fire station. Maximum allowed is 50 miles"
+              },
+              {
+                "name": "travelDistanceUnit",
+                "value": "",
+                "type": "query",
+                "description": "Feet (default), Kilometers, Miles, Meters"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "time (default), distance"
+              },
+              {
+                "name": "historicTrafficTimeBucket",
+                "value": "",
+                "type": "query",
+                "description": "Historic traffic time slab"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts latitude & longitude as input and Returns nearest fire stations."
+        },
+        {
+          "info": {
+            "name": "Get Fire Station By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v1/firestation/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Free Address"
+              },
+              {
+                "name": "maxCandidates",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum number of fire stations that this service retrieves. The default value is 3 and maximum value is 5. The retrieved results are traveldistance sorted from the input location."
+              },
+              {
+                "name": "travelTime",
+                "value": "",
+                "type": "query",
+                "description": "Max travel time from input location to fire station. Maximum allowed is 2 hours"
+              },
+              {
+                "name": "travelTimeUnit",
+                "value": "",
+                "type": "query",
+                "description": "minutes (default), hours, seconds, milliseconds"
+              },
+              {
+                "name": "travelDistance",
+                "value": "",
+                "type": "query",
+                "description": "Max travel distance from input location to fire station. Maximum allowed is 50 miles"
+              },
+              {
+                "name": "travelDistanceUnit",
+                "value": "",
+                "type": "query",
+                "description": "Feet (default), Kilometers, Miles, Meters"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "time (default), distance"
+              },
+              {
+                "name": "historicTrafficTimeBucket",
+                "value": "",
+                "type": "query",
+                "description": "Historic traffic time slab"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts addresses as input and Returns nearest fire stations."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

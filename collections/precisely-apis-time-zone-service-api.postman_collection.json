@@ -1,0 +1,1025 @@
+{
+  "item": [
+    {
+      "id": "ee2c169f-7d29-4fbb-8a7f-628fa7785e34",
+      "name": "Time  Zone  Service",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a8894f9e-3bc9-48a1-96c1-96bee7c55aec",
+          "name": "Timezone By Location.",
+          "request": {
+            "name": "Timezone By Location.",
+            "description": {
+              "content": "Identifies and retrieves the local time of any location in the world for a given latitude, longitude and time. The input and retrieved time format is in milliseconds.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timezone",
+                "v1",
+                "timezone",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timestamp",
+                  "value": "<string>",
+                  "description": "(Required) Timestamp in miliseconds."
+                },
+                {
+                  "disabled": false,
+                  "key": "longitude",
+                  "value": "<string>",
+                  "description": "(Required) Longitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "latitude",
+                  "value": "<string>",
+                  "description": "(Required) Latitude of the location."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ea55303c-2efd-4579-a9fc-46791e5dbde7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    "v1",
+                    "timezone",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timestamp",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tzValidFrom\": \"tzValidFrom\",\n  \"country\": \"country\",\n  \"dstEndTime\": \"dstEndTime\",\n  \"dstEndDateFormat\": \"dstEndDateFormat\",\n  \"utcOffset\": 0,\n  \"dstStartDate\": \"dstStartDate\",\n  \"dstStartTime\": \"dstStartTime\",\n  \"zoneType\": \"zoneType\",\n  \"dstOffset\": 6,\n  \"dstValidFrom\": \"dstValidFrom\",\n  \"tzValidUntill\": \"tzValidUntill\",\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  },\n  \"dstRule\": \"dstRule\",\n  \"timezoneName\": \"timezoneName\",\n  \"dstStartDateFormat\": \"dstStartDateFormat\",\n  \"dstValidUntill\": \"dstValidUntill\",\n  \"objectId\": \"objectId\",\n  \"timestamp\": 1,\n  \"dstEndDate\": \"dstEndDate\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d6d4266-a9e9-490a-a93e-65e4d3261549",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    "v1",
+                    "timezone",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timestamp",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26689497-e011-478b-88d3-b264a91817f0",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    "v1",
+                    "timezone",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timestamp",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2a215a1-cf0a-4696-9d0f-5dee2343be61",
+          "name": "Timezone Batch by Location.",
+          "request": {
+            "name": "Timezone Batch by Location.",
+            "description": {
+              "content": "Identifies and retrieves the local time of any location in the world for a given latitude, longitude and time. The input and retrieved time format is in milliseconds.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timezone",
+                "v1",
+                "timezone",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locationTime\": [\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\",\n      \"timestamp\": \"<string>\"\n    },\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\",\n      \"timestamp\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8d321016-a285-44b0-b23c-0fa0833ce799",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    "v1",
+                    "timezone",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locationTime\": [\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\",\n      \"timestamp\": \"<string>\"\n    },\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\",\n      \"timestamp\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timezone\": [\n    {\n      \"tzValidFrom\": \"tzValidFrom\",\n      \"country\": \"country\",\n      \"dstEndTime\": \"dstEndTime\",\n      \"dstEndDateFormat\": \"dstEndDateFormat\",\n      \"utcOffset\": 0,\n      \"dstStartDate\": \"dstStartDate\",\n      \"dstStartTime\": \"dstStartTime\",\n      \"zoneType\": \"zoneType\",\n      \"dstOffset\": 6,\n      \"dstValidFrom\": \"dstValidFrom\",\n      \"tzValidUntill\": \"tzValidUntill\",\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"dstRule\": \"dstRule\",\n      \"timezoneName\": \"timezoneName\",\n      \"dstStartDateFormat\": \"dstStartDateFormat\",\n      \"dstValidUntill\": \"dstValidUntill\",\n      \"objectId\": \"objectId\",\n      \"timestamp\": 1,\n      \"dstEndDate\": \"dstEndDate\"\n    },\n    {\n      \"tzValidFrom\": \"tzValidFrom\",\n      \"country\": \"country\",\n      \"dstEndTime\": \"dstEndTime\",\n      \"dstEndDateFormat\": \"dstEndDateFormat\",\n      \"utcOffset\": 0,\n      \"dstStartDate\": \"dstStartDate\",\n      \"dstStartTime\": \"dstStartTime\",\n      \"zoneType\": \"zoneType\",\n      \"dstOffset\": 6,\n      \"dstValidFrom\": \"dstValidFrom\",\n      \"tzValidUntill\": \"tzValidUntill\",\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"dstRule\": \"dstRule\",\n      \"timezoneName\": \"timezoneName\",\n      \"dstStartDateFormat\": \"dstStartDateFormat\",\n      \"dstValidUntill\": \"dstValidUntill\",\n      \"objectId\": \"objectId\",\n      \"timestamp\": 1,\n      \"dstEndDate\": \"dstEndDate\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "58a4a486-fa04-4c37-930d-d7de10028607",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    "v1",
+                    "timezone",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locationTime\": [\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\",\n      \"timestamp\": \"<string>\"\n    },\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\",\n      \"timestamp\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80a7d920-eea5-487a-962d-fa838e2225dc",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    "v1",
+                    "timezone",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locationTime\": [\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\",\n      \"timestamp\": \"<string>\"\n    },\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\",\n      \"timestamp\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "69a6211a-4737-4788-bc08-60a04c03fc25",
+          "name": "Timezone By Address.",
+          "request": {
+            "name": "Timezone By Address.",
+            "description": {
+              "content": "Identifies and retrieves the local time of any location in the world for a given address and time. The input and retrieved time format is in milliseconds.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timezone",
+                "v1",
+                "timezone",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timestamp",
+                  "value": "<string>",
+                  "description": "(Required) Timestamp in miliseconds."
+                },
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "(Required) The address to be searched."
+                },
+                {
+                  "disabled": false,
+                  "key": "matchMode",
+                  "value": "<string>",
+                  "description": "Match modes determine the leniency used to make a match between the input address and the reference data (Default is relaxed)"
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "Country ISO code (Default is USA)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8614b161-e343-4ed7-8cc3-ab08395948c8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    "v1",
+                    "timezone",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timestamp",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "matchMode",
+                      "value": "Relaxed"
+                    },
+                    {
+                      "key": "country",
+                      "value": "USA"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tzValidFrom\": \"tzValidFrom\",\n  \"country\": \"country\",\n  \"dstEndTime\": \"dstEndTime\",\n  \"dstEndDateFormat\": \"dstEndDateFormat\",\n  \"utcOffset\": 0,\n  \"dstStartDate\": \"dstStartDate\",\n  \"dstStartTime\": \"dstStartTime\",\n  \"zoneType\": \"zoneType\",\n  \"dstOffset\": 6,\n  \"dstValidFrom\": \"dstValidFrom\",\n  \"tzValidUntill\": \"tzValidUntill\",\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  },\n  \"dstRule\": \"dstRule\",\n  \"timezoneName\": \"timezoneName\",\n  \"dstStartDateFormat\": \"dstStartDateFormat\",\n  \"dstValidUntill\": \"dstValidUntill\",\n  \"objectId\": \"objectId\",\n  \"timestamp\": 1,\n  \"dstEndDate\": \"dstEndDate\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77b44356-6ad8-43ad-b5c7-ff06b9883aeb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    "v1",
+                    "timezone",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timestamp",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "matchMode",
+                      "value": "Relaxed"
+                    },
+                    {
+                      "key": "country",
+                      "value": "USA"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "630b8f17-4e25-4b10-8cc9-d1d6a357c9cf",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    "v1",
+                    "timezone",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timestamp",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "matchMode",
+                      "value": "Relaxed"
+                    },
+                    {
+                      "key": "country",
+                      "value": "USA"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72bf242e-fadb-4b88-97f9-0168696637a5",
+          "name": "Timezone Batch by Address.",
+          "request": {
+            "name": "Timezone Batch by Address.",
+            "description": {
+              "content": "Identifies and retrieves the local time of any location in the world for a given address and time. The input and retrieved time format is in milliseconds.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "timezone",
+                "v1",
+                "timezone",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"preferences\": {\n    \"matchMode\": \"<string>\"\n  },\n  \"addressTime\": [\n    {\n      \"timestamp\": \"<string>\",\n      \"address\": {\n        \"objectId\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"streetSide\": \"<string>\",\n        \"businessName\": \"<string>\",\n        \"addressLine1\": \"<string>\",\n        \"addressLine2\": \"<string>\",\n        \"addressLine3\": \"<string>\",\n        \"city\": \"<string>\",\n        \"stateProvince\": \"<string>\",\n        \"county\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"latitude\": \"<string>\",\n        \"longitude\": \"<string>\",\n        \"status\": \"<string>\",\n        \"urbanizationName\": \"<string>\",\n        \"formattedAddress\": \"<string>\",\n        \"mainAddressLine\": \"<string>\",\n        \"addressLastLine\": \"<string>\",\n        \"placeName\": \"<string>\",\n        \"areaName1\": \"<string>\",\n        \"areaName2\": \"<string>\",\n        \"areaName3\": \"<string>\",\n        \"areaName4\": \"<string>\",\n        \"postCode\": \"<string>\",\n        \"postCodeExt\": \"<string>\",\n        \"country\": \"<string>\",\n        \"addressNumber\": \"<string>\",\n        \"streetName\": \"<string>\",\n        \"unitType\": \"<string>\",\n        \"unitValue\": \"<string>\"\n      }\n    },\n    {\n      \"timestamp\": \"<string>\",\n      \"address\": {\n        \"objectId\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"streetSide\": \"<string>\",\n        \"businessName\": \"<string>\",\n        \"addressLine1\": \"<string>\",\n        \"addressLine2\": \"<string>\",\n        \"addressLine3\": \"<string>\",\n        \"city\": \"<string>\",\n        \"stateProvince\": \"<string>\",\n        \"county\": \"<string>\",\n        \"postalCode\": \"<string>\",\n        \"latitude\": \"<string>\",\n        \"longitude\": \"<string>\",\n        \"status\": \"<string>\",\n        \"urbanizationName\": \"<string>\",\n        \"formattedAddress\": \"<string>\",\n        \"mainAddressLine\": \"<string>\",\n        \"addressLastLine\": \"<string>\",\n        \"placeName\": \"<string>\",\n        \"areaName1\": \"<string>\",\n        \"areaName2\": \"<string>\",\n        \"areaName3\": \"<string>\",\n        \"areaName4\": \"<string>\",\n        \"postCode\": \"<string>\",\n        \"postCodeExt\": \"<string>\",\n        \"country\": \"<string>\",\n        \"addressNumber\": \"<string>\",\n        \"streetName\": \"<string>\",\n        \"unitType\": \"<string>\",\n        \"unitValue\": \"<string>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "de369f7b-3bf8-458e-8524-75a3dd0893f1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    "v1",
+                    "timezone",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preferences\": {\n    \"matchMode\": \"<string>\"\n  },\n  \"addressTime\": [\n    {\n      \"timestamp\": \"<string>\",\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    },\n    {\n      \"timestamp\": \"<string>\",\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timezone\": [\n    {\n      \"tzValidFrom\": \"tzValidFrom\",\n      \"country\": \"country\",\n      \"dstEndTime\": \"dstEndTime\",\n      \"dstEndDateFormat\": \"dstEndDateFormat\",\n      \"utcOffset\": 0,\n      \"dstStartDate\": \"dstStartDate\",\n      \"dstStartTime\": \"dstStartTime\",\n      \"zoneType\": \"zoneType\",\n      \"dstOffset\": 6,\n      \"dstValidFrom\": \"dstValidFrom\",\n      \"tzValidUntill\": \"tzValidUntill\",\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"dstRule\": \"dstRule\",\n      \"timezoneName\": \"timezoneName\",\n      \"dstStartDateFormat\": \"dstStartDateFormat\",\n      \"dstValidUntill\": \"dstValidUntill\",\n      \"objectId\": \"objectId\",\n      \"timestamp\": 1,\n      \"dstEndDate\": \"dstEndDate\"\n    },\n    {\n      \"tzValidFrom\": \"tzValidFrom\",\n      \"country\": \"country\",\n      \"dstEndTime\": \"dstEndTime\",\n      \"dstEndDateFormat\": \"dstEndDateFormat\",\n      \"utcOffset\": 0,\n      \"dstStartDate\": \"dstStartDate\",\n      \"dstStartTime\": \"dstStartTime\",\n      \"zoneType\": \"zoneType\",\n      \"dstOffset\": 6,\n      \"dstValidFrom\": \"dstValidFrom\",\n      \"tzValidUntill\": \"tzValidUntill\",\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"dstRule\": \"dstRule\",\n      \"timezoneName\": \"timezoneName\",\n      \"dstStartDateFormat\": \"dstStartDateFormat\",\n      \"dstValidUntill\": \"dstValidUntill\",\n      \"objectId\": \"objectId\",\n      \"timestamp\": 1,\n      \"dstEndDate\": \"dstEndDate\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2494dc3-d4e3-4bf9-bf3f-3f249b20c6eb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    "v1",
+                    "timezone",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preferences\": {\n    \"matchMode\": \"<string>\"\n  },\n  \"addressTime\": [\n    {\n      \"timestamp\": \"<string>\",\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    },\n    {\n      \"timestamp\": \"<string>\",\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8bf6ea2d-e48e-46b1-98e2-3ec10d12fbca",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "timezone",
+                    "v1",
+                    "timezone",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preferences\": {\n    \"matchMode\": \"<string>\"\n  },\n  \"addressTime\": [\n    {\n      \"timestamp\": \"<string>\",\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    },\n    {\n      \"timestamp\": \"<string>\",\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c4e4546c-b6b2-4e6e-b1ed-97187a2147f4",
+    "name": "Precisely APIs Time  Zone  Service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

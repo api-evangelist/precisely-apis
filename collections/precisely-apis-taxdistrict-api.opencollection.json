@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Taxdistrict API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Taxdistrict",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get IPD Tax by Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/localtax/v1/taxdistrict/ipd/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "The address to be searched."
+              },
+              {
+                "name": "returnLatLongFields",
+                "value": "",
+                "type": "query",
+                "description": "Y or N (default is N) - Returns Latitude Longitude Fields."
+              },
+              {
+                "name": "latLongFormat",
+                "value": "",
+                "type": "query",
+                "description": "(default is Decimal) - Returns Desired Latitude Longitude Format."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieves IPD (Insurance Premium District) tax rates applicable to a specific address. This service accepts address as input and returns one or many IPD tax rate details for that region in which address falls."
+        },
+        {
+          "info": {
+            "name": "Get IPD Tax for batch requests.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/localtax/v1/taxdistrict/ipd/byaddress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'IPD Tax rates By Address'. It accepts multiple addresses as parameters along with geocoding and matching preferences and returns one or many IPD tax rate details for each address."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Schools  Service API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Schools  Service",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Nearby Schools by Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/schools/v1/school/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "free form address text"
+              },
+              {
+                "name": "edLevel",
+                "value": "",
+                "type": "query",
+                "description": "Single digit code for education level applicable values are P -> primary, M -> Middle, H -> High, O -> Mixed Grades for public school type andE -> Elementary , S -> Secondary , O -> Others mixed grades for private schools "
+              },
+              {
+                "name": "schoolType",
+                "value": "",
+                "type": "query",
+                "description": "Single digit code for schoolTypes applicable values are PRI and PUB"
+              },
+              {
+                "name": "schoolSubType",
+                "value": "",
+                "type": "query",
+                "description": "Single digit code for schoolSubType Applicable values are C, M, A, R, I, L, P, V, U, S (i.e. Charter, Magnet, Alternative, Regular, Indian, Military, Reportable Program, Vocational, Unknown, Special Education)"
+              },
+              {
+                "name": "gender",
+                "value": "",
+                "type": "query",
+                "description": "Single digit code for gender Applicable values are C, F, M (Coed, All Females, All Males) Applicable for Private Schools Only"
+              },
+              {
+                "name": "assignedSchoolsOnly",
+                "value": "",
+                "type": "query",
+                "description": "Single digit code for assignedSchoolOnly applicable values are  Y/N "
+              },
+              {
+                "name": "districtSchoolsOnly",
+                "value": "",
+                "type": "query",
+                "description": "Single digit code for districtSchoolOnly applicable values are Y/N "
+              },
+              {
+                "name": "searchRadius",
+                "value": "",
+                "type": "query",
+                "description": "Search Radius within which schools are searched"
+              },
+              {
+                "name": "searchRadiusUnit",
+                "value": "",
+                "type": "query",
+                "description": "Search Radius unit applicable values are feet,kilometers,miles,meters"
+              },
+              {
+                "name": "travelTime",
+                "value": "",
+                "type": "query",
+                "description": "Travel Time based on travelMode within which schools are searched."
+              },
+              {
+                "name": "travelTimeUnit",
+                "value": "",
+                "type": "query",
+                "description": "Travel Time unit applicable values are minutes,hours,seconds,milliseconds "
+              },
+              {
+                "name": "travelDistance",
+                "value": "",
+                "type": "query",
+                "description": "Travel Distance based on travelMode within which schools are searched."
+              },
+              {
+                "name": "travelDistanceUnit",
+                "value": "",
+                "type": "query",
+                "description": "Travel distanceUnit applicable values are feet,kilometers,miles,meters"
+              },
+              {
+                "name": "travelMode",
+                "value": "",
+                "type": "query",
+                "description": "Travel mode Required when travelDistance or travelTime is specified. Accepted values are walking,driving"
+              },
+              {
+                "name": "maxCandidates",
+                "value": "",
+                "type": "query",
+                "description": "Max result to search "
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Search Nearby Schools by Address"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

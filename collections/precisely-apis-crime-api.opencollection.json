@@ -1,0 +1,158 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Crime API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Crime",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Crime Risk By  Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v1/crime/bylocation",
+            "params": [
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "The longitude of the location"
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "The latitude of the location"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "this is crime type; valid values are following 11 crime types with 'all' as default (more than one can also be given as comma separated types)"
+              },
+              {
+                "name": "includeGeometry",
+                "value": "",
+                "type": "query",
+                "description": "Y or N (default is N) - if it is Y, then geometry will be part of response"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts latitude/longitude as input and returns and Returns local crime indexes."
+        },
+        {
+          "info": {
+            "name": "Post Crime Risk By Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/risks/v1/crime/bylocation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'Crime Risk By Location' service. It accepts a single location coordinate or a list of location coordinates and retrieve local crime indexes."
+        },
+        {
+          "info": {
+            "name": "Get Crime Risk By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v1/crime/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "free form address text"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "this is crime type; valid values are following 11 crime types with 'all' as default (more than one can also be given as comma separated types)"
+              },
+              {
+                "name": "includeGeometry",
+                "value": "",
+                "type": "query",
+                "description": "Y or N (default is N) - if it is Y, then geometry will be part of response"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts addresses as input and Returns local crime indexes."
+        },
+        {
+          "info": {
+            "name": "Post Crime Risk By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/risks/v1/crime/byaddress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'Crime Risk By Address' service. It accepts a single address or a list of addresses and retrieve local crime indexes."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

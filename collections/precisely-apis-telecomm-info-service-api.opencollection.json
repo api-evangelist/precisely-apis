@@ -1,0 +1,118 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Telecomm  Info  Service API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Telecomm  Info  Service",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Rate Center By Location.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/telecomm/v1/ratecenter/bylocation",
+            "params": [
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location"
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location"
+              },
+              {
+                "name": "areaCodeInfo",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether area code information will be part of response.Allowed values True,False."
+              },
+              {
+                "name": "level",
+                "value": "",
+                "type": "query",
+                "description": "Level (basic/detail).Allowed values detail,basic."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts latitude & longitude as input and returns Incumbent Local Exchange Carrier (ILEC) doing-business-as names."
+        },
+        {
+          "info": {
+            "name": "Rate Center By Address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/telecomm/v1/ratecenter/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "The address to be searched"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "3 letter ISO code of the country to be searched. Allowed values USA,CAN"
+              },
+              {
+                "name": "areaCodeInfo",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether area code information will be part of response.Allowed values True,False."
+              },
+              {
+                "name": "level",
+                "value": "",
+                "type": "query",
+                "description": "Level (basic/detail).Allowed values detail,basic."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts addresses as input and returns Incumbent Local Exchange Carrier (ILEC) doing-business-as names."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

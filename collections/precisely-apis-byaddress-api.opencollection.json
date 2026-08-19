@@ -1,0 +1,730 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Byaddress API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Byaddress",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Segmentation By Address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/demographics-segmentation/v1/segmentation/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "The address to be searched."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "3 letter ISO code of the country to be searched.Allowed values USA,CAN,GBR,FRA,ITA,AUS,DEU."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Provides the segmentation details around a specified address. GeoLife 'Segmentation by Address' service accepts address as an input to return the lifestyle characteristics of households in terms of their family status, children characteristics, income behaviors, financial preferences and interests."
+        },
+        {
+          "info": {
+            "name": "Demographics By Address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/demographics-segmentation/v1/demographics/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "The address to be searched."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "3 letter ISO code of the country to be searched.Allowed values USA,CAN,GBR,AUS."
+              },
+              {
+                "name": "profile",
+                "value": "",
+                "type": "query",
+                "description": "Retrieves the sorted demographic data on the basis of pre-defined profiles that can display the top 3 or top 5 results (by location) either in ascending or descending order.Allowed values Top5Ascending,Top5Descending,Top3Ascending,Top3Descending"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "The 'filter' parameter retrieves the demographic data based upon specified input themes."
+              },
+              {
+                "name": "valueFormat",
+                "value": "",
+                "type": "query",
+                "description": "The 'valueFormat' parameter is applicable for few ranged variables where percent & count both are available and filter response based on the input value."
+              },
+              {
+                "name": "variableLevel",
+                "value": "",
+                "type": "query",
+                "description": "The 'variableLevel' retrieves demographic facts in response based on the input value"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Provides the demographic details around a specified address. GeoLife 'byaddress' service accepts address as an input to return a specific population segment's age group, ethnicity, income, purchasing behaviour, commuter patterns and more."
+        },
+        {
+          "info": {
+            "name": "Get IPD Tax by Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/localtax/v1/taxdistrict/ipd/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "The address to be searched."
+              },
+              {
+                "name": "returnLatLongFields",
+                "value": "",
+                "type": "query",
+                "description": "Y or N (default is N) - Returns Latitude Longitude Fields."
+              },
+              {
+                "name": "latLongFormat",
+                "value": "",
+                "type": "query",
+                "description": "(default is Decimal) - Returns Desired Latitude Longitude Format."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Retrieves IPD (Insurance Premium District) tax rates applicable to a specific address. This service accepts address as input and returns one or many IPD tax rate details for that region in which address falls."
+        },
+        {
+          "info": {
+            "name": "Get IPD Tax for batch requests.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/localtax/v1/taxdistrict/ipd/byaddress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'IPD Tax rates By Address'. It accepts multiple addresses as parameters along with geocoding and matching preferences and returns one or many IPD tax rate details for each address."
+        },
+        {
+          "info": {
+            "name": "Get POIs By Address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/places/v1/poi/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "The address to be searched."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country ISO code."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the name of the place (POI) to be searched. Also performs search on partially specified names. It requires minimum 3 characters to search."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filters the points of interest (POIs) by place types."
+              },
+              {
+                "name": "categoryCode",
+                "value": "",
+                "type": "query",
+                "description": "Acts as a filter to narrow down and refine POI search results. The category codes are unique 4, 6, or 11 digit numeric values."
+              },
+              {
+                "name": "sicCode",
+                "value": "",
+                "type": "query",
+                "description": "Acts as a filter to narrow down and refine POI search results. The SIC codes are unique 4 or 8 digit numerical values"
+              },
+              {
+                "name": "maxCandidates",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of POIs that can be retrieved"
+              },
+              {
+                "name": "searchRadius",
+                "value": "",
+                "type": "query",
+                "description": "Radius range within which search is performed."
+              },
+              {
+                "name": "searchRadiusUnit",
+                "value": "",
+                "type": "query",
+                "description": "Radius unit such as Feet, Kilometers, Miles or Meters (default)."
+              },
+              {
+                "name": "travelTime",
+                "value": "",
+                "type": "query",
+                "description": "Travel time within which search is performed (POIs which can be reached within travel time)."
+              },
+              {
+                "name": "travelTimeUnit",
+                "value": "",
+                "type": "query",
+                "description": "Travel time unit such as minutes (default), hours, seconds or milliseconds."
+              },
+              {
+                "name": "travelDistance",
+                "value": "",
+                "type": "query",
+                "description": "Travel distance within which search is performed (POIs which can be reached within travel distance)."
+              },
+              {
+                "name": "travelDistanceUnit",
+                "value": "",
+                "type": "query",
+                "description": "Travel distance unit such as Feet (default), Kilometers, Miles or Meters."
+              },
+              {
+                "name": "travelMode",
+                "value": "",
+                "type": "query",
+                "description": "Mode of commute."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Whether to sort the results based on relevance (best match) or by nearest distance from input location."
+              },
+              {
+                "name": "fuzzyOnName",
+                "value": "",
+                "type": "query",
+                "description": "Whether to allow fuzzy seacrh on name input."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the page number of results where page size is the value of maxCandidates input in request."
+              },
+              {
+                "name": "matchMode",
+                "value": "",
+                "type": "query",
+                "description": "Determine the leniency used to make a match between the input name and the reference data."
+              },
+              {
+                "name": "specificMatchOn",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the field for the Specific Match Mode."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service accepts an address as input and returns nearby points-of-interest places around that address. Additional input features include retrieving data by name, type, standard industrial classifications and category codes, as well as geographic filtering by radius, travel times and travel distances. Response features include JSON as well as CSV download."
+        },
+        {
+          "info": {
+            "name": "Get Parcel Boundary By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/property/v2/parcelboundary/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "free form address text"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts address as input and returns property parcel boundary around that address."
+        },
+        {
+          "info": {
+            "name": "AHJ & PSAP By Address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/911/v1/ahj-psap/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "The address to be searched."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts addresses as input and Returns contact details for Authorities Having Jurisdiction (AHJ) on-behalf-of local Public Safety Answering Points (PSAP). 911/PSAP accepts an address and returns PSAP contact data plus contact data for an AHJ to communicate directly with a PSAP. Details include agency name, phone number, city name, coverage, contact person's details, site details and mailing addresses for EMS, Fire, and Police PSAP contacts."
+        },
+        {
+          "info": {
+            "name": "Get Distance To Flood Hazard By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v1/shoreline/distancetofloodhazard/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "The address of the location"
+              },
+              {
+                "name": "maxCandidates",
+                "value": "",
+                "type": "query",
+                "description": "This specifies the value of maxCandidates"
+              },
+              {
+                "name": "waterBodyType",
+                "value": "",
+                "type": "query",
+                "description": "This specifies the value of waterBodyType"
+              },
+              {
+                "name": "searchDistance",
+                "value": "",
+                "type": "query",
+                "description": "This specifies the search distance"
+              },
+              {
+                "name": "searchDistanceUnit",
+                "value": "",
+                "type": "query",
+                "description": "miles (default value),feet, kilometers, meters"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts addresses as input and Returns the distance from nearest water bodies along with body name and location."
+        },
+        {
+          "info": {
+            "name": "Post Distance To Flood Hazard By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/risks/v1/shoreline/distancetofloodhazard/byaddress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'Distance To Flood Hazard By Address' service. It accepts a single address or a list of addresses and retrieve the distance from nearest water bodies along with body name and location."
+        },
+        {
+          "info": {
+            "name": "Get Cost Matrix By Address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/routing/v1/travelcostmatrix/byaddress",
+            "params": [
+              {
+                "name": "startAddresses",
+                "value": "",
+                "type": "query",
+                "description": "Start locations in text based addresses."
+              },
+              {
+                "name": "endAddresses",
+                "value": "",
+                "type": "query",
+                "description": "End locations in text based addresses."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "3 Digit ISO country code."
+              },
+              {
+                "name": "db",
+                "value": "",
+                "type": "query",
+                "description": "Mode of commute."
+              },
+              {
+                "name": "optimizeBy",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether routes should be optimized by time or distance."
+              },
+              {
+                "name": "returnDistance",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether distance needs to be returned in response."
+              },
+              {
+                "name": "destinationSrs",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the desired coordinate system of returned routes."
+              },
+              {
+                "name": "distanceUnit",
+                "value": "",
+                "type": "query",
+                "description": "Return Distance Unit such as ft(Foot), km(Kilometer), mi(Mile), m(Meter) or yd(Yard)."
+              },
+              {
+                "name": "returnTime",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether time needs to be returned in response."
+              },
+              {
+                "name": "timeUnit",
+                "value": "",
+                "type": "query",
+                "description": "Return time unit such as min(Minute), h(Hour), s(Second) or msec(Millisecond)."
+              },
+              {
+                "name": "majorRoads",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include all roads in routes calculation or just major roads."
+              },
+              {
+                "name": "returnOptimalRoutesOnly",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether to return only the optimized route for each start and end point combination."
+              },
+              {
+                "name": "historicTrafficTimeBucket",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether routing calculation uses the historic traffic speeds."
+              },
+              {
+                "name": "useCvr",
+                "value": "",
+                "type": "query",
+                "description": "This parameter will enable/disable CVR (Commercial Vehicle Restrictions) capability in our APIs."
+              },
+              {
+                "name": "looseningBarrierRestrictions",
+                "value": "",
+                "type": "query",
+                "description": "Specifies that barriers will be removed when determining the route."
+              },
+              {
+                "name": "vehicleType",
+                "value": "",
+                "type": "query",
+                "description": "vehicle type."
+              },
+              {
+                "name": "weight",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum weight of a vehicle. Any vehicles over this value will be restricted when determining the route."
+              },
+              {
+                "name": "weightUnit",
+                "value": "",
+                "type": "query",
+                "description": "The unit of weight eg. kg(kilogram), lb(pound), mt(metric ton), t(ton)."
+              },
+              {
+                "name": "height",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum height of a vehicle. Any vehicles over this value will be restricted when determining the route."
+              },
+              {
+                "name": "heightUnit",
+                "value": "",
+                "type": "query",
+                "description": "The unit of height e.g m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+              },
+              {
+                "name": "length",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum length of a vehicle. Any vehicles over this value will be restricted when determining the route."
+              },
+              {
+                "name": "lengthUnit",
+                "value": "",
+                "type": "query",
+                "description": "The unit of length eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+              },
+              {
+                "name": "width",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum width of a vehicle. Any vehicles over this value will be restricted when determining the route."
+              },
+              {
+                "name": "widthUnit",
+                "value": "",
+                "type": "query",
+                "description": "The unit of width eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts addresses as input and Returns travel distances and times for multiple origins to multiple destinations by various travel modes."
+        },
+        {
+          "info": {
+            "name": "Gets Point of Interests Boundary by Address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/zones/v1/poiboundary/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Address around which POI Boundary is requested"
+              },
+              {
+                "name": "categoryCode",
+                "value": "",
+                "type": "query",
+                "description": "Specific Category/Categories Codes for the desired POIs. Accepts a mix of 4 digit (Top Category), 6 digit (Second-Level Category) and 11 digit (Low-Level Category) Category Codes."
+              },
+              {
+                "name": "sicCode",
+                "value": "",
+                "type": "query",
+                "description": "Specify starting digits or full sic code to filter the response"
+              },
+              {
+                "name": "naicsCode",
+                "value": "",
+                "type": "query",
+                "description": "Will accept naicsCode to filter POIs in results. Max 10 allowed."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Gets Point of Interests Boundary by Address."
+        },
+        {
+          "info": {
+            "name": "Batch method for getting Point of Interests Boundary by Address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/zones/v1/poiboundary/byaddress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Batch method for getting Point of Interests Boundary by Address."
+        },
+        {
+          "info": {
+            "name": "Gets Basic Boundary by Address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/zones/v1/basicboundary/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Address around which Basic Boundary is requested"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Three digit ISO country code"
+              },
+              {
+                "name": "distance",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "distanceUnit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query",
+                "description": "This is resolution of the buffer. Curves generated in buffer are approximated by line segments and it is measured in segments per circle. The higher the resolution, the smoother the curves of the buffer but more points would be required in the boundary geometry. Number greater than 0 and in multiple of 4. If not in 4, then it is approximated to nearest multiple of 4."
+              },
+              {
+                "name": "responseSrs",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Gets Basic Boundary by Address."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

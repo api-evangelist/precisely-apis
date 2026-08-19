@@ -1,0 +1,1929 @@
+{
+  "item": [
+    {
+      "id": "f286116b-dbb4-4273-86e8-a42be7479ad0",
+      "name": "Fire",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c50fc02e-a6d7-4766-8bb0-aec6e6e6320c",
+          "name": "Get Fire Risk By Location",
+          "request": {
+            "name": "Get Fire Risk By Location",
+            "description": {
+              "content": "Accepts latitude & longitude as input and Returns fire risk data by risk types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "risks",
+                "v1",
+                "fire",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "longitude",
+                  "value": "<string>",
+                  "description": "(Required) Longitude of Location"
+                },
+                {
+                  "disabled": false,
+                  "key": "latitude",
+                  "value": "<string>",
+                  "description": "(Required) Latitude of Location"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeGeometry",
+                  "value": "<string>",
+                  "description": "Flag to return Geometry default is N"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e1ca96bb-7847-4df5-bd79-62dd7dc3d04a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "fire",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objectId\": \"string\",\n  \"state\": {\n    \"code\": \"code\",\n    \"fips\": \"fips\"\n  },\n  \"fireShed\": {\n    \"id\": 8744,\n    \"risk\": {\n      \"severity\": 5,\n      \"risk50Rating\": 6,\n      \"distanceToFireStation\": 2,\n      \"pastFires\": 5,\n      \"golfCourse\": \"golfCourse\",\n      \"roadDist\": \"roadDist\",\n      \"continuity\": \"continuity\",\n      \"description\": \"description\",\n      \"vegetation\": \"vegetation\",\n      \"waterDist\": \"waterDist\",\n      \"tierDescription\": \"tierDescription\",\n      \"type\": \"type\",\n      \"slope\": \"slope\",\n      \"frequency\": 1,\n      \"nonburn\": \"nonburn\",\n      \"foehn\": \"foehn\",\n      \"tier\": \"tier\",\n      \"aspect\": \"aspect\",\n      \"adjustment\": \"adjustment\",\n      \"crownFire\": \"crownFire\"\n    },\n    \"geometry\": {\n      \"type\": \"string\",\n      \"crs\": {\n        \"type\": \"type\",\n        \"properties\": {\n          \"name\": \"name\"\n        }\n      },\n      \"coordinates\": {}\n    }\n  },\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75477c5a-8bf7-448a-8e0f-221306109bbb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "fire",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0895e44-b3c1-4341-9946-14356736ff29",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "fire",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26d52df0-28e7-4efa-8a1b-c6b7d3a84e2a",
+          "name": "Post Fire Risk By Location",
+          "request": {
+            "name": "Post Fire Risk By Location",
+            "description": {
+              "content": "This is a Batch offering for 'Fire Risk By Location' service. It accepts a single location coordinate or a list of location coordinates and retrieve fire risk data by risk types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "risks",
+                "v1",
+                "fire",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\"\n    },\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\"\n    }\n  ],\n  \"preferences\": {\n    \"includeGeometry\": \"<string>\",\n    \"includeZoneDesc\": \"<string>\",\n    \"richterValue\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6ef752bb-8547-48dd-a98e-83ec52c93e3a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "fire",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  },\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    },\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fireRisk\": [\n    {\n      \"objectId\": \"string\",\n      \"state\": {\n        \"code\": \"code\",\n        \"fips\": \"fips\"\n      },\n      \"fireShed\": {\n        \"id\": 5911,\n        \"risk\": {\n          \"severity\": 5,\n          \"risk50Rating\": 6,\n          \"distanceToFireStation\": 2,\n          \"pastFires\": 5,\n          \"golfCourse\": \"golfCourse\",\n          \"roadDist\": \"roadDist\",\n          \"continuity\": \"continuity\",\n          \"description\": \"description\",\n          \"vegetation\": \"vegetation\",\n          \"waterDist\": \"waterDist\",\n          \"tierDescription\": \"tierDescription\",\n          \"type\": \"type\",\n          \"slope\": \"slope\",\n          \"frequency\": 1,\n          \"nonburn\": \"nonburn\",\n          \"foehn\": \"foehn\",\n          \"tier\": \"tier\",\n          \"aspect\": \"aspect\",\n          \"adjustment\": \"adjustment\",\n          \"crownFire\": \"crownFire\"\n        },\n        \"geometry\": {\n          \"type\": \"string\",\n          \"crs\": {\n            \"type\": \"type\",\n            \"properties\": {\n              \"name\": \"name\"\n            }\n          },\n          \"coordinates\": {}\n        }\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    },\n    {\n      \"objectId\": \"string\",\n      \"state\": {\n        \"code\": \"code\",\n        \"fips\": \"fips\"\n      },\n      \"fireShed\": {\n        \"id\": 1951,\n        \"risk\": {\n          \"severity\": 5,\n          \"risk50Rating\": 6,\n          \"distanceToFireStation\": 2,\n          \"pastFires\": 5,\n          \"golfCourse\": \"golfCourse\",\n          \"roadDist\": \"roadDist\",\n          \"continuity\": \"continuity\",\n          \"description\": \"description\",\n          \"vegetation\": \"vegetation\",\n          \"waterDist\": \"waterDist\",\n          \"tierDescription\": \"tierDescription\",\n          \"type\": \"type\",\n          \"slope\": \"slope\",\n          \"frequency\": 1,\n          \"nonburn\": \"nonburn\",\n          \"foehn\": \"foehn\",\n          \"tier\": \"tier\",\n          \"aspect\": \"aspect\",\n          \"adjustment\": \"adjustment\",\n          \"crownFire\": \"crownFire\"\n        },\n        \"geometry\": {\n          \"type\": \"string\",\n          \"crs\": {\n            \"type\": \"type\",\n            \"properties\": {\n              \"name\": \"name\"\n            }\n          },\n          \"coordinates\": {}\n        }\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb4b02e1-274d-4130-a309-9d61c32d4c1e",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "fire",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  },\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    },\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba4a77b6-5074-414d-b50c-ce88b9b93b95",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "fire",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  },\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    },\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4de890e-c101-42d5-a72c-f3c657ecf3a7",
+          "name": "Get Fire Risk By Address",
+          "request": {
+            "name": "Get Fire Risk By Address",
+            "description": {
+              "content": "Accepts addresses as input and Returns fire risk data by risk types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "risks",
+                "v1",
+                "fire",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "(Required) Free form address text"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeGeometry",
+                  "value": "<string>",
+                  "description": "Flag to return Geometry default is N"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "60ecbc50-3d31-45d4-bc99-e1802a0f750d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "fire",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objectId\": \"string\",\n  \"state\": {\n    \"code\": \"code\",\n    \"fips\": \"fips\"\n  },\n  \"fireShed\": {\n    \"id\": 8744,\n    \"risk\": {\n      \"severity\": 5,\n      \"risk50Rating\": 6,\n      \"distanceToFireStation\": 2,\n      \"pastFires\": 5,\n      \"golfCourse\": \"golfCourse\",\n      \"roadDist\": \"roadDist\",\n      \"continuity\": \"continuity\",\n      \"description\": \"description\",\n      \"vegetation\": \"vegetation\",\n      \"waterDist\": \"waterDist\",\n      \"tierDescription\": \"tierDescription\",\n      \"type\": \"type\",\n      \"slope\": \"slope\",\n      \"frequency\": 1,\n      \"nonburn\": \"nonburn\",\n      \"foehn\": \"foehn\",\n      \"tier\": \"tier\",\n      \"aspect\": \"aspect\",\n      \"adjustment\": \"adjustment\",\n      \"crownFire\": \"crownFire\"\n    },\n    \"geometry\": {\n      \"type\": \"string\",\n      \"crs\": {\n        \"type\": \"type\",\n        \"properties\": {\n          \"name\": \"name\"\n        }\n      },\n      \"coordinates\": {}\n    }\n  },\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d884a12e-4baf-4ca2-93d8-96ab5608a2e4",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "fire",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ec4dd4c-f773-449b-b7fc-0538a4e9eb62",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "fire",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77c6bf47-7114-4c1f-9bd8-31eba4a3e008",
+          "name": "Post Fire Risk By Address",
+          "request": {
+            "name": "Post Fire Risk By Address",
+            "description": {
+              "content": "This is a Batch offering for 'Fire Risk By Address' service. It accepts a single address or a list of addresses and retrieve fire risk data by risk types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "risks",
+                "v1",
+                "fire",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"addresses\": [\n    {\n      \"objectId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"streetSide\": \"<string>\",\n      \"businessName\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateProvince\": \"<string>\",\n      \"county\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\",\n      \"status\": \"<string>\",\n      \"urbanizationName\": \"<string>\",\n      \"formattedAddress\": \"<string>\",\n      \"mainAddressLine\": \"<string>\",\n      \"addressLastLine\": \"<string>\",\n      \"placeName\": \"<string>\",\n      \"areaName1\": \"<string>\",\n      \"areaName2\": \"<string>\",\n      \"areaName3\": \"<string>\",\n      \"areaName4\": \"<string>\",\n      \"postCode\": \"<string>\",\n      \"postCodeExt\": \"<string>\",\n      \"country\": \"<string>\",\n      \"addressNumber\": \"<string>\",\n      \"streetName\": \"<string>\",\n      \"unitType\": \"<string>\",\n      \"unitValue\": \"<string>\"\n    },\n    {\n      \"objectId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"streetSide\": \"<string>\",\n      \"businessName\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateProvince\": \"<string>\",\n      \"county\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\",\n      \"status\": \"<string>\",\n      \"urbanizationName\": \"<string>\",\n      \"formattedAddress\": \"<string>\",\n      \"mainAddressLine\": \"<string>\",\n      \"addressLastLine\": \"<string>\",\n      \"placeName\": \"<string>\",\n      \"areaName1\": \"<string>\",\n      \"areaName2\": \"<string>\",\n      \"areaName3\": \"<string>\",\n      \"areaName4\": \"<string>\",\n      \"postCode\": \"<string>\",\n      \"postCodeExt\": \"<string>\",\n      \"country\": \"<string>\",\n      \"addressNumber\": \"<string>\",\n      \"streetName\": \"<string>\",\n      \"unitType\": \"<string>\",\n      \"unitValue\": \"<string>\"\n    }\n  ],\n  \"preferences\": {\n    \"includeGeometry\": \"<string>\",\n    \"includeZoneDesc\": \"<string>\",\n    \"richterValue\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "18edebd9-0dda-4dbc-a434-a682d2c67a2e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "fire",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"addresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ],\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fireRisk\": [\n    {\n      \"objectId\": \"string\",\n      \"state\": {\n        \"code\": \"code\",\n        \"fips\": \"fips\"\n      },\n      \"fireShed\": {\n        \"id\": 2409,\n        \"risk\": {\n          \"severity\": 5,\n          \"risk50Rating\": 6,\n          \"distanceToFireStation\": 2,\n          \"pastFires\": 5,\n          \"golfCourse\": \"golfCourse\",\n          \"roadDist\": \"roadDist\",\n          \"continuity\": \"continuity\",\n          \"description\": \"description\",\n          \"vegetation\": \"vegetation\",\n          \"waterDist\": \"waterDist\",\n          \"tierDescription\": \"tierDescription\",\n          \"type\": \"type\",\n          \"slope\": \"slope\",\n          \"frequency\": 1,\n          \"nonburn\": \"nonburn\",\n          \"foehn\": \"foehn\",\n          \"tier\": \"tier\",\n          \"aspect\": \"aspect\",\n          \"adjustment\": \"adjustment\",\n          \"crownFire\": \"crownFire\"\n        },\n        \"geometry\": {\n          \"type\": \"string\",\n          \"crs\": {\n            \"type\": \"type\",\n            \"properties\": {\n              \"name\": \"name\"\n            }\n          },\n          \"coordinates\": {}\n        }\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    },\n    {\n      \"objectId\": \"string\",\n      \"state\": {\n        \"code\": \"code\",\n        \"fips\": \"fips\"\n      },\n      \"fireShed\": {\n        \"id\": 7240,\n        \"risk\": {\n          \"severity\": 5,\n          \"risk50Rating\": 6,\n          \"distanceToFireStation\": 2,\n          \"pastFires\": 5,\n          \"golfCourse\": \"golfCourse\",\n          \"roadDist\": \"roadDist\",\n          \"continuity\": \"continuity\",\n          \"description\": \"description\",\n          \"vegetation\": \"vegetation\",\n          \"waterDist\": \"waterDist\",\n          \"tierDescription\": \"tierDescription\",\n          \"type\": \"type\",\n          \"slope\": \"slope\",\n          \"frequency\": 1,\n          \"nonburn\": \"nonburn\",\n          \"foehn\": \"foehn\",\n          \"tier\": \"tier\",\n          \"aspect\": \"aspect\",\n          \"adjustment\": \"adjustment\",\n          \"crownFire\": \"crownFire\"\n        },\n        \"geometry\": {\n          \"type\": \"string\",\n          \"crs\": {\n            \"type\": \"type\",\n            \"properties\": {\n              \"name\": \"name\"\n            }\n          },\n          \"coordinates\": {}\n        }\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9bdd183b-7f44-4bee-87d3-f972ab722470",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "fire",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"addresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ],\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84ff9bfb-2e22-4c89-ade4-cd802920907e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v1",
+                    "fire",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"addresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ],\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42bd3346-c1ad-414e-949d-ac2b32de75c9",
+          "name": "Get Fire Risk By Location",
+          "request": {
+            "name": "Get Fire Risk By Location",
+            "description": {
+              "content": "Accepts latitude & longitude as input and Returns fire risk data by risk types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "risks",
+                "v2",
+                "fire",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "longitude",
+                  "value": "<string>",
+                  "description": "(Required) Longitude of Location"
+                },
+                {
+                  "disabled": false,
+                  "key": "latitude",
+                  "value": "<string>",
+                  "description": "(Required) Latitude of Location"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeGeometry",
+                  "value": "<string>",
+                  "description": "Flag to return Geometry default is N"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "229ee89b-fa92-4c63-8389-8386ba3396c7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v2",
+                    "fire",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objectId\": \"string\",\n  \"state\": \"string\",\n  \"noharmId\": \"string\",\n  \"noharmCls\": \"string\",\n  \"noharmModel\": \"string\",\n  \"riskDesc\": \"string\",\n  \"risk50\": 1023,\n  \"severity\": 1229,\n  \"frequency\": 855,\n  \"community\": 4380,\n  \"damage\": 3525,\n  \"mitigation\": 4077,\n  \"severityGroupElements\": {\n    \"intensity\": 7,\n    \"windSpd\": 3,\n    \"emberCast\": 2,\n    \"crownFire\": 9\n  },\n  \"frequencyGroupElements\": {\n    \"histPerim\": 7,\n    \"lineDist\": 1,\n    \"burnProb\": 4,\n    \"probIgnit\": 1\n  },\n  \"communityGroupElements\": {\n    \"wAlignRd\": 1,\n    \"vegCover\": 7,\n    \"accEgress\": 6,\n    \"structure\": 1\n  },\n  \"damageGroupElements\": {\n    \"histLoss\": 4,\n    \"insectsAndDisease\": 5\n  },\n  \"mitigationGroupElements\": {\n    \"topoPos\": 9,\n    \"fStnDist\": 8,\n    \"waterDist\": 9,\n    \"burnable\": 6\n  },\n  \"geometry\": {\n    \"type\": \"string\",\n    \"crs\": {\n      \"type\": \"type\",\n      \"properties\": {\n        \"name\": \"name\"\n      }\n    },\n    \"coordinates\": {}\n  },\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "360a3512-87d2-4c09-aa5c-2e61c692d1e7",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v2",
+                    "fire",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91802bd3-f4fa-4567-b055-82c8a5a3246c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v2",
+                    "fire",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b822616-6b03-479a-ae72-2ea5f90583b1",
+          "name": "Post Fire Risk By Location",
+          "request": {
+            "name": "Post Fire Risk By Location",
+            "description": {
+              "content": "This is a Batch offering for 'Fire Risk By Location' service. It accepts a single location coordinate or a list of location coordinates and retrieve fire risk data by risk types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "risks",
+                "v2",
+                "fire",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\"\n    },\n    {\n      \"geometry\": {\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"purchaseAmount\": \"<string>\",\n      \"objectId\": \"<string>\"\n    }\n  ],\n  \"preferences\": {\n    \"includeGeometry\": \"<string>\",\n    \"includeZoneDesc\": \"<string>\",\n    \"richterValue\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2f415ac6-cefb-4600-a88b-fca10abad53e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v2",
+                    "fire",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  },\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    },\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fireRisk\": [\n    {\n      \"objectId\": \"string\",\n      \"state\": \"string\",\n      \"noharmId\": \"string\",\n      \"noharmCls\": \"string\",\n      \"noharmModel\": \"string\",\n      \"riskDesc\": \"string\",\n      \"risk50\": 4044,\n      \"severity\": 1498,\n      \"frequency\": 3127,\n      \"community\": 6562,\n      \"damage\": 1178,\n      \"mitigation\": 6782,\n      \"severityGroupElements\": {\n        \"intensity\": 7,\n        \"windSpd\": 3,\n        \"emberCast\": 2,\n        \"crownFire\": 9\n      },\n      \"frequencyGroupElements\": {\n        \"histPerim\": 7,\n        \"lineDist\": 1,\n        \"burnProb\": 4,\n        \"probIgnit\": 1\n      },\n      \"communityGroupElements\": {\n        \"wAlignRd\": 1,\n        \"vegCover\": 7,\n        \"accEgress\": 6,\n        \"structure\": 1\n      },\n      \"damageGroupElements\": {\n        \"histLoss\": 4,\n        \"insectsAndDisease\": 5\n      },\n      \"mitigationGroupElements\": {\n        \"topoPos\": 9,\n        \"fStnDist\": 8,\n        \"waterDist\": 9,\n        \"burnable\": 6\n      },\n      \"geometry\": {\n        \"type\": \"string\",\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": {}\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    },\n    {\n      \"objectId\": \"string\",\n      \"state\": \"string\",\n      \"noharmId\": \"string\",\n      \"noharmCls\": \"string\",\n      \"noharmModel\": \"string\",\n      \"riskDesc\": \"string\",\n      \"risk50\": 1674,\n      \"severity\": 2346,\n      \"frequency\": 8441,\n      \"community\": 8322,\n      \"damage\": 3243,\n      \"mitigation\": 8256,\n      \"severityGroupElements\": {\n        \"intensity\": 7,\n        \"windSpd\": 3,\n        \"emberCast\": 2,\n        \"crownFire\": 9\n      },\n      \"frequencyGroupElements\": {\n        \"histPerim\": 7,\n        \"lineDist\": 1,\n        \"burnProb\": 4,\n        \"probIgnit\": 1\n      },\n      \"communityGroupElements\": {\n        \"wAlignRd\": 1,\n        \"vegCover\": 7,\n        \"accEgress\": 6,\n        \"structure\": 1\n      },\n      \"damageGroupElements\": {\n        \"histLoss\": 4,\n        \"insectsAndDisease\": 5\n      },\n      \"mitigationGroupElements\": {\n        \"topoPos\": 9,\n        \"fStnDist\": 8,\n        \"waterDist\": 9,\n        \"burnable\": 6\n      },\n      \"geometry\": {\n        \"type\": \"string\",\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": {}\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5fe36a24-055f-487c-ad93-f45f9e39f39b",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v2",
+                    "fire",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  },\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    },\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "768d332a-31e3-4ebb-884b-6a4bf9f69938",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v2",
+                    "fire",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  },\n  \"locations\": [\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    },\n    {\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\",\n      \"purchaseAmount\": \"purchaseAmount\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41dfca33-0790-4dc1-a37d-e993066905ae",
+          "name": "Get Fire Risk By Address",
+          "request": {
+            "name": "Get Fire Risk By Address",
+            "description": {
+              "content": "Accepts addresses as input and Returns fire risk data by risk types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "risks",
+                "v2",
+                "fire",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "(Required) Free form address text"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeGeometry",
+                  "value": "<string>",
+                  "description": "Flag to return Geometry default is N"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f0cca698-5407-4d21-8b08-a1500f8b02dc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v2",
+                    "fire",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objectId\": \"string\",\n  \"state\": \"string\",\n  \"noharmId\": \"string\",\n  \"noharmCls\": \"string\",\n  \"noharmModel\": \"string\",\n  \"riskDesc\": \"string\",\n  \"risk50\": 1023,\n  \"severity\": 1229,\n  \"frequency\": 855,\n  \"community\": 4380,\n  \"damage\": 3525,\n  \"mitigation\": 4077,\n  \"severityGroupElements\": {\n    \"intensity\": 7,\n    \"windSpd\": 3,\n    \"emberCast\": 2,\n    \"crownFire\": 9\n  },\n  \"frequencyGroupElements\": {\n    \"histPerim\": 7,\n    \"lineDist\": 1,\n    \"burnProb\": 4,\n    \"probIgnit\": 1\n  },\n  \"communityGroupElements\": {\n    \"wAlignRd\": 1,\n    \"vegCover\": 7,\n    \"accEgress\": 6,\n    \"structure\": 1\n  },\n  \"damageGroupElements\": {\n    \"histLoss\": 4,\n    \"insectsAndDisease\": 5\n  },\n  \"mitigationGroupElements\": {\n    \"topoPos\": 9,\n    \"fStnDist\": 8,\n    \"waterDist\": 9,\n    \"burnable\": 6\n  },\n  \"geometry\": {\n    \"type\": \"string\",\n    \"crs\": {\n      \"type\": \"type\",\n      \"properties\": {\n        \"name\": \"name\"\n      }\n    },\n    \"coordinates\": {}\n  },\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc2447bd-6aaa-4283-b5f4-617b7028564d",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v2",
+                    "fire",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3517302e-07f4-42fb-9fb6-55218b52db51",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v2",
+                    "fire",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "600c82c0-48d1-47c9-9c62-2f819a9b299d",
+          "name": "Post Fire Risk By Address",
+          "request": {
+            "name": "Post Fire Risk By Address",
+            "description": {
+              "content": "This is a Batch offering for 'Fire Risk By Address' service. It accepts a single address or a list of addresses and retrieve fire risk data by risk types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "risks",
+                "v2",
+                "fire",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"addresses\": [\n    {\n      \"objectId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"streetSide\": \"<string>\",\n      \"businessName\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateProvince\": \"<string>\",\n      \"county\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\",\n      \"status\": \"<string>\",\n      \"urbanizationName\": \"<string>\",\n      \"formattedAddress\": \"<string>\",\n      \"mainAddressLine\": \"<string>\",\n      \"addressLastLine\": \"<string>\",\n      \"placeName\": \"<string>\",\n      \"areaName1\": \"<string>\",\n      \"areaName2\": \"<string>\",\n      \"areaName3\": \"<string>\",\n      \"areaName4\": \"<string>\",\n      \"postCode\": \"<string>\",\n      \"postCodeExt\": \"<string>\",\n      \"country\": \"<string>\",\n      \"addressNumber\": \"<string>\",\n      \"streetName\": \"<string>\",\n      \"unitType\": \"<string>\",\n      \"unitValue\": \"<string>\"\n    },\n    {\n      \"objectId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"streetSide\": \"<string>\",\n      \"businessName\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateProvince\": \"<string>\",\n      \"county\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\",\n      \"status\": \"<string>\",\n      \"urbanizationName\": \"<string>\",\n      \"formattedAddress\": \"<string>\",\n      \"mainAddressLine\": \"<string>\",\n      \"addressLastLine\": \"<string>\",\n      \"placeName\": \"<string>\",\n      \"areaName1\": \"<string>\",\n      \"areaName2\": \"<string>\",\n      \"areaName3\": \"<string>\",\n      \"areaName4\": \"<string>\",\n      \"postCode\": \"<string>\",\n      \"postCodeExt\": \"<string>\",\n      \"country\": \"<string>\",\n      \"addressNumber\": \"<string>\",\n      \"streetName\": \"<string>\",\n      \"unitType\": \"<string>\",\n      \"unitValue\": \"<string>\"\n    }\n  ],\n  \"preferences\": {\n    \"includeGeometry\": \"<string>\",\n    \"includeZoneDesc\": \"<string>\",\n    \"richterValue\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "753e4dda-946e-4f65-a12a-15a295d55dfd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v2",
+                    "fire",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"addresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ],\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"fireRisk\": [\n    {\n      \"objectId\": \"string\",\n      \"state\": \"string\",\n      \"noharmId\": \"string\",\n      \"noharmCls\": \"string\",\n      \"noharmModel\": \"string\",\n      \"riskDesc\": \"string\",\n      \"risk50\": 2336,\n      \"severity\": 6201,\n      \"frequency\": 7325,\n      \"community\": 1391,\n      \"damage\": 4664,\n      \"mitigation\": 231,\n      \"severityGroupElements\": {\n        \"intensity\": 7,\n        \"windSpd\": 3,\n        \"emberCast\": 2,\n        \"crownFire\": 9\n      },\n      \"frequencyGroupElements\": {\n        \"histPerim\": 7,\n        \"lineDist\": 1,\n        \"burnProb\": 4,\n        \"probIgnit\": 1\n      },\n      \"communityGroupElements\": {\n        \"wAlignRd\": 1,\n        \"vegCover\": 7,\n        \"accEgress\": 6,\n        \"structure\": 1\n      },\n      \"damageGroupElements\": {\n        \"histLoss\": 4,\n        \"insectsAndDisease\": 5\n      },\n      \"mitigationGroupElements\": {\n        \"topoPos\": 9,\n        \"fStnDist\": 8,\n        \"waterDist\": 9,\n        \"burnable\": 6\n      },\n      \"geometry\": {\n        \"type\": \"string\",\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": {}\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    },\n    {\n      \"objectId\": \"string\",\n      \"state\": \"string\",\n      \"noharmId\": \"string\",\n      \"noharmCls\": \"string\",\n      \"noharmModel\": \"string\",\n      \"riskDesc\": \"string\",\n      \"risk50\": 4119,\n      \"severity\": 3899,\n      \"frequency\": 4926,\n      \"community\": 7164,\n      \"damage\": 5864,\n      \"mitigation\": 6061,\n      \"severityGroupElements\": {\n        \"intensity\": 7,\n        \"windSpd\": 3,\n        \"emberCast\": 2,\n        \"crownFire\": 9\n      },\n      \"frequencyGroupElements\": {\n        \"histPerim\": 7,\n        \"lineDist\": 1,\n        \"burnProb\": 4,\n        \"probIgnit\": 1\n      },\n      \"communityGroupElements\": {\n        \"wAlignRd\": 1,\n        \"vegCover\": 7,\n        \"accEgress\": 6,\n        \"structure\": 1\n      },\n      \"damageGroupElements\": {\n        \"histLoss\": 4,\n        \"insectsAndDisease\": 5\n      },\n      \"mitigationGroupElements\": {\n        \"topoPos\": 9,\n        \"fStnDist\": 8,\n        \"waterDist\": 9,\n        \"burnable\": 6\n      },\n      \"geometry\": {\n        \"type\": \"string\",\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": {}\n      },\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f06f7b8-65b1-47f1-a6b0-a94a5e938d65",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v2",
+                    "fire",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"addresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ],\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75388d40-7bf3-4e27-8cb1-c33705fb1fe4",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "risks",
+                    "v2",
+                    "fire",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"addresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ],\n  \"preferences\": {\n    \"richterValue\": \"richterValue\",\n    \"includeZoneDesc\": \"includeZoneDesc\",\n    \"includeGeometry\": \"includeGeometry\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3050b1e7-3efb-4940-82e4-85ab5ea089f2",
+    "name": "Precisely APIs Fire API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

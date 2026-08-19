@@ -1,0 +1,121 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Reverse API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reverse",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Reverse Geocode(Basic/Premium/Advanced)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/geocode/v1/:datapackBundle/reverseGeocode",
+            "params": [
+              {
+                "name": "datapackBundle",
+                "value": "",
+                "type": "path",
+                "description": "datapackBundle"
+              },
+              {
+                "name": "x",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              },
+              {
+                "name": "y",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country name or ISO code."
+              },
+              {
+                "name": "coordSysName",
+                "value": "",
+                "type": "query",
+                "description": "Coordinate system to convert geometry to in format codespace:code."
+              },
+              {
+                "name": "distance",
+                "value": "",
+                "type": "query",
+                "description": "Radius in which search is performed."
+              },
+              {
+                "name": "distanceUnits",
+                "value": "",
+                "type": "query",
+                "description": "Unit of measurement."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service accepts location coordinate and returns an address."
+        },
+        {
+          "info": {
+            "name": "Post Reverse Geocode",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/geocode/v1/:datapackBundle/reverseGeocode",
+            "params": [
+              {
+                "name": "datapackBundle",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for geocode service. It accepts a single address or a list of addresses and returns location coordinates"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

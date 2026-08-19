@@ -1,0 +1,798 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Risks  Service API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Risks  Service",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Flood Risk By Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v1/flood/bylocation",
+            "params": [
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of Location"
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of Location"
+              },
+              {
+                "name": "includeZoneDesc",
+                "value": "",
+                "type": "query",
+                "description": "Flag to return zone description"
+              },
+              {
+                "name": "includeGeometry",
+                "value": "",
+                "type": "query",
+                "description": "Flag to return Geometry"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts latitude & longitude as input and Returns flood risk data for flood zones and base flood elevation values."
+        },
+        {
+          "info": {
+            "name": "Post Flood Risk By Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/risks/v1/flood/bylocation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'Flood Risk By Location' service. It accepts a single location coordinate or a list of location coordinates and retrieve flood risk data for flood zones and base flood elevation values."
+        },
+        {
+          "info": {
+            "name": "Get Flood Risk By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v1/flood/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Free text Address"
+              },
+              {
+                "name": "includeZoneDesc",
+                "value": "",
+                "type": "query",
+                "description": "Flag to return zone description"
+              },
+              {
+                "name": "includeGeometry",
+                "value": "",
+                "type": "query",
+                "description": "Flag to return Geometry"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts addresses as input and Returns flood risk data for flood zones and base flood elevation values."
+        },
+        {
+          "info": {
+            "name": "Post Flood Risk By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/risks/v1/flood/byaddress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'Flood Risk By Address' service. It accepts a single address or a list of addresses and retrieve flood risk data for flood zones and base flood elevation values."
+        },
+        {
+          "info": {
+            "name": "Get Fire Risk By Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v1/fire/bylocation",
+            "params": [
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of Location"
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of Location"
+              },
+              {
+                "name": "includeGeometry",
+                "value": "",
+                "type": "query",
+                "description": "Flag to return Geometry default is N"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts latitude & longitude as input and Returns fire risk data by risk types."
+        },
+        {
+          "info": {
+            "name": "Post Fire Risk By Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/risks/v1/fire/bylocation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'Fire Risk By Location' service. It accepts a single location coordinate or a list of location coordinates and retrieve fire risk data by risk types."
+        },
+        {
+          "info": {
+            "name": "Get Fire Risk By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v1/fire/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Free form address text"
+              },
+              {
+                "name": "includeGeometry",
+                "value": "",
+                "type": "query",
+                "description": "Flag to return Geometry default is N"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts addresses as input and Returns fire risk data by risk types."
+        },
+        {
+          "info": {
+            "name": "Post Fire Risk By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/risks/v1/fire/byaddress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'Fire Risk By Address' service. It accepts a single address or a list of addresses and retrieve fire risk data by risk types."
+        },
+        {
+          "info": {
+            "name": "Get Fire Risk By Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v2/fire/bylocation",
+            "params": [
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of Location"
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of Location"
+              },
+              {
+                "name": "includeGeometry",
+                "value": "",
+                "type": "query",
+                "description": "Flag to return Geometry default is N"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts latitude & longitude as input and Returns fire risk data by risk types."
+        },
+        {
+          "info": {
+            "name": "Post Fire Risk By Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/risks/v2/fire/bylocation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'Fire Risk By Location' service. It accepts a single location coordinate or a list of location coordinates and retrieve fire risk data by risk types."
+        },
+        {
+          "info": {
+            "name": "Get Fire Risk By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v2/fire/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Free form address text"
+              },
+              {
+                "name": "includeGeometry",
+                "value": "",
+                "type": "query",
+                "description": "Flag to return Geometry default is N"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts addresses as input and Returns fire risk data by risk types."
+        },
+        {
+          "info": {
+            "name": "Post Fire Risk By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/risks/v2/fire/byaddress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'Fire Risk By Address' service. It accepts a single address or a list of addresses and retrieve fire risk data by risk types."
+        },
+        {
+          "info": {
+            "name": "Get Earthquake Risk By Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v1/earthquake/bylocation",
+            "params": [
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "The longitude of the location"
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "The latitude of the location"
+              },
+              {
+                "name": "richterValue",
+                "value": "",
+                "type": "query",
+                "description": "all (default value), R0, R1, R2, R3, R4, R5, R6, R7, R0_GE, R1_GE, R2_GE, R3_GE, R4_GE, R5_GE, R6_GE, R7_GE"
+              },
+              {
+                "name": "includeGeometry",
+                "value": "",
+                "type": "query",
+                "description": "Y or N (default is N) - if it is Y, then geometry will be part of response"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts latitude & longitude as input and Returns counts of earthquakes for various richter measurements and values."
+        },
+        {
+          "info": {
+            "name": "Post Earthquake Risk By Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/risks/v1/earthquake/bylocation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'Earthquake Risk By Location' service. It accepts a single location coordinate or a list of location coordinates and retrieve counts of earthquakes for various richter measurements and values."
+        },
+        {
+          "info": {
+            "name": "Get Earthquake Risk By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v1/earthquake/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "free form address text"
+              },
+              {
+                "name": "richterValue",
+                "value": "",
+                "type": "query",
+                "description": "all (default value), R0, R1, R2, R3, R4, R5, R6, R7, R0_GE, R1_GE, R2_GE, R3_GE, R4_GE, R5_GE, R6_GE, R7_GE"
+              },
+              {
+                "name": "includeGeometry",
+                "value": "",
+                "type": "query",
+                "description": "Y or N (default is N) - if it is Y, then geometry will be part of response"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts addresses as input and Returns counts of earthquakes for various richter measurements and values."
+        },
+        {
+          "info": {
+            "name": "Post Earthquake Risk By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/risks/v1/earthquake/byaddress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'Earthquake Risk By Address' service. It accepts a single address or a list of addresses and retrieve counts of earthquakes for various richter measurements and values."
+        },
+        {
+          "info": {
+            "name": "Get Crime Risk By  Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v1/crime/bylocation",
+            "params": [
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "The longitude of the location"
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "The latitude of the location"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "this is crime type; valid values are following 11 crime types with 'all' as default (more than one can also be given as comma separated types)"
+              },
+              {
+                "name": "includeGeometry",
+                "value": "",
+                "type": "query",
+                "description": "Y or N (default is N) - if it is Y, then geometry will be part of response"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts latitude/longitude as input and returns and Returns local crime indexes."
+        },
+        {
+          "info": {
+            "name": "Post Crime Risk By Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/risks/v1/crime/bylocation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'Crime Risk By Location' service. It accepts a single location coordinate or a list of location coordinates and retrieve local crime indexes."
+        },
+        {
+          "info": {
+            "name": "Get Crime Risk By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v1/crime/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "free form address text"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "this is crime type; valid values are following 11 crime types with 'all' as default (more than one can also be given as comma separated types)"
+              },
+              {
+                "name": "includeGeometry",
+                "value": "",
+                "type": "query",
+                "description": "Y or N (default is N) - if it is Y, then geometry will be part of response"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts addresses as input and Returns local crime indexes."
+        },
+        {
+          "info": {
+            "name": "Post Crime Risk By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/risks/v1/crime/byaddress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'Crime Risk By Address' service. It accepts a single address or a list of addresses and retrieve local crime indexes."
+        },
+        {
+          "info": {
+            "name": "Get Fire Station By Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v1/firestation/bylocation",
+            "params": [
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of Location"
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of Location"
+              },
+              {
+                "name": "maxCandidates",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum number of fire stations that this service retrieves. The default value is 3 and maximum value is 5. The retrieved results are traveldistance sorted from the input location."
+              },
+              {
+                "name": "travelTime",
+                "value": "",
+                "type": "query",
+                "description": "Max travel time from input location to fire station. Maximum allowed is 2 hours"
+              },
+              {
+                "name": "travelTimeUnit",
+                "value": "",
+                "type": "query",
+                "description": "minutes (default), hours, seconds, milliseconds"
+              },
+              {
+                "name": "travelDistance",
+                "value": "",
+                "type": "query",
+                "description": "Max travel distance from input location to fire station. Maximum allowed is 50 miles"
+              },
+              {
+                "name": "travelDistanceUnit",
+                "value": "",
+                "type": "query",
+                "description": "Feet (default), Kilometers, Miles, Meters"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "time (default), distance"
+              },
+              {
+                "name": "historicTrafficTimeBucket",
+                "value": "",
+                "type": "query",
+                "description": "Historic traffic time slab"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts latitude & longitude as input and Returns nearest fire stations."
+        },
+        {
+          "info": {
+            "name": "Get Fire Station By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v1/firestation/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Free Address"
+              },
+              {
+                "name": "maxCandidates",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum number of fire stations that this service retrieves. The default value is 3 and maximum value is 5. The retrieved results are traveldistance sorted from the input location."
+              },
+              {
+                "name": "travelTime",
+                "value": "",
+                "type": "query",
+                "description": "Max travel time from input location to fire station. Maximum allowed is 2 hours"
+              },
+              {
+                "name": "travelTimeUnit",
+                "value": "",
+                "type": "query",
+                "description": "minutes (default), hours, seconds, milliseconds"
+              },
+              {
+                "name": "travelDistance",
+                "value": "",
+                "type": "query",
+                "description": "Max travel distance from input location to fire station. Maximum allowed is 50 miles"
+              },
+              {
+                "name": "travelDistanceUnit",
+                "value": "",
+                "type": "query",
+                "description": "Feet (default), Kilometers, Miles, Meters"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "time (default), distance"
+              },
+              {
+                "name": "historicTrafficTimeBucket",
+                "value": "",
+                "type": "query",
+                "description": "Historic traffic time slab"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts addresses as input and Returns nearest fire stations."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

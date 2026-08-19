@@ -1,0 +1,182 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Shoreline API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Shoreline",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Distance To Flood Hazard By Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v1/shoreline/distancetofloodhazard/bylocation",
+            "params": [
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "The longitude of the location"
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "The latitude of the location"
+              },
+              {
+                "name": "maxCandidates",
+                "value": "",
+                "type": "query",
+                "description": "This specifies the value of maxCandidates"
+              },
+              {
+                "name": "waterBodyType",
+                "value": "",
+                "type": "query",
+                "description": "This specifies the value of waterBodyType"
+              },
+              {
+                "name": "searchDistance",
+                "value": "",
+                "type": "query",
+                "description": "This specifies the search distance"
+              },
+              {
+                "name": "searchDistanceUnit",
+                "value": "",
+                "type": "query",
+                "description": "miles (default value),feet, kilometers, meters"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts latitude & longitude as input and Returns the distance from nearest water bodies along with body name and location."
+        },
+        {
+          "info": {
+            "name": "Post Distance To Flood Hazard By Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/risks/v1/shoreline/distancetofloodhazard/bylocation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'Distance To Flood Hazard By Location' service. It accepts a single location coordinate or a list of location coordinates and retrieve the distance from nearest water bodies along with body name and location."
+        },
+        {
+          "info": {
+            "name": "Get Distance To Flood Hazard By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/risks/v1/shoreline/distancetofloodhazard/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "The address of the location"
+              },
+              {
+                "name": "maxCandidates",
+                "value": "",
+                "type": "query",
+                "description": "This specifies the value of maxCandidates"
+              },
+              {
+                "name": "waterBodyType",
+                "value": "",
+                "type": "query",
+                "description": "This specifies the value of waterBodyType"
+              },
+              {
+                "name": "searchDistance",
+                "value": "",
+                "type": "query",
+                "description": "This specifies the search distance"
+              },
+              {
+                "name": "searchDistanceUnit",
+                "value": "",
+                "type": "query",
+                "description": "miles (default value),feet, kilometers, meters"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts addresses as input and Returns the distance from nearest water bodies along with body name and location."
+        },
+        {
+          "info": {
+            "name": "Post Distance To Flood Hazard By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/risks/v1/shoreline/distancetofloodhazard/byaddress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'Distance To Flood Hazard By Address' service. It accepts a single address or a list of addresses and retrieve the distance from nearest water bodies along with body name and location."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

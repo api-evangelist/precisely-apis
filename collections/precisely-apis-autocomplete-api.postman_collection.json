@@ -1,0 +1,718 @@
+{
+  "item": [
+    {
+      "id": "808f49ec-0b15-4afe-9b19-e339f28421af",
+      "name": "Autocomplete",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6a39fc0b-683f-4691-b010-bb26db71534f",
+          "name": "Points Of Interest Autocomplete",
+          "request": {
+            "name": "Points Of Interest Autocomplete",
+            "description": {
+              "content": "This service accepts partial text input and returns matching points of interest, sorted by relevance or distance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "places",
+                "v1",
+                "poi",
+                "autocomplete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "longitude",
+                  "value": "<string>",
+                  "description": "Longitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "latitude",
+                  "value": "<string>",
+                  "description": "Latitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "searchText",
+                  "value": "<string>",
+                  "description": "Free text which will accept a multi-word string. Combination of POI name and address is possible."
+                },
+                {
+                  "disabled": false,
+                  "key": "searchOnNameOnly",
+                  "value": "N"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchRadius",
+                  "value": "<string>",
+                  "description": "Radius range within which search is performed."
+                },
+                {
+                  "disabled": false,
+                  "key": "searchRadiusUnit",
+                  "value": "<string>",
+                  "description": "Radius unit such as Feet, Kilometers, Miles or Meters (default)."
+                },
+                {
+                  "disabled": false,
+                  "key": "travelTime",
+                  "value": "<string>",
+                  "description": "Travel time within which search is performed (POIs which can be reached within travel time)."
+                },
+                {
+                  "disabled": false,
+                  "key": "travelTimeUnit",
+                  "value": "<string>",
+                  "description": "Travel time unit such as minutes (default), hours, seconds or milliseconds."
+                },
+                {
+                  "disabled": false,
+                  "key": "travelDistance",
+                  "value": "<string>",
+                  "description": "Travel distance within which search is performed (POIs which can be reached within travel distance)."
+                },
+                {
+                  "disabled": false,
+                  "key": "travelDistanceUnit",
+                  "value": "<string>",
+                  "description": "Travel distance unit such as Feet (default), Kilometers, Miles or Meters."
+                },
+                {
+                  "disabled": false,
+                  "key": "travelMode",
+                  "value": "driving",
+                  "description": "Mode of commute."
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "Country ISO code."
+                },
+                {
+                  "disabled": false,
+                  "key": "areaName1",
+                  "value": "<string>",
+                  "description": "Specifies the largest geographical area, typically a state or province."
+                },
+                {
+                  "disabled": false,
+                  "key": "areaName3",
+                  "value": "<string>",
+                  "description": "Specifies a city or town name."
+                },
+                {
+                  "disabled": false,
+                  "key": "postcode1",
+                  "value": "<string>",
+                  "description": "Specifies the postcode(ZIP code) in the appropriate format for the country."
+                },
+                {
+                  "disabled": false,
+                  "key": "postcode2",
+                  "value": "<string>",
+                  "description": "Specifies the postcode(ZIP code) extension."
+                },
+                {
+                  "disabled": false,
+                  "key": "ipAddress",
+                  "value": "<string>",
+                  "description": "IP address which will be used to auto detect the location in order to serve contextually relevant results."
+                },
+                {
+                  "disabled": false,
+                  "key": "autoDetectLocation",
+                  "value": "<string>",
+                  "description": "Specifies whether to detect client's location using IP address. If IP address(below) is not provided and autoDetectLocation is set 'True' then IP address will be picked from HTTP request automatically."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filters the points of interest (POIs) by place types."
+                },
+                {
+                  "disabled": false,
+                  "key": "categoryCode",
+                  "value": "<string>",
+                  "description": "Acts as a filter to narrow down and refine POI search results. The category codes are unique 4, 6, or 11 digit numeric values."
+                },
+                {
+                  "disabled": false,
+                  "key": "sicCode",
+                  "value": "<string>",
+                  "description": "Acts as a filter to narrow down and refine POI search results. The SIC codes are unique 4 or 8 digit numerical values."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxCandidates",
+                  "value": "<string>",
+                  "description": "Maximum number of POIs that can be retrieved."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "sortBy"
+                },
+                {
+                  "disabled": false,
+                  "key": "matchMode",
+                  "value": "<string>",
+                  "description": "Determine the leniency used to make a match between the input name and the reference data."
+                },
+                {
+                  "disabled": false,
+                  "key": "specificMatchOn",
+                  "value": "<string>",
+                  "description": "Specifies the field for the Specific Match Mode."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "X-Forwarded-For",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c949e937-048b-4810-8c22-4281fb80d7db",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "places",
+                    "v1",
+                    "poi",
+                    "autocomplete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchText",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchOnNameOnly",
+                      "value": "N"
+                    },
+                    {
+                      "key": "searchRadius",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadiusUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistanceUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelMode",
+                      "value": "driving"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "areaName1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "areaName3",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postcode1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postcode2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ipAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "autoDetectLocation",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "categoryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sicCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "matchMode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "specificMatchOn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Forwarded-For",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candidates\": \"candidates\",\n  \"page\": \"page\",\n  \"poi\": [\n    {\n      \"parentPbkey\": \"parentPbkey\",\n      \"distance\": {\n        \"unit\": \"unit\",\n        \"value\": \"value\"\n      },\n      \"salesVolume\": [\n        {\n          \"currencyCode\": \"currencyCode\",\n          \"worldBaseCurrencyCode\": \"worldBaseCurrencyCode\",\n          \"value\": \"value\"\n        },\n        {\n          \"currencyCode\": \"currencyCode\",\n          \"worldBaseCurrencyCode\": \"worldBaseCurrencyCode\",\n          \"value\": \"value\"\n        }\n      ],\n      \"hierarchyCode\": \"hierarchyCode\",\n      \"businessId\": {\n        \"type\": \"type\",\n        \"value\": \"value\"\n      },\n      \"open24Hours\": \"open24Hours\",\n      \"employeeCount\": {\n        \"inLocalBranch\": \"inLocalBranch\",\n        \"inOrganization\": \"inOrganization\"\n      },\n      \"subsidaryIndicator\": \"subsidaryIndicator\",\n      \"domesticUltimateBusiness\": {\n        \"address\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"name\": \"name\"\n      },\n      \"globalUltimateBusiness\": {\n        \"address\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"name\": \"name\"\n      },\n      \"familyMembers\": \"familyMembers\",\n      \"poiClassification\": {\n        \"alternateIndustryCode\": \"alternateIndustryCode\",\n        \"sic\": {\n          \"sicCode\": \"sicCode\",\n          \"primarySicCode\": \"primarySicCode\",\n          \"businessLine\": \"businessLine\",\n          \"sicCodeDescription\": \"sicCodeDescription\",\n          \"secondarySicCode\": \"secondarySicCode\"\n        },\n        \"category\": {\n          \"tradeGroup\": \"tradeGroup\",\n          \"subClass\": \"subClass\",\n          \"tradeDivision\": \"tradeDivision\",\n          \"categoryCode\": \"categoryCode\",\n          \"class\": \"class\"\n        }\n      },\n      \"globalUltimateIndicator\": \"globalUltimateIndicator\",\n      \"tradeName\": \"tradeName\",\n      \"geocodeConfidence\": \"geocodeConfidence\",\n      \"goodsAgentCodeDescription\": \"goodsAgentCodeDescription\",\n      \"organizationStatusCodeDescription\": \"organizationStatusCodeDescription\",\n      \"subsidaryIndicatorDescription\": \"subsidaryIndicatorDescription\",\n      \"parentBusiness\": {\n        \"address\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"name\": \"name\"\n      },\n      \"poiId\": \"poiId\",\n      \"ceoName\": \"ceoName\",\n      \"yearStart\": \"yearStart\",\n      \"franchiseName\": \"franchiseName\",\n      \"brandName\": \"brandName\",\n      \"tickerSymbol\": \"tickerSymbol\",\n      \"contactDetails\": {\n        \"address\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"phone\": \"phone\",\n        \"countryAccessCode\": \"countryAccessCode\",\n        \"fax\": \"fax\",\n        \"email\": \"email\",\n        \"url\": \"url\"\n      },\n      \"ceoTitle\": \"ceoTitle\",\n      \"goodsAgentCode\": \"goodsAgentCode\",\n      \"organizationStatusCode\": \"organizationStatusCode\",\n      \"relevanceScore\": \"relevanceScore\",\n      \"pbkey\": \"pbkey\",\n      \"name\": \"name\",\n      \"exchangeName\": \"exchangeName\",\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"legalStatusCode\": \"legalStatusCode\"\n    },\n    {\n      \"parentPbkey\": \"parentPbkey\",\n      \"distance\": {\n        \"unit\": \"unit\",\n        \"value\": \"value\"\n      },\n      \"salesVolume\": [\n        {\n          \"currencyCode\": \"currencyCode\",\n          \"worldBaseCurrencyCode\": \"worldBaseCurrencyCode\",\n          \"value\": \"value\"\n        },\n        {\n          \"currencyCode\": \"currencyCode\",\n          \"worldBaseCurrencyCode\": \"worldBaseCurrencyCode\",\n          \"value\": \"value\"\n        }\n      ],\n      \"hierarchyCode\": \"hierarchyCode\",\n      \"businessId\": {\n        \"type\": \"type\",\n        \"value\": \"value\"\n      },\n      \"open24Hours\": \"open24Hours\",\n      \"employeeCount\": {\n        \"inLocalBranch\": \"inLocalBranch\",\n        \"inOrganization\": \"inOrganization\"\n      },\n      \"subsidaryIndicator\": \"subsidaryIndicator\",\n      \"domesticUltimateBusiness\": {\n        \"address\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"name\": \"name\"\n      },\n      \"globalUltimateBusiness\": {\n        \"address\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"name\": \"name\"\n      },\n      \"familyMembers\": \"familyMembers\",\n      \"poiClassification\": {\n        \"alternateIndustryCode\": \"alternateIndustryCode\",\n        \"sic\": {\n          \"sicCode\": \"sicCode\",\n          \"primarySicCode\": \"primarySicCode\",\n          \"businessLine\": \"businessLine\",\n          \"sicCodeDescription\": \"sicCodeDescription\",\n          \"secondarySicCode\": \"secondarySicCode\"\n        },\n        \"category\": {\n          \"tradeGroup\": \"tradeGroup\",\n          \"subClass\": \"subClass\",\n          \"tradeDivision\": \"tradeDivision\",\n          \"categoryCode\": \"categoryCode\",\n          \"class\": \"class\"\n        }\n      },\n      \"globalUltimateIndicator\": \"globalUltimateIndicator\",\n      \"tradeName\": \"tradeName\",\n      \"geocodeConfidence\": \"geocodeConfidence\",\n      \"goodsAgentCodeDescription\": \"goodsAgentCodeDescription\",\n      \"organizationStatusCodeDescription\": \"organizationStatusCodeDescription\",\n      \"subsidaryIndicatorDescription\": \"subsidaryIndicatorDescription\",\n      \"parentBusiness\": {\n        \"address\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"name\": \"name\"\n      },\n      \"poiId\": \"poiId\",\n      \"ceoName\": \"ceoName\",\n      \"yearStart\": \"yearStart\",\n      \"franchiseName\": \"franchiseName\",\n      \"brandName\": \"brandName\",\n      \"tickerSymbol\": \"tickerSymbol\",\n      \"contactDetails\": {\n        \"address\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"phone\": \"phone\",\n        \"countryAccessCode\": \"countryAccessCode\",\n        \"fax\": \"fax\",\n        \"email\": \"email\",\n        \"url\": \"url\"\n      },\n      \"ceoTitle\": \"ceoTitle\",\n      \"goodsAgentCode\": \"goodsAgentCode\",\n      \"organizationStatusCode\": \"organizationStatusCode\",\n      \"relevanceScore\": \"relevanceScore\",\n      \"pbkey\": \"pbkey\",\n      \"name\": \"name\",\n      \"exchangeName\": \"exchangeName\",\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"legalStatusCode\": \"legalStatusCode\"\n    }\n  ],\n  \"totalMatchingCandidates\": \"totalMatchingCandidates\",\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "28ad6d21-8f13-4e18-ba74-46378d2cb055",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "places",
+                    "v1",
+                    "poi",
+                    "autocomplete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchText",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchOnNameOnly",
+                      "value": "N"
+                    },
+                    {
+                      "key": "searchRadius",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadiusUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistanceUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelMode",
+                      "value": "driving"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "areaName1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "areaName3",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postcode1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postcode2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ipAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "autoDetectLocation",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "categoryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sicCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "matchMode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "specificMatchOn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Forwarded-For",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be9379df-1f78-4e8d-b2e7-11cc83169662",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "places",
+                    "v1",
+                    "poi",
+                    "autocomplete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchText",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchOnNameOnly",
+                      "value": "N"
+                    },
+                    {
+                      "key": "searchRadius",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadiusUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistanceUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelMode",
+                      "value": "driving"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "areaName1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "areaName3",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postcode1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postcode2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ipAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "autoDetectLocation",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "categoryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sicCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "matchMode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "specificMatchOn",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "X-Forwarded-For",
+                    "value": "<string>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d456598b-ed64-4db9-83fd-1584842b2195",
+    "name": "Precisely APIs Autocomplete API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

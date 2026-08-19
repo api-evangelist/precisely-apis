@@ -1,0 +1,516 @@
+{
+  "item": [
+    {
+      "id": "74dd3da3-87fb-4c7c-ad4f-b3210fcb8682",
+      "name": "Places  Service.",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "15448378-bf42-44c4-9ea0-5d16ee68af34",
+          "name": "Points Of Interest Count",
+          "request": {
+            "name": "Points Of Interest Count",
+            "description": {
+              "content": "Accepts a user-defined boundary as input and returns the Count number of POIs within the boundary. Additionally, user can request the count of filtered POIs by name, type, standard industrial classifications and category codes within the given polygon.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "places",
+                "v1",
+                "poicount"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"categoryCode\": \"<string>\",\n  \"sicCode\": \"<string>\",\n  \"fuzzyOnName\": \"<string>\",\n  \"matchMode\": \"<string>\",\n  \"specificMatchOn\": \"<string>\",\n  \"geometry\": {\n    \"type\": \"<string>\",\n    \"coordinates\": [\n      \"<double>\",\n      \"<double>\"\n    ]\n  },\n  \"geometryAsText\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "37703b9c-767d-4a43-b68c-313aa23967ba",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "places",
+                    "v1",
+                    "poicount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Content-Type",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fuzzyOnName\": \"fuzzyOnName\",\n  \"sicCode\": \"sicCode\",\n  \"name\": \"name\",\n  \"specificMatchOn\": \"specificMatchOn\",\n  \"geometry\": {\n    \"coordinates\": [\n      0.8008281904610115,\n      0.8008281904610115\n    ],\n    \"type\": \"type\"\n  },\n  \"categoryCode\": \"categoryCode\",\n  \"type\": \"type\",\n  \"matchMode\": \"matchMode\",\n  \"geometryAsText\": \"geometryAsText\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalPoisFound\": 0\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4cfbe336-dc58-41a2-bb38-565798ed8963",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "places",
+                    "v1",
+                    "poicount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Content-Type",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fuzzyOnName\": \"fuzzyOnName\",\n  \"sicCode\": \"sicCode\",\n  \"name\": \"name\",\n  \"specificMatchOn\": \"specificMatchOn\",\n  \"geometry\": {\n    \"coordinates\": [\n      0.8008281904610115,\n      0.8008281904610115\n    ],\n    \"type\": \"type\"\n  },\n  \"categoryCode\": \"categoryCode\",\n  \"type\": \"type\",\n  \"matchMode\": \"matchMode\",\n  \"geometryAsText\": \"geometryAsText\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c571e2a-7027-40b9-ab95-66977d460d00",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "places",
+                    "v1",
+                    "poicount"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Content-Type",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fuzzyOnName\": \"fuzzyOnName\",\n  \"sicCode\": \"sicCode\",\n  \"name\": \"name\",\n  \"specificMatchOn\": \"specificMatchOn\",\n  \"geometry\": {\n    \"coordinates\": [\n      0.8008281904610115,\n      0.8008281904610115\n    ],\n    \"type\": \"type\"\n  },\n  \"categoryCode\": \"categoryCode\",\n  \"type\": \"type\",\n  \"matchMode\": \"matchMode\",\n  \"geometryAsText\": \"geometryAsText\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b24be1d4-4ed1-4f2a-8dcd-752331abafd7",
+          "name": "Points Of Interest Details By Id",
+          "request": {
+            "name": "Points Of Interest Details By Id",
+            "description": {
+              "content": "This service returns complete details of a chosen point of interest by an identifier. The identifier could be selected from Autocomplete API response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "places",
+                "v1",
+                "poi",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) POI unique Identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9563ceef-60db-427a-bd64-f232d783a087",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "places",
+                    "v1",
+                    "poi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) POI unique Identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"parentPbkey\": \"parentPbkey\",\n  \"distance\": {\n    \"unit\": \"unit\",\n    \"value\": \"value\"\n  },\n  \"salesVolume\": [\n    {\n      \"currencyCode\": \"currencyCode\",\n      \"worldBaseCurrencyCode\": \"worldBaseCurrencyCode\",\n      \"value\": \"value\"\n    },\n    {\n      \"currencyCode\": \"currencyCode\",\n      \"worldBaseCurrencyCode\": \"worldBaseCurrencyCode\",\n      \"value\": \"value\"\n    }\n  ],\n  \"hierarchyCode\": \"hierarchyCode\",\n  \"businessId\": {\n    \"type\": \"type\",\n    \"value\": \"value\"\n  },\n  \"open24Hours\": \"open24Hours\",\n  \"employeeCount\": {\n    \"inLocalBranch\": \"inLocalBranch\",\n    \"inOrganization\": \"inOrganization\"\n  },\n  \"subsidaryIndicator\": \"subsidaryIndicator\",\n  \"domesticUltimateBusiness\": {\n    \"address\": {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    \"name\": \"name\"\n  },\n  \"globalUltimateBusiness\": {\n    \"address\": {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    \"name\": \"name\"\n  },\n  \"familyMembers\": \"familyMembers\",\n  \"poiClassification\": {\n    \"alternateIndustryCode\": \"alternateIndustryCode\",\n    \"sic\": {\n      \"sicCode\": \"sicCode\",\n      \"primarySicCode\": \"primarySicCode\",\n      \"businessLine\": \"businessLine\",\n      \"sicCodeDescription\": \"sicCodeDescription\",\n      \"secondarySicCode\": \"secondarySicCode\"\n    },\n    \"category\": {\n      \"tradeGroup\": \"tradeGroup\",\n      \"subClass\": \"subClass\",\n      \"tradeDivision\": \"tradeDivision\",\n      \"categoryCode\": \"categoryCode\",\n      \"class\": \"class\"\n    }\n  },\n  \"globalUltimateIndicator\": \"globalUltimateIndicator\",\n  \"tradeName\": \"tradeName\",\n  \"geocodeConfidence\": \"geocodeConfidence\",\n  \"goodsAgentCodeDescription\": \"goodsAgentCodeDescription\",\n  \"organizationStatusCodeDescription\": \"organizationStatusCodeDescription\",\n  \"subsidaryIndicatorDescription\": \"subsidaryIndicatorDescription\",\n  \"parentBusiness\": {\n    \"address\": {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    \"name\": \"name\"\n  },\n  \"poiId\": \"poiId\",\n  \"ceoName\": \"ceoName\",\n  \"yearStart\": \"yearStart\",\n  \"franchiseName\": \"franchiseName\",\n  \"brandName\": \"brandName\",\n  \"tickerSymbol\": \"tickerSymbol\",\n  \"contactDetails\": {\n    \"address\": {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    \"phone\": \"phone\",\n    \"countryAccessCode\": \"countryAccessCode\",\n    \"fax\": \"fax\",\n    \"email\": \"email\",\n    \"url\": \"url\"\n  },\n  \"ceoTitle\": \"ceoTitle\",\n  \"goodsAgentCode\": \"goodsAgentCode\",\n  \"organizationStatusCode\": \"organizationStatusCode\",\n  \"relevanceScore\": \"relevanceScore\",\n  \"pbkey\": \"pbkey\",\n  \"name\": \"name\",\n  \"exchangeName\": \"exchangeName\",\n  \"geometry\": {\n    \"coordinates\": [\n      0.8008281904610115,\n      0.8008281904610115\n    ],\n    \"type\": \"type\"\n  },\n  \"legalStatusCode\": \"legalStatusCode\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94f74817-9c66-4f7a-8d3d-59b4b748e846",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "places",
+                    "v1",
+                    "poi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) POI unique Identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1179752b-e9e2-4b50-bd34-9b45ad1f777c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "places",
+                    "v1",
+                    "poi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) POI unique Identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6b399a76-141f-48c1-a3aa-ade58ede1ccf",
+    "name": "Precisely APIs Places  Service. API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

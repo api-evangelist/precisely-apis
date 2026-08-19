@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Select API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Select",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listSelect",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/typeahead/v1/list/select",
+            "params": [
+              {
+                "name": "selectedAddress",
+                "value": "",
+                "type": "query",
+                "description": "Selected Address to be searched."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country ISO code. We need to make sure that either Lat/Lng or Country is provided to API"
+              },
+              {
+                "name": "transactionId",
+                "value": "",
+                "type": "query",
+                "description": "transactionId."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,362 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Geocode API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Geocode",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Reverse Geocode(Basic/Premium/Advanced)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/geocode/v1/:datapackBundle/reverseGeocode",
+            "params": [
+              {
+                "name": "datapackBundle",
+                "value": "",
+                "type": "path",
+                "description": "datapackBundle"
+              },
+              {
+                "name": "x",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              },
+              {
+                "name": "y",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country name or ISO code."
+              },
+              {
+                "name": "coordSysName",
+                "value": "",
+                "type": "query",
+                "description": "Coordinate system to convert geometry to in format codespace:code."
+              },
+              {
+                "name": "distance",
+                "value": "",
+                "type": "query",
+                "description": "Radius in which search is performed."
+              },
+              {
+                "name": "distanceUnits",
+                "value": "",
+                "type": "query",
+                "description": "Unit of measurement."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service accepts location coordinate and returns an address."
+        },
+        {
+          "info": {
+            "name": "Post Reverse Geocode",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/geocode/v1/:datapackBundle/reverseGeocode",
+            "params": [
+              {
+                "name": "datapackBundle",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for geocode service. It accepts a single address or a list of addresses and returns location coordinates"
+        },
+        {
+          "info": {
+            "name": "Get Forward Geocode(Basic/Premium/Advanced)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/geocode/v1/:datapackBundle/geocode",
+            "params": [
+              {
+                "name": "datapackBundle",
+                "value": "",
+                "type": "path",
+                "description": "datapackBundle"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country name or ISO code."
+              },
+              {
+                "name": "mainAddress",
+                "value": "",
+                "type": "query",
+                "description": "Single line input, treated as collection of field elements."
+              },
+              {
+                "name": "matchMode",
+                "value": "",
+                "type": "query",
+                "description": "Match modes determine the leniency used to make a match between the input address and the reference data."
+              },
+              {
+                "name": "fallbackGeo",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether to attempt to determine a geographic region centroid when an address-level geocode cannot be determined."
+              },
+              {
+                "name": "fallbackPostal",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether to attempt to determine a post code centroid when an address-level geocode cannot be determined."
+              },
+              {
+                "name": "maxCands",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of candidates to return."
+              },
+              {
+                "name": "streetOffset",
+                "value": "",
+                "type": "query",
+                "description": "Indicates the offset distance from the street segments to use in street-level geocoding."
+              },
+              {
+                "name": "streetOffsetUnits",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the unit of measurement for the street offset."
+              },
+              {
+                "name": "cornerOffset",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the distance to offset the street end points in street-level matching."
+              },
+              {
+                "name": "cornerOffsetUnits",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the unit of measurement for the corner offset."
+              },
+              {
+                "name": "removeAccentMarks",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether to Suppress accents and other diacritical marks."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service accepts an address and returns the location coordinates corresponding to that address. Premium offers the best accuracy and is a high precision geocoder leveraging Master Location Data - geocodes to Street or building level. Advanced offers advanced accuracy and geocodes to Street level.Basic offering will geocode to a Place or Postal level. Good accuracy."
+        },
+        {
+          "info": {
+            "name": "Post Forward Geocode",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/geocode/v1/:datapackBundle/geocode",
+            "params": [
+              {
+                "name": "datapackBundle",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for geocode service. It accepts a single address or a list of addresses and returns location coordinates"
+        },
+        {
+          "info": {
+            "name": "Get Key Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/geocode/v1/keylookup",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "PreciselyID which maps to a unique address."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the key type - PreciselyID and GNAF_PID for Aus."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "3 letter ISO code of the country to be searched."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service accepts a PreciselyID and returns the corresponding address associated with that PreciselyID."
+        },
+        {
+          "info": {
+            "name": "Post Key Lookup",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/geocode/v1/keylookup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service accepts batches of PreciselyID's and returns the corresponding address associated with those PreciselyID's."
+        },
+        {
+          "info": {
+            "name": "Get PreciselyID By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/geocode/v1/key/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "The address to be searched."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "3 letter ISO code of the country to be searched."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service accepts an address and returns the corresponding PreciselyID"
+        },
+        {
+          "info": {
+            "name": "Post PreciselyID By Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/geocode/v1/key/byaddress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This is a Batch offering for 'PreciselyID By Address' service. It accepts a single address or a list of addresses and returns the corresponding PreciselyID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

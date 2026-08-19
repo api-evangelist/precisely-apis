@@ -1,0 +1,530 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Zones API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Zones",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Point of Interests Boundary by Location.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/zones/v1/poiboundary/bylocation",
+            "params": [
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude around which POI Boundary is requested"
+              },
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude around which POI Boundary is requested"
+              },
+              {
+                "name": "categoryCode",
+                "value": "",
+                "type": "query",
+                "description": "Specific Category/Categories Codes for the desired POIs. Accepts a mix of 4 digit (Top Category), 6 digit (Second-Level Category) and 11 digit (Low-Level Category) Category Codes"
+              },
+              {
+                "name": "sicCode",
+                "value": "",
+                "type": "query",
+                "description": "Specify starting digits or full sic code to filter the response"
+              },
+              {
+                "name": "naicsCode",
+                "value": "",
+                "type": "query",
+                "description": "Will accept naicsCode to filter POIs in results. Max 10 allowed."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Get Point of Interests Boundary by Location."
+        },
+        {
+          "info": {
+            "name": "Batch method for getting Point of Interests Boundary by Location.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/zones/v1/poiboundary/bylocation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Batch method for getting Point of Interests Boundary by Location."
+        },
+        {
+          "info": {
+            "name": "Gets Point of Interests Boundary by Address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/zones/v1/poiboundary/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Address around which POI Boundary is requested"
+              },
+              {
+                "name": "categoryCode",
+                "value": "",
+                "type": "query",
+                "description": "Specific Category/Categories Codes for the desired POIs. Accepts a mix of 4 digit (Top Category), 6 digit (Second-Level Category) and 11 digit (Low-Level Category) Category Codes."
+              },
+              {
+                "name": "sicCode",
+                "value": "",
+                "type": "query",
+                "description": "Specify starting digits or full sic code to filter the response"
+              },
+              {
+                "name": "naicsCode",
+                "value": "",
+                "type": "query",
+                "description": "Will accept naicsCode to filter POIs in results. Max 10 allowed."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Gets Point of Interests Boundary by Address."
+        },
+        {
+          "info": {
+            "name": "Batch method for getting Point of Interests Boundary by Address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/zones/v1/poiboundary/byaddress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Batch method for getting Point of Interests Boundary by Address."
+        },
+        {
+          "info": {
+            "name": "Get TravelBoundary By Time.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/zones/v1/travelboundary/bytime",
+            "params": [
+              {
+                "name": "point",
+                "value": "",
+                "type": "query",
+                "description": "Starting point from where the travel boundary is calculated. Point in Lat,Long,coordsys format"
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Starting address from where the travel boundary is calculated."
+              },
+              {
+                "name": "costs",
+                "value": "",
+                "type": "query",
+                "description": "Travel time used to calculate the travel boundary."
+              },
+              {
+                "name": "costUnit",
+                "value": "",
+                "type": "query",
+                "description": "Travel time unit such as min(Minute), h(Hour), s(Second) or msec(Millisecond)."
+              },
+              {
+                "name": "db",
+                "value": "",
+                "type": "query",
+                "description": "Mode of commute."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "3 character ISO code or country name."
+              },
+              {
+                "name": "maxOffroadDistance",
+                "value": "",
+                "type": "query",
+                "description": "Maximum distance to allow travel off the road network."
+              },
+              {
+                "name": "maxOffroadDistanceUnit",
+                "value": "",
+                "type": "query",
+                "description": "MaxOffroad Distance Unit such as ft(Foot), km(Kilometer), mi(Mile), m(Meter) or yd(Yard)."
+              },
+              {
+                "name": "destinationSrs",
+                "value": "",
+                "type": "query",
+                "description": "Desired coordinate system of the travel boundary."
+              },
+              {
+                "name": "majorRoads",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include all roads in the calculation or just major roads."
+              },
+              {
+                "name": "returnHoles",
+                "value": "",
+                "type": "query",
+                "description": "Whether to return holes, which are areas within the larger boundary that cannot be reached within the desired time"
+              },
+              {
+                "name": "returnIslands",
+                "value": "",
+                "type": "query",
+                "description": "Whether to return islands, which are small areas outside the main boundary that can be reached within the desired time"
+              },
+              {
+                "name": "simplificationFactor",
+                "value": "",
+                "type": "query",
+                "description": "Number between 0.0 and 1.0 where 0.0 is very simple and 1.0 means the most complex"
+              },
+              {
+                "name": "bandingStyle",
+                "value": "",
+                "type": "query",
+                "description": "Style of banding to be used in the result"
+              },
+              {
+                "name": "historicTrafficTimeBucket",
+                "value": "",
+                "type": "query",
+                "description": "Whether routing calculation uses the historic traffic speeds"
+              },
+              {
+                "name": "defaultAmbientSpeed",
+                "value": "",
+                "type": "query",
+                "description": "The speed to travel when going off a network road to find the travel boundary (for all road types)."
+              },
+              {
+                "name": "ambientSpeedUnit",
+                "value": "",
+                "type": "query",
+                "description": "The unit of measure to use to calculate the ambient speed."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Travel boundary based on travel time."
+        },
+        {
+          "info": {
+            "name": "Get TravelBoundary By Distance.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/zones/v1/travelboundary/bydistance",
+            "params": [
+              {
+                "name": "point",
+                "value": "",
+                "type": "query",
+                "description": "Starting point from where the travel boundary is calculated. Point in Lat,Long,coordsys format"
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Address around which Basic Boundary is requested."
+              },
+              {
+                "name": "costs",
+                "value": "",
+                "type": "query",
+                "description": "Travel time used to calculate the travel boundary."
+              },
+              {
+                "name": "costUnit",
+                "value": "",
+                "type": "query",
+                "description": "Travel time unit such as min(Minute), h(Hour), s(Second) or msec(Millisecond)."
+              },
+              {
+                "name": "db",
+                "value": "",
+                "type": "query",
+                "description": "Mode of commute."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "3 character ISO code or country name."
+              },
+              {
+                "name": "maxOffroadDistance",
+                "value": "",
+                "type": "query",
+                "description": "Maximum distance to allow travel off the road network."
+              },
+              {
+                "name": "maxOffroadDistanceUnit",
+                "value": "",
+                "type": "query",
+                "description": "MaxOffroad Distance Unit such as ft(Foot), km(Kilometer), mi(Mile), m(Meter) or yd(Yard)."
+              },
+              {
+                "name": "destinationSrs",
+                "value": "",
+                "type": "query",
+                "description": "Desired coordinate system of the travel boundary."
+              },
+              {
+                "name": "majorRoads",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include all roads in the calculation or just major roads."
+              },
+              {
+                "name": "returnHoles",
+                "value": "",
+                "type": "query",
+                "description": "Whether to return holes, which are areas within the larger boundary that cannot be reached within the desired time"
+              },
+              {
+                "name": "returnIslands",
+                "value": "",
+                "type": "query",
+                "description": "Whether to return islands, which are small areas outside the main boundary that can be reached within the desired time"
+              },
+              {
+                "name": "simplificationFactor",
+                "value": "",
+                "type": "query",
+                "description": "Number between 0.0 and 1.0 where 0.0 is very simple and 1.0 means the most complex"
+              },
+              {
+                "name": "bandingStyle",
+                "value": "",
+                "type": "query",
+                "description": "Style of banding to be used in the result"
+              },
+              {
+                "name": "historicTrafficTimeBucket",
+                "value": "",
+                "type": "query",
+                "description": "Whether routing calculation uses the historic traffic speeds"
+              },
+              {
+                "name": "defaultAmbientSpeed",
+                "value": "",
+                "type": "query",
+                "description": "The speed to travel when going off a network road to find the travel boundary (for all road types)."
+              },
+              {
+                "name": "ambientSpeedUnit",
+                "value": "",
+                "type": "query",
+                "description": "The unit of measure to use to calculate the ambient speed."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns the travel boundary based on travel distance."
+        },
+        {
+          "info": {
+            "name": "Gets Basic Boundary by Location.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/zones/v1/basicboundary/bylocation",
+            "params": [
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude around which Basic Boundary is requested"
+              },
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude around which Basic Boundary is requested"
+              },
+              {
+                "name": "distance",
+                "value": "",
+                "type": "query",
+                "description": "This is width of the buffer (in a complete circular buffer, it would be radius of the buffer). This has to be a positive number."
+              },
+              {
+                "name": "distanceUnit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query",
+                "description": "This is resolution of the buffer. Curves generated in buffer are approximated by line segments and it is measured in segments per circle. The higher the resolution, the smoother the curves of the buffer but more points would be required in the boundary geometry. Number greater than 0 and in multiple of 4. If not in 4, then it is approximated to nearest multiple of 4."
+              },
+              {
+                "name": "responseSrs",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "srsName",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Gets Basic Boundary by Location."
+        },
+        {
+          "info": {
+            "name": "Gets Basic Boundary by Address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/zones/v1/basicboundary/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Address around which Basic Boundary is requested"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Three digit ISO country code"
+              },
+              {
+                "name": "distance",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "distanceUnit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resolution",
+                "value": "",
+                "type": "query",
+                "description": "This is resolution of the buffer. Curves generated in buffer are approximated by line segments and it is measured in segments per circle. The higher the resolution, the smoother the curves of the buffer but more points would be required in the boundary geometry. Number greater than 0 and in multiple of 4. If not in 4, then it is approximated to nearest multiple of 4."
+              },
+              {
+                "name": "responseSrs",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Gets Basic Boundary by Address."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

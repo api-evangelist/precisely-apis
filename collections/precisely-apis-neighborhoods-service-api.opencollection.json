@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Neighborhoods  Service. API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Neighborhoods  Service.",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Place By Location.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/neighborhoods/v1/place/bylocation",
+            "params": [
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "levelHint",
+                "value": "",
+                "type": "query",
+                "description": "Numeric code of geographic hierarchy level which is classified at six levels.Allowed values 1,2,3,4,5,6"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Identifies and retrieves the nearest neighborhood around a specific location. This service accepts latitude & longitude as input and returns a place name."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,278 @@
+{
+  "item": [
+    {
+      "id": "03f5db00-2b80-47ac-a726-f83904fae3bc",
+      "name": "Validatemailingaddresspro",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "06cc8067-f299-4ff7-8234-5e692442220f",
+          "name": "ValidateMailingAddressPro",
+          "request": {
+            "name": "ValidateMailingAddressPro",
+            "description": {
+              "content": "ValidateMailingAddressPro builds upon the ValidateMailingAddress service by using additional address databases so it can provide enhanced detail.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "addressverification",
+                "v1",
+                "validatemailingaddresspro",
+                "results.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"options\": {\n    \"OutputAddressBlocks\": \"Y\",\n    \"KeepMultimatch\": \"N\",\n    \"OutputCountryFormat\": \"E\",\n    \"OutputScript\": \"InputScript\",\n    \"OutputCasing\": \"M\",\n    \"MaximumResults\": \"10\"\n  },\n  \"Input\": {\n    \"Row\": [\n      {\n        \"user_fields\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"FirmName\": \"<string>\",\n        \"City\": \"<string>\",\n        \"StateProvince\": \"<string>\",\n        \"Country\": \"<string>\",\n        \"PostalCode\": \"<string>\"\n      },\n      {\n        \"user_fields\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"FirmName\": \"<string>\",\n        \"City\": \"<string>\",\n        \"StateProvince\": \"<string>\",\n        \"Country\": \"<string>\",\n        \"PostalCode\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8374ebc5-eda9-4604-b2a7-05b24d0a9e46",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addressverification",
+                    "v1",
+                    "validatemailingaddresspro",
+                    "results.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Input\": {\n    \"Row\": [\n      {\n        \"AddressLine2\": \"AddressLine2\",\n        \"AddressLine1\": \"AddressLine1\",\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"FirmName\": \"FirmName\",\n        \"StateProvince\": \"StateProvince\",\n        \"Country\": \"Country\",\n        \"PostalCode\": \"PostalCode\",\n        \"City\": \"City\"\n      },\n      {\n        \"AddressLine2\": \"AddressLine2\",\n        \"AddressLine1\": \"AddressLine1\",\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"FirmName\": \"FirmName\",\n        \"StateProvince\": \"StateProvince\",\n        \"Country\": \"Country\",\n        \"PostalCode\": \"PostalCode\",\n        \"City\": \"City\"\n      }\n    ]\n  },\n  \"options\": {\n    \"OutputCasing\": \"M\",\n    \"OutputAddressBlocks\": \"Y\",\n    \"OutputCountryFormat\": \"E\",\n    \"OutputScript\": \"InputScript\",\n    \"KeepMultimatch\": \"N\",\n    \"MaximumResults\": \"10\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Output\": [\n    {\n      \"Status\": \"Status\",\n      \"BlockAddress\": \"BlockAddress\",\n      \"FirmName\": \"FirmName\",\n      \"Suburb\": \"Suburb\",\n      \"Locality\": \"Locality\",\n      \"StateProvince\": \"StateProvince\",\n      \"AddressQuality\": \"AddressQuality\",\n      \"PostalCode\": \"PostalCode\",\n      \"City\": \"City\",\n      \"Status.Code\": \"Status.Code\",\n      \"CouldNotValidate\": \"CouldNotValidate\",\n      \"Deliverability\": \"Deliverability\",\n      \"AdditionalInputData\": \"AdditionalInputData\",\n      \"AddressLine2\": \"AddressLine2\",\n      \"AddressLine1\": \"AddressLine1\",\n      \"PostalCode.Base\": \"PostalCode.Base\",\n      \"user_fields\": [\n        {\n          \"name\": \"name\",\n          \"value\": \"value\"\n        },\n        {\n          \"name\": \"name\",\n          \"value\": \"value\"\n        }\n      ],\n      \"ChangeScore\": \"ChangeScore\",\n      \"Country\": \"Country\",\n      \"Status.Description\": \"Status.Description\",\n      \"AddressType\": \"AddressType\",\n      \"PostalCode.AddOn\": \"PostalCode.AddOn\"\n    },\n    {\n      \"Status\": \"Status\",\n      \"BlockAddress\": \"BlockAddress\",\n      \"FirmName\": \"FirmName\",\n      \"Suburb\": \"Suburb\",\n      \"Locality\": \"Locality\",\n      \"StateProvince\": \"StateProvince\",\n      \"AddressQuality\": \"AddressQuality\",\n      \"PostalCode\": \"PostalCode\",\n      \"City\": \"City\",\n      \"Status.Code\": \"Status.Code\",\n      \"CouldNotValidate\": \"CouldNotValidate\",\n      \"Deliverability\": \"Deliverability\",\n      \"AdditionalInputData\": \"AdditionalInputData\",\n      \"AddressLine2\": \"AddressLine2\",\n      \"AddressLine1\": \"AddressLine1\",\n      \"PostalCode.Base\": \"PostalCode.Base\",\n      \"user_fields\": [\n        {\n          \"name\": \"name\",\n          \"value\": \"value\"\n        },\n        {\n          \"name\": \"name\",\n          \"value\": \"value\"\n        }\n      ],\n      \"ChangeScore\": \"ChangeScore\",\n      \"Country\": \"Country\",\n      \"Status.Description\": \"Status.Description\",\n      \"AddressType\": \"AddressType\",\n      \"PostalCode.AddOn\": \"PostalCode.AddOn\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3f9fbdc1-7e49-4264-a77f-1f34a0738a14",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addressverification",
+                    "v1",
+                    "validatemailingaddresspro",
+                    "results.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Input\": {\n    \"Row\": [\n      {\n        \"AddressLine2\": \"AddressLine2\",\n        \"AddressLine1\": \"AddressLine1\",\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"FirmName\": \"FirmName\",\n        \"StateProvince\": \"StateProvince\",\n        \"Country\": \"Country\",\n        \"PostalCode\": \"PostalCode\",\n        \"City\": \"City\"\n      },\n      {\n        \"AddressLine2\": \"AddressLine2\",\n        \"AddressLine1\": \"AddressLine1\",\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"FirmName\": \"FirmName\",\n        \"StateProvince\": \"StateProvince\",\n        \"Country\": \"Country\",\n        \"PostalCode\": \"PostalCode\",\n        \"City\": \"City\"\n      }\n    ]\n  },\n  \"options\": {\n    \"OutputCasing\": \"M\",\n    \"OutputAddressBlocks\": \"Y\",\n    \"OutputCountryFormat\": \"E\",\n    \"OutputScript\": \"InputScript\",\n    \"KeepMultimatch\": \"N\",\n    \"MaximumResults\": \"10\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7acaff41-efac-46de-b73d-c7c213cbb594",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addressverification",
+                    "v1",
+                    "validatemailingaddresspro",
+                    "results.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Input\": {\n    \"Row\": [\n      {\n        \"AddressLine2\": \"AddressLine2\",\n        \"AddressLine1\": \"AddressLine1\",\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"FirmName\": \"FirmName\",\n        \"StateProvince\": \"StateProvince\",\n        \"Country\": \"Country\",\n        \"PostalCode\": \"PostalCode\",\n        \"City\": \"City\"\n      },\n      {\n        \"AddressLine2\": \"AddressLine2\",\n        \"AddressLine1\": \"AddressLine1\",\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"FirmName\": \"FirmName\",\n        \"StateProvince\": \"StateProvince\",\n        \"Country\": \"Country\",\n        \"PostalCode\": \"PostalCode\",\n        \"City\": \"City\"\n      }\n    ]\n  },\n  \"options\": {\n    \"OutputCasing\": \"M\",\n    \"OutputAddressBlocks\": \"Y\",\n    \"OutputCountryFormat\": \"E\",\n    \"OutputScript\": \"InputScript\",\n    \"KeepMultimatch\": \"N\",\n    \"MaximumResults\": \"10\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5a3a0dee-d603-4520-815e-748a6c1fe617",
+    "name": "Precisely APIs Validatemailingaddresspro API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

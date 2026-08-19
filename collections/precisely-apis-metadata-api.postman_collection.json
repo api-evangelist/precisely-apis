@@ -1,0 +1,513 @@
+{
+  "item": [
+    {
+      "id": "adabcc7e-c0a4-44d9-9d2e-68444ab23161",
+      "name": "Metadata",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2d224098-fef8-4e58-b2b8-743781d23749",
+          "name": "Get SIC Metadata",
+          "request": {
+            "name": "Get SIC Metadata",
+            "description": {
+              "content": "This service returns a list of standard industrial classification codes & associated metadata which can then be used as inputs for querying the Points of Interest By Address or Location methods listed above.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "places",
+                "v1",
+                "metadata",
+                "sic"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sicCode",
+                  "value": "<string>",
+                  "description": "4 or 8 digits SIC code to filter the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "level",
+                  "value": "<string>",
+                  "description": "1 or 2."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c975f1cc-4e6c-488c-aa05-c47ab717a86d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "places",
+                    "v1",
+                    "metadata",
+                    "sic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sicCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sic\": [\n    {\n      \"tradeGroup\": \"tradeGroup\",\n      \"code\": \"code\",\n      \"subClass\": \"subClass\",\n      \"tradeDivision\": \"tradeDivision\",\n      \"description\": \"description\",\n      \"categoryCode\": \"categoryCode\",\n      \"class\": \"class\"\n    },\n    {\n      \"tradeGroup\": \"tradeGroup\",\n      \"code\": \"code\",\n      \"subClass\": \"subClass\",\n      \"tradeDivision\": \"tradeDivision\",\n      \"description\": \"description\",\n      \"categoryCode\": \"categoryCode\",\n      \"class\": \"class\"\n    }\n  ],\n  \"category\": [\n    {\n      \"tradeGroup\": \"tradeGroup\",\n      \"code\": \"code\",\n      \"subClass\": \"subClass\",\n      \"tradeDivision\": \"tradeDivision\",\n      \"description\": \"description\",\n      \"sic\": \"sic\",\n      \"class\": \"class\"\n    },\n    {\n      \"tradeGroup\": \"tradeGroup\",\n      \"code\": \"code\",\n      \"subClass\": \"subClass\",\n      \"tradeDivision\": \"tradeDivision\",\n      \"description\": \"description\",\n      \"sic\": \"sic\",\n      \"class\": \"class\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1ca7218-2425-4b2f-abc7-b6326500dfeb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "places",
+                    "v1",
+                    "metadata",
+                    "sic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sicCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "452c536b-c8da-44ee-85d9-d141a94a6003",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "places",
+                    "v1",
+                    "metadata",
+                    "sic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sicCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e3768a6-cdfa-427a-83d8-a06c481dfff6",
+          "name": "Category Code Metadata.",
+          "request": {
+            "name": "Category Code Metadata.",
+            "description": {
+              "content": "This service returns a list of Category codes & associated metadata which can then be used as inputs for querying the Points of Interest By Address or Location methods listed above.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "places",
+                "v1",
+                "metadata",
+                "category"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "categoryCode",
+                  "value": "<string>",
+                  "description": "4, 6, or 11 digits category code to filter the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "level",
+                  "value": "<string>",
+                  "description": "1, 2, or 3."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "60a71eb6-ec30-467f-ae23-a124f2b5a7b9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "places",
+                    "v1",
+                    "metadata",
+                    "category"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "categoryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sic\": [\n    {\n      \"tradeGroup\": \"tradeGroup\",\n      \"code\": \"code\",\n      \"subClass\": \"subClass\",\n      \"tradeDivision\": \"tradeDivision\",\n      \"description\": \"description\",\n      \"categoryCode\": \"categoryCode\",\n      \"class\": \"class\"\n    },\n    {\n      \"tradeGroup\": \"tradeGroup\",\n      \"code\": \"code\",\n      \"subClass\": \"subClass\",\n      \"tradeDivision\": \"tradeDivision\",\n      \"description\": \"description\",\n      \"categoryCode\": \"categoryCode\",\n      \"class\": \"class\"\n    }\n  ],\n  \"category\": [\n    {\n      \"tradeGroup\": \"tradeGroup\",\n      \"code\": \"code\",\n      \"subClass\": \"subClass\",\n      \"tradeDivision\": \"tradeDivision\",\n      \"description\": \"description\",\n      \"sic\": \"sic\",\n      \"class\": \"class\"\n    },\n    {\n      \"tradeGroup\": \"tradeGroup\",\n      \"code\": \"code\",\n      \"subClass\": \"subClass\",\n      \"tradeDivision\": \"tradeDivision\",\n      \"description\": \"description\",\n      \"sic\": \"sic\",\n      \"class\": \"class\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "703cfa1f-d283-4eaf-afa5-76ab2e394d34",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "places",
+                    "v1",
+                    "metadata",
+                    "category"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "categoryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5eb62a20-92ed-48a8-a283-ead253ff7de6",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "places",
+                    "v1",
+                    "metadata",
+                    "category"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "categoryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "level",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "61a340fb-bef1-4a78-a8e2-2c0da65dcf52",
+    "name": "Precisely APIs Metadata API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

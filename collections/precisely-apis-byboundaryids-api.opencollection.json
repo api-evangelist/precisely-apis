@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Byboundaryids API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Byboundaryids",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Demographics By Boundaryids.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/demographics-segmentation/v1/demographics/byboundaryids",
+            "params": [
+              {
+                "name": "boundaryIds",
+                "value": "",
+                "type": "query",
+                "description": "Accepts comma separated multiple boundary ids."
+              },
+              {
+                "name": "profile",
+                "value": "",
+                "type": "query",
+                "description": "Applicable on ranged variables. Returns top sorted result based on the input value."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Accept the comma separated theme names and filter response based on value. Maximum 10 can be provided."
+              },
+              {
+                "name": "valueFormat",
+                "value": "",
+                "type": "query",
+                "description": "Applicable for few ranged variables where percent & count both are available and filter response based on the input value."
+              },
+              {
+                "name": "variableLevel",
+                "value": "",
+                "type": "query",
+                "description": "Retrieves demographic facts in response based on the input value."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This endpoint will allow the user to request demographics details by census boundary id. Multiple comma separated boundary ids will be accepted. "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

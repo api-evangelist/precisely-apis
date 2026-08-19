@@ -1,0 +1,386 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Segmentation API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Segmentation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Demographics Advanced Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/demographics-segmentation/v1/advanced/demographics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Demographics Advanced Endpoint will return the aggregated values of the selected demographics variables of the regions falling inside a user provided geometry or travel time/distance boundaries. All the intersecting demographic boundaries will be snapped completely, and user will have option to request these boundaries in response.  "
+        },
+        {
+          "info": {
+            "name": "Segmentation By Location.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/demographics-segmentation/v1/segmentation/bylocation",
+            "params": [
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Provides the segmentation details around a specified location. GeoLife 'segmentation bylocation' service accepts longitude and latitude as an input to return the lifestyle characteristics of households in terms of their family status, children characteristics, income behaviors, financial preferences and interests."
+        },
+        {
+          "info": {
+            "name": "Segmentation By Address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/demographics-segmentation/v1/segmentation/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "The address to be searched."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "3 letter ISO code of the country to be searched.Allowed values USA,CAN,GBR,FRA,ITA,AUS,DEU."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Provides the segmentation details around a specified address. GeoLife 'Segmentation by Address' service accepts address as an input to return the lifestyle characteristics of households in terms of their family status, children characteristics, income behaviors, financial preferences and interests."
+        },
+        {
+          "info": {
+            "name": "Demographics By Location.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/demographics-segmentation/v1/demographics/bylocation",
+            "params": [
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "profile",
+                "value": "",
+                "type": "query",
+                "description": "Retrieves the sorted demographic data on the basis of pre-defined profiles that can display the top 3 or top 5 results (by location) either in ascending or descending order.Allowed values Top5Ascending,Top5Descending,Top3Ascending,Top3Descending"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "The 'filter' parameter retrieves the demographic data based upon specified input themes."
+              },
+              {
+                "name": "valueFormat",
+                "value": "",
+                "type": "query",
+                "description": "The 'valueFormat' parameter is applicable for few ranged variables where percent & count both are available and filter response based on the input value."
+              },
+              {
+                "name": "variableLevel",
+                "value": "",
+                "type": "query",
+                "description": "The 'variableLevel' retrieves demographic facts in response based on the input value"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Provides the demographic details around a specified location. GeoLife 'bylocation' service accepts longitude and latitude as an input to return a specific population segment's age group, ethnicity, income, purchasing behaviour, commuter patterns and more."
+        },
+        {
+          "info": {
+            "name": "Demographics By Boundaryids.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/demographics-segmentation/v1/demographics/byboundaryids",
+            "params": [
+              {
+                "name": "boundaryIds",
+                "value": "",
+                "type": "query",
+                "description": "Accepts comma separated multiple boundary ids."
+              },
+              {
+                "name": "profile",
+                "value": "",
+                "type": "query",
+                "description": "Applicable on ranged variables. Returns top sorted result based on the input value."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Accept the comma separated theme names and filter response based on value. Maximum 10 can be provided."
+              },
+              {
+                "name": "valueFormat",
+                "value": "",
+                "type": "query",
+                "description": "Applicable for few ranged variables where percent & count both are available and filter response based on the input value."
+              },
+              {
+                "name": "variableLevel",
+                "value": "",
+                "type": "query",
+                "description": "Retrieves demographic facts in response based on the input value."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This endpoint will allow the user to request demographics details by census boundary id. Multiple comma separated boundary ids will be accepted. "
+        },
+        {
+          "info": {
+            "name": "Demographics By Address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/demographics-segmentation/v1/demographics/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "The address to be searched."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "3 letter ISO code of the country to be searched.Allowed values USA,CAN,GBR,AUS."
+              },
+              {
+                "name": "profile",
+                "value": "",
+                "type": "query",
+                "description": "Retrieves the sorted demographic data on the basis of pre-defined profiles that can display the top 3 or top 5 results (by location) either in ascending or descending order.Allowed values Top5Ascending,Top5Descending,Top3Ascending,Top3Descending"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "The 'filter' parameter retrieves the demographic data based upon specified input themes."
+              },
+              {
+                "name": "valueFormat",
+                "value": "",
+                "type": "query",
+                "description": "The 'valueFormat' parameter is applicable for few ranged variables where percent & count both are available and filter response based on the input value."
+              },
+              {
+                "name": "variableLevel",
+                "value": "",
+                "type": "query",
+                "description": "The 'variableLevel' retrieves demographic facts in response based on the input value"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Provides the demographic details around a specified address. GeoLife 'byaddress' service accepts address as an input to return a specific population segment's age group, ethnicity, income, purchasing behaviour, commuter patterns and more."
+        },
+        {
+          "info": {
+            "name": "Demographics Basic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/demographics-segmentation/v1/basic/demographics",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Address to be searched"
+              },
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location"
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location"
+              },
+              {
+                "name": "searchRadius",
+                "value": "",
+                "type": "query",
+                "description": "Radius within which demographics details are required. Max. value is 52800 Feet or 10 miles"
+              },
+              {
+                "name": "searchRadiusUnit",
+                "value": "",
+                "type": "query",
+                "description": "Radius unit such as Feet, Kilometers, Miles or Meters "
+              },
+              {
+                "name": "travelTime",
+                "value": "",
+                "type": "query",
+                "description": "Travel Time based on travelMode within which demographics details are required. Max. value is 1 hour."
+              },
+              {
+                "name": "travelTimeUnit",
+                "value": "",
+                "type": "query",
+                "description": "minutes,hours,seconds,milliseconds. Default is meters.Default is minutes."
+              },
+              {
+                "name": "travelDistance",
+                "value": "",
+                "type": "query",
+                "description": "Travel Distance based on travelMode within which demographics details are required. Max. value is 10 miles."
+              },
+              {
+                "name": "travelDistanceUnit",
+                "value": "",
+                "type": "query",
+                "description": "feet,kilometers,miles,meters.  Default is feet."
+              },
+              {
+                "name": "travelMode",
+                "value": "",
+                "type": "query",
+                "description": "Default is driving."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "3 digit ISO country code (Used in case address is mentioned)."
+              },
+              {
+                "name": "profile",
+                "value": "",
+                "type": "query",
+                "description": "Applicable on ranged variables. Returns top sorted result based on the input value."
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "If Y, demographic boundaries are returned in response."
+              },
+              {
+                "name": "includeGeometry",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Demographics Basic Endpoint will return the aggregated values of the selected demographics variables of the regions falling inside the search radius. All the intersecting demographic boundaries will be snapped completely and user will have option to request these boundaries in response.  "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

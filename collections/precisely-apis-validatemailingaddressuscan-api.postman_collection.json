@@ -1,0 +1,278 @@
+{
+  "item": [
+    {
+      "id": "8fd542be-c63a-4683-9b85-b731f2bb2208",
+      "name": "Validatemailingaddressuscan",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dd089581-a224-41a6-b613-4629e575ee9f",
+          "name": "ValidateMailingAddressUSCAN",
+          "request": {
+            "name": "ValidateMailingAddressUSCAN",
+            "description": {
+              "content": "ValidateMailingAddressUSCAN analyses and compares the input addresses against the known address databases around the world to output a standardized detail for US and CANADAIt gives RDI and DPV also along with other US/CAN specific functionalities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "addressverification",
+                "v1",
+                "validatemailingaddressuscan",
+                "results.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"options\": {\n    \"OutputAddressBlocks\": \"Y\",\n    \"PerformUSProcessing\": \"Y\",\n    \"PerformDPV\": \"N\",\n    \"OutputFormattedOnFail\": \"N\",\n    \"OutputPostalCodeSeparator\": \"Y\",\n    \"OutputCountryFormat\": \"E\",\n    \"KeepMultimatch\": \"N\",\n    \"OutputCasing\": \"M\",\n    \"MaximumResults\": \"10\",\n    \"OutputRecordType\": \"A\",\n    \"OutputFieldLevelReturnCodes\": \"N\",\n    \"DPVDetermineNoStat\": \"N\",\n    \"StreetMatchingStrictness\": \"M\",\n    \"CanFrenchApartmentLabel\": \"Appartement\",\n    \"OutputAbbreviatedAlias\": \"N\",\n    \"DPVSuccessfulStatusCondition\": \"A\",\n    \"StandardAddressPMBLine\": \"N\",\n    \"FirmMatchingStrictness\": \"M\",\n    \"CanRuralRouteFormat\": \"A\",\n    \"CanPreferHouseNum\": \"N\",\n    \"OutputPreferredAlias\": \"N\",\n    \"DirectionalMatchingStrictness\": \"M\",\n    \"ExtractFirm\": \"N\",\n    \"FailOnCMRAMatch\": \"N\",\n    \"CanNonCivicFormat\": \"A\",\n    \"CanSSLVRFlg\": \"N\",\n    \"OutputStreetNameAlias\": \"Y\",\n    \"PerformEWS\": \"N\",\n    \"CanOutputCityFormat\": \"D\",\n    \"DualAddressLogic\": \"N\",\n    \"PerformSuiteLink\": \"N\",\n    \"CanStandardAddressFormat\": \"D\",\n    \"OutputPreferredCity\": \"Z\",\n    \"OutputMultinationalCharacters\": \"N\",\n    \"CanDeliveryOfficeFormat\": \"I\",\n    \"PerformLACSLink\": \"Y\",\n    \"CanDualAddressLogic\": \"D\",\n    \"ExtractUrb\": \"N\",\n    \"StandardAddressFormat\": \"C\",\n    \"CanFrenchFormat\": \"C\",\n    \"DPVDetermineVacancy\": \"N\",\n    \"CanEnglishApartmentLabel\": \"Apt\",\n    \"SuppressZplusPhantomCarrierR777\": \"N\",\n    \"CanOutputCityAlias\": \"N\",\n    \"OutputShortCityName\": \"N\"\n  },\n  \"Input\": {\n    \"Row\": [\n      {\n        \"user_fields\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"AddressLine3\": \"<string>\",\n        \"AddressLine4\": \"<string>\",\n        \"FirmName\": \"<string>\",\n        \"City\": \"<string>\",\n        \"StateProvince\": \"<string>\",\n        \"Country\": \"<string>\",\n        \"PostalCode\": \"<string>\",\n        \"USUrbanName\": \"<string>\",\n        \"CanLanguage\": \"<string>\"\n      },\n      {\n        \"user_fields\": [\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"value\": \"<string>\"\n          }\n        ],\n        \"AddressLine1\": \"<string>\",\n        \"AddressLine2\": \"<string>\",\n        \"AddressLine3\": \"<string>\",\n        \"AddressLine4\": \"<string>\",\n        \"FirmName\": \"<string>\",\n        \"City\": \"<string>\",\n        \"StateProvince\": \"<string>\",\n        \"Country\": \"<string>\",\n        \"PostalCode\": \"<string>\",\n        \"USUrbanName\": \"<string>\",\n        \"CanLanguage\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b0e47f2a-3f92-4d5e-b3e1-64ecb42a841f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addressverification",
+                    "v1",
+                    "validatemailingaddressuscan",
+                    "results.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Input\": {\n    \"Row\": [\n      {\n        \"AddressLine3\": \"AddressLine3\",\n        \"AddressLine2\": \"AddressLine2\",\n        \"AddressLine1\": \"AddressLine1\",\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"FirmName\": \"FirmName\",\n        \"StateProvince\": \"StateProvince\",\n        \"USUrbanName\": \"USUrbanName\",\n        \"AddressLine4\": \"AddressLine4\",\n        \"Country\": \"Country\",\n        \"PostalCode\": \"PostalCode\",\n        \"City\": \"City\",\n        \"CanLanguage\": \"CanLanguage\"\n      },\n      {\n        \"AddressLine3\": \"AddressLine3\",\n        \"AddressLine2\": \"AddressLine2\",\n        \"AddressLine1\": \"AddressLine1\",\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"FirmName\": \"FirmName\",\n        \"StateProvince\": \"StateProvince\",\n        \"USUrbanName\": \"USUrbanName\",\n        \"AddressLine4\": \"AddressLine4\",\n        \"Country\": \"Country\",\n        \"PostalCode\": \"PostalCode\",\n        \"City\": \"City\",\n        \"CanLanguage\": \"CanLanguage\"\n      }\n    ]\n  },\n  \"options\": {\n    \"CanOutputCityFormat\": \"D\",\n    \"StandardAddressFormat\": \"C\",\n    \"OutputPostalCodeSeparator\": \"Y\",\n    \"OutputCasing\": \"M\",\n    \"CanSSLVRFlg\": \"N\",\n    \"CanDualAddressLogic\": \"D\",\n    \"CanEnglishApartmentLabel\": \"Apt\",\n    \"DPVDetermineNoStat\": \"N\",\n    \"OutputPreferredCity\": \"Z\",\n    \"PerformUSProcessing\": \"Y\",\n    \"PerformLACSLink\": \"Y\",\n    \"DPVSuccessfulStatusCondition\": \"A\",\n    \"OutputFormattedOnFail\": \"N\",\n    \"DPVDetermineVacancy\": \"N\",\n    \"DualAddressLogic\": \"N\",\n    \"PerformEWS\": \"N\",\n    \"OutputMultinationalCharacters\": \"N\",\n    \"OutputCountryFormat\": \"E\",\n    \"ExtractUrb\": \"N\",\n    \"StreetMatchingStrictness\": \"M\",\n    \"CanOutputCityAlias\": \"N\",\n    \"FailOnCMRAMatch\": \"N\",\n    \"OutputRecordType\": \"A\",\n    \"FirmMatchingStrictness\": \"M\",\n    \"CanPreferHouseNum\": \"N\",\n    \"OutputAddressBlocks\": \"Y\",\n    \"OutputShortCityName\": \"N\",\n    \"CanStandardAddressFormat\": \"D\",\n    \"OutputAbbreviatedAlias\": \"N\",\n    \"OutputFieldLevelReturnCodes\": \"N\",\n    \"KeepMultimatch\": \"N\",\n    \"MaximumResults\": \"10\",\n    \"StandardAddressPMBLine\": \"N\",\n    \"CanNonCivicFormat\": \"A\",\n    \"CanRuralRouteFormat\": \"A\",\n    \"CanFrenchFormat\": \"C\",\n    \"OutputStreetNameAlias\": \"Y\",\n    \"CanFrenchApartmentLabel\": \"Appartement\",\n    \"SuppressZplusPhantomCarrierR777\": \"N\",\n    \"ExtractFirm\": \"N\",\n    \"CanDeliveryOfficeFormat\": \"I\",\n    \"OutputPreferredAlias\": \"N\",\n    \"DirectionalMatchingStrictness\": \"M\",\n    \"PerformDPV\": \"N\",\n    \"PerformSuiteLink\": \"N\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Output\": [\n    {\n      \"PostalBarCode\": \"PostalBarCode\",\n      \"Country.Input\": \"Country.Input\",\n      \"CMRA\": \"CMRA\",\n      \"StreetSuffix\": \"StreetSuffix\",\n      \"USFIPSCountyNumber\": \"USFIPSCountyNumber\",\n      \"LeadingDirectional\": \"LeadingDirectional\",\n      \"USUrbanName.Result\": \"USUrbanName.Result\",\n      \"FirmName.Input\": \"FirmName.Input\",\n      \"RRHC\": \"RRHC\",\n      \"Status\": \"Status\",\n      \"PostalCode.Result\": \"PostalCode.Result\",\n      \"Country.Result\": \"Country.Result\",\n      \"StateProvince\": \"StateProvince\",\n      \"LeadingDirectional.Input\": \"LeadingDirectional.Input\",\n      \"PostalCode.Type\": \"PostalCode.Type\",\n      \"AddressLine3\": \"AddressLine3\",\n      \"StateProvince.Result\": \"StateProvince.Result\",\n      \"AddressBlock5\": \"AddressBlock5\",\n      \"AddressLine2\": \"AddressLine2\",\n      \"AddressBlock6\": \"AddressBlock6\",\n      \"AddressLine1\": \"AddressLine1\",\n      \"AddressBlock7\": \"AddressBlock7\",\n      \"USUrbanName.Input\": \"USUrbanName.Input\",\n      \"AddressBlock8\": \"AddressBlock8\",\n      \"AddressBlock1\": \"AddressBlock1\",\n      \"AddressBlock2\": \"AddressBlock2\",\n      \"AddressBlock3\": \"AddressBlock3\",\n      \"AddressLine4\": \"AddressLine4\",\n      \"HouseNumber.Input\": \"HouseNumber.Input\",\n      \"AddressBlock4\": \"AddressBlock4\",\n      \"Country\": \"Country\",\n      \"HouseNumber.Result\": \"HouseNumber.Result\",\n      \"LeadingDirectional.Result\": \"LeadingDirectional.Result\",\n      \"PostalCode.AddOn\": \"PostalCode.AddOn\",\n      \"StreetSuffix.Result\": \"StreetSuffix.Result\",\n      \"TrailingDirectional.Input\": \"TrailingDirectional.Input\",\n      \"USAltAddr\": \"USAltAddr\",\n      \"FirmName.Result\": \"FirmName.Result\",\n      \"HouseNumber\": \"HouseNumber\",\n      \"BlockAddress\": \"BlockAddress\",\n      \"ApartmentLabel\": \"ApartmentLabel\",\n      \"ApartmentLabel.Input\": \"ApartmentLabel.Input\",\n      \"USCongressionalDistrict\": \"USCongressionalDistrict\",\n      \"DPV\": \"DPV\",\n      \"AddressBlock9\": \"AddressBlock9\",\n      \"POBox.Result\": \"POBox.Result\",\n      \"PostalCodeCity.Result\": \"PostalCodeCity.Result\",\n      \"ApartmentNumber.Result\": \"ApartmentNumber.Result\",\n      \"PrivateMailbox.Type\": \"PrivateMailbox.Type\",\n      \"RRHC.Result\": \"RRHC.Result\",\n      \"RDI\": \"RDI\",\n      \"USCarrierRouteCode\": \"USCarrierRouteCode\",\n      \"ApartmentNumber.Input\": \"ApartmentNumber.Input\",\n      \"City.Input\": \"City.Input\",\n      \"PostalCode.Input\": \"PostalCode.Input\",\n      \"USFinanceNumber\": \"USFinanceNumber\",\n      \"SuiteLinkFidelity\": \"SuiteLinkFidelity\",\n      \"USLastLineNumber\": \"USLastLineNumber\",\n      \"USUrbanName\": \"USUrbanName\",\n      \"Status.description\": \"Status.description\",\n      \"StreetNameAbbreviatedAlias.Result\": \"StreetNameAbbreviatedAlias.Result\",\n      \"USLACS.ReturnCode\": \"USLACS.ReturnCode\",\n      \"City.Result\": \"City.Result\",\n      \"StreetName\": \"StreetName\",\n      \"USLACS\": \"USLACS\",\n      \"POBox.Input\": \"POBox.Input\",\n      \"RRHC.Input\": \"RRHC.Input\",\n      \"TrailingDirectional\": \"TrailingDirectional\",\n      \"Street.Result\": \"Street.Result\",\n      \"PrivateMailbox\": \"PrivateMailbox\",\n      \"PrivateMailbox.Input\": \"PrivateMailbox.Input\",\n      \"DPVVacant\": \"DPVVacant\",\n      \"PostalCode.Base\": \"PostalCode.Base\",\n      \"user_fields\": [\n        {\n          \"name\": \"name\",\n          \"value\": \"value\"\n        },\n        {\n          \"name\": \"name\",\n          \"value\": \"value\"\n        }\n      ],\n      \"Confidence\": \"Confidence\",\n      \"StreetName.Input\": \"StreetName.Input\",\n      \"StateProvince.Input\": \"StateProvince.Input\",\n      \"MatchScore\": \"MatchScore\",\n      \"FirmName\": \"FirmName\",\n      \"ApartmentLabel.Result\": \"ApartmentLabel.Result\",\n      \"StreetName.Alias.Type\": \"StreetName.Alias.Type\",\n      \"CountryLevel\": \"CountryLevel\",\n      \"City\": \"City\",\n      \"CouldNotValidate\": \"CouldNotValidate\",\n      \"MultimatchCount\": \"MultimatchCount\",\n      \"USCountyName\": \"USCountyName\",\n      \"TrailingDirectional.Result\": \"TrailingDirectional.Result\",\n      \"POBox\": \"POBox\",\n      \"StreetName.Result\": \"StreetName.Result\",\n      \"PostalCode\": \"PostalCode\",\n      \"ApartmentNumber\": \"ApartmentNumber\",\n      \"AdditionalInputData\": \"AdditionalInputData\",\n      \"PrivateMailbox.Type.Input\": \"PrivateMailbox.Type.Input\",\n      \"RecordType\": \"RecordType\",\n      \"StreetNamePreferredAlias.Result\": \"StreetNamePreferredAlias.Result\",\n      \"AddressRecord.Result\": \"AddressRecord.Result\",\n      \"DPVFootnote\": \"DPVFootnote\",\n      \"StreetSuffix.Input\": \"StreetSuffix.Input\",\n      \"DPVNoStat\": \"DPVNoStat\",\n      \"AddressFormat\": \"AddressFormat\",\n      \"PostalCode.Source\": \"PostalCode.Source\",\n      \"Status.Code\": \"Status.Code\",\n      \"CanLanguage\": \"CanLanguage\",\n      \"SuiteLinkMatchCode\": \"SuiteLinkMatchCode\",\n      \"SuiteLinkReturnCode\": \"SuiteLinkReturnCode\",\n      \"USBCCheckDigit\": \"USBCCheckDigit\",\n      \"RRHC.Type\": \"RRHC.Type\",\n      \"RecordType.Default\": \"RecordType.Default\",\n      \"MultipleMatches\": \"MultipleMatches\"\n    },\n    {\n      \"PostalBarCode\": \"PostalBarCode\",\n      \"Country.Input\": \"Country.Input\",\n      \"CMRA\": \"CMRA\",\n      \"StreetSuffix\": \"StreetSuffix\",\n      \"USFIPSCountyNumber\": \"USFIPSCountyNumber\",\n      \"LeadingDirectional\": \"LeadingDirectional\",\n      \"USUrbanName.Result\": \"USUrbanName.Result\",\n      \"FirmName.Input\": \"FirmName.Input\",\n      \"RRHC\": \"RRHC\",\n      \"Status\": \"Status\",\n      \"PostalCode.Result\": \"PostalCode.Result\",\n      \"Country.Result\": \"Country.Result\",\n      \"StateProvince\": \"StateProvince\",\n      \"LeadingDirectional.Input\": \"LeadingDirectional.Input\",\n      \"PostalCode.Type\": \"PostalCode.Type\",\n      \"AddressLine3\": \"AddressLine3\",\n      \"StateProvince.Result\": \"StateProvince.Result\",\n      \"AddressBlock5\": \"AddressBlock5\",\n      \"AddressLine2\": \"AddressLine2\",\n      \"AddressBlock6\": \"AddressBlock6\",\n      \"AddressLine1\": \"AddressLine1\",\n      \"AddressBlock7\": \"AddressBlock7\",\n      \"USUrbanName.Input\": \"USUrbanName.Input\",\n      \"AddressBlock8\": \"AddressBlock8\",\n      \"AddressBlock1\": \"AddressBlock1\",\n      \"AddressBlock2\": \"AddressBlock2\",\n      \"AddressBlock3\": \"AddressBlock3\",\n      \"AddressLine4\": \"AddressLine4\",\n      \"HouseNumber.Input\": \"HouseNumber.Input\",\n      \"AddressBlock4\": \"AddressBlock4\",\n      \"Country\": \"Country\",\n      \"HouseNumber.Result\": \"HouseNumber.Result\",\n      \"LeadingDirectional.Result\": \"LeadingDirectional.Result\",\n      \"PostalCode.AddOn\": \"PostalCode.AddOn\",\n      \"StreetSuffix.Result\": \"StreetSuffix.Result\",\n      \"TrailingDirectional.Input\": \"TrailingDirectional.Input\",\n      \"USAltAddr\": \"USAltAddr\",\n      \"FirmName.Result\": \"FirmName.Result\",\n      \"HouseNumber\": \"HouseNumber\",\n      \"BlockAddress\": \"BlockAddress\",\n      \"ApartmentLabel\": \"ApartmentLabel\",\n      \"ApartmentLabel.Input\": \"ApartmentLabel.Input\",\n      \"USCongressionalDistrict\": \"USCongressionalDistrict\",\n      \"DPV\": \"DPV\",\n      \"AddressBlock9\": \"AddressBlock9\",\n      \"POBox.Result\": \"POBox.Result\",\n      \"PostalCodeCity.Result\": \"PostalCodeCity.Result\",\n      \"ApartmentNumber.Result\": \"ApartmentNumber.Result\",\n      \"PrivateMailbox.Type\": \"PrivateMailbox.Type\",\n      \"RRHC.Result\": \"RRHC.Result\",\n      \"RDI\": \"RDI\",\n      \"USCarrierRouteCode\": \"USCarrierRouteCode\",\n      \"ApartmentNumber.Input\": \"ApartmentNumber.Input\",\n      \"City.Input\": \"City.Input\",\n      \"PostalCode.Input\": \"PostalCode.Input\",\n      \"USFinanceNumber\": \"USFinanceNumber\",\n      \"SuiteLinkFidelity\": \"SuiteLinkFidelity\",\n      \"USLastLineNumber\": \"USLastLineNumber\",\n      \"USUrbanName\": \"USUrbanName\",\n      \"Status.description\": \"Status.description\",\n      \"StreetNameAbbreviatedAlias.Result\": \"StreetNameAbbreviatedAlias.Result\",\n      \"USLACS.ReturnCode\": \"USLACS.ReturnCode\",\n      \"City.Result\": \"City.Result\",\n      \"StreetName\": \"StreetName\",\n      \"USLACS\": \"USLACS\",\n      \"POBox.Input\": \"POBox.Input\",\n      \"RRHC.Input\": \"RRHC.Input\",\n      \"TrailingDirectional\": \"TrailingDirectional\",\n      \"Street.Result\": \"Street.Result\",\n      \"PrivateMailbox\": \"PrivateMailbox\",\n      \"PrivateMailbox.Input\": \"PrivateMailbox.Input\",\n      \"DPVVacant\": \"DPVVacant\",\n      \"PostalCode.Base\": \"PostalCode.Base\",\n      \"user_fields\": [\n        {\n          \"name\": \"name\",\n          \"value\": \"value\"\n        },\n        {\n          \"name\": \"name\",\n          \"value\": \"value\"\n        }\n      ],\n      \"Confidence\": \"Confidence\",\n      \"StreetName.Input\": \"StreetName.Input\",\n      \"StateProvince.Input\": \"StateProvince.Input\",\n      \"MatchScore\": \"MatchScore\",\n      \"FirmName\": \"FirmName\",\n      \"ApartmentLabel.Result\": \"ApartmentLabel.Result\",\n      \"StreetName.Alias.Type\": \"StreetName.Alias.Type\",\n      \"CountryLevel\": \"CountryLevel\",\n      \"City\": \"City\",\n      \"CouldNotValidate\": \"CouldNotValidate\",\n      \"MultimatchCount\": \"MultimatchCount\",\n      \"USCountyName\": \"USCountyName\",\n      \"TrailingDirectional.Result\": \"TrailingDirectional.Result\",\n      \"POBox\": \"POBox\",\n      \"StreetName.Result\": \"StreetName.Result\",\n      \"PostalCode\": \"PostalCode\",\n      \"ApartmentNumber\": \"ApartmentNumber\",\n      \"AdditionalInputData\": \"AdditionalInputData\",\n      \"PrivateMailbox.Type.Input\": \"PrivateMailbox.Type.Input\",\n      \"RecordType\": \"RecordType\",\n      \"StreetNamePreferredAlias.Result\": \"StreetNamePreferredAlias.Result\",\n      \"AddressRecord.Result\": \"AddressRecord.Result\",\n      \"DPVFootnote\": \"DPVFootnote\",\n      \"StreetSuffix.Input\": \"StreetSuffix.Input\",\n      \"DPVNoStat\": \"DPVNoStat\",\n      \"AddressFormat\": \"AddressFormat\",\n      \"PostalCode.Source\": \"PostalCode.Source\",\n      \"Status.Code\": \"Status.Code\",\n      \"CanLanguage\": \"CanLanguage\",\n      \"SuiteLinkMatchCode\": \"SuiteLinkMatchCode\",\n      \"SuiteLinkReturnCode\": \"SuiteLinkReturnCode\",\n      \"USBCCheckDigit\": \"USBCCheckDigit\",\n      \"RRHC.Type\": \"RRHC.Type\",\n      \"RecordType.Default\": \"RecordType.Default\",\n      \"MultipleMatches\": \"MultipleMatches\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc28a9bc-6174-429c-af88-1eec710dff73",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addressverification",
+                    "v1",
+                    "validatemailingaddressuscan",
+                    "results.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Input\": {\n    \"Row\": [\n      {\n        \"AddressLine3\": \"AddressLine3\",\n        \"AddressLine2\": \"AddressLine2\",\n        \"AddressLine1\": \"AddressLine1\",\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"FirmName\": \"FirmName\",\n        \"StateProvince\": \"StateProvince\",\n        \"USUrbanName\": \"USUrbanName\",\n        \"AddressLine4\": \"AddressLine4\",\n        \"Country\": \"Country\",\n        \"PostalCode\": \"PostalCode\",\n        \"City\": \"City\",\n        \"CanLanguage\": \"CanLanguage\"\n      },\n      {\n        \"AddressLine3\": \"AddressLine3\",\n        \"AddressLine2\": \"AddressLine2\",\n        \"AddressLine1\": \"AddressLine1\",\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"FirmName\": \"FirmName\",\n        \"StateProvince\": \"StateProvince\",\n        \"USUrbanName\": \"USUrbanName\",\n        \"AddressLine4\": \"AddressLine4\",\n        \"Country\": \"Country\",\n        \"PostalCode\": \"PostalCode\",\n        \"City\": \"City\",\n        \"CanLanguage\": \"CanLanguage\"\n      }\n    ]\n  },\n  \"options\": {\n    \"CanOutputCityFormat\": \"D\",\n    \"StandardAddressFormat\": \"C\",\n    \"OutputPostalCodeSeparator\": \"Y\",\n    \"OutputCasing\": \"M\",\n    \"CanSSLVRFlg\": \"N\",\n    \"CanDualAddressLogic\": \"D\",\n    \"CanEnglishApartmentLabel\": \"Apt\",\n    \"DPVDetermineNoStat\": \"N\",\n    \"OutputPreferredCity\": \"Z\",\n    \"PerformUSProcessing\": \"Y\",\n    \"PerformLACSLink\": \"Y\",\n    \"DPVSuccessfulStatusCondition\": \"A\",\n    \"OutputFormattedOnFail\": \"N\",\n    \"DPVDetermineVacancy\": \"N\",\n    \"DualAddressLogic\": \"N\",\n    \"PerformEWS\": \"N\",\n    \"OutputMultinationalCharacters\": \"N\",\n    \"OutputCountryFormat\": \"E\",\n    \"ExtractUrb\": \"N\",\n    \"StreetMatchingStrictness\": \"M\",\n    \"CanOutputCityAlias\": \"N\",\n    \"FailOnCMRAMatch\": \"N\",\n    \"OutputRecordType\": \"A\",\n    \"FirmMatchingStrictness\": \"M\",\n    \"CanPreferHouseNum\": \"N\",\n    \"OutputAddressBlocks\": \"Y\",\n    \"OutputShortCityName\": \"N\",\n    \"CanStandardAddressFormat\": \"D\",\n    \"OutputAbbreviatedAlias\": \"N\",\n    \"OutputFieldLevelReturnCodes\": \"N\",\n    \"KeepMultimatch\": \"N\",\n    \"MaximumResults\": \"10\",\n    \"StandardAddressPMBLine\": \"N\",\n    \"CanNonCivicFormat\": \"A\",\n    \"CanRuralRouteFormat\": \"A\",\n    \"CanFrenchFormat\": \"C\",\n    \"OutputStreetNameAlias\": \"Y\",\n    \"CanFrenchApartmentLabel\": \"Appartement\",\n    \"SuppressZplusPhantomCarrierR777\": \"N\",\n    \"ExtractFirm\": \"N\",\n    \"CanDeliveryOfficeFormat\": \"I\",\n    \"OutputPreferredAlias\": \"N\",\n    \"DirectionalMatchingStrictness\": \"M\",\n    \"PerformDPV\": \"N\",\n    \"PerformSuiteLink\": \"N\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93a43686-13da-42e4-9fe0-d1c0f5287162",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addressverification",
+                    "v1",
+                    "validatemailingaddressuscan",
+                    "results.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Input\": {\n    \"Row\": [\n      {\n        \"AddressLine3\": \"AddressLine3\",\n        \"AddressLine2\": \"AddressLine2\",\n        \"AddressLine1\": \"AddressLine1\",\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"FirmName\": \"FirmName\",\n        \"StateProvince\": \"StateProvince\",\n        \"USUrbanName\": \"USUrbanName\",\n        \"AddressLine4\": \"AddressLine4\",\n        \"Country\": \"Country\",\n        \"PostalCode\": \"PostalCode\",\n        \"City\": \"City\",\n        \"CanLanguage\": \"CanLanguage\"\n      },\n      {\n        \"AddressLine3\": \"AddressLine3\",\n        \"AddressLine2\": \"AddressLine2\",\n        \"AddressLine1\": \"AddressLine1\",\n        \"user_fields\": [\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          },\n          {\n            \"name\": \"name\",\n            \"value\": \"value\"\n          }\n        ],\n        \"FirmName\": \"FirmName\",\n        \"StateProvince\": \"StateProvince\",\n        \"USUrbanName\": \"USUrbanName\",\n        \"AddressLine4\": \"AddressLine4\",\n        \"Country\": \"Country\",\n        \"PostalCode\": \"PostalCode\",\n        \"City\": \"City\",\n        \"CanLanguage\": \"CanLanguage\"\n      }\n    ]\n  },\n  \"options\": {\n    \"CanOutputCityFormat\": \"D\",\n    \"StandardAddressFormat\": \"C\",\n    \"OutputPostalCodeSeparator\": \"Y\",\n    \"OutputCasing\": \"M\",\n    \"CanSSLVRFlg\": \"N\",\n    \"CanDualAddressLogic\": \"D\",\n    \"CanEnglishApartmentLabel\": \"Apt\",\n    \"DPVDetermineNoStat\": \"N\",\n    \"OutputPreferredCity\": \"Z\",\n    \"PerformUSProcessing\": \"Y\",\n    \"PerformLACSLink\": \"Y\",\n    \"DPVSuccessfulStatusCondition\": \"A\",\n    \"OutputFormattedOnFail\": \"N\",\n    \"DPVDetermineVacancy\": \"N\",\n    \"DualAddressLogic\": \"N\",\n    \"PerformEWS\": \"N\",\n    \"OutputMultinationalCharacters\": \"N\",\n    \"OutputCountryFormat\": \"E\",\n    \"ExtractUrb\": \"N\",\n    \"StreetMatchingStrictness\": \"M\",\n    \"CanOutputCityAlias\": \"N\",\n    \"FailOnCMRAMatch\": \"N\",\n    \"OutputRecordType\": \"A\",\n    \"FirmMatchingStrictness\": \"M\",\n    \"CanPreferHouseNum\": \"N\",\n    \"OutputAddressBlocks\": \"Y\",\n    \"OutputShortCityName\": \"N\",\n    \"CanStandardAddressFormat\": \"D\",\n    \"OutputAbbreviatedAlias\": \"N\",\n    \"OutputFieldLevelReturnCodes\": \"N\",\n    \"KeepMultimatch\": \"N\",\n    \"MaximumResults\": \"10\",\n    \"StandardAddressPMBLine\": \"N\",\n    \"CanNonCivicFormat\": \"A\",\n    \"CanRuralRouteFormat\": \"A\",\n    \"CanFrenchFormat\": \"C\",\n    \"OutputStreetNameAlias\": \"Y\",\n    \"CanFrenchApartmentLabel\": \"Appartement\",\n    \"SuppressZplusPhantomCarrierR777\": \"N\",\n    \"ExtractFirm\": \"N\",\n    \"CanDeliveryOfficeFormat\": \"I\",\n    \"OutputPreferredAlias\": \"N\",\n    \"DirectionalMatchingStrictness\": \"M\",\n    \"PerformDPV\": \"N\",\n    \"PerformSuiteLink\": \"N\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "94240dd9-79d5-4ff8-abe9-1d3a540497d4",
+    "name": "Precisely APIs Validatemailingaddressuscan API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Metadata API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metadata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get SIC Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/places/v1/metadata/sic",
+            "params": [
+              {
+                "name": "sicCode",
+                "value": "",
+                "type": "query",
+                "description": "4 or 8 digits SIC code to filter the response."
+              },
+              {
+                "name": "level",
+                "value": "",
+                "type": "query",
+                "description": "1 or 2."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service returns a list of standard industrial classification codes & associated metadata which can then be used as inputs for querying the Points of Interest By Address or Location methods listed above."
+        },
+        {
+          "info": {
+            "name": "Category Code Metadata.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/places/v1/metadata/category",
+            "params": [
+              {
+                "name": "categoryCode",
+                "value": "",
+                "type": "query",
+                "description": "4, 6, or 11 digits category code to filter the response."
+              },
+              {
+                "name": "level",
+                "value": "",
+                "type": "query",
+                "description": "1, 2, or 3."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service returns a list of Category codes & associated metadata which can then be used as inputs for querying the Points of Interest By Address or Location methods listed above."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

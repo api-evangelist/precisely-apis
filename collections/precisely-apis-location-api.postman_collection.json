@@ -1,0 +1,313 @@
+{
+  "item": [
+    {
+      "id": "d4821c4c-b1eb-4846-91b8-f385445e6865",
+      "name": "Location",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7516db52-306a-4d50-b260-b421283edc24",
+          "name": "Location By IP Address.",
+          "request": {
+            "name": "Location By IP Address.",
+            "description": {
+              "content": "This service accepts an IP address and returns the location coordinates corresponding to that IP address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "geolocation",
+                "v1",
+                "location",
+                "byipaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ipAddress",
+                  "value": "<string>",
+                  "description": "(Required) This is the ip address of network connected device. It must be a standard IPv4 octet and a valid external address."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b227e1b8-3f66-4c46-8283-b55859b0fcae",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "geolocation",
+                    "v1",
+                    "location",
+                    "byipaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ipAddress",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accuracy\": {\n    \"unit\": \"unit\",\n    \"value\": \"value\"\n  },\n  \"geometry\": {\n    \"coordinates\": [\n      0.8008281904610115,\n      0.8008281904610115\n    ],\n    \"type\": \"type\"\n  },\n  \"ipInfo\": {\n    \"proxy\": {\n      \"level\": \"level\",\n      \"anonymizerStatus\": \"anonymizerStatus\",\n      \"lastDetected\": \"lastDetected\",\n      \"type\": \"type\"\n    },\n    \"ipAddress\": \"ipAddress\",\n    \"place\": {\n      \"continent\": \"continent\",\n      \"country\": {\n        \"code\": \"code\",\n        \"confidence\": \"confidence\",\n        \"value\": \"value\"\n      },\n      \"postCodeConfidence\": \"postCodeConfidence\",\n      \"city\": {\n        \"confidence\": \"confidence\",\n        \"value\": \"value\"\n      },\n      \"postCode\": \"postCode\",\n      \"state\": {\n        \"confidence\": \"confidence\",\n        \"value\": \"value\"\n      },\n      \"consistencyCode\": {\n        \"description\": \"description\",\n        \"value\": \"value\"\n      },\n      \"region\": \"region\"\n    },\n    \"network\": {\n      \"organizationType\": {\n        \"isicCode\": \"isicCode\",\n        \"value\": \"value\",\n        \"naicsCode\": \"naicsCode\"\n      },\n      \"carrier\": {\n        \"asn\": \"asn\",\n        \"value\": \"value\"\n      },\n      \"ipRouteType\": \"ipRouteType\",\n      \"connectionFromHome\": \"connectionFromHome\",\n      \"lineSpeed\": \"lineSpeed\",\n      \"organization\": \"organization\",\n      \"hostingFacility\": \"hostingFacility\",\n      \"connectionType\": \"connectionType\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dc1183d7-41d9-4cff-8d81-11705b3c1916",
+          "name": "Location by WiFi Access Point.",
+          "request": {
+            "name": "Location by WiFi Access Point.",
+            "description": {
+              "content": "This service accepts a WiFi access point MAC address and returns the location coordinates corresponding to that access point. Only mac or accessPoint are mandatory parameters (one of them has to be provided), rest are optional.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "geolocation",
+                "v1",
+                "location",
+                "byaccesspoint"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "mac",
+                  "value": "<string>",
+                  "description": "This should be the 48 bit mac address (or BSSID) of wireless access point. Accepted format is Six groups of two hexadecimal digits, separated by hyphens (-) or colons."
+                },
+                {
+                  "disabled": false,
+                  "key": "ssid",
+                  "value": "<string>",
+                  "description": "The service set identifier for wi-fi access point. It should be alphanumeric with maximum 32 characters."
+                },
+                {
+                  "disabled": false,
+                  "key": "rsid",
+                  "value": "<string>",
+                  "description": "This is the received signal strength indicator from particular wi-fi access point. It should be a number from -113 to 0 and the unit of this strength is dBm."
+                },
+                {
+                  "disabled": false,
+                  "key": "speed",
+                  "value": "<string>",
+                  "description": "This is the connection speed for wi-fi. It should be a number from 0 to 6930 and the unit should be Mbps."
+                },
+                {
+                  "disabled": false,
+                  "key": "accessPoint",
+                  "value": "<string>",
+                  "description": "This is the JSON based list of wifi access points in the vicinity of device to be located. This parameter is helpful in case, multiple wifi points are visible and we want to make sure that the location of device is best calculated considering all the access points location."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "62fde77d-2f2b-449f-b0a6-6c5d75316b42",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "geolocation",
+                    "v1",
+                    "location",
+                    "byaccesspoint"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mac",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ssid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rsid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "speed",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "accessPoint",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accuracy\": {\n    \"unit\": \"unit\",\n    \"value\": \"value\"\n  },\n  \"geometry\": {\n    \"coordinates\": [\n      0.8008281904610115,\n      0.8008281904610115\n    ],\n    \"type\": \"type\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9740cb23-b27c-4779-a37f-dba4bdea1d69",
+    "name": "Precisely APIs Location API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

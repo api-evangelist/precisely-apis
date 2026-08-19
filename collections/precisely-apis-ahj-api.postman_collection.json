@@ -1,0 +1,709 @@
+{
+  "item": [
+    {
+      "id": "a5a8e22c-fd41-4028-9989-ddfc303df43c",
+      "name": "Ahj",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7aa34704-b9bb-4f77-bcc9-1c1302e432e8",
+          "name": "AHJ & PSAP By Location",
+          "request": {
+            "name": "AHJ & PSAP By Location",
+            "description": {
+              "content": "Accepts latitude & longitude as input and Returns contact details for Authorities Having Jurisdiction (AHJ) on-behalf-of local Public Safety Answering Points (PSAP). 911/PSAP accepts a location coordinate and returns PSAP contact data plus contact data for an AHJ to communicate directly with a PSAP. Details include agency name, phone number, city name, coverage, contact person's details, site details and mailing addresses for EMS, Fire, and Police PSAP contacts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "911",
+                "v1",
+                "ahj-psap",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "longitude",
+                  "value": "<string>",
+                  "description": "(Required) Longitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "latitude",
+                  "value": "<string>",
+                  "description": "(Required) Latitude of the location."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "590a9d68-3b91-4ea1-a17a-73091c758fec",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "911",
+                    "v1",
+                    "ahj-psap",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"psap\": {\n    \"coverage\": {\n      \"area\": \"area\",\n      \"comments\": \"comments\",\n      \"exceptions\": \"exceptions\"\n    },\n    \"agency\": \"agency\",\n    \"phone\": \"phone\",\n    \"mailingAddress\": {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    \"count\": 0,\n    \"county\": {\n      \"name\": \"name\",\n      \"fips\": \"fips\"\n    },\n    \"contactPerson\": {\n      \"firstName\": \"firstName\",\n      \"lastName\": \"lastName\",\n      \"comments\": \"comments\",\n      \"phone\": \"phone\",\n      \"prefix\": \"prefix\",\n      \"fullName\": \"fullName\",\n      \"title\": \"title\",\n      \"fax\": \"fax\",\n      \"additionalDetails\": \"additionalDetails\",\n      \"email\": \"email\"\n    },\n    \"fccId\": \"fccId\",\n    \"psapId\": \"psapId\",\n    \"type\": \"type\",\n    \"siteDetails\": {\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"phone\": \"phone\",\n      \"contactName\": \"contactName\",\n      \"fax\": \"fax\",\n      \"email\": \"email\"\n    }\n  },\n  \"count\": 0,\n  \"ahjs\": {\n    \"ahjs\": [\n      {\n        \"coverage\": {\n          \"area\": \"area\",\n          \"comments\": \"comments\",\n          \"exceptions\": \"exceptions\"\n        },\n        \"comments\": \"comments\",\n        \"agency\": \"agency\",\n        \"phone\": \"phone\",\n        \"mailingAddress\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"ahjId\": \"ahjId\",\n        \"contactPerson\": {\n          \"firstName\": \"firstName\",\n          \"lastName\": \"lastName\",\n          \"comments\": \"comments\",\n          \"phone\": \"phone\",\n          \"prefix\": \"prefix\",\n          \"fullName\": \"fullName\",\n          \"title\": \"title\",\n          \"fax\": \"fax\",\n          \"additionalDetails\": \"additionalDetails\",\n          \"email\": \"email\"\n        },\n        \"fccId\": \"fccId\",\n        \"type\": \"type\",\n        \"ahjType\": \"ahjType\"\n      },\n      {\n        \"coverage\": {\n          \"area\": \"area\",\n          \"comments\": \"comments\",\n          \"exceptions\": \"exceptions\"\n        },\n        \"comments\": \"comments\",\n        \"agency\": \"agency\",\n        \"phone\": \"phone\",\n        \"mailingAddress\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"ahjId\": \"ahjId\",\n        \"contactPerson\": {\n          \"firstName\": \"firstName\",\n          \"lastName\": \"lastName\",\n          \"comments\": \"comments\",\n          \"phone\": \"phone\",\n          \"prefix\": \"prefix\",\n          \"fullName\": \"fullName\",\n          \"title\": \"title\",\n          \"fax\": \"fax\",\n          \"additionalDetails\": \"additionalDetails\",\n          \"email\": \"email\"\n        },\n        \"fccId\": \"fccId\",\n        \"type\": \"type\",\n        \"ahjType\": \"ahjType\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d193f64-0a63-4844-81de-3345f00953d8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "911",
+                    "v1",
+                    "ahj-psap",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45d3e94d-3990-4670-9037-93307c288011",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "911",
+                    "v1",
+                    "ahj-psap",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8855f08e-cc1f-43da-bcf3-799465bcaca8",
+          "name": "AHJ & PSAP By Address.",
+          "request": {
+            "name": "AHJ & PSAP By Address.",
+            "description": {
+              "content": "Accepts addresses as input and Returns contact details for Authorities Having Jurisdiction (AHJ) on-behalf-of local Public Safety Answering Points (PSAP). 911/PSAP accepts an address and returns PSAP contact data plus contact data for an AHJ to communicate directly with a PSAP. Details include agency name, phone number, city name, coverage, contact person's details, site details and mailing addresses for EMS, Fire, and Police PSAP contacts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "911",
+                "v1",
+                "ahj-psap",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "(Required) The address to be searched."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cef7bae4-3895-4a61-8941-b23f87fc86a3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "911",
+                    "v1",
+                    "ahj-psap",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"psap\": {\n    \"coverage\": {\n      \"area\": \"area\",\n      \"comments\": \"comments\",\n      \"exceptions\": \"exceptions\"\n    },\n    \"agency\": \"agency\",\n    \"phone\": \"phone\",\n    \"mailingAddress\": {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    \"count\": 0,\n    \"county\": {\n      \"name\": \"name\",\n      \"fips\": \"fips\"\n    },\n    \"contactPerson\": {\n      \"firstName\": \"firstName\",\n      \"lastName\": \"lastName\",\n      \"comments\": \"comments\",\n      \"phone\": \"phone\",\n      \"prefix\": \"prefix\",\n      \"fullName\": \"fullName\",\n      \"title\": \"title\",\n      \"fax\": \"fax\",\n      \"additionalDetails\": \"additionalDetails\",\n      \"email\": \"email\"\n    },\n    \"fccId\": \"fccId\",\n    \"psapId\": \"psapId\",\n    \"type\": \"type\",\n    \"siteDetails\": {\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"phone\": \"phone\",\n      \"contactName\": \"contactName\",\n      \"fax\": \"fax\",\n      \"email\": \"email\"\n    }\n  },\n  \"count\": 0,\n  \"ahjs\": {\n    \"ahjs\": [\n      {\n        \"coverage\": {\n          \"area\": \"area\",\n          \"comments\": \"comments\",\n          \"exceptions\": \"exceptions\"\n        },\n        \"comments\": \"comments\",\n        \"agency\": \"agency\",\n        \"phone\": \"phone\",\n        \"mailingAddress\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"ahjId\": \"ahjId\",\n        \"contactPerson\": {\n          \"firstName\": \"firstName\",\n          \"lastName\": \"lastName\",\n          \"comments\": \"comments\",\n          \"phone\": \"phone\",\n          \"prefix\": \"prefix\",\n          \"fullName\": \"fullName\",\n          \"title\": \"title\",\n          \"fax\": \"fax\",\n          \"additionalDetails\": \"additionalDetails\",\n          \"email\": \"email\"\n        },\n        \"fccId\": \"fccId\",\n        \"type\": \"type\",\n        \"ahjType\": \"ahjType\"\n      },\n      {\n        \"coverage\": {\n          \"area\": \"area\",\n          \"comments\": \"comments\",\n          \"exceptions\": \"exceptions\"\n        },\n        \"comments\": \"comments\",\n        \"agency\": \"agency\",\n        \"phone\": \"phone\",\n        \"mailingAddress\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"ahjId\": \"ahjId\",\n        \"contactPerson\": {\n          \"firstName\": \"firstName\",\n          \"lastName\": \"lastName\",\n          \"comments\": \"comments\",\n          \"phone\": \"phone\",\n          \"prefix\": \"prefix\",\n          \"fullName\": \"fullName\",\n          \"title\": \"title\",\n          \"fax\": \"fax\",\n          \"additionalDetails\": \"additionalDetails\",\n          \"email\": \"email\"\n        },\n        \"fccId\": \"fccId\",\n        \"type\": \"type\",\n        \"ahjType\": \"ahjType\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "16f60913-9ca7-4d94-9169-22fd3dd21ba6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "911",
+                    "v1",
+                    "ahj-psap",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98152bf3-5b8a-47cb-aa31-e0e636fccfb3",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "911",
+                    "v1",
+                    "ahj-psap",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf44cc2d-0e51-46f0-8a75-5abd70945dd7",
+          "name": "AHJ & PSAP By Fccid",
+          "request": {
+            "name": "AHJ & PSAP By Fccid",
+            "description": {
+              "content": "Accepts fccid as input and Returns contact details for Authorities Having Jurisdiction (AHJ) on-behalf-of local Public Safety Answering Points (PSAP). 911/PSAP accepts a location coordinate and returns PSAP contact data plus contact data for an AHJ to communicate directly with a PSAP. Details include agency name, phone number, city name, coverage, contact person's details, site details and mailing addresses for EMS, Fire, and Police PSAP contacts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "911",
+                "v1",
+                "ahj-psap",
+                "byfccid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fccId",
+                  "value": "<string>",
+                  "description": "(Required) fccId"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3f599b7d-1810-4270-86df-aa7520371813",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "911",
+                    "v1",
+                    "ahj-psap",
+                    "byfccid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fccId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"psap\": {\n    \"coverage\": {\n      \"area\": \"area\",\n      \"comments\": \"comments\",\n      \"exceptions\": \"exceptions\"\n    },\n    \"agency\": \"agency\",\n    \"phone\": \"phone\",\n    \"mailingAddress\": {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    \"count\": 0,\n    \"county\": {\n      \"name\": \"name\",\n      \"fips\": \"fips\"\n    },\n    \"contactPerson\": {\n      \"firstName\": \"firstName\",\n      \"lastName\": \"lastName\",\n      \"comments\": \"comments\",\n      \"phone\": \"phone\",\n      \"prefix\": \"prefix\",\n      \"fullName\": \"fullName\",\n      \"title\": \"title\",\n      \"fax\": \"fax\",\n      \"additionalDetails\": \"additionalDetails\",\n      \"email\": \"email\"\n    },\n    \"fccId\": \"fccId\",\n    \"psapId\": \"psapId\",\n    \"type\": \"type\",\n    \"siteDetails\": {\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"phone\": \"phone\",\n      \"contactName\": \"contactName\",\n      \"fax\": \"fax\",\n      \"email\": \"email\"\n    }\n  },\n  \"count\": 0,\n  \"ahjs\": {\n    \"ahjs\": [\n      {\n        \"coverage\": {\n          \"area\": \"area\",\n          \"comments\": \"comments\",\n          \"exceptions\": \"exceptions\"\n        },\n        \"comments\": \"comments\",\n        \"agency\": \"agency\",\n        \"phone\": \"phone\",\n        \"mailingAddress\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"ahjId\": \"ahjId\",\n        \"contactPerson\": {\n          \"firstName\": \"firstName\",\n          \"lastName\": \"lastName\",\n          \"comments\": \"comments\",\n          \"phone\": \"phone\",\n          \"prefix\": \"prefix\",\n          \"fullName\": \"fullName\",\n          \"title\": \"title\",\n          \"fax\": \"fax\",\n          \"additionalDetails\": \"additionalDetails\",\n          \"email\": \"email\"\n        },\n        \"fccId\": \"fccId\",\n        \"type\": \"type\",\n        \"ahjType\": \"ahjType\"\n      },\n      {\n        \"coverage\": {\n          \"area\": \"area\",\n          \"comments\": \"comments\",\n          \"exceptions\": \"exceptions\"\n        },\n        \"comments\": \"comments\",\n        \"agency\": \"agency\",\n        \"phone\": \"phone\",\n        \"mailingAddress\": {\n          \"country\": \"country\",\n          \"streetSide\": \"streetSide\",\n          \"city\": \"city\",\n          \"displayName\": \"displayName\",\n          \"postalCode\": \"postalCode\",\n          \"latitude\": \"latitude\",\n          \"businessName\": \"businessName\",\n          \"county\": \"county\",\n          \"unitType\": \"unitType\",\n          \"streetName\": \"streetName\",\n          \"formattedAddress\": \"formattedAddress\",\n          \"addressLine1\": \"addressLine1\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"addressLine2\": \"addressLine2\",\n          \"addressLine3\": \"addressLine3\",\n          \"objectId\": \"objectId\",\n          \"addressLastLine\": \"addressLastLine\",\n          \"longitude\": \"longitude\",\n          \"unitValue\": \"unitValue\",\n          \"stateProvince\": \"stateProvince\",\n          \"urbanizationName\": \"urbanizationName\",\n          \"areaName1\": \"areaName1\",\n          \"areaName2\": \"areaName2\",\n          \"areaName3\": \"areaName3\",\n          \"areaName4\": \"areaName4\",\n          \"addressNumber\": \"addressNumber\",\n          \"postCode\": \"postCode\",\n          \"postCodeExt\": \"postCodeExt\",\n          \"placeName\": \"placeName\",\n          \"status\": \"status\"\n        },\n        \"ahjId\": \"ahjId\",\n        \"contactPerson\": {\n          \"firstName\": \"firstName\",\n          \"lastName\": \"lastName\",\n          \"comments\": \"comments\",\n          \"phone\": \"phone\",\n          \"prefix\": \"prefix\",\n          \"fullName\": \"fullName\",\n          \"title\": \"title\",\n          \"fax\": \"fax\",\n          \"additionalDetails\": \"additionalDetails\",\n          \"email\": \"email\"\n        },\n        \"fccId\": \"fccId\",\n        \"type\": \"type\",\n        \"ahjType\": \"ahjType\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5852ee0-08c5-409b-8245-79cfa0aa5395",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "911",
+                    "v1",
+                    "ahj-psap",
+                    "byfccid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fccId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9e6d724-906f-425d-8f3e-2b65ba038515",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "911",
+                    "v1",
+                    "ahj-psap",
+                    "byfccid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fccId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6c6d8a44-4f0f-415c-933a-dfcaaa83dd0a",
+    "name": "Precisely APIs Ahj API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

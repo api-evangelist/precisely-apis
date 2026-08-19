@@ -1,0 +1,618 @@
+{
+  "item": [
+    {
+      "id": "8f7488c5-9068-4a14-9bf6-e2120bb457df",
+      "name": "Addresses  Service.",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d801c73f-61e1-48ef-9b79-6724fa79ec5e",
+          "name": "Addresses by Boundary.",
+          "request": {
+            "name": "Addresses by Boundary.",
+            "description": {
+              "content": "This service accepts custom geographic boundaries or drive time & drive distance, returns all known & valid addresses within these boundaries.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "addresses",
+                "v1",
+                "address",
+                "byboundary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"preferences\": {\n    \"maxCandidates\": \"<string>\",\n    \"page\": \"<string>\"\n  },\n  \"geometry\": {\n    \"type\": \"<string>\",\n    \"coordinates\": [\n      \"<double>\",\n      \"<double>\"\n    ]\n  },\n  \"geometryAsText\": \"<string>\",\n  \"latitude\": \"<double>\",\n  \"longitude\": \"<double>\",\n  \"travelTime\": \"<string>\",\n  \"travelTimeUnit\": \"<string>\",\n  \"travelDistance\": \"<string>\",\n  \"travelDistanceUnit\": \"<string>\",\n  \"travelMode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bba92108-b5f0-4655-b3ee-461d75ed9797",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    "v1",
+                    "address",
+                    "byboundary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"travelDistanceUnit\": \"travelDistanceUnit\",\n  \"preferences\": {\n    \"maxCandidates\": \"maxCandidates\",\n    \"page\": \"page\"\n  },\n  \"travelTime\": \"travelTime\",\n  \"latitude\": 6.027456183070403,\n  \"travelTimeUnit\": \"travelTimeUnit\",\n  \"travelDistance\": \"travelDistance\",\n  \"geometry\": {\n    \"coordinates\": [\n      0.8008281904610115,\n      0.8008281904610115\n    ],\n    \"type\": \"type\"\n  },\n  \"geometryAsText\": \"geometryAsText\",\n  \"longitude\": 1.4658129805029452,\n  \"travelMode\": \"travelMode\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candidates\": \"candidates\",\n  \"addressList\": [\n    {\n      \"country\": \"country\",\n      \"parentPbKey\": \"parentPbKey\",\n      \"type\": {\n        \"description\": \"description\",\n        \"value\": \"value\"\n      },\n      \"unitType\": \"unitType\",\n      \"areaName1\": \"areaName1\",\n      \"streetName\": \"streetName\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"propertyType\": \"propertyType\",\n      \"geoId\": \"geoId\",\n      \"addressNumber\": \"addressNumber\",\n      \"propertyTypeDescription\": \"propertyTypeDescription\",\n      \"pbKey\": \"pbKey\",\n      \"postCode\": \"postCode\",\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"postCodeExt\": \"postCodeExt\",\n      \"unitValue\": \"unitValue\"\n    },\n    {\n      \"country\": \"country\",\n      \"parentPbKey\": \"parentPbKey\",\n      \"type\": {\n        \"description\": \"description\",\n        \"value\": \"value\"\n      },\n      \"unitType\": \"unitType\",\n      \"areaName1\": \"areaName1\",\n      \"streetName\": \"streetName\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"propertyType\": \"propertyType\",\n      \"geoId\": \"geoId\",\n      \"addressNumber\": \"addressNumber\",\n      \"propertyTypeDescription\": \"propertyTypeDescription\",\n      \"pbKey\": \"pbKey\",\n      \"postCode\": \"postCode\",\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"postCodeExt\": \"postCodeExt\",\n      \"unitValue\": \"unitValue\"\n    }\n  ],\n  \"page\": \"page\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1672e46-1c72-4f48-9f12-cebacd071229",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    "v1",
+                    "address",
+                    "byboundary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"travelDistanceUnit\": \"travelDistanceUnit\",\n  \"preferences\": {\n    \"maxCandidates\": \"maxCandidates\",\n    \"page\": \"page\"\n  },\n  \"travelTime\": \"travelTime\",\n  \"latitude\": 6.027456183070403,\n  \"travelTimeUnit\": \"travelTimeUnit\",\n  \"travelDistance\": \"travelDistance\",\n  \"geometry\": {\n    \"coordinates\": [\n      0.8008281904610115,\n      0.8008281904610115\n    ],\n    \"type\": \"type\"\n  },\n  \"geometryAsText\": \"geometryAsText\",\n  \"longitude\": 1.4658129805029452,\n  \"travelMode\": \"travelMode\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4dd69ec5-0a5b-4d19-a962-4ee00a144ddf",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    "v1",
+                    "address",
+                    "byboundary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"travelDistanceUnit\": \"travelDistanceUnit\",\n  \"preferences\": {\n    \"maxCandidates\": \"maxCandidates\",\n    \"page\": \"page\"\n  },\n  \"travelTime\": \"travelTime\",\n  \"latitude\": 6.027456183070403,\n  \"travelTimeUnit\": \"travelTimeUnit\",\n  \"travelDistance\": \"travelDistance\",\n  \"geometry\": {\n    \"coordinates\": [\n      0.8008281904610115,\n      0.8008281904610115\n    ],\n    \"type\": \"type\"\n  },\n  \"geometryAsText\": \"geometryAsText\",\n  \"longitude\": 1.4658129805029452,\n  \"travelMode\": \"travelMode\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f47c010b-d32f-4a4d-8cd5-1dcf0a8286a4",
+          "name": "Addresses by Boundary Name.",
+          "request": {
+            "name": "Addresses by Boundary Name.",
+            "description": {
+              "content": "This service accepts zip code, neighborhood, county, or city names, and returns all known & valid addresses associated with these names.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "addresses",
+                "v1",
+                "address",
+                "byboundaryname"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "areaName1",
+                  "value": "<string>",
+                  "description": "Specifies the largest geographical area, typically a state or province."
+                },
+                {
+                  "disabled": false,
+                  "key": "areaName2",
+                  "value": "<string>",
+                  "description": "Specifies the secondary geographic area, typically a county or district."
+                },
+                {
+                  "disabled": false,
+                  "key": "areaName3",
+                  "value": "<string>",
+                  "description": "Specifies a city or town name."
+                },
+                {
+                  "disabled": false,
+                  "key": "areaName4",
+                  "value": "<string>",
+                  "description": "Specifies a city subdivision or locality/neighborhood."
+                },
+                {
+                  "disabled": false,
+                  "key": "postCode",
+                  "value": "<string>",
+                  "description": "Specifies the postcode (ZIP code) in the appropriate format for the country."
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "(Required) Name of country. Acceptable values are CAN, USA."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxCandidates",
+                  "value": "<string>",
+                  "description": "Maximum number of addresses to be returned in response. Max. value is 100 for XML/JSON, and 2000 for CSV."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<string>",
+                  "description": "Response will indicate the page number."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6e2c2411-93ae-4e51-8c08-3d98f50b7a45",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    "v1",
+                    "address",
+                    "byboundaryname"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "areaName1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "areaName2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "areaName3",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "areaName4",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candidates\": \"candidates\",\n  \"addressList\": [\n    {\n      \"country\": \"country\",\n      \"parentPbKey\": \"parentPbKey\",\n      \"type\": {\n        \"description\": \"description\",\n        \"value\": \"value\"\n      },\n      \"unitType\": \"unitType\",\n      \"areaName1\": \"areaName1\",\n      \"streetName\": \"streetName\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"propertyType\": \"propertyType\",\n      \"geoId\": \"geoId\",\n      \"addressNumber\": \"addressNumber\",\n      \"propertyTypeDescription\": \"propertyTypeDescription\",\n      \"pbKey\": \"pbKey\",\n      \"postCode\": \"postCode\",\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"postCodeExt\": \"postCodeExt\",\n      \"unitValue\": \"unitValue\"\n    },\n    {\n      \"country\": \"country\",\n      \"parentPbKey\": \"parentPbKey\",\n      \"type\": {\n        \"description\": \"description\",\n        \"value\": \"value\"\n      },\n      \"unitType\": \"unitType\",\n      \"areaName1\": \"areaName1\",\n      \"streetName\": \"streetName\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"propertyType\": \"propertyType\",\n      \"geoId\": \"geoId\",\n      \"addressNumber\": \"addressNumber\",\n      \"propertyTypeDescription\": \"propertyTypeDescription\",\n      \"pbKey\": \"pbKey\",\n      \"postCode\": \"postCode\",\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"postCodeExt\": \"postCodeExt\",\n      \"unitValue\": \"unitValue\"\n    }\n  ],\n  \"page\": \"page\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0425faf7-e5af-46e9-807c-33d301d768df",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    "v1",
+                    "address",
+                    "byboundaryname"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "areaName1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "areaName2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "areaName3",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "areaName4",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4361ba2b-2fb2-4b9e-94ea-894d2ed955c0",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    "v1",
+                    "address",
+                    "byboundaryname"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "areaName1",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "areaName2",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "areaName3",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "areaName4",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "postCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fcc5489b-7a2c-4b7a-9c6c-e4ae4a6f15a9",
+    "name": "Precisely APIs Addresses  Service. API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

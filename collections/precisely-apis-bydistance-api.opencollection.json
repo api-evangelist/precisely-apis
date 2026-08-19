@@ -1,0 +1,151 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Bydistance API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bydistance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get TravelBoundary By Distance.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/zones/v1/travelboundary/bydistance",
+            "params": [
+              {
+                "name": "point",
+                "value": "",
+                "type": "query",
+                "description": "Starting point from where the travel boundary is calculated. Point in Lat,Long,coordsys format"
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Address around which Basic Boundary is requested."
+              },
+              {
+                "name": "costs",
+                "value": "",
+                "type": "query",
+                "description": "Travel time used to calculate the travel boundary."
+              },
+              {
+                "name": "costUnit",
+                "value": "",
+                "type": "query",
+                "description": "Travel time unit such as min(Minute), h(Hour), s(Second) or msec(Millisecond)."
+              },
+              {
+                "name": "db",
+                "value": "",
+                "type": "query",
+                "description": "Mode of commute."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "3 character ISO code or country name."
+              },
+              {
+                "name": "maxOffroadDistance",
+                "value": "",
+                "type": "query",
+                "description": "Maximum distance to allow travel off the road network."
+              },
+              {
+                "name": "maxOffroadDistanceUnit",
+                "value": "",
+                "type": "query",
+                "description": "MaxOffroad Distance Unit such as ft(Foot), km(Kilometer), mi(Mile), m(Meter) or yd(Yard)."
+              },
+              {
+                "name": "destinationSrs",
+                "value": "",
+                "type": "query",
+                "description": "Desired coordinate system of the travel boundary."
+              },
+              {
+                "name": "majorRoads",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include all roads in the calculation or just major roads."
+              },
+              {
+                "name": "returnHoles",
+                "value": "",
+                "type": "query",
+                "description": "Whether to return holes, which are areas within the larger boundary that cannot be reached within the desired time"
+              },
+              {
+                "name": "returnIslands",
+                "value": "",
+                "type": "query",
+                "description": "Whether to return islands, which are small areas outside the main boundary that can be reached within the desired time"
+              },
+              {
+                "name": "simplificationFactor",
+                "value": "",
+                "type": "query",
+                "description": "Number between 0.0 and 1.0 where 0.0 is very simple and 1.0 means the most complex"
+              },
+              {
+                "name": "bandingStyle",
+                "value": "",
+                "type": "query",
+                "description": "Style of banding to be used in the result"
+              },
+              {
+                "name": "historicTrafficTimeBucket",
+                "value": "",
+                "type": "query",
+                "description": "Whether routing calculation uses the historic traffic speeds"
+              },
+              {
+                "name": "defaultAmbientSpeed",
+                "value": "",
+                "type": "query",
+                "description": "The speed to travel when going off a network road to find the travel boundary (for all road types)."
+              },
+              {
+                "name": "ambientSpeedUnit",
+                "value": "",
+                "type": "query",
+                "description": "The unit of measure to use to calculate the ambient speed."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Returns the travel boundary based on travel distance."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

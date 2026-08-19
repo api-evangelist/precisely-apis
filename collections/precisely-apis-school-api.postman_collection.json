@@ -1,0 +1,515 @@
+{
+  "item": [
+    {
+      "id": "96dd4640-71c5-4d42-9343-05ba307879b6",
+      "name": "School",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "834fee58-246c-4fa5-8d15-68ac7c69b85c",
+          "name": "Search Nearby Schools by Address",
+          "request": {
+            "name": "Search Nearby Schools by Address",
+            "description": {
+              "content": "Search Nearby Schools by Address",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "schools",
+                "v1",
+                "school",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "(Required) free form address text"
+                },
+                {
+                  "disabled": false,
+                  "key": "edLevel",
+                  "value": "<string>",
+                  "description": "Single digit code for education level applicable values are P -> primary, M -> Middle, H -> High, O -> Mixed Grades for public school type andE -> Elementary , S -> Secondary , O -> Others mixed grades for private schools "
+                },
+                {
+                  "disabled": false,
+                  "key": "schoolType",
+                  "value": "<string>",
+                  "description": "Single digit code for schoolTypes applicable values are PRI and PUB"
+                },
+                {
+                  "disabled": false,
+                  "key": "schoolSubType",
+                  "value": "<string>",
+                  "description": "Single digit code for schoolSubType Applicable values are C, M, A, R, I, L, P, V, U, S (i.e. Charter, Magnet, Alternative, Regular, Indian, Military, Reportable Program, Vocational, Unknown, Special Education)"
+                },
+                {
+                  "disabled": false,
+                  "key": "gender",
+                  "value": "<string>",
+                  "description": "Single digit code for gender Applicable values are C, F, M (Coed, All Females, All Males) Applicable for Private Schools Only"
+                },
+                {
+                  "disabled": false,
+                  "key": "assignedSchoolsOnly",
+                  "value": "<string>",
+                  "description": "Single digit code for assignedSchoolOnly applicable values are  Y/N "
+                },
+                {
+                  "disabled": false,
+                  "key": "districtSchoolsOnly",
+                  "value": "<string>",
+                  "description": "Single digit code for districtSchoolOnly applicable values are Y/N "
+                },
+                {
+                  "disabled": false,
+                  "key": "searchRadius",
+                  "value": "<string>",
+                  "description": "Search Radius within which schools are searched"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchRadiusUnit",
+                  "value": "<string>",
+                  "description": "Search Radius unit applicable values are feet,kilometers,miles,meters"
+                },
+                {
+                  "disabled": false,
+                  "key": "travelTime",
+                  "value": "<string>",
+                  "description": "Travel Time based on travelMode within which schools are searched."
+                },
+                {
+                  "disabled": false,
+                  "key": "travelTimeUnit",
+                  "value": "<string>",
+                  "description": "Travel Time unit applicable values are minutes,hours,seconds,milliseconds "
+                },
+                {
+                  "disabled": false,
+                  "key": "travelDistance",
+                  "value": "<string>",
+                  "description": "Travel Distance based on travelMode within which schools are searched."
+                },
+                {
+                  "disabled": false,
+                  "key": "travelDistanceUnit",
+                  "value": "<string>",
+                  "description": "Travel distanceUnit applicable values are feet,kilometers,miles,meters"
+                },
+                {
+                  "disabled": false,
+                  "key": "travelMode",
+                  "value": "<string>",
+                  "description": "Travel mode Required when travelDistance or travelTime is specified. Accepted values are walking,driving"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxCandidates",
+                  "value": "<string>",
+                  "description": "Max result to search "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "952d03dd-0790-4435-aa2f-0c75f620ad86",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schools",
+                    "v1",
+                    "school",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "edLevel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "schoolType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "schoolSubType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assignedSchoolsOnly",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "districtSchoolsOnly",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadius",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadiusUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistanceUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelMode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"school\": [\n    {\n      \"schoolSubTypeDesc\": \"schoolSubTypeDesc\",\n      \"gender\": \"gender\",\n      \"distance\": {\n        \"unit\": \"unit\",\n        \"value\": \"value\"\n      },\n      \"schoolType\": \"schoolType\",\n      \"coextensiv\": \"coextensiv\",\n      \"students\": \"students\",\n      \"schoolDistricts\": {\n        \"totalSchools\": \"totalSchools\",\n        \"metro\": \"metro\",\n        \"districtUrl\": \"districtUrl\",\n        \"name\": \"name\",\n        \"districtType\": \"districtType\",\n        \"supervisoryUnionId\": \"supervisoryUnionId\",\n        \"areaInSqM\": \"areaInSqM\",\n        \"ncesDistrictId\": \"ncesDistrictId\",\n        \"districtEnrollment\": \"districtEnrollment\"\n      },\n      \"genderDesc\": \"genderDesc\",\n      \"schoolProfile\": {\n        \"titleI\": \"titleI\",\n        \"freeOrReducedPriceLunches\": {\n          \"reducedPriceLunchedCount\": \"reducedPriceLunchedCount\",\n          \"freeLunchesCount\": \"freeLunchesCount\",\n          \"totalCount\": \"totalCount\"\n        },\n        \"studentBelowPovertyPct\": \"studentBelowPovertyPct\",\n        \"advancePlacementClasses\": \"advancePlacementClasses\",\n        \"internationalBaccalaureate\": \"internationalBaccalaureate\",\n        \"studentEthnicity\": {\n          \"twoOrMoreRaces\": \"twoOrMoreRaces\",\n          \"hawaiianPacificlslander\": \"hawaiianPacificlslander\",\n          \"white\": \"white\",\n          \"asian\": \"asian\",\n          \"hispanic\": \"hispanic\",\n          \"black\": \"black\",\n          \"indianAlaskaNative\": \"indianAlaskaNative\"\n        },\n        \"blueRibbon\": \"blueRibbon\",\n        \"expensePerStudent\": \"expensePerStudent\"\n      },\n      \"schoolSubType\": \"schoolSubType\",\n      \"educationLevel\": \"educationLevel\",\n      \"teachers\": \"teachers\",\n      \"greatschools\": {\n        \"gsId\": \"gsId\",\n        \"rating\": \"rating\",\n        \"url\": \"url\"\n      },\n      \"ncesDistrictId\": \"ncesDistrictId\",\n      \"schoolRanking\": [\n        {\n          \"avgMathScore\": \"avgMathScore\",\n          \"current\": \"current\",\n          \"statePercentileScore\": \"statePercentileScore\",\n          \"stateRank\": \"stateRank\",\n          \"numberOfSchools\": \"numberOfSchools\",\n          \"avgReadingScore\": \"avgReadingScore\",\n          \"rankYear\": \"rankYear\"\n        },\n        {\n          \"avgMathScore\": \"avgMathScore\",\n          \"current\": \"current\",\n          \"statePercentileScore\": \"statePercentileScore\",\n          \"stateRank\": \"stateRank\",\n          \"numberOfSchools\": \"numberOfSchools\",\n          \"avgReadingScore\": \"avgReadingScore\",\n          \"rankYear\": \"rankYear\"\n        }\n      ],\n      \"website\": \"website\",\n      \"ncesSchoolId\": \"ncesSchoolId\",\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"schoolTypeDesc\": \"schoolTypeDesc\",\n      \"addressType\": \"addressType\",\n      \"educationLevelDesc\": \"educationLevelDesc\",\n      \"lowestGrade\": \"lowestGrade\",\n      \"studentTeacherRatio\": \"studentTeacherRatio\",\n      \"phone\": \"phone\",\n      \"highestGrade\": \"highestGrade\",\n      \"ncesDataYear\": \"ncesDataYear\",\n      \"gradeLevelsTaught\": {\n        \"tenth\": \"tenth\",\n        \"eighth\": \"eighth\",\n        \"eleventh\": \"eleventh\",\n        \"second\": \"second\",\n        \"sixth\": \"sixth\",\n        \"third\": \"third\",\n        \"seventh\": \"seventh\",\n        \"twelfth\": \"twelfth\",\n        \"ninth\": \"ninth\",\n        \"fifth\": \"fifth\",\n        \"pk\": \"pk\",\n        \"fourth\": \"fourth\",\n        \"kg\": \"kg\",\n        \"first\": \"first\"\n      },\n      \"name\": \"name\",\n      \"assigned\": \"assigned\",\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"choice\": \"choice\",\n      \"status\": \"status\"\n    },\n    {\n      \"schoolSubTypeDesc\": \"schoolSubTypeDesc\",\n      \"gender\": \"gender\",\n      \"distance\": {\n        \"unit\": \"unit\",\n        \"value\": \"value\"\n      },\n      \"schoolType\": \"schoolType\",\n      \"coextensiv\": \"coextensiv\",\n      \"students\": \"students\",\n      \"schoolDistricts\": {\n        \"totalSchools\": \"totalSchools\",\n        \"metro\": \"metro\",\n        \"districtUrl\": \"districtUrl\",\n        \"name\": \"name\",\n        \"districtType\": \"districtType\",\n        \"supervisoryUnionId\": \"supervisoryUnionId\",\n        \"areaInSqM\": \"areaInSqM\",\n        \"ncesDistrictId\": \"ncesDistrictId\",\n        \"districtEnrollment\": \"districtEnrollment\"\n      },\n      \"genderDesc\": \"genderDesc\",\n      \"schoolProfile\": {\n        \"titleI\": \"titleI\",\n        \"freeOrReducedPriceLunches\": {\n          \"reducedPriceLunchedCount\": \"reducedPriceLunchedCount\",\n          \"freeLunchesCount\": \"freeLunchesCount\",\n          \"totalCount\": \"totalCount\"\n        },\n        \"studentBelowPovertyPct\": \"studentBelowPovertyPct\",\n        \"advancePlacementClasses\": \"advancePlacementClasses\",\n        \"internationalBaccalaureate\": \"internationalBaccalaureate\",\n        \"studentEthnicity\": {\n          \"twoOrMoreRaces\": \"twoOrMoreRaces\",\n          \"hawaiianPacificlslander\": \"hawaiianPacificlslander\",\n          \"white\": \"white\",\n          \"asian\": \"asian\",\n          \"hispanic\": \"hispanic\",\n          \"black\": \"black\",\n          \"indianAlaskaNative\": \"indianAlaskaNative\"\n        },\n        \"blueRibbon\": \"blueRibbon\",\n        \"expensePerStudent\": \"expensePerStudent\"\n      },\n      \"schoolSubType\": \"schoolSubType\",\n      \"educationLevel\": \"educationLevel\",\n      \"teachers\": \"teachers\",\n      \"greatschools\": {\n        \"gsId\": \"gsId\",\n        \"rating\": \"rating\",\n        \"url\": \"url\"\n      },\n      \"ncesDistrictId\": \"ncesDistrictId\",\n      \"schoolRanking\": [\n        {\n          \"avgMathScore\": \"avgMathScore\",\n          \"current\": \"current\",\n          \"statePercentileScore\": \"statePercentileScore\",\n          \"stateRank\": \"stateRank\",\n          \"numberOfSchools\": \"numberOfSchools\",\n          \"avgReadingScore\": \"avgReadingScore\",\n          \"rankYear\": \"rankYear\"\n        },\n        {\n          \"avgMathScore\": \"avgMathScore\",\n          \"current\": \"current\",\n          \"statePercentileScore\": \"statePercentileScore\",\n          \"stateRank\": \"stateRank\",\n          \"numberOfSchools\": \"numberOfSchools\",\n          \"avgReadingScore\": \"avgReadingScore\",\n          \"rankYear\": \"rankYear\"\n        }\n      ],\n      \"website\": \"website\",\n      \"ncesSchoolId\": \"ncesSchoolId\",\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"schoolTypeDesc\": \"schoolTypeDesc\",\n      \"addressType\": \"addressType\",\n      \"educationLevelDesc\": \"educationLevelDesc\",\n      \"lowestGrade\": \"lowestGrade\",\n      \"studentTeacherRatio\": \"studentTeacherRatio\",\n      \"phone\": \"phone\",\n      \"highestGrade\": \"highestGrade\",\n      \"ncesDataYear\": \"ncesDataYear\",\n      \"gradeLevelsTaught\": {\n        \"tenth\": \"tenth\",\n        \"eighth\": \"eighth\",\n        \"eleventh\": \"eleventh\",\n        \"second\": \"second\",\n        \"sixth\": \"sixth\",\n        \"third\": \"third\",\n        \"seventh\": \"seventh\",\n        \"twelfth\": \"twelfth\",\n        \"ninth\": \"ninth\",\n        \"fifth\": \"fifth\",\n        \"pk\": \"pk\",\n        \"fourth\": \"fourth\",\n        \"kg\": \"kg\",\n        \"first\": \"first\"\n      },\n      \"name\": \"name\",\n      \"assigned\": \"assigned\",\n      \"geometry\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"choice\": \"choice\",\n      \"status\": \"status\"\n    }\n  ],\n  \"schoolDistrict\": {\n    \"totalSchools\": \"totalSchools\",\n    \"metro\": \"metro\",\n    \"districtUrl\": \"districtUrl\",\n    \"name\": \"name\",\n    \"districtType\": \"districtType\",\n    \"supervisoryUnionId\": \"supervisoryUnionId\",\n    \"areaInSqM\": \"areaInSqM\",\n    \"ncesDistrictId\": \"ncesDistrictId\",\n    \"districtEnrollment\": \"districtEnrollment\"\n  },\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a20aeda1-f99f-47a0-85d6-22cf83dd8ae2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schools",
+                    "v1",
+                    "school",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "edLevel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "schoolType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "schoolSubType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assignedSchoolsOnly",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "districtSchoolsOnly",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadius",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadiusUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistanceUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelMode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31adb6cd-6098-4e48-81fc-950a6bbf6b2d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schools",
+                    "v1",
+                    "school",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "edLevel",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "schoolType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "schoolSubType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "assignedSchoolsOnly",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "districtSchoolsOnly",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadius",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadiusUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistanceUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelMode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxCandidates",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "637d4abe-341a-4733-9a50-906c11cfa468",
+    "name": "Precisely APIs School API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

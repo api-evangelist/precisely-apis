@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Location API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Location",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Location By IP Address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/geolocation/v1/location/byipaddress",
+            "params": [
+              {
+                "name": "ipAddress",
+                "value": "",
+                "type": "query",
+                "description": "This is the ip address of network connected device. It must be a standard IPv4 octet and a valid external address."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service accepts an IP address and returns the location coordinates corresponding to that IP address."
+        },
+        {
+          "info": {
+            "name": "Location by WiFi Access Point.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/geolocation/v1/location/byaccesspoint",
+            "params": [
+              {
+                "name": "mac",
+                "value": "",
+                "type": "query",
+                "description": "This should be the 48 bit mac address (or BSSID) of wireless access point. Accepted format is Six groups of two hexadecimal digits, separated by hyphens (-) or colons."
+              },
+              {
+                "name": "ssid",
+                "value": "",
+                "type": "query",
+                "description": "The service set identifier for wi-fi access point. It should be alphanumeric with maximum 32 characters."
+              },
+              {
+                "name": "rsid",
+                "value": "",
+                "type": "query",
+                "description": "This is the received signal strength indicator from particular wi-fi access point. It should be a number from -113 to 0 and the unit of this strength is dBm."
+              },
+              {
+                "name": "speed",
+                "value": "",
+                "type": "query",
+                "description": "This is the connection speed for wi-fi. It should be a number from 0 to 6930 and the unit should be Mbps."
+              },
+              {
+                "name": "accessPoint",
+                "value": "",
+                "type": "query",
+                "description": "This is the JSON based list of wifi access points in the vicinity of device to be located. This parameter is helpful in case, multiple wifi points are visible and we want to make sure that the location of device is best calculated considering all the access points location."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service accepts a WiFi access point MAC address and returns the location coordinates corresponding to that access point. Only mac or accessPoint are mandatory parameters (one of them has to be provided), rest are optional."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

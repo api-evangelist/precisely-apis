@@ -1,0 +1,293 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Locations API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Address Autocomplete Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/typeahead/v1/locations",
+            "params": [
+              {
+                "name": "searchText",
+                "value": "",
+                "type": "query",
+                "description": "The input to be searched."
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location. We need to make sure that either Lat/Lng or Country is provided to API"
+              },
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location. We need to make sure that either Lat/Lng or Country is provided to API"
+              },
+              {
+                "name": "searchRadius",
+                "value": "",
+                "type": "query",
+                "description": "Radius range within which search is performed."
+              },
+              {
+                "name": "searchRadiusUnit",
+                "value": "",
+                "type": "query",
+                "description": "Radius unit such as Feet, Kilometers, Miles or Meters."
+              },
+              {
+                "name": "maxCandidates",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of POIs that can be retrieved."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country ISO code. We need to make sure that either Lat/Lng or Country is provided to API"
+              },
+              {
+                "name": "matchOnAddressNumber",
+                "value": "",
+                "type": "query",
+                "description": "Option so that we force api to match on address number"
+              },
+              {
+                "name": "autoDetectLocation",
+                "value": "",
+                "type": "query",
+                "description": "Option to allow API to detect origin of API request automatically"
+              },
+              {
+                "name": "ipAddress",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "areaName1",
+                "value": "",
+                "type": "query",
+                "description": "State province of the input to be searched"
+              },
+              {
+                "name": "areaName3",
+                "value": "",
+                "type": "query",
+                "description": "City of the input to be searched"
+              },
+              {
+                "name": "postCode",
+                "value": "",
+                "type": "query",
+                "description": "Postal Code of the input to be searched"
+              },
+              {
+                "name": "returnAdminAreasOnly",
+                "value": "",
+                "type": "query",
+                "description": "if value set 'Y' then it will only do a matching on postcode or areaName1, areaName2, areaName3 and areaName4 fields in the data"
+              },
+              {
+                "name": "includeRangesDetails",
+                "value": "",
+                "type": "query",
+                "description": "if value set 'Y' then display all unit info of ranges, if value set 'N' then don't show ranges"
+              },
+              {
+                "name": "searchType",
+                "value": "",
+                "type": "query",
+                "description": "Preference to control search type of interactive requests."
+              },
+              {
+                "name": "searchOnAddressNumber",
+                "value": "",
+                "type": "query",
+                "description": "Preference to search on address number."
+              },
+              {
+                "name": "searchOnUnitInfo",
+                "value": "",
+                "type": "query",
+                "description": "Preference to search on unit info."
+              },
+              {
+                "name": "searchOnPOBox",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether to enable search for matching on PO Box."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Performs search to retrieve list of places by input text and location vicinity."
+        },
+        {
+          "info": {
+            "name": "listLocations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/typeahead/v1/list/locations",
+            "params": [
+              {
+                "name": "searchText",
+                "value": "",
+                "type": "query",
+                "description": "The input to be searched."
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location. We need to make sure that either Lat/Lng or Country is provided to API"
+              },
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location. We need to make sure that either Lat/Lng or Country is provided to API"
+              },
+              {
+                "name": "searchRadius",
+                "value": "",
+                "type": "query",
+                "description": "Radius range within which search is performed."
+              },
+              {
+                "name": "searchRadiusUnit",
+                "value": "",
+                "type": "query",
+                "description": "Radius unit such as Feet, Kilometers, Miles or Meters."
+              },
+              {
+                "name": "maxCandidates",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of POIs that can be retrieved."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country ISO code. We need to make sure that either Lat/Lng or Country is provided to API"
+              },
+              {
+                "name": "matchOnAddressNumber",
+                "value": "",
+                "type": "query",
+                "description": "Option so that we force api to match on address number"
+              },
+              {
+                "name": "autoDetectLocation",
+                "value": "",
+                "type": "query",
+                "description": "Option to allow API to detect origin of API request automatically"
+              },
+              {
+                "name": "ipAddress",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "areaName1",
+                "value": "",
+                "type": "query",
+                "description": "State province of the input to be searched"
+              },
+              {
+                "name": "areaName3",
+                "value": "",
+                "type": "query",
+                "description": "City of the input to be searched"
+              },
+              {
+                "name": "postCode",
+                "value": "",
+                "type": "query",
+                "description": "Postal Code of the input to be searched"
+              },
+              {
+                "name": "returnAdminAreasOnly",
+                "value": "",
+                "type": "query",
+                "description": "if value set 'Y' then it will only do a matching on postcode or areaName1, areaName2, areaName3 and areaName4 fields in the data"
+              },
+              {
+                "name": "includeRangesDetails",
+                "value": "",
+                "type": "query",
+                "description": "if value set 'Y' then display all unit info of ranges, if value set 'N' then don't show ranges"
+              },
+              {
+                "name": "searchType",
+                "value": "",
+                "type": "query",
+                "description": "Preference to control search type of interactive requests."
+              },
+              {
+                "name": "searchOnAddressNumber",
+                "value": "",
+                "type": "query",
+                "description": "Preference to search on address number."
+              },
+              {
+                "name": "transactionId",
+                "value": "",
+                "type": "query",
+                "description": "transactionId."
+              },
+              {
+                "name": "searchOnUnitInfo",
+                "value": "",
+                "type": "query",
+                "description": "Preference to search on unit info."
+              },
+              {
+                "name": "searchOnPOBox",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether to enable search for matching on PO Box."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

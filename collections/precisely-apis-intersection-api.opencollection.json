@@ -1,0 +1,172 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Intersection API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Intersection",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Nearest Intesection By Location.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/streets/v1/intersection/bylocation",
+            "params": [
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "roadClass",
+                "value": "",
+                "type": "query",
+                "description": "Filters roads with specified class, allowed values are (Major, Secondary, Other and All), default is All"
+              },
+              {
+                "name": "driveTime",
+                "value": "",
+                "type": "query",
+                "description": "Returns Intersection in specified drive time"
+              },
+              {
+                "name": "driveTimeUnit",
+                "value": "",
+                "type": "query",
+                "description": "Drive time unit, allowed values are (hours, minutes, seconds and milliseconds), default is minutes"
+              },
+              {
+                "name": "searchRadius",
+                "value": "",
+                "type": "query",
+                "description": "Search radius within which user wants to search, default is 50 miles"
+              },
+              {
+                "name": "searchRadiusUnit",
+                "value": "",
+                "type": "query",
+                "description": "Search radius unit, allowed values are (feet, meter, kilometers and miles)"
+              },
+              {
+                "name": "historicSpeed",
+                "value": "",
+                "type": "query",
+                "description": "Traffic flow in peak time, allowed values are (AMPEAK,PMPEAK,OFFPEAK,NIGHT)"
+              },
+              {
+                "name": "maxCandidates",
+                "value": "",
+                "type": "query",
+                "description": "max candidates to be returned default is 1"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service accepts latitude/longitude as input and returns the Nearest Intersection."
+        },
+        {
+          "info": {
+            "name": "Nearest Intesection By Address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/streets/v1/intersection/byaddress",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "Address"
+              },
+              {
+                "name": "roadClass",
+                "value": "",
+                "type": "query",
+                "description": "Filters roads with specified class, allowed values are (Major, Secondary, Other and All), default is All"
+              },
+              {
+                "name": "driveTime",
+                "value": "",
+                "type": "query",
+                "description": "Returns Intersection in specified drive time"
+              },
+              {
+                "name": "driveTimeUnit",
+                "value": "",
+                "type": "query",
+                "description": "Drive time unit, allowed values are (hours, minutes, seconds and milliseconds), default is minutes"
+              },
+              {
+                "name": "searchRadius",
+                "value": "",
+                "type": "query",
+                "description": "Search radius within which user wants to search, default is 50 miles"
+              },
+              {
+                "name": "searchRadiusUnit",
+                "value": "",
+                "type": "query",
+                "description": "Search radius unit, allowed values are (feet, meter, kilometers and miles)"
+              },
+              {
+                "name": "historicSpeed",
+                "value": "",
+                "type": "query",
+                "description": "Traffic flow in peak time, allowed values are (AMPEAK,PMPEAK,OFFPEAK,NIGHT)"
+              },
+              {
+                "name": "maxCandidates",
+                "value": "",
+                "type": "query",
+                "description": "max candidates to be returned default is 1"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service accepts an address as input and returns the Nearest Intersection."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

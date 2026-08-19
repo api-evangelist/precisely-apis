@@ -1,0 +1,496 @@
+{
+  "item": [
+    {
+      "id": "6f4f9582-6ac7-4eb3-a9ee-6a33a0cb8c0c",
+      "name": "Basic",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dbf0b122-ead9-42d3-9646-f0837ac3187e",
+          "name": "Demographics Basic",
+          "request": {
+            "name": "Demographics Basic",
+            "description": {
+              "content": "Demographics Basic Endpoint will return the aggregated values of the selected demographics variables of the regions falling inside the search radius. All the intersecting demographic boundaries will be snapped completely and user will have option to request these boundaries in response.  ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "demographics-segmentation",
+                "v1",
+                "basic",
+                "demographics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "Address to be searched"
+                },
+                {
+                  "disabled": false,
+                  "key": "longitude",
+                  "value": "<string>",
+                  "description": "Longitude of the location"
+                },
+                {
+                  "disabled": false,
+                  "key": "latitude",
+                  "value": "<string>",
+                  "description": "Latitude of the location"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchRadius",
+                  "value": "<string>",
+                  "description": "Radius within which demographics details are required. Max. value is 52800 Feet or 10 miles"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchRadiusUnit",
+                  "value": "<string>",
+                  "description": "Radius unit such as Feet, Kilometers, Miles or Meters "
+                },
+                {
+                  "disabled": false,
+                  "key": "travelTime",
+                  "value": "<string>",
+                  "description": "Travel Time based on travelMode within which demographics details are required. Max. value is 1 hour."
+                },
+                {
+                  "disabled": false,
+                  "key": "travelTimeUnit",
+                  "value": "<string>",
+                  "description": "minutes,hours,seconds,milliseconds. Default is meters.Default is minutes."
+                },
+                {
+                  "disabled": false,
+                  "key": "travelDistance",
+                  "value": "<string>",
+                  "description": "Travel Distance based on travelMode within which demographics details are required. Max. value is 10 miles."
+                },
+                {
+                  "disabled": false,
+                  "key": "travelDistanceUnit",
+                  "value": "<string>",
+                  "description": "feet,kilometers,miles,meters.  Default is feet."
+                },
+                {
+                  "disabled": false,
+                  "key": "travelMode",
+                  "value": "<string>",
+                  "description": "Default is driving."
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "3 digit ISO country code (Used in case address is mentioned)."
+                },
+                {
+                  "disabled": false,
+                  "key": "profile",
+                  "value": "<string>",
+                  "description": "Applicable on ranged variables. Returns top sorted result based on the input value."
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "If Y, demographic boundaries are returned in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeGeometry",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cf5a60e2-4511-4a15-83c8-3cccad361403",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demographics-segmentation",
+                    "v1",
+                    "basic",
+                    "demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadius",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadiusUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistanceUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelMode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "profile",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"boundaries\": {\n    \"boundary\": [\n      {\n        \"boundaryId\": \"string\",\n        \"boundaryType\": \"string\",\n        \"boundaryRef\": \"string\",\n        \"geometry\": {\n          \"type\": \"string\",\n          \"crs\": {\n            \"type\": \"type\",\n            \"properties\": {\n              \"name\": \"name\"\n            }\n          },\n          \"coordinates\": {}\n        },\n        \"url\": \"string\"\n      },\n      {\n        \"boundaryId\": \"string\",\n        \"boundaryType\": \"string\",\n        \"boundaryRef\": \"string\",\n        \"geometry\": {\n          \"type\": \"string\",\n          \"crs\": {\n            \"type\": \"type\",\n            \"properties\": {\n              \"name\": \"name\"\n            }\n          },\n          \"coordinates\": {}\n        },\n        \"url\": \"string\"\n      }\n    ],\n    \"boundaryType\": \"string\",\n    \"boundaryRef\": \"string\"\n  },\n  \"themes\": {\n    \"householdsTheme\": {\n      \"rangeVariable\": [\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        },\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        }\n      ],\n      \"individualValueVariable\": [\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        },\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        }\n      ],\n      \"boundaryRef\": \"boundaryRef\"\n    },\n    \"supplyAndDemandTheme\": {\n      \"rangeVariable\": [\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        },\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        }\n      ],\n      \"individualValueVariable\": [\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        },\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        }\n      ],\n      \"boundaryRef\": \"boundaryRef\"\n    },\n    \"housingTheme\": {\n      \"rangeVariable\": [\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        },\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        }\n      ],\n      \"individualValueVariable\": [\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        },\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        }\n      ],\n      \"boundaryRef\": \"boundaryRef\"\n    },\n    \"employmentTheme\": {\n      \"rangeVariable\": [\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        },\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        }\n      ],\n      \"individualValueVariable\": [\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        },\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        }\n      ],\n      \"boundaryRef\": \"boundaryRef\"\n    },\n    \"boundaryId\": \"boundaryId\",\n    \"incomeTheme\": {\n      \"rangeVariable\": [\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        },\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        }\n      ],\n      \"individualValueVariable\": [\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        },\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        }\n      ],\n      \"boundaryRef\": \"boundaryRef\"\n    },\n    \"assetsAndWealthTheme\": {\n      \"rangeVariable\": [\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        },\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        }\n      ],\n      \"individualValueVariable\": [\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        },\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        }\n      ],\n      \"boundaryRef\": \"boundaryRef\"\n    },\n    \"healthTheme\": {\n      \"rangeVariable\": [\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        },\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        }\n      ],\n      \"individualValueVariable\": [\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        },\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        }\n      ],\n      \"boundaryRef\": \"boundaryRef\"\n    },\n    \"educationTheme\": {\n      \"rangeVariable\": [\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        },\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        }\n      ],\n      \"individualValueVariable\": [\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        },\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        }\n      ],\n      \"boundaryRef\": \"boundaryRef\"\n    },\n    \"raceAndEthnicityTheme\": {\n      \"rangeVariable\": [\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        },\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        }\n      ],\n      \"individualValueVariable\": [\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        },\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        }\n      ],\n      \"boundaryRef\": \"boundaryRef\"\n    },\n    \"expenditureTheme\": {\n      \"rangeVariable\": [\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        },\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        }\n      ],\n      \"individualValueVariable\": [\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        },\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        }\n      ],\n      \"boundaryRef\": \"boundaryRef\"\n    },\n    \"populationTheme\": {\n      \"rangeVariable\": [\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        },\n        {\n          \"field\": [\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            },\n            {\n              \"name\": \"name\",\n              \"description\": \"description\",\n              \"value\": \"value\"\n            }\n          ],\n          \"year\": \"year\",\n          \"count\": \"count\",\n          \"name\": \"name\",\n          \"baseVariable\": \"baseVariable\",\n          \"alias\": \"alias\",\n          \"description\": \"description\",\n          \"order\": \"order\"\n        }\n      ],\n      \"individualValueVariable\": [\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        },\n        {\n          \"year\": \"year\",\n          \"name\": \"name\",\n          \"description\": \"description\",\n          \"value\": \"value\"\n        }\n      ],\n      \"boundaryRef\": \"boundaryRef\"\n    }\n  },\n  \"boundaryThemes\": [\n    {\n      \"householdsTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"supplyAndDemandTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"housingTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"employmentTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"boundaryId\": \"boundaryId\",\n      \"incomeTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"assetsAndWealthTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"healthTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"educationTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"raceAndEthnicityTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"expenditureTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"populationTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      }\n    },\n    {\n      \"householdsTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"supplyAndDemandTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"housingTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"employmentTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"boundaryId\": \"boundaryId\",\n      \"incomeTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"assetsAndWealthTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"healthTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"educationTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"raceAndEthnicityTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"expenditureTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      },\n      \"populationTheme\": {\n        \"rangeVariable\": [\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          },\n          {\n            \"field\": [\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              },\n              {\n                \"name\": \"name\",\n                \"description\": \"description\",\n                \"value\": \"value\"\n              }\n            ],\n            \"year\": \"year\",\n            \"count\": \"count\",\n            \"name\": \"name\",\n            \"baseVariable\": \"baseVariable\",\n            \"alias\": \"alias\",\n            \"description\": \"description\",\n            \"order\": \"order\"\n          }\n        ],\n        \"individualValueVariable\": [\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          },\n          {\n            \"year\": \"year\",\n            \"name\": \"name\",\n            \"description\": \"description\",\n            \"value\": \"value\"\n          }\n        ],\n        \"boundaryRef\": \"boundaryRef\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3f9be3cd-c73a-4ede-a865-bac208e67af2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demographics-segmentation",
+                    "v1",
+                    "basic",
+                    "demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadius",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadiusUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistanceUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelMode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "profile",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed6a3304-b98b-41bd-8006-cff561f4641f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "demographics-segmentation",
+                    "v1",
+                    "basic",
+                    "demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadius",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchRadiusUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTime",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelTimeUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistance",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelDistanceUnit",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "travelMode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "profile",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeGeometry",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "94cdcdc5-282c-4378-b4f9-a68cc9ff9d11",
+    "name": "Precisely APIs Basic API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

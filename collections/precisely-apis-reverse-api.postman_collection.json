@@ -1,0 +1,646 @@
+{
+  "item": [
+    {
+      "id": "93178506-5904-4a85-9ddb-4c20dd7b34c8",
+      "name": "Reverse",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a4c54612-8659-41dc-a6fe-6812e5f17a35",
+          "name": "Get Reverse Geocode(Basic/Premium/Advanced)",
+          "request": {
+            "name": "Get Reverse Geocode(Basic/Premium/Advanced)",
+            "description": {
+              "content": "This service accepts location coordinate and returns an address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "geocode",
+                "v1",
+                ":datapackBundle",
+                "reverseGeocode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "x",
+                  "value": "-105.240976",
+                  "description": "(Required) Longitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "y",
+                  "value": "40.018301",
+                  "description": "(Required) Latitude of the location."
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "Country name or ISO code."
+                },
+                {
+                  "disabled": false,
+                  "key": "coordSysName",
+                  "value": "EPSG:4326",
+                  "description": "Coordinate system to convert geometry to in format codespace:code."
+                },
+                {
+                  "disabled": false,
+                  "key": "distance",
+                  "value": "Radius in which search is performed.",
+                  "description": "Radius in which search is performed."
+                },
+                {
+                  "disabled": false,
+                  "key": "distanceUnits",
+                  "value": "METERS",
+                  "description": "Unit of measurement."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datapackBundle",
+                  "description": "(Required) datapackBundle"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "600ae338-eb35-42c9-9fbd-92af892bfa26",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "geocode",
+                    "v1",
+                    ":datapackBundle",
+                    "reverseGeocode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "x",
+                      "value": "-105.240976"
+                    },
+                    {
+                      "key": "y",
+                      "value": "40.018301"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "coordSysName",
+                      "value": "EPSG:4326"
+                    },
+                    {
+                      "key": "distance",
+                      "value": "Radius in which search is performed."
+                    },
+                    {
+                      "key": "distanceUnits",
+                      "value": "METERS"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datapackBundle",
+                      "description": "(Required) datapackBundle"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objectId\": \"string\",\n  \"totalPossibleCandidates\": 7298,\n  \"totalMatches\": 967,\n  \"candidates\": [\n    {\n      \"precisionLevel\": 271,\n      \"formattedStreetAddress\": \"string\",\n      \"formattedLocationAddress\": \"string\",\n      \"identifier\": \"string\",\n      \"precisionCode\": \"string\",\n      \"sourceDictionary\": \"string\",\n      \"matching\": {\n        \"matchOnAreaName1\": true,\n        \"matchOnAreaName3\": true,\n        \"matchOnAreaName2\": true,\n        \"matchOnAreaName4\": true,\n        \"matchOnStreetType\": true,\n        \"matchOnStreetDirectional\": true,\n        \"matchOnAddressNumber\": true,\n        \"matchOnAllStreetFields\": true,\n        \"matchOnPlaceName\": true,\n        \"matchOnInputFields\": true,\n        \"matchOnStreetName\": true,\n        \"matchOnPostCode1\": true,\n        \"matchOnPostCode2\": true\n      },\n      \"geometry\": {\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": [\n          5.962133916683182,\n          5.962133916683182\n        ],\n        \"type\": \"type\"\n      },\n      \"address\": {\n        \"objectId\": \"string\",\n        \"mainAddressLine\": \"string\",\n        \"addressLastLine\": \"string\",\n        \"placeName\": \"string\",\n        \"areaName1\": \"string\",\n        \"areaName2\": \"string\",\n        \"areaName3\": \"string\",\n        \"areaName4\": \"string\",\n        \"postCode1\": \"string\",\n        \"postCode2\": \"string\",\n        \"country\": \"string\",\n        \"addressNumber\": \"string\",\n        \"streetName\": \"string\",\n        \"unitType\": \"string\",\n        \"unitValue\": \"string\",\n        \"customFields\": {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      },\n      \"ranges\": [\n        {\n          \"placeName\": \"string\",\n          \"lowHouse\": \"string\",\n          \"highHouse\": \"string\",\n          \"side\": \"BOTH\",\n          \"oddEvenIndicator\": \"UNKNOWN\",\n          \"units\": [\n            {\n              \"unitType\": \"unitType\",\n              \"lowUnitValue\": \"lowUnitValue\",\n              \"placeName\": \"placeName\",\n              \"highUnitValue\": \"highUnitValue\",\n              \"customValues\": {\n                \"key\": \"{}\"\n              }\n            },\n            {\n              \"unitType\": \"unitType\",\n              \"lowUnitValue\": \"lowUnitValue\",\n              \"placeName\": \"placeName\",\n              \"highUnitValue\": \"highUnitValue\",\n              \"customValues\": {\n                \"key\": \"{}\"\n              }\n            }\n          ],\n          \"customValues\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          }\n        },\n        {\n          \"placeName\": \"string\",\n          \"lowHouse\": \"string\",\n          \"highHouse\": \"string\",\n          \"side\": \"UNKNOWN\",\n          \"oddEvenIndicator\": \"IRREGULAR\",\n          \"units\": [\n            {\n              \"unitType\": \"unitType\",\n              \"lowUnitValue\": \"lowUnitValue\",\n              \"placeName\": \"placeName\",\n              \"highUnitValue\": \"highUnitValue\",\n              \"customValues\": {\n                \"key\": \"{}\"\n              }\n            },\n            {\n              \"unitType\": \"unitType\",\n              \"lowUnitValue\": \"lowUnitValue\",\n              \"placeName\": \"placeName\",\n              \"highUnitValue\": \"highUnitValue\",\n              \"customValues\": {\n                \"key\": \"{}\"\n              }\n            }\n          ],\n          \"customValues\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          }\n        }\n      ]\n    },\n    {\n      \"precisionLevel\": 3403,\n      \"formattedStreetAddress\": \"string\",\n      \"formattedLocationAddress\": \"string\",\n      \"identifier\": \"string\",\n      \"precisionCode\": \"string\",\n      \"sourceDictionary\": \"string\",\n      \"matching\": {\n        \"matchOnAreaName1\": true,\n        \"matchOnAreaName3\": true,\n        \"matchOnAreaName2\": true,\n        \"matchOnAreaName4\": true,\n        \"matchOnStreetType\": true,\n        \"matchOnStreetDirectional\": true,\n        \"matchOnAddressNumber\": true,\n        \"matchOnAllStreetFields\": true,\n        \"matchOnPlaceName\": true,\n        \"matchOnInputFields\": true,\n        \"matchOnStreetName\": true,\n        \"matchOnPostCode1\": true,\n        \"matchOnPostCode2\": true\n      },\n      \"geometry\": {\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": [\n          5.962133916683182,\n          5.962133916683182\n        ],\n        \"type\": \"type\"\n      },\n      \"address\": {\n        \"objectId\": \"string\",\n        \"mainAddressLine\": \"string\",\n        \"addressLastLine\": \"string\",\n        \"placeName\": \"string\",\n        \"areaName1\": \"string\",\n        \"areaName2\": \"string\",\n        \"areaName3\": \"string\",\n        \"areaName4\": \"string\",\n        \"postCode1\": \"string\",\n        \"postCode2\": \"string\",\n        \"country\": \"string\",\n        \"addressNumber\": \"string\",\n        \"streetName\": \"string\",\n        \"unitType\": \"string\",\n        \"unitValue\": \"string\",\n        \"customFields\": {\n          \"key_0\": {}\n        }\n      },\n      \"ranges\": [\n        {\n          \"placeName\": \"string\",\n          \"lowHouse\": \"string\",\n          \"highHouse\": \"string\",\n          \"side\": \"UNKNOWN\",\n          \"oddEvenIndicator\": \"EVEN\",\n          \"units\": [\n            {\n              \"unitType\": \"unitType\",\n              \"lowUnitValue\": \"lowUnitValue\",\n              \"placeName\": \"placeName\",\n              \"highUnitValue\": \"highUnitValue\",\n              \"customValues\": {\n                \"key\": \"{}\"\n              }\n            },\n            {\n              \"unitType\": \"unitType\",\n              \"lowUnitValue\": \"lowUnitValue\",\n              \"placeName\": \"placeName\",\n              \"highUnitValue\": \"highUnitValue\",\n              \"customValues\": {\n                \"key\": \"{}\"\n              }\n            }\n          ],\n          \"customValues\": {\n            \"key_0\": {},\n            \"key_1\": {},\n            \"key_2\": {},\n            \"key_3\": {}\n          }\n        },\n        {\n          \"placeName\": \"string\",\n          \"lowHouse\": \"string\",\n          \"highHouse\": \"string\",\n          \"side\": \"UNKNOWN\",\n          \"oddEvenIndicator\": \"ODD\",\n          \"units\": [\n            {\n              \"unitType\": \"unitType\",\n              \"lowUnitValue\": \"lowUnitValue\",\n              \"placeName\": \"placeName\",\n              \"highUnitValue\": \"highUnitValue\",\n              \"customValues\": {\n                \"key\": \"{}\"\n              }\n            },\n            {\n              \"unitType\": \"unitType\",\n              \"lowUnitValue\": \"lowUnitValue\",\n              \"placeName\": \"placeName\",\n              \"highUnitValue\": \"highUnitValue\",\n              \"customValues\": {\n                \"key\": \"{}\"\n              }\n            }\n          ],\n          \"customValues\": {\n            \"key_0\": {},\n            \"key_1\": {}\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2f52546a-f3f2-446b-be89-e82b2c4366d8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "geocode",
+                    "v1",
+                    ":datapackBundle",
+                    "reverseGeocode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "x",
+                      "value": "-105.240976"
+                    },
+                    {
+                      "key": "y",
+                      "value": "40.018301"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "coordSysName",
+                      "value": "EPSG:4326"
+                    },
+                    {
+                      "key": "distance",
+                      "value": "Radius in which search is performed."
+                    },
+                    {
+                      "key": "distanceUnits",
+                      "value": "METERS"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datapackBundle",
+                      "description": "(Required) datapackBundle"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c2a0294-0ac7-4b7a-96ee-faad4a6e64d5",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "geocode",
+                    "v1",
+                    ":datapackBundle",
+                    "reverseGeocode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "x",
+                      "value": "-105.240976"
+                    },
+                    {
+                      "key": "y",
+                      "value": "40.018301"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "coordSysName",
+                      "value": "EPSG:4326"
+                    },
+                    {
+                      "key": "distance",
+                      "value": "Radius in which search is performed."
+                    },
+                    {
+                      "key": "distanceUnits",
+                      "value": "METERS"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datapackBundle",
+                      "description": "(Required) datapackBundle"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0328827-19ec-4fd9-9186-5441cab46e84",
+          "name": "Post Reverse Geocode",
+          "request": {
+            "name": "Post Reverse Geocode",
+            "description": {
+              "content": "This is a Batch offering for geocode service. It accepts a single address or a list of addresses and returns location coordinates",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "geocode",
+                "v1",
+                ":datapackBundle",
+                "reverseGeocode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "datapackBundle",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"points\": [\n    {\n      \"country\": \"<string>\",\n      \"geometry\": {\n        \"crs\": {\n          \"properties\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"type\": \"<string>\"\n        },\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"objectId\": \"<string>\"\n    },\n    {\n      \"country\": \"<string>\",\n      \"geometry\": {\n        \"crs\": {\n          \"properties\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"type\": \"<string>\"\n        },\n        \"type\": \"<string>\",\n        \"coordinates\": [\n          \"<double>\",\n          \"<double>\"\n        ]\n      },\n      \"objectId\": \"<string>\"\n    }\n  ],\n  \"preferences\": {\n    \"cornerOffset\": \"<string>\",\n    \"distance\": \"<string>\",\n    \"fallbackToGeographic\": \"<string>\",\n    \"fallbackToPostal\": \"<string>\",\n    \"maxReturnedCandidates\": \"<string>\",\n    \"returnAllCandidateInfo\": \"<boolean>\",\n    \"streetOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"clientLocale\": \"<string>\",\n    \"clientCoordSysName\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"streetOffsetUnits\": \"<string>\",\n    \"cornerOffsetUnits\": \"<string>\",\n    \"mustMatchFields\": {\n      \"matchOnAddressNumber\": \"<boolean>\",\n      \"matchOnPostCode1\": \"<boolean>\",\n      \"matchOnPostCode2\": \"<boolean>\",\n      \"matchOnAreaName1\": \"<boolean>\",\n      \"matchOnAreaName2\": \"<boolean>\",\n      \"matchOnAreaName3\": \"<boolean>\",\n      \"matchOnAreaName4\": \"<boolean>\",\n      \"matchOnAllStreetFields\": \"<boolean>\",\n      \"matchOnStreetName\": \"<boolean>\",\n      \"matchOnStreetType\": \"<boolean>\",\n      \"matchOnStreetDirectional\": \"<boolean>\",\n      \"matchOnPlaceName\": \"<boolean>\",\n      \"matchOnInputFields\": \"<boolean>\"\n    },\n    \"returnFieldsDescriptor\": {\n      \"returnAllCustomFields\": \"<boolean>\",\n      \"returnMatchDescriptor\": \"<boolean>\",\n      \"returnStreetAddressFields\": \"<boolean>\",\n      \"returnUnitInformation\": \"<boolean>\",\n      \"returnedCustomFieldKeys\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"outputRecordType\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\"\n    },\n    \"preferredDictionaryOrders\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"outputCasing\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"defaultBufferWidth\": \"<string>\",\n    \"returnCensusFields\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c37eeca6-f702-415e-9388-60e458c42794",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "geocode",
+                    "v1",
+                    ":datapackBundle",
+                    "reverseGeocode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datapackBundle",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"points\": [\n    {\n      \"country\": \"country\",\n      \"geometry\": {\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": [\n          5.962133916683182,\n          5.962133916683182\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\"\n    },\n    {\n      \"country\": \"country\",\n      \"geometry\": {\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": [\n          5.962133916683182,\n          5.962133916683182\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\"\n    }\n  ],\n  \"preferences\": {\n    \"cornerOffset\": \"<string>\",\n    \"distance\": \"<string>\",\n    \"fallbackToGeographic\": \"<string>\",\n    \"fallbackToPostal\": \"<string>\",\n    \"maxReturnedCandidates\": \"<string>\",\n    \"returnAllCandidateInfo\": \"<boolean>\",\n    \"streetOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"clientLocale\": \"<string>\",\n    \"clientCoordSysName\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"streetOffsetUnits\": \"<string>\",\n    \"cornerOffsetUnits\": \"<string>\",\n    \"mustMatchFields\": {\n      \"matchOnAreaName1\": true,\n      \"matchOnAreaName3\": true,\n      \"matchOnAreaName2\": true,\n      \"matchOnAreaName4\": true,\n      \"matchOnStreetType\": true,\n      \"matchOnStreetDirectional\": true,\n      \"matchOnAddressNumber\": true,\n      \"matchOnAllStreetFields\": true,\n      \"matchOnPlaceName\": true,\n      \"matchOnInputFields\": true,\n      \"matchOnStreetName\": true,\n      \"matchOnPostCode1\": true,\n      \"matchOnPostCode2\": true\n    },\n    \"returnFieldsDescriptor\": {\n      \"returnStreetAddressFields\": true,\n      \"returnAllCustomFields\": true,\n      \"returnUnitInformation\": true,\n      \"returnMatchDescriptor\": true,\n      \"returnedCustomFieldKeys\": [\n        \"returnedCustomFieldKeys\",\n        \"returnedCustomFieldKeys\"\n      ]\n    },\n    \"outputRecordType\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\",\n      \"key_2\": \"<object>\"\n    },\n    \"preferredDictionaryOrders\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"outputCasing\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"defaultBufferWidth\": \"<string>\",\n    \"returnCensusFields\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"responses\": [\n    {\n      \"candidates\": [\n        {\n          \"identifier\": \"identifier\",\n          \"formattedStreetAddress\": \"formattedStreetAddress\",\n          \"address\": {\n            \"country\": \"country\",\n            \"customFields\": {\n              \"key\": \"{}\"\n            },\n            \"postCode2\": \"postCode2\",\n            \"unitType\": \"unitType\",\n            \"areaName1\": \"areaName1\",\n            \"postCode1\": \"postCode1\",\n            \"areaName2\": \"areaName2\",\n            \"streetName\": \"streetName\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"placeName\": \"placeName\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"unitValue\": \"unitValue\"\n          },\n          \"ranges\": [\n            {\n              \"lowHouse\": \"lowHouse\",\n              \"side\": \"UNKNOWN\",\n              \"highHouse\": \"highHouse\",\n              \"oddEvenIndicator\": \"UNKNOWN\",\n              \"units\": [\n                {\n                  \"unitType\": \"unitType\",\n                  \"lowUnitValue\": \"lowUnitValue\",\n                  \"placeName\": \"placeName\",\n                  \"highUnitValue\": \"highUnitValue\",\n                  \"customValues\": {\n                    \"key\": \"{}\"\n                  }\n                },\n                {\n                  \"unitType\": \"unitType\",\n                  \"lowUnitValue\": \"lowUnitValue\",\n                  \"placeName\": \"placeName\",\n                  \"highUnitValue\": \"highUnitValue\",\n                  \"customValues\": {\n                    \"key\": \"{}\"\n                  }\n                }\n              ],\n              \"placeName\": \"placeName\",\n              \"customValues\": {\n                \"key\": \"{}\"\n              }\n            },\n            {\n              \"lowHouse\": \"lowHouse\",\n              \"side\": \"UNKNOWN\",\n              \"highHouse\": \"highHouse\",\n              \"oddEvenIndicator\": \"UNKNOWN\",\n              \"units\": [\n                {\n                  \"unitType\": \"unitType\",\n                  \"lowUnitValue\": \"lowUnitValue\",\n                  \"placeName\": \"placeName\",\n                  \"highUnitValue\": \"highUnitValue\",\n                  \"customValues\": {\n                    \"key\": \"{}\"\n                  }\n                },\n                {\n                  \"unitType\": \"unitType\",\n                  \"lowUnitValue\": \"lowUnitValue\",\n                  \"placeName\": \"placeName\",\n                  \"highUnitValue\": \"highUnitValue\",\n                  \"customValues\": {\n                    \"key\": \"{}\"\n                  }\n                }\n              ],\n              \"placeName\": \"placeName\",\n              \"customValues\": {\n                \"key\": \"{}\"\n              }\n            }\n          ],\n          \"precisionCode\": \"precisionCode\",\n          \"sourceDictionary\": \"sourceDictionary\",\n          \"formattedLocationAddress\": \"formattedLocationAddress\",\n          \"geometry\": {\n            \"crs\": {\n              \"type\": \"type\",\n              \"properties\": {\n                \"name\": \"name\"\n              }\n            },\n            \"coordinates\": [\n              5.962133916683182,\n              5.962133916683182\n            ],\n            \"type\": \"type\"\n          },\n          \"precisionLevel\": 1,\n          \"matching\": {\n            \"matchOnAreaName1\": true,\n            \"matchOnAreaName3\": true,\n            \"matchOnAreaName2\": true,\n            \"matchOnAreaName4\": true,\n            \"matchOnStreetType\": true,\n            \"matchOnStreetDirectional\": true,\n            \"matchOnAddressNumber\": true,\n            \"matchOnAllStreetFields\": true,\n            \"matchOnPlaceName\": true,\n            \"matchOnInputFields\": true,\n            \"matchOnStreetName\": true,\n            \"matchOnPostCode1\": true,\n            \"matchOnPostCode2\": true\n          }\n        },\n        {\n          \"identifier\": \"identifier\",\n          \"formattedStreetAddress\": \"formattedStreetAddress\",\n          \"address\": {\n            \"country\": \"country\",\n            \"customFields\": {\n              \"key\": \"{}\"\n            },\n            \"postCode2\": \"postCode2\",\n            \"unitType\": \"unitType\",\n            \"areaName1\": \"areaName1\",\n            \"postCode1\": \"postCode1\",\n            \"areaName2\": \"areaName2\",\n            \"streetName\": \"streetName\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"placeName\": \"placeName\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"unitValue\": \"unitValue\"\n          },\n          \"ranges\": [\n            {\n              \"lowHouse\": \"lowHouse\",\n              \"side\": \"UNKNOWN\",\n              \"highHouse\": \"highHouse\",\n              \"oddEvenIndicator\": \"UNKNOWN\",\n              \"units\": [\n                {\n                  \"unitType\": \"unitType\",\n                  \"lowUnitValue\": \"lowUnitValue\",\n                  \"placeName\": \"placeName\",\n                  \"highUnitValue\": \"highUnitValue\",\n                  \"customValues\": {\n                    \"key\": \"{}\"\n                  }\n                },\n                {\n                  \"unitType\": \"unitType\",\n                  \"lowUnitValue\": \"lowUnitValue\",\n                  \"placeName\": \"placeName\",\n                  \"highUnitValue\": \"highUnitValue\",\n                  \"customValues\": {\n                    \"key\": \"{}\"\n                  }\n                }\n              ],\n              \"placeName\": \"placeName\",\n              \"customValues\": {\n                \"key\": \"{}\"\n              }\n            },\n            {\n              \"lowHouse\": \"lowHouse\",\n              \"side\": \"UNKNOWN\",\n              \"highHouse\": \"highHouse\",\n              \"oddEvenIndicator\": \"UNKNOWN\",\n              \"units\": [\n                {\n                  \"unitType\": \"unitType\",\n                  \"lowUnitValue\": \"lowUnitValue\",\n                  \"placeName\": \"placeName\",\n                  \"highUnitValue\": \"highUnitValue\",\n                  \"customValues\": {\n                    \"key\": \"{}\"\n                  }\n                },\n                {\n                  \"unitType\": \"unitType\",\n                  \"lowUnitValue\": \"lowUnitValue\",\n                  \"placeName\": \"placeName\",\n                  \"highUnitValue\": \"highUnitValue\",\n                  \"customValues\": {\n                    \"key\": \"{}\"\n                  }\n                }\n              ],\n              \"placeName\": \"placeName\",\n              \"customValues\": {\n                \"key\": \"{}\"\n              }\n            }\n          ],\n          \"precisionCode\": \"precisionCode\",\n          \"sourceDictionary\": \"sourceDictionary\",\n          \"formattedLocationAddress\": \"formattedLocationAddress\",\n          \"geometry\": {\n            \"crs\": {\n              \"type\": \"type\",\n              \"properties\": {\n                \"name\": \"name\"\n              }\n            },\n            \"coordinates\": [\n              5.962133916683182,\n              5.962133916683182\n            ],\n            \"type\": \"type\"\n          },\n          \"precisionLevel\": 1,\n          \"matching\": {\n            \"matchOnAreaName1\": true,\n            \"matchOnAreaName3\": true,\n            \"matchOnAreaName2\": true,\n            \"matchOnAreaName4\": true,\n            \"matchOnStreetType\": true,\n            \"matchOnStreetDirectional\": true,\n            \"matchOnAddressNumber\": true,\n            \"matchOnAllStreetFields\": true,\n            \"matchOnPlaceName\": true,\n            \"matchOnInputFields\": true,\n            \"matchOnStreetName\": true,\n            \"matchOnPostCode1\": true,\n            \"matchOnPostCode2\": true\n          }\n        }\n      ],\n      \"totalPossibleCandidates\": 0,\n      \"totalMatches\": 6,\n      \"objectId\": \"objectId\"\n    },\n    {\n      \"candidates\": [\n        {\n          \"identifier\": \"identifier\",\n          \"formattedStreetAddress\": \"formattedStreetAddress\",\n          \"address\": {\n            \"country\": \"country\",\n            \"customFields\": {\n              \"key\": \"{}\"\n            },\n            \"postCode2\": \"postCode2\",\n            \"unitType\": \"unitType\",\n            \"areaName1\": \"areaName1\",\n            \"postCode1\": \"postCode1\",\n            \"areaName2\": \"areaName2\",\n            \"streetName\": \"streetName\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"placeName\": \"placeName\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"unitValue\": \"unitValue\"\n          },\n          \"ranges\": [\n            {\n              \"lowHouse\": \"lowHouse\",\n              \"side\": \"UNKNOWN\",\n              \"highHouse\": \"highHouse\",\n              \"oddEvenIndicator\": \"UNKNOWN\",\n              \"units\": [\n                {\n                  \"unitType\": \"unitType\",\n                  \"lowUnitValue\": \"lowUnitValue\",\n                  \"placeName\": \"placeName\",\n                  \"highUnitValue\": \"highUnitValue\",\n                  \"customValues\": {\n                    \"key\": \"{}\"\n                  }\n                },\n                {\n                  \"unitType\": \"unitType\",\n                  \"lowUnitValue\": \"lowUnitValue\",\n                  \"placeName\": \"placeName\",\n                  \"highUnitValue\": \"highUnitValue\",\n                  \"customValues\": {\n                    \"key\": \"{}\"\n                  }\n                }\n              ],\n              \"placeName\": \"placeName\",\n              \"customValues\": {\n                \"key\": \"{}\"\n              }\n            },\n            {\n              \"lowHouse\": \"lowHouse\",\n              \"side\": \"UNKNOWN\",\n              \"highHouse\": \"highHouse\",\n              \"oddEvenIndicator\": \"UNKNOWN\",\n              \"units\": [\n                {\n                  \"unitType\": \"unitType\",\n                  \"lowUnitValue\": \"lowUnitValue\",\n                  \"placeName\": \"placeName\",\n                  \"highUnitValue\": \"highUnitValue\",\n                  \"customValues\": {\n                    \"key\": \"{}\"\n                  }\n                },\n                {\n                  \"unitType\": \"unitType\",\n                  \"lowUnitValue\": \"lowUnitValue\",\n                  \"placeName\": \"placeName\",\n                  \"highUnitValue\": \"highUnitValue\",\n                  \"customValues\": {\n                    \"key\": \"{}\"\n                  }\n                }\n              ],\n              \"placeName\": \"placeName\",\n              \"customValues\": {\n                \"key\": \"{}\"\n              }\n            }\n          ],\n          \"precisionCode\": \"precisionCode\",\n          \"sourceDictionary\": \"sourceDictionary\",\n          \"formattedLocationAddress\": \"formattedLocationAddress\",\n          \"geometry\": {\n            \"crs\": {\n              \"type\": \"type\",\n              \"properties\": {\n                \"name\": \"name\"\n              }\n            },\n            \"coordinates\": [\n              5.962133916683182,\n              5.962133916683182\n            ],\n            \"type\": \"type\"\n          },\n          \"precisionLevel\": 1,\n          \"matching\": {\n            \"matchOnAreaName1\": true,\n            \"matchOnAreaName3\": true,\n            \"matchOnAreaName2\": true,\n            \"matchOnAreaName4\": true,\n            \"matchOnStreetType\": true,\n            \"matchOnStreetDirectional\": true,\n            \"matchOnAddressNumber\": true,\n            \"matchOnAllStreetFields\": true,\n            \"matchOnPlaceName\": true,\n            \"matchOnInputFields\": true,\n            \"matchOnStreetName\": true,\n            \"matchOnPostCode1\": true,\n            \"matchOnPostCode2\": true\n          }\n        },\n        {\n          \"identifier\": \"identifier\",\n          \"formattedStreetAddress\": \"formattedStreetAddress\",\n          \"address\": {\n            \"country\": \"country\",\n            \"customFields\": {\n              \"key\": \"{}\"\n            },\n            \"postCode2\": \"postCode2\",\n            \"unitType\": \"unitType\",\n            \"areaName1\": \"areaName1\",\n            \"postCode1\": \"postCode1\",\n            \"areaName2\": \"areaName2\",\n            \"streetName\": \"streetName\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"placeName\": \"placeName\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"unitValue\": \"unitValue\"\n          },\n          \"ranges\": [\n            {\n              \"lowHouse\": \"lowHouse\",\n              \"side\": \"UNKNOWN\",\n              \"highHouse\": \"highHouse\",\n              \"oddEvenIndicator\": \"UNKNOWN\",\n              \"units\": [\n                {\n                  \"unitType\": \"unitType\",\n                  \"lowUnitValue\": \"lowUnitValue\",\n                  \"placeName\": \"placeName\",\n                  \"highUnitValue\": \"highUnitValue\",\n                  \"customValues\": {\n                    \"key\": \"{}\"\n                  }\n                },\n                {\n                  \"unitType\": \"unitType\",\n                  \"lowUnitValue\": \"lowUnitValue\",\n                  \"placeName\": \"placeName\",\n                  \"highUnitValue\": \"highUnitValue\",\n                  \"customValues\": {\n                    \"key\": \"{}\"\n                  }\n                }\n              ],\n              \"placeName\": \"placeName\",\n              \"customValues\": {\n                \"key\": \"{}\"\n              }\n            },\n            {\n              \"lowHouse\": \"lowHouse\",\n              \"side\": \"UNKNOWN\",\n              \"highHouse\": \"highHouse\",\n              \"oddEvenIndicator\": \"UNKNOWN\",\n              \"units\": [\n                {\n                  \"unitType\": \"unitType\",\n                  \"lowUnitValue\": \"lowUnitValue\",\n                  \"placeName\": \"placeName\",\n                  \"highUnitValue\": \"highUnitValue\",\n                  \"customValues\": {\n                    \"key\": \"{}\"\n                  }\n                },\n                {\n                  \"unitType\": \"unitType\",\n                  \"lowUnitValue\": \"lowUnitValue\",\n                  \"placeName\": \"placeName\",\n                  \"highUnitValue\": \"highUnitValue\",\n                  \"customValues\": {\n                    \"key\": \"{}\"\n                  }\n                }\n              ],\n              \"placeName\": \"placeName\",\n              \"customValues\": {\n                \"key\": \"{}\"\n              }\n            }\n          ],\n          \"precisionCode\": \"precisionCode\",\n          \"sourceDictionary\": \"sourceDictionary\",\n          \"formattedLocationAddress\": \"formattedLocationAddress\",\n          \"geometry\": {\n            \"crs\": {\n              \"type\": \"type\",\n              \"properties\": {\n                \"name\": \"name\"\n              }\n            },\n            \"coordinates\": [\n              5.962133916683182,\n              5.962133916683182\n            ],\n            \"type\": \"type\"\n          },\n          \"precisionLevel\": 1,\n          \"matching\": {\n            \"matchOnAreaName1\": true,\n            \"matchOnAreaName3\": true,\n            \"matchOnAreaName2\": true,\n            \"matchOnAreaName4\": true,\n            \"matchOnStreetType\": true,\n            \"matchOnStreetDirectional\": true,\n            \"matchOnAddressNumber\": true,\n            \"matchOnAllStreetFields\": true,\n            \"matchOnPlaceName\": true,\n            \"matchOnInputFields\": true,\n            \"matchOnStreetName\": true,\n            \"matchOnPostCode1\": true,\n            \"matchOnPostCode2\": true\n          }\n        }\n      ],\n      \"totalPossibleCandidates\": 0,\n      \"totalMatches\": 6,\n      \"objectId\": \"objectId\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8dee0b19-464e-41af-af31-74d0074238d6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "geocode",
+                    "v1",
+                    ":datapackBundle",
+                    "reverseGeocode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datapackBundle",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"points\": [\n    {\n      \"country\": \"country\",\n      \"geometry\": {\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": [\n          5.962133916683182,\n          5.962133916683182\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\"\n    },\n    {\n      \"country\": \"country\",\n      \"geometry\": {\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": [\n          5.962133916683182,\n          5.962133916683182\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\"\n    }\n  ],\n  \"preferences\": {\n    \"cornerOffset\": \"<string>\",\n    \"distance\": \"<string>\",\n    \"fallbackToGeographic\": \"<string>\",\n    \"fallbackToPostal\": \"<string>\",\n    \"maxReturnedCandidates\": \"<string>\",\n    \"returnAllCandidateInfo\": \"<boolean>\",\n    \"streetOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"clientLocale\": \"<string>\",\n    \"clientCoordSysName\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"streetOffsetUnits\": \"<string>\",\n    \"cornerOffsetUnits\": \"<string>\",\n    \"mustMatchFields\": {\n      \"matchOnAreaName1\": true,\n      \"matchOnAreaName3\": true,\n      \"matchOnAreaName2\": true,\n      \"matchOnAreaName4\": true,\n      \"matchOnStreetType\": true,\n      \"matchOnStreetDirectional\": true,\n      \"matchOnAddressNumber\": true,\n      \"matchOnAllStreetFields\": true,\n      \"matchOnPlaceName\": true,\n      \"matchOnInputFields\": true,\n      \"matchOnStreetName\": true,\n      \"matchOnPostCode1\": true,\n      \"matchOnPostCode2\": true\n    },\n    \"returnFieldsDescriptor\": {\n      \"returnStreetAddressFields\": true,\n      \"returnAllCustomFields\": true,\n      \"returnUnitInformation\": true,\n      \"returnMatchDescriptor\": true,\n      \"returnedCustomFieldKeys\": [\n        \"returnedCustomFieldKeys\",\n        \"returnedCustomFieldKeys\"\n      ]\n    },\n    \"outputRecordType\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\",\n      \"key_2\": \"<object>\"\n    },\n    \"preferredDictionaryOrders\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"outputCasing\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"defaultBufferWidth\": \"<string>\",\n    \"returnCensusFields\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed28fbf4-403b-4210-85ef-bee33d74463a",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "geocode",
+                    "v1",
+                    ":datapackBundle",
+                    "reverseGeocode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "datapackBundle",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"points\": [\n    {\n      \"country\": \"country\",\n      \"geometry\": {\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": [\n          5.962133916683182,\n          5.962133916683182\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\"\n    },\n    {\n      \"country\": \"country\",\n      \"geometry\": {\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": [\n          5.962133916683182,\n          5.962133916683182\n        ],\n        \"type\": \"type\"\n      },\n      \"objectId\": \"objectId\"\n    }\n  ],\n  \"preferences\": {\n    \"cornerOffset\": \"<string>\",\n    \"distance\": \"<string>\",\n    \"fallbackToGeographic\": \"<string>\",\n    \"fallbackToPostal\": \"<string>\",\n    \"maxReturnedCandidates\": \"<string>\",\n    \"returnAllCandidateInfo\": \"<boolean>\",\n    \"streetOffset\": \"<string>\",\n    \"matchMode\": \"<string>\",\n    \"clientLocale\": \"<string>\",\n    \"clientCoordSysName\": \"<string>\",\n    \"distanceUnits\": \"<string>\",\n    \"streetOffsetUnits\": \"<string>\",\n    \"cornerOffsetUnits\": \"<string>\",\n    \"mustMatchFields\": {\n      \"matchOnAreaName1\": true,\n      \"matchOnAreaName3\": true,\n      \"matchOnAreaName2\": true,\n      \"matchOnAreaName4\": true,\n      \"matchOnStreetType\": true,\n      \"matchOnStreetDirectional\": true,\n      \"matchOnAddressNumber\": true,\n      \"matchOnAllStreetFields\": true,\n      \"matchOnPlaceName\": true,\n      \"matchOnInputFields\": true,\n      \"matchOnStreetName\": true,\n      \"matchOnPostCode1\": true,\n      \"matchOnPostCode2\": true\n    },\n    \"returnFieldsDescriptor\": {\n      \"returnStreetAddressFields\": true,\n      \"returnAllCustomFields\": true,\n      \"returnUnitInformation\": true,\n      \"returnMatchDescriptor\": true,\n      \"returnedCustomFieldKeys\": [\n        \"returnedCustomFieldKeys\",\n        \"returnedCustomFieldKeys\"\n      ]\n    },\n    \"outputRecordType\": \"<string>\",\n    \"customPreferences\": {\n      \"key_0\": \"<object>\",\n      \"key_1\": \"<object>\",\n      \"key_2\": \"<object>\"\n    },\n    \"preferredDictionaryOrders\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"outputCasing\": \"<string>\",\n    \"latLongOffset\": \"<string>\",\n    \"squeeze\": \"<string>\",\n    \"returnLatLongFields\": \"<string>\",\n    \"useGeoTaxAuxiliaryFile\": \"<string>\",\n    \"latLongFormat\": \"<string>\",\n    \"defaultBufferWidth\": \"<string>\",\n    \"returnCensusFields\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a1abe6bc-e553-4f57-8fdf-5683ee27dcb4",
+    "name": "Precisely APIs Reverse API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

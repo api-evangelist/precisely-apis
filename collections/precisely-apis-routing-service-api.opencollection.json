@@ -1,0 +1,436 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Routing  Service API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Routing  Service",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Gets Route By Location.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/routing/v1/route/bylocation",
+            "params": [
+              {
+                "name": "startPoint",
+                "value": "",
+                "type": "query",
+                "description": "Start Point in 'Lat,Long,coordsys' format."
+              },
+              {
+                "name": "endPoint",
+                "value": "",
+                "type": "query",
+                "description": "End Point in 'Lat,Long,coordsys' format."
+              },
+              {
+                "name": "db",
+                "value": "",
+                "type": "query",
+                "description": "Mode of commute."
+              },
+              {
+                "name": "intermediatePoints",
+                "value": "",
+                "type": "query",
+                "description": "List of intermediate points of the route."
+              },
+              {
+                "name": "returnIntermediatePoints",
+                "value": "",
+                "type": "query",
+                "description": "returnIntermediatePoints route."
+              },
+              {
+                "name": "oip",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether waypoints need to be optimized."
+              },
+              {
+                "name": "destinationSrs",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the desired coordinate system of the returned route."
+              },
+              {
+                "name": "optimizeBy",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether the route should be optimized by time or distance."
+              },
+              {
+                "name": "returnDistance",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether distance needs to be part of direction information in response."
+              },
+              {
+                "name": "distanceUnit",
+                "value": "",
+                "type": "query",
+                "description": "Return Distance Unit such as ft(Foot), km(Kilometer), mi(Mile), m(Meter) or yd(Yard)."
+              },
+              {
+                "name": "returnTime",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether time needs to be part of direction information in response."
+              },
+              {
+                "name": "timeUnit",
+                "value": "",
+                "type": "query",
+                "description": "Return time unit such as min(Minute), h(Hour), s(Second) or msec(Millisecond)"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the language of travel directions."
+              },
+              {
+                "name": "directionsStyle",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether route directions text is to be returned in the response and in what detail (Normal or Terse)."
+              },
+              {
+                "name": "segmentGeometryStyle",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether the route geometry is to be returned in the response and in what detail (End or All)."
+              },
+              {
+                "name": "primaryNameOnly",
+                "value": "",
+                "type": "query",
+                "description": "If true then only the primary street name is returned otherwise all the names for a street."
+              },
+              {
+                "name": "majorRoads",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include all roads in route calculation or just major roads."
+              },
+              {
+                "name": "historicTrafficTimeBucket",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether routing calculation uses the historic traffic speeds."
+              },
+              {
+                "name": "returnDirectionGeometry",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include geometry associated with each route instruction in response."
+              },
+              {
+                "name": "useCvr",
+                "value": "",
+                "type": "query",
+                "description": "This parameter will enable/disable CVR (Commercial Vehicle Restrictions) capability in our APIs."
+              },
+              {
+                "name": "looseningBarrierRestrictions",
+                "value": "",
+                "type": "query",
+                "description": "Specifies that barriers will be removed when determining the route."
+              },
+              {
+                "name": "vehicleType",
+                "value": "",
+                "type": "query",
+                "description": "vehicle type."
+              },
+              {
+                "name": "weight",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum weight of a vehicle. Any vehicles over this value will be restricted when determining the route."
+              },
+              {
+                "name": "weightUnit",
+                "value": "",
+                "type": "query",
+                "description": "The unit of weight eg. kg(kilogram), lb(pound), mt(metric ton), t(ton)."
+              },
+              {
+                "name": "height",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum height of a vehicle. Any vehicles over this value will be restricted when determining the route."
+              },
+              {
+                "name": "heightUnit",
+                "value": "",
+                "type": "query",
+                "description": "The unit of height e.g m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+              },
+              {
+                "name": "length",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum length of a vehicle. Any vehicles over this value will be restricted when determining the route."
+              },
+              {
+                "name": "lengthUnit",
+                "value": "",
+                "type": "query",
+                "description": "The unit of length eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+              },
+              {
+                "name": "width",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum width of a vehicle. Any vehicles over this value will be restricted when determining the route."
+              },
+              {
+                "name": "widthUnit",
+                "value": "",
+                "type": "query",
+                "description": "The unit of width eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts latitude & longitude as input and Returns Point-to-Point and Multi-Point travel directions by various travel modes."
+        },
+        {
+          "info": {
+            "name": "Gets Route By Address.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/routing/v1/route/byaddress",
+            "params": [
+              {
+                "name": "startAddress",
+                "value": "",
+                "type": "query",
+                "description": "Starting address of the route."
+              },
+              {
+                "name": "endAddress",
+                "value": "",
+                "type": "query",
+                "description": "Ending address of the route."
+              },
+              {
+                "name": "db",
+                "value": "",
+                "type": "query",
+                "description": "Mode of commute."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Three digit ISO country code."
+              },
+              {
+                "name": "intermediateAddresses",
+                "value": "",
+                "type": "query",
+                "description": "List of intermediate points of the route."
+              },
+              {
+                "name": "returnIntermediatePoints",
+                "value": "",
+                "type": "query",
+                "description": "return intermediate points"
+              },
+              {
+                "name": "oip",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether waypoints need to be optimized."
+              },
+              {
+                "name": "destinationSrs",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the desired coordinate system of the returned route."
+              },
+              {
+                "name": "optimizeBy",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether the route should be optimized by time or distance."
+              },
+              {
+                "name": "returnDistance",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether distance needs to be part of direction information in response."
+              },
+              {
+                "name": "distanceUnit",
+                "value": "",
+                "type": "query",
+                "description": "Return Distance Unit such as ft(Foot), km(Kilometer), mi(Mile), m(Meter) or yd(Yard)."
+              },
+              {
+                "name": "returnTime",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether time needs to be part of direction information in response."
+              },
+              {
+                "name": "timeUnit",
+                "value": "",
+                "type": "query",
+                "description": "Return time unit such as min(Minute), h(Hour), s(Second) or msec(Millisecond)"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the language of travel directions."
+              },
+              {
+                "name": "directionsStyle",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether route directions text is to be returned in the response and in what detail (Normal or Terse)."
+              },
+              {
+                "name": "segmentGeometryStyle",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether the route geometry is to be returned in the response and in what detail (End or All)."
+              },
+              {
+                "name": "primaryNameOnly",
+                "value": "",
+                "type": "query",
+                "description": "If true then only the primary street name is returned otherwise all the names for a street."
+              },
+              {
+                "name": "majorRoads",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include all roads in route calculation or just major roads."
+              },
+              {
+                "name": "historicTrafficTimeBucket",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether routing calculation uses the historic traffic speeds."
+              },
+              {
+                "name": "returnDirectionGeometry",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include geometry associated with each route instruction in response."
+              },
+              {
+                "name": "useCvr",
+                "value": "",
+                "type": "query",
+                "description": "This parameter will enable/disable CVR (Commercial Vehicle Restrictions) capability in our APIs."
+              },
+              {
+                "name": "looseningBarrierRestrictions",
+                "value": "",
+                "type": "query",
+                "description": "Specifies that barriers will be removed when determining the route."
+              },
+              {
+                "name": "vehicleType",
+                "value": "",
+                "type": "query",
+                "description": "vehicle type."
+              },
+              {
+                "name": "weight",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum weight of a vehicle. Any vehicles over this value will be restricted when determining the route."
+              },
+              {
+                "name": "weightUnit",
+                "value": "",
+                "type": "query",
+                "description": "The unit of weight eg. kg(kilogram), lb(pound), mt(metric ton), t(ton)."
+              },
+              {
+                "name": "height",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum height of a vehicle. Any vehicles over this value will be restricted when determining the route."
+              },
+              {
+                "name": "heightUnit",
+                "value": "",
+                "type": "query",
+                "description": "The unit of height e.g m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+              },
+              {
+                "name": "length",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum length of a vehicle. Any vehicles over this value will be restricted when determining the route."
+              },
+              {
+                "name": "lengthUnit",
+                "value": "",
+                "type": "query",
+                "description": "The unit of length eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+              },
+              {
+                "name": "width",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the maximum width of a vehicle. Any vehicles over this value will be restricted when determining the route."
+              },
+              {
+                "name": "widthUnit",
+                "value": "",
+                "type": "query",
+                "description": "The unit of width eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "Accepts addresses as input and Returns Point-to-Point and Multi-Point travel directions by various travel modes."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1170 @@
+{
+  "item": [
+    {
+      "id": "857c7e8b-e912-49c1-a4fb-f2f1815bfc1d",
+      "name": "Properties",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9829b0b9-cd93-461b-8cbc-713667364da6",
+          "name": "PropertyV2 Attributes By Address.",
+          "request": {
+            "name": "PropertyV2 Attributes By Address.",
+            "description": {
+              "content": "GetPropertyAttributesbyAddress Endpoint will take address as an input and will return key property attributes in response. Optionally user will have the option to filter the attributes and will pay for only returned attributes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "property",
+                "v2",
+                "attributes",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "free form address text"
+                },
+                {
+                  "disabled": false,
+                  "key": "attributes",
+                  "value": "<string>",
+                  "description": "Case-insensitive comma separated values of property attributes. Response will contain only the input attributes."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7878cbed-3395-4704-b809-69c6fda6c915",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property",
+                    "v2",
+                    "attributes",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"propertyAttributes\": {\n    \"caExemptions\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"buildgSqFtSource\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"legalLotCode\": \"legalLotCode\",\n    \"propSqFt\": \"propSqFt\",\n    \"owners\": [\n      {\n        \"firstName\": \"firstName\",\n        \"lastName\": \"lastName\",\n        \"ownerName\": \"ownerName\",\n        \"middleName\": \"middleName\",\n        \"ownerId\": \"ownerId\"\n      },\n      {\n        \"firstName\": \"firstName\",\n        \"lastName\": \"lastName\",\n        \"ownerName\": \"ownerName\",\n        \"middleName\": \"middleName\",\n        \"ownerId\": \"ownerId\"\n      }\n    ],\n    \"propFrontFootage\": \"propFrontFootage\",\n    \"lastUpdated\": \"lastUpdated\",\n    \"buildgCount\": \"buildgCount\",\n    \"basementType\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"marketValueYear\": \"marketValueYear\",\n    \"formattedTaxAddress\": {\n      \"unitType\": \"unitType\",\n      \"postCode2\": \"postCode2\",\n      \"postCode1\": \"postCode1\",\n      \"streetPreDirection\": \"streetPreDirection\",\n      \"streetName\": \"streetName\",\n      \"streetType\": \"streetType\",\n      \"city\": \"city\",\n      \"addressNumber\": \"addressNumber\",\n      \"streetPostDirection\": \"streetPostDirection\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"state\": \"state\",\n      \"unitValue\": \"unitValue\"\n    },\n    \"elevator\": \"elevator\",\n    \"taxYear\": \"taxYear\",\n    \"partialBaths\": \"partialBaths\",\n    \"buildgUnitNo\": \"buildgUnitNo\",\n    \"absenteeOwner\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"priorSalePageNumber\": \"priorSalePageNumber\",\n    \"ownerVestType\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"buildgFeaturesSqFt\": [\n      {\n        \"areaIndicator\": \"areaIndicator\",\n        \"description\": \"description\",\n        \"featureAreaSqFt\": \"featureAreaSqFt\"\n      },\n      {\n        \"areaIndicator\": \"areaIndicator\",\n        \"description\": \"description\",\n        \"featureAreaSqFt\": \"featureAreaSqFt\"\n      }\n    ],\n    \"legalLotNumber\": \"legalLotNumber\",\n    \"roofCoverType\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"assessedLandValue\": \"assessedLandValue\",\n    \"salesDate\": \"salesDate\",\n    \"pool\": \"pool\",\n    \"propDepthFootage\": \"propDepthFootage\",\n    \"propApn\": \"propApn\",\n    \"mobileHome\": \"mobileHome\",\n    \"bedrooms\": \"bedrooms\",\n    \"taxSalesPriceCode\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"priorSaleFolioNumber\": \"priorSaleFolioNumber\",\n    \"coolingType\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"vacancy\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"taxRateCode\": \"taxRateCode\",\n    \"legalDistrict\": \"legalDistrict\",\n    \"amenities\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"assessedYear\": \"assessedYear\",\n    \"situsAddress\": {\n      \"unitType\": \"unitType\",\n      \"postCode2\": \"postCode2\",\n      \"postCode1\": \"postCode1\",\n      \"streetPreDirection\": \"streetPreDirection\",\n      \"streetName\": \"streetName\",\n      \"streetType\": \"streetType\",\n      \"city\": \"city\",\n      \"addressNumber\": \"addressNumber\",\n      \"streetPostDirection\": \"streetPostDirection\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"state\": \"state\",\n      \"unitValue\": \"unitValue\"\n    },\n    \"foundation\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"grossSqft\": \"grossSqft\",\n    \"legalUnitNumber\": \"legalUnitNumber\",\n    \"fireplace\": \"fireplace\",\n    \"sewerType\": \"sewerType\",\n    \"locCode\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"recBookNumber\": \"recBookNumber\",\n    \"legalSectionTownshipRange\": \"legalSectionTownshipRange\",\n    \"pbKey\": \"pbKey\",\n    \"propLinkId\": \"propLinkId\",\n    \"taxAddress\": \"taxAddress\",\n    \"assessedValue\": \"assessedValue\",\n    \"taxAccountNumber\": \"taxAccountNumber\",\n    \"priorSaleDocType\": \"priorSaleDocType\",\n    \"buildgCondition\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"interiorWall\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"roofFrameType\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"propAcres\": \"propAcres\",\n    \"exteriorWalls\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"buildgSqFt\": \"buildgSqFt\",\n    \"baths\": \"baths\",\n    \"fuelType\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"garageType\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"propZoning\": \"propZoning\",\n    \"priorSaleCode\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"marketValueImp\": \"marketValueImp\",\n    \"priorSaleDocNumber\": \"priorSaleDocNumber\",\n    \"buildgQuality\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"geometry\": {\n      \"coordinates\": [\n        0.8008281904610115,\n        0.8008281904610115\n      ],\n      \"type\": \"type\"\n    },\n    \"marketValueLand\": \"marketValueLand\",\n    \"landUse\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"bathFixtures\": \"bathFixtures\",\n    \"basementSqFt\": \"basementSqFt\",\n    \"ownerType\": \"ownerType\",\n    \"rooms\": \"rooms\",\n    \"heatingType\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"recPageNumber\": \"recPageNumber\",\n    \"taxExemptions\": [\n      {\n        \"code\": \"code\",\n        \"value\": \"value\"\n      },\n      {\n        \"code\": \"code\",\n        \"value\": \"value\"\n      }\n    ],\n    \"taxDocType\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"replacementCost\": \"replacementCost\",\n    \"legalSubName\": \"legalSubName\",\n    \"floorType\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"assessedValueImp\": \"assessedValueImp\",\n    \"roofShapeType\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"geoId\": \"geoId\",\n    \"taxTapeCutDate\": \"taxTapeCutDate\",\n    \"legalSection\": \"legalSection\",\n    \"otherRooms\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"recDocNumber\": \"recDocNumber\",\n    \"appraisedValueImp\": \"appraisedValueImp\",\n    \"legalFullDesc\": \"legalFullDesc\",\n    \"legalBlock\": \"legalBlock\",\n    \"buildgView\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"fipsCode\": \"fipsCode\",\n    \"poolType\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"legalLandLot\": \"legalLandLot\",\n    \"plumbingFixtures\": \"plumbingFixtures\",\n    \"energyType\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"buildgName\": \"buildgName\",\n    \"propApnSequence\": \"propApnSequence\",\n    \"builtYear\": \"builtYear\",\n    \"priorSaleDate\": \"priorSaleDate\",\n    \"taxAmount\": \"taxAmount\",\n    \"appraisedValue\": \"appraisedValue\",\n    \"appraisedValueLand\": \"appraisedValueLand\",\n    \"parkingCapacity\": \"parkingCapacity\",\n    \"buildgType\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"parkingSqFt\": \"parkingSqFt\",\n    \"priorSalesPrice\": \"priorSalesPrice\",\n    \"waterType\": \"waterType\",\n    \"legalPhaseNumber\": \"legalPhaseNumber\",\n    \"buildgStyle\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"legalMapRef\": \"legalMapRef\",\n    \"subdivision\": \"subdivision\",\n    \"effectiveBuiltYear\": \"effectiveBuiltYear\",\n    \"buildgImproveArea\": [\n      {\n        \"improveArea\": \"improveArea\",\n        \"areaIndicator\": \"areaIndicator\",\n        \"description\": \"description\"\n      },\n      {\n        \"improveArea\": \"improveArea\",\n        \"areaIndicator\": \"areaIndicator\",\n        \"description\": \"description\"\n      }\n    ],\n    \"legalAssessorDesc\": \"legalAssessorDesc\",\n    \"propSiteInfluene\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"construction\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"livingSqFt\": \"livingSqFt\",\n    \"buildgImproveType\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"fireplaceType\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    },\n    \"taxDelYear\": \"taxDelYear\",\n    \"stories\": {\n      \"description\": \"description\",\n      \"value\": \"value\"\n    },\n    \"taxSalesPrice\": \"taxSalesPrice\",\n    \"marketValue\": \"marketValue\",\n    \"extraFeatureSqft\": [\n      {\n        \"areaIndicator\": \"areaIndicator\",\n        \"description\": \"description\",\n        \"featureAreaSqFt\": \"featureAreaSqFt\"\n      },\n      {\n        \"areaIndicator\": \"areaIndicator\",\n        \"description\": \"description\",\n        \"featureAreaSqFt\": \"featureAreaSqFt\"\n      }\n    ],\n    \"adjGrossSqft\": \"adjGrossSqft\",\n    \"propType\": \"propType\",\n    \"legalTractNumber\": \"legalTractNumber\",\n    \"legalTownMuniName\": \"legalTownMuniName\",\n    \"buildgClass\": {\n      \"code\": \"code\",\n      \"value\": \"value\"\n    }\n  },\n  \"objectId\": \"objectId\",\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7938b93-368a-4c58-b8ec-4ce60008a0b0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property",
+                    "v2",
+                    "attributes",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9517efd4-8762-4b1d-8304-a772cd737b89",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property",
+                    "v2",
+                    "attributes",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "75d6c5c8-153a-4d3b-b34d-af11b23f1223",
+          "name": "PropertyV2 Attributes By Address Batch.",
+          "request": {
+            "name": "PropertyV2 Attributes By Address Batch.",
+            "description": {
+              "content": "GetPropertyAttributesbyAddressBatch Endpoint will take the list of addresses as an input and will return key property attributes for the given addresses in response. Optionally user will have the option to filter the attributes and will pay for only returned attributes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "property",
+                "v2",
+                "attributes",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"addresses\": [\n    {\n      \"objectId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"streetSide\": \"<string>\",\n      \"businessName\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateProvince\": \"<string>\",\n      \"county\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\",\n      \"status\": \"<string>\",\n      \"urbanizationName\": \"<string>\",\n      \"formattedAddress\": \"<string>\",\n      \"mainAddressLine\": \"<string>\",\n      \"addressLastLine\": \"<string>\",\n      \"placeName\": \"<string>\",\n      \"areaName1\": \"<string>\",\n      \"areaName2\": \"<string>\",\n      \"areaName3\": \"<string>\",\n      \"areaName4\": \"<string>\",\n      \"postCode\": \"<string>\",\n      \"postCodeExt\": \"<string>\",\n      \"country\": \"<string>\",\n      \"addressNumber\": \"<string>\",\n      \"streetName\": \"<string>\",\n      \"unitType\": \"<string>\",\n      \"unitValue\": \"<string>\"\n    },\n    {\n      \"objectId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"streetSide\": \"<string>\",\n      \"businessName\": \"<string>\",\n      \"addressLine1\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateProvince\": \"<string>\",\n      \"county\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\",\n      \"status\": \"<string>\",\n      \"urbanizationName\": \"<string>\",\n      \"formattedAddress\": \"<string>\",\n      \"mainAddressLine\": \"<string>\",\n      \"addressLastLine\": \"<string>\",\n      \"placeName\": \"<string>\",\n      \"areaName1\": \"<string>\",\n      \"areaName2\": \"<string>\",\n      \"areaName3\": \"<string>\",\n      \"areaName4\": \"<string>\",\n      \"postCode\": \"<string>\",\n      \"postCodeExt\": \"<string>\",\n      \"country\": \"<string>\",\n      \"addressNumber\": \"<string>\",\n      \"streetName\": \"<string>\",\n      \"unitType\": \"<string>\",\n      \"unitValue\": \"<string>\"\n    }\n  ],\n  \"preferences\": {\n    \"attributes\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5f685ef5-e297-48bc-b7f8-a983caa0393f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property",
+                    "v2",
+                    "attributes",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preferences\": {\n    \"attributes\": \"attributes\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"propertyInfoResponses\": [\n    {\n      \"propertyAttributes\": {\n        \"caExemptions\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"buildgSqFtSource\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"legalLotCode\": \"legalLotCode\",\n        \"propSqFt\": \"propSqFt\",\n        \"owners\": [\n          {\n            \"firstName\": \"firstName\",\n            \"lastName\": \"lastName\",\n            \"ownerName\": \"ownerName\",\n            \"middleName\": \"middleName\",\n            \"ownerId\": \"ownerId\"\n          },\n          {\n            \"firstName\": \"firstName\",\n            \"lastName\": \"lastName\",\n            \"ownerName\": \"ownerName\",\n            \"middleName\": \"middleName\",\n            \"ownerId\": \"ownerId\"\n          }\n        ],\n        \"propFrontFootage\": \"propFrontFootage\",\n        \"lastUpdated\": \"lastUpdated\",\n        \"buildgCount\": \"buildgCount\",\n        \"basementType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"marketValueYear\": \"marketValueYear\",\n        \"formattedTaxAddress\": {\n          \"unitType\": \"unitType\",\n          \"postCode2\": \"postCode2\",\n          \"postCode1\": \"postCode1\",\n          \"streetPreDirection\": \"streetPreDirection\",\n          \"streetName\": \"streetName\",\n          \"streetType\": \"streetType\",\n          \"city\": \"city\",\n          \"addressNumber\": \"addressNumber\",\n          \"streetPostDirection\": \"streetPostDirection\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"state\": \"state\",\n          \"unitValue\": \"unitValue\"\n        },\n        \"elevator\": \"elevator\",\n        \"taxYear\": \"taxYear\",\n        \"partialBaths\": \"partialBaths\",\n        \"buildgUnitNo\": \"buildgUnitNo\",\n        \"absenteeOwner\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"priorSalePageNumber\": \"priorSalePageNumber\",\n        \"ownerVestType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"buildgFeaturesSqFt\": [\n          {\n            \"areaIndicator\": \"areaIndicator\",\n            \"description\": \"description\",\n            \"featureAreaSqFt\": \"featureAreaSqFt\"\n          },\n          {\n            \"areaIndicator\": \"areaIndicator\",\n            \"description\": \"description\",\n            \"featureAreaSqFt\": \"featureAreaSqFt\"\n          }\n        ],\n        \"legalLotNumber\": \"legalLotNumber\",\n        \"roofCoverType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"assessedLandValue\": \"assessedLandValue\",\n        \"salesDate\": \"salesDate\",\n        \"pool\": \"pool\",\n        \"propDepthFootage\": \"propDepthFootage\",\n        \"propApn\": \"propApn\",\n        \"mobileHome\": \"mobileHome\",\n        \"bedrooms\": \"bedrooms\",\n        \"taxSalesPriceCode\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"priorSaleFolioNumber\": \"priorSaleFolioNumber\",\n        \"coolingType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"vacancy\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"taxRateCode\": \"taxRateCode\",\n        \"legalDistrict\": \"legalDistrict\",\n        \"amenities\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"assessedYear\": \"assessedYear\",\n        \"situsAddress\": {\n          \"unitType\": \"unitType\",\n          \"postCode2\": \"postCode2\",\n          \"postCode1\": \"postCode1\",\n          \"streetPreDirection\": \"streetPreDirection\",\n          \"streetName\": \"streetName\",\n          \"streetType\": \"streetType\",\n          \"city\": \"city\",\n          \"addressNumber\": \"addressNumber\",\n          \"streetPostDirection\": \"streetPostDirection\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"state\": \"state\",\n          \"unitValue\": \"unitValue\"\n        },\n        \"foundation\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"grossSqft\": \"grossSqft\",\n        \"legalUnitNumber\": \"legalUnitNumber\",\n        \"fireplace\": \"fireplace\",\n        \"sewerType\": \"sewerType\",\n        \"locCode\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"recBookNumber\": \"recBookNumber\",\n        \"legalSectionTownshipRange\": \"legalSectionTownshipRange\",\n        \"pbKey\": \"pbKey\",\n        \"propLinkId\": \"propLinkId\",\n        \"taxAddress\": \"taxAddress\",\n        \"assessedValue\": \"assessedValue\",\n        \"taxAccountNumber\": \"taxAccountNumber\",\n        \"priorSaleDocType\": \"priorSaleDocType\",\n        \"buildgCondition\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"interiorWall\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"roofFrameType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"propAcres\": \"propAcres\",\n        \"exteriorWalls\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"buildgSqFt\": \"buildgSqFt\",\n        \"baths\": \"baths\",\n        \"fuelType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"garageType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"propZoning\": \"propZoning\",\n        \"priorSaleCode\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"marketValueImp\": \"marketValueImp\",\n        \"priorSaleDocNumber\": \"priorSaleDocNumber\",\n        \"buildgQuality\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"geometry\": {\n          \"coordinates\": [\n            0.8008281904610115,\n            0.8008281904610115\n          ],\n          \"type\": \"type\"\n        },\n        \"marketValueLand\": \"marketValueLand\",\n        \"landUse\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"bathFixtures\": \"bathFixtures\",\n        \"basementSqFt\": \"basementSqFt\",\n        \"ownerType\": \"ownerType\",\n        \"rooms\": \"rooms\",\n        \"heatingType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"recPageNumber\": \"recPageNumber\",\n        \"taxExemptions\": [\n          {\n            \"code\": \"code\",\n            \"value\": \"value\"\n          },\n          {\n            \"code\": \"code\",\n            \"value\": \"value\"\n          }\n        ],\n        \"taxDocType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"replacementCost\": \"replacementCost\",\n        \"legalSubName\": \"legalSubName\",\n        \"floorType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"assessedValueImp\": \"assessedValueImp\",\n        \"roofShapeType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"geoId\": \"geoId\",\n        \"taxTapeCutDate\": \"taxTapeCutDate\",\n        \"legalSection\": \"legalSection\",\n        \"otherRooms\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"recDocNumber\": \"recDocNumber\",\n        \"appraisedValueImp\": \"appraisedValueImp\",\n        \"legalFullDesc\": \"legalFullDesc\",\n        \"legalBlock\": \"legalBlock\",\n        \"buildgView\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"fipsCode\": \"fipsCode\",\n        \"poolType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"legalLandLot\": \"legalLandLot\",\n        \"plumbingFixtures\": \"plumbingFixtures\",\n        \"energyType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"buildgName\": \"buildgName\",\n        \"propApnSequence\": \"propApnSequence\",\n        \"builtYear\": \"builtYear\",\n        \"priorSaleDate\": \"priorSaleDate\",\n        \"taxAmount\": \"taxAmount\",\n        \"appraisedValue\": \"appraisedValue\",\n        \"appraisedValueLand\": \"appraisedValueLand\",\n        \"parkingCapacity\": \"parkingCapacity\",\n        \"buildgType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"parkingSqFt\": \"parkingSqFt\",\n        \"priorSalesPrice\": \"priorSalesPrice\",\n        \"waterType\": \"waterType\",\n        \"legalPhaseNumber\": \"legalPhaseNumber\",\n        \"buildgStyle\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"legalMapRef\": \"legalMapRef\",\n        \"subdivision\": \"subdivision\",\n        \"effectiveBuiltYear\": \"effectiveBuiltYear\",\n        \"buildgImproveArea\": [\n          {\n            \"improveArea\": \"improveArea\",\n            \"areaIndicator\": \"areaIndicator\",\n            \"description\": \"description\"\n          },\n          {\n            \"improveArea\": \"improveArea\",\n            \"areaIndicator\": \"areaIndicator\",\n            \"description\": \"description\"\n          }\n        ],\n        \"legalAssessorDesc\": \"legalAssessorDesc\",\n        \"propSiteInfluene\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"construction\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"livingSqFt\": \"livingSqFt\",\n        \"buildgImproveType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"fireplaceType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"taxDelYear\": \"taxDelYear\",\n        \"stories\": {\n          \"description\": \"description\",\n          \"value\": \"value\"\n        },\n        \"taxSalesPrice\": \"taxSalesPrice\",\n        \"marketValue\": \"marketValue\",\n        \"extraFeatureSqft\": [\n          {\n            \"areaIndicator\": \"areaIndicator\",\n            \"description\": \"description\",\n            \"featureAreaSqFt\": \"featureAreaSqFt\"\n          },\n          {\n            \"areaIndicator\": \"areaIndicator\",\n            \"description\": \"description\",\n            \"featureAreaSqFt\": \"featureAreaSqFt\"\n          }\n        ],\n        \"adjGrossSqft\": \"adjGrossSqft\",\n        \"propType\": \"propType\",\n        \"legalTractNumber\": \"legalTractNumber\",\n        \"legalTownMuniName\": \"legalTownMuniName\",\n        \"buildgClass\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        }\n      },\n      \"objectId\": \"objectId\",\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    },\n    {\n      \"propertyAttributes\": {\n        \"caExemptions\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"buildgSqFtSource\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"legalLotCode\": \"legalLotCode\",\n        \"propSqFt\": \"propSqFt\",\n        \"owners\": [\n          {\n            \"firstName\": \"firstName\",\n            \"lastName\": \"lastName\",\n            \"ownerName\": \"ownerName\",\n            \"middleName\": \"middleName\",\n            \"ownerId\": \"ownerId\"\n          },\n          {\n            \"firstName\": \"firstName\",\n            \"lastName\": \"lastName\",\n            \"ownerName\": \"ownerName\",\n            \"middleName\": \"middleName\",\n            \"ownerId\": \"ownerId\"\n          }\n        ],\n        \"propFrontFootage\": \"propFrontFootage\",\n        \"lastUpdated\": \"lastUpdated\",\n        \"buildgCount\": \"buildgCount\",\n        \"basementType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"marketValueYear\": \"marketValueYear\",\n        \"formattedTaxAddress\": {\n          \"unitType\": \"unitType\",\n          \"postCode2\": \"postCode2\",\n          \"postCode1\": \"postCode1\",\n          \"streetPreDirection\": \"streetPreDirection\",\n          \"streetName\": \"streetName\",\n          \"streetType\": \"streetType\",\n          \"city\": \"city\",\n          \"addressNumber\": \"addressNumber\",\n          \"streetPostDirection\": \"streetPostDirection\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"state\": \"state\",\n          \"unitValue\": \"unitValue\"\n        },\n        \"elevator\": \"elevator\",\n        \"taxYear\": \"taxYear\",\n        \"partialBaths\": \"partialBaths\",\n        \"buildgUnitNo\": \"buildgUnitNo\",\n        \"absenteeOwner\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"priorSalePageNumber\": \"priorSalePageNumber\",\n        \"ownerVestType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"buildgFeaturesSqFt\": [\n          {\n            \"areaIndicator\": \"areaIndicator\",\n            \"description\": \"description\",\n            \"featureAreaSqFt\": \"featureAreaSqFt\"\n          },\n          {\n            \"areaIndicator\": \"areaIndicator\",\n            \"description\": \"description\",\n            \"featureAreaSqFt\": \"featureAreaSqFt\"\n          }\n        ],\n        \"legalLotNumber\": \"legalLotNumber\",\n        \"roofCoverType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"assessedLandValue\": \"assessedLandValue\",\n        \"salesDate\": \"salesDate\",\n        \"pool\": \"pool\",\n        \"propDepthFootage\": \"propDepthFootage\",\n        \"propApn\": \"propApn\",\n        \"mobileHome\": \"mobileHome\",\n        \"bedrooms\": \"bedrooms\",\n        \"taxSalesPriceCode\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"priorSaleFolioNumber\": \"priorSaleFolioNumber\",\n        \"coolingType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"vacancy\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"taxRateCode\": \"taxRateCode\",\n        \"legalDistrict\": \"legalDistrict\",\n        \"amenities\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"assessedYear\": \"assessedYear\",\n        \"situsAddress\": {\n          \"unitType\": \"unitType\",\n          \"postCode2\": \"postCode2\",\n          \"postCode1\": \"postCode1\",\n          \"streetPreDirection\": \"streetPreDirection\",\n          \"streetName\": \"streetName\",\n          \"streetType\": \"streetType\",\n          \"city\": \"city\",\n          \"addressNumber\": \"addressNumber\",\n          \"streetPostDirection\": \"streetPostDirection\",\n          \"mainAddressLine\": \"mainAddressLine\",\n          \"state\": \"state\",\n          \"unitValue\": \"unitValue\"\n        },\n        \"foundation\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"grossSqft\": \"grossSqft\",\n        \"legalUnitNumber\": \"legalUnitNumber\",\n        \"fireplace\": \"fireplace\",\n        \"sewerType\": \"sewerType\",\n        \"locCode\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"recBookNumber\": \"recBookNumber\",\n        \"legalSectionTownshipRange\": \"legalSectionTownshipRange\",\n        \"pbKey\": \"pbKey\",\n        \"propLinkId\": \"propLinkId\",\n        \"taxAddress\": \"taxAddress\",\n        \"assessedValue\": \"assessedValue\",\n        \"taxAccountNumber\": \"taxAccountNumber\",\n        \"priorSaleDocType\": \"priorSaleDocType\",\n        \"buildgCondition\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"interiorWall\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"roofFrameType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"propAcres\": \"propAcres\",\n        \"exteriorWalls\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"buildgSqFt\": \"buildgSqFt\",\n        \"baths\": \"baths\",\n        \"fuelType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"garageType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"propZoning\": \"propZoning\",\n        \"priorSaleCode\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"marketValueImp\": \"marketValueImp\",\n        \"priorSaleDocNumber\": \"priorSaleDocNumber\",\n        \"buildgQuality\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"geometry\": {\n          \"coordinates\": [\n            0.8008281904610115,\n            0.8008281904610115\n          ],\n          \"type\": \"type\"\n        },\n        \"marketValueLand\": \"marketValueLand\",\n        \"landUse\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"bathFixtures\": \"bathFixtures\",\n        \"basementSqFt\": \"basementSqFt\",\n        \"ownerType\": \"ownerType\",\n        \"rooms\": \"rooms\",\n        \"heatingType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"recPageNumber\": \"recPageNumber\",\n        \"taxExemptions\": [\n          {\n            \"code\": \"code\",\n            \"value\": \"value\"\n          },\n          {\n            \"code\": \"code\",\n            \"value\": \"value\"\n          }\n        ],\n        \"taxDocType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"replacementCost\": \"replacementCost\",\n        \"legalSubName\": \"legalSubName\",\n        \"floorType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"assessedValueImp\": \"assessedValueImp\",\n        \"roofShapeType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"geoId\": \"geoId\",\n        \"taxTapeCutDate\": \"taxTapeCutDate\",\n        \"legalSection\": \"legalSection\",\n        \"otherRooms\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"recDocNumber\": \"recDocNumber\",\n        \"appraisedValueImp\": \"appraisedValueImp\",\n        \"legalFullDesc\": \"legalFullDesc\",\n        \"legalBlock\": \"legalBlock\",\n        \"buildgView\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"fipsCode\": \"fipsCode\",\n        \"poolType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"legalLandLot\": \"legalLandLot\",\n        \"plumbingFixtures\": \"plumbingFixtures\",\n        \"energyType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"buildgName\": \"buildgName\",\n        \"propApnSequence\": \"propApnSequence\",\n        \"builtYear\": \"builtYear\",\n        \"priorSaleDate\": \"priorSaleDate\",\n        \"taxAmount\": \"taxAmount\",\n        \"appraisedValue\": \"appraisedValue\",\n        \"appraisedValueLand\": \"appraisedValueLand\",\n        \"parkingCapacity\": \"parkingCapacity\",\n        \"buildgType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"parkingSqFt\": \"parkingSqFt\",\n        \"priorSalesPrice\": \"priorSalesPrice\",\n        \"waterType\": \"waterType\",\n        \"legalPhaseNumber\": \"legalPhaseNumber\",\n        \"buildgStyle\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"legalMapRef\": \"legalMapRef\",\n        \"subdivision\": \"subdivision\",\n        \"effectiveBuiltYear\": \"effectiveBuiltYear\",\n        \"buildgImproveArea\": [\n          {\n            \"improveArea\": \"improveArea\",\n            \"areaIndicator\": \"areaIndicator\",\n            \"description\": \"description\"\n          },\n          {\n            \"improveArea\": \"improveArea\",\n            \"areaIndicator\": \"areaIndicator\",\n            \"description\": \"description\"\n          }\n        ],\n        \"legalAssessorDesc\": \"legalAssessorDesc\",\n        \"propSiteInfluene\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"construction\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"livingSqFt\": \"livingSqFt\",\n        \"buildgImproveType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"fireplaceType\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        },\n        \"taxDelYear\": \"taxDelYear\",\n        \"stories\": {\n          \"description\": \"description\",\n          \"value\": \"value\"\n        },\n        \"taxSalesPrice\": \"taxSalesPrice\",\n        \"marketValue\": \"marketValue\",\n        \"extraFeatureSqft\": [\n          {\n            \"areaIndicator\": \"areaIndicator\",\n            \"description\": \"description\",\n            \"featureAreaSqFt\": \"featureAreaSqFt\"\n          },\n          {\n            \"areaIndicator\": \"areaIndicator\",\n            \"description\": \"description\",\n            \"featureAreaSqFt\": \"featureAreaSqFt\"\n          }\n        ],\n        \"adjGrossSqft\": \"adjGrossSqft\",\n        \"propType\": \"propType\",\n        \"legalTractNumber\": \"legalTractNumber\",\n        \"legalTownMuniName\": \"legalTownMuniName\",\n        \"buildgClass\": {\n          \"code\": \"code\",\n          \"value\": \"value\"\n        }\n      },\n      \"objectId\": \"objectId\",\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc5b452d-2142-4a7c-a3e5-1f3bb36e5c69",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property",
+                    "v2",
+                    "attributes",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preferences\": {\n    \"attributes\": \"attributes\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a85b348-7329-4fff-bb74-d2dc43f3addc",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property",
+                    "v2",
+                    "attributes",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"preferences\": {\n    \"attributes\": \"attributes\"\n  },\n  \"addresses\": [\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    },\n    {\n      \"country\": \"country\",\n      \"streetSide\": \"streetSide\",\n      \"city\": \"city\",\n      \"displayName\": \"displayName\",\n      \"postalCode\": \"postalCode\",\n      \"latitude\": \"latitude\",\n      \"businessName\": \"businessName\",\n      \"county\": \"county\",\n      \"unitType\": \"unitType\",\n      \"streetName\": \"streetName\",\n      \"formattedAddress\": \"formattedAddress\",\n      \"addressLine1\": \"addressLine1\",\n      \"mainAddressLine\": \"mainAddressLine\",\n      \"addressLine2\": \"addressLine2\",\n      \"addressLine3\": \"addressLine3\",\n      \"objectId\": \"objectId\",\n      \"addressLastLine\": \"addressLastLine\",\n      \"longitude\": \"longitude\",\n      \"unitValue\": \"unitValue\",\n      \"stateProvince\": \"stateProvince\",\n      \"urbanizationName\": \"urbanizationName\",\n      \"areaName1\": \"areaName1\",\n      \"areaName2\": \"areaName2\",\n      \"areaName3\": \"areaName3\",\n      \"areaName4\": \"areaName4\",\n      \"addressNumber\": \"addressNumber\",\n      \"postCode\": \"postCode\",\n      \"postCodeExt\": \"postCodeExt\",\n      \"placeName\": \"placeName\",\n      \"status\": \"status\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bcc880d5-93d5-495d-bfa1-63102e0c6698",
+          "name": "Get Parcel Boundary By Location",
+          "request": {
+            "name": "Get Parcel Boundary By Location",
+            "description": {
+              "content": "Accepts latitude/longitude as input and returns property parcel boundary around that location.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "property",
+                "v2",
+                "parcelboundary",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "longitude",
+                  "value": "<string>",
+                  "description": "(Required) Longitude of Location"
+                },
+                {
+                  "disabled": false,
+                  "key": "latitude",
+                  "value": "<string>",
+                  "description": "(Required) Latitude of Location"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "17dc9b76-c87a-48a0-8315-61338328b656",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property",
+                    "v2",
+                    "parcelboundary",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objectId\": \"string\",\n  \"parcelApn\": \"string\",\n  \"geoId\": \"string\",\n  \"center\": {\n    \"coordinates\": [\n      0.8008281904610115,\n      0.8008281904610115\n    ],\n    \"type\": \"type\"\n  },\n  \"countyfips\": \"string\",\n  \"parcelAreaSqFt\": \"string\",\n  \"geometry\": {\n    \"type\": \"string\",\n    \"crs\": {\n      \"type\": \"type\",\n      \"properties\": {\n        \"name\": \"name\"\n      }\n    },\n    \"coordinates\": {}\n  },\n  \"parcelList\": [\n    {\n      \"taxAccountNumber\": \"taxAccountNumber\",\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"taxApn\": \"taxApn\",\n      \"preciselyId\": \"preciselyId\",\n      \"propLinkId\": \"propLinkId\",\n      \"parentPreciselyId\": \"parentPreciselyId\"\n    },\n    {\n      \"taxAccountNumber\": \"taxAccountNumber\",\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"taxApn\": \"taxApn\",\n      \"preciselyId\": \"preciselyId\",\n      \"propLinkId\": \"propLinkId\",\n      \"parentPreciselyId\": \"parentPreciselyId\"\n    }\n  ],\n  \"adjacentParcelBoundary\": [\n    {\n      \"objectId\": \"string\",\n      \"parcelApn\": \"string\",\n      \"geoId\": \"string\",\n      \"center\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"countyfips\": \"string\",\n      \"parcelAreaSqFt\": \"string\",\n      \"geometry\": {\n        \"type\": \"string\",\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": {}\n      },\n      \"parcelList\": [\n        {\n          \"taxAccountNumber\": \"taxAccountNumber\",\n          \"address\": {\n            \"country\": \"country\",\n            \"streetSide\": \"streetSide\",\n            \"city\": \"city\",\n            \"displayName\": \"displayName\",\n            \"postalCode\": \"postalCode\",\n            \"latitude\": \"latitude\",\n            \"businessName\": \"businessName\",\n            \"county\": \"county\",\n            \"unitType\": \"unitType\",\n            \"streetName\": \"streetName\",\n            \"formattedAddress\": \"formattedAddress\",\n            \"addressLine1\": \"addressLine1\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"addressLine2\": \"addressLine2\",\n            \"addressLine3\": \"addressLine3\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"longitude\": \"longitude\",\n            \"unitValue\": \"unitValue\",\n            \"stateProvince\": \"stateProvince\",\n            \"urbanizationName\": \"urbanizationName\",\n            \"areaName1\": \"areaName1\",\n            \"areaName2\": \"areaName2\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"postCode\": \"postCode\",\n            \"postCodeExt\": \"postCodeExt\",\n            \"placeName\": \"placeName\",\n            \"status\": \"status\"\n          },\n          \"taxApn\": \"taxApn\",\n          \"preciselyId\": \"preciselyId\",\n          \"propLinkId\": \"propLinkId\",\n          \"parentPreciselyId\": \"parentPreciselyId\"\n        },\n        {\n          \"taxAccountNumber\": \"taxAccountNumber\",\n          \"address\": {\n            \"country\": \"country\",\n            \"streetSide\": \"streetSide\",\n            \"city\": \"city\",\n            \"displayName\": \"displayName\",\n            \"postalCode\": \"postalCode\",\n            \"latitude\": \"latitude\",\n            \"businessName\": \"businessName\",\n            \"county\": \"county\",\n            \"unitType\": \"unitType\",\n            \"streetName\": \"streetName\",\n            \"formattedAddress\": \"formattedAddress\",\n            \"addressLine1\": \"addressLine1\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"addressLine2\": \"addressLine2\",\n            \"addressLine3\": \"addressLine3\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"longitude\": \"longitude\",\n            \"unitValue\": \"unitValue\",\n            \"stateProvince\": \"stateProvince\",\n            \"urbanizationName\": \"urbanizationName\",\n            \"areaName1\": \"areaName1\",\n            \"areaName2\": \"areaName2\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"postCode\": \"postCode\",\n            \"postCodeExt\": \"postCodeExt\",\n            \"placeName\": \"placeName\",\n            \"status\": \"status\"\n          },\n          \"taxApn\": \"taxApn\",\n          \"preciselyId\": \"preciselyId\",\n          \"propLinkId\": \"propLinkId\",\n          \"parentPreciselyId\": \"parentPreciselyId\"\n        }\n      ],\n      \"adjacentParcelBoundary\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/ParcelBoundaryV2 detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/ParcelBoundaryV2 detected>\"\n        }\n      ],\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    },\n    {\n      \"objectId\": \"string\",\n      \"parcelApn\": \"string\",\n      \"geoId\": \"string\",\n      \"center\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"countyfips\": \"string\",\n      \"parcelAreaSqFt\": \"string\",\n      \"geometry\": {\n        \"type\": \"string\",\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": {}\n      },\n      \"parcelList\": [\n        {\n          \"taxAccountNumber\": \"taxAccountNumber\",\n          \"address\": {\n            \"country\": \"country\",\n            \"streetSide\": \"streetSide\",\n            \"city\": \"city\",\n            \"displayName\": \"displayName\",\n            \"postalCode\": \"postalCode\",\n            \"latitude\": \"latitude\",\n            \"businessName\": \"businessName\",\n            \"county\": \"county\",\n            \"unitType\": \"unitType\",\n            \"streetName\": \"streetName\",\n            \"formattedAddress\": \"formattedAddress\",\n            \"addressLine1\": \"addressLine1\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"addressLine2\": \"addressLine2\",\n            \"addressLine3\": \"addressLine3\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"longitude\": \"longitude\",\n            \"unitValue\": \"unitValue\",\n            \"stateProvince\": \"stateProvince\",\n            \"urbanizationName\": \"urbanizationName\",\n            \"areaName1\": \"areaName1\",\n            \"areaName2\": \"areaName2\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"postCode\": \"postCode\",\n            \"postCodeExt\": \"postCodeExt\",\n            \"placeName\": \"placeName\",\n            \"status\": \"status\"\n          },\n          \"taxApn\": \"taxApn\",\n          \"preciselyId\": \"preciselyId\",\n          \"propLinkId\": \"propLinkId\",\n          \"parentPreciselyId\": \"parentPreciselyId\"\n        },\n        {\n          \"taxAccountNumber\": \"taxAccountNumber\",\n          \"address\": {\n            \"country\": \"country\",\n            \"streetSide\": \"streetSide\",\n            \"city\": \"city\",\n            \"displayName\": \"displayName\",\n            \"postalCode\": \"postalCode\",\n            \"latitude\": \"latitude\",\n            \"businessName\": \"businessName\",\n            \"county\": \"county\",\n            \"unitType\": \"unitType\",\n            \"streetName\": \"streetName\",\n            \"formattedAddress\": \"formattedAddress\",\n            \"addressLine1\": \"addressLine1\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"addressLine2\": \"addressLine2\",\n            \"addressLine3\": \"addressLine3\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"longitude\": \"longitude\",\n            \"unitValue\": \"unitValue\",\n            \"stateProvince\": \"stateProvince\",\n            \"urbanizationName\": \"urbanizationName\",\n            \"areaName1\": \"areaName1\",\n            \"areaName2\": \"areaName2\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"postCode\": \"postCode\",\n            \"postCodeExt\": \"postCodeExt\",\n            \"placeName\": \"placeName\",\n            \"status\": \"status\"\n          },\n          \"taxApn\": \"taxApn\",\n          \"preciselyId\": \"preciselyId\",\n          \"propLinkId\": \"propLinkId\",\n          \"parentPreciselyId\": \"parentPreciselyId\"\n        }\n      ],\n      \"adjacentParcelBoundary\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/ParcelBoundaryV2 detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/ParcelBoundaryV2 detected>\"\n        }\n      ],\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    }\n  ],\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5687c9a-6d25-41df-931c-7bb4bd2f770c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property",
+                    "v2",
+                    "parcelboundary",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d87cff96-959b-4a48-891d-504d97bad94e",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property",
+                    "v2",
+                    "parcelboundary",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "longitude",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08cf1c45-b0e7-4464-9e6c-49de2c3fdafd",
+          "name": "Get Parcel Boundary By Address",
+          "request": {
+            "name": "Get Parcel Boundary By Address",
+            "description": {
+              "content": "Accepts address as input and returns property parcel boundary around that address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "property",
+                "v2",
+                "parcelboundary",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "address",
+                  "value": "<string>",
+                  "description": "(Required) free form address text"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "20f74e61-df89-4997-ba3a-ad723aa826a5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property",
+                    "v2",
+                    "parcelboundary",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objectId\": \"string\",\n  \"parcelApn\": \"string\",\n  \"geoId\": \"string\",\n  \"center\": {\n    \"coordinates\": [\n      0.8008281904610115,\n      0.8008281904610115\n    ],\n    \"type\": \"type\"\n  },\n  \"countyfips\": \"string\",\n  \"parcelAreaSqFt\": \"string\",\n  \"geometry\": {\n    \"type\": \"string\",\n    \"crs\": {\n      \"type\": \"type\",\n      \"properties\": {\n        \"name\": \"name\"\n      }\n    },\n    \"coordinates\": {}\n  },\n  \"parcelList\": [\n    {\n      \"taxAccountNumber\": \"taxAccountNumber\",\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"taxApn\": \"taxApn\",\n      \"preciselyId\": \"preciselyId\",\n      \"propLinkId\": \"propLinkId\",\n      \"parentPreciselyId\": \"parentPreciselyId\"\n    },\n    {\n      \"taxAccountNumber\": \"taxAccountNumber\",\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"taxApn\": \"taxApn\",\n      \"preciselyId\": \"preciselyId\",\n      \"propLinkId\": \"propLinkId\",\n      \"parentPreciselyId\": \"parentPreciselyId\"\n    }\n  ],\n  \"adjacentParcelBoundary\": [\n    {\n      \"objectId\": \"string\",\n      \"parcelApn\": \"string\",\n      \"geoId\": \"string\",\n      \"center\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"countyfips\": \"string\",\n      \"parcelAreaSqFt\": \"string\",\n      \"geometry\": {\n        \"type\": \"string\",\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": {}\n      },\n      \"parcelList\": [\n        {\n          \"taxAccountNumber\": \"taxAccountNumber\",\n          \"address\": {\n            \"country\": \"country\",\n            \"streetSide\": \"streetSide\",\n            \"city\": \"city\",\n            \"displayName\": \"displayName\",\n            \"postalCode\": \"postalCode\",\n            \"latitude\": \"latitude\",\n            \"businessName\": \"businessName\",\n            \"county\": \"county\",\n            \"unitType\": \"unitType\",\n            \"streetName\": \"streetName\",\n            \"formattedAddress\": \"formattedAddress\",\n            \"addressLine1\": \"addressLine1\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"addressLine2\": \"addressLine2\",\n            \"addressLine3\": \"addressLine3\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"longitude\": \"longitude\",\n            \"unitValue\": \"unitValue\",\n            \"stateProvince\": \"stateProvince\",\n            \"urbanizationName\": \"urbanizationName\",\n            \"areaName1\": \"areaName1\",\n            \"areaName2\": \"areaName2\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"postCode\": \"postCode\",\n            \"postCodeExt\": \"postCodeExt\",\n            \"placeName\": \"placeName\",\n            \"status\": \"status\"\n          },\n          \"taxApn\": \"taxApn\",\n          \"preciselyId\": \"preciselyId\",\n          \"propLinkId\": \"propLinkId\",\n          \"parentPreciselyId\": \"parentPreciselyId\"\n        },\n        {\n          \"taxAccountNumber\": \"taxAccountNumber\",\n          \"address\": {\n            \"country\": \"country\",\n            \"streetSide\": \"streetSide\",\n            \"city\": \"city\",\n            \"displayName\": \"displayName\",\n            \"postalCode\": \"postalCode\",\n            \"latitude\": \"latitude\",\n            \"businessName\": \"businessName\",\n            \"county\": \"county\",\n            \"unitType\": \"unitType\",\n            \"streetName\": \"streetName\",\n            \"formattedAddress\": \"formattedAddress\",\n            \"addressLine1\": \"addressLine1\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"addressLine2\": \"addressLine2\",\n            \"addressLine3\": \"addressLine3\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"longitude\": \"longitude\",\n            \"unitValue\": \"unitValue\",\n            \"stateProvince\": \"stateProvince\",\n            \"urbanizationName\": \"urbanizationName\",\n            \"areaName1\": \"areaName1\",\n            \"areaName2\": \"areaName2\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"postCode\": \"postCode\",\n            \"postCodeExt\": \"postCodeExt\",\n            \"placeName\": \"placeName\",\n            \"status\": \"status\"\n          },\n          \"taxApn\": \"taxApn\",\n          \"preciselyId\": \"preciselyId\",\n          \"propLinkId\": \"propLinkId\",\n          \"parentPreciselyId\": \"parentPreciselyId\"\n        }\n      ],\n      \"adjacentParcelBoundary\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/ParcelBoundaryV2 detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/ParcelBoundaryV2 detected>\"\n        }\n      ],\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    },\n    {\n      \"objectId\": \"string\",\n      \"parcelApn\": \"string\",\n      \"geoId\": \"string\",\n      \"center\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"countyfips\": \"string\",\n      \"parcelAreaSqFt\": \"string\",\n      \"geometry\": {\n        \"type\": \"string\",\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": {}\n      },\n      \"parcelList\": [\n        {\n          \"taxAccountNumber\": \"taxAccountNumber\",\n          \"address\": {\n            \"country\": \"country\",\n            \"streetSide\": \"streetSide\",\n            \"city\": \"city\",\n            \"displayName\": \"displayName\",\n            \"postalCode\": \"postalCode\",\n            \"latitude\": \"latitude\",\n            \"businessName\": \"businessName\",\n            \"county\": \"county\",\n            \"unitType\": \"unitType\",\n            \"streetName\": \"streetName\",\n            \"formattedAddress\": \"formattedAddress\",\n            \"addressLine1\": \"addressLine1\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"addressLine2\": \"addressLine2\",\n            \"addressLine3\": \"addressLine3\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"longitude\": \"longitude\",\n            \"unitValue\": \"unitValue\",\n            \"stateProvince\": \"stateProvince\",\n            \"urbanizationName\": \"urbanizationName\",\n            \"areaName1\": \"areaName1\",\n            \"areaName2\": \"areaName2\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"postCode\": \"postCode\",\n            \"postCodeExt\": \"postCodeExt\",\n            \"placeName\": \"placeName\",\n            \"status\": \"status\"\n          },\n          \"taxApn\": \"taxApn\",\n          \"preciselyId\": \"preciselyId\",\n          \"propLinkId\": \"propLinkId\",\n          \"parentPreciselyId\": \"parentPreciselyId\"\n        },\n        {\n          \"taxAccountNumber\": \"taxAccountNumber\",\n          \"address\": {\n            \"country\": \"country\",\n            \"streetSide\": \"streetSide\",\n            \"city\": \"city\",\n            \"displayName\": \"displayName\",\n            \"postalCode\": \"postalCode\",\n            \"latitude\": \"latitude\",\n            \"businessName\": \"businessName\",\n            \"county\": \"county\",\n            \"unitType\": \"unitType\",\n            \"streetName\": \"streetName\",\n            \"formattedAddress\": \"formattedAddress\",\n            \"addressLine1\": \"addressLine1\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"addressLine2\": \"addressLine2\",\n            \"addressLine3\": \"addressLine3\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"longitude\": \"longitude\",\n            \"unitValue\": \"unitValue\",\n            \"stateProvince\": \"stateProvince\",\n            \"urbanizationName\": \"urbanizationName\",\n            \"areaName1\": \"areaName1\",\n            \"areaName2\": \"areaName2\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"postCode\": \"postCode\",\n            \"postCodeExt\": \"postCodeExt\",\n            \"placeName\": \"placeName\",\n            \"status\": \"status\"\n          },\n          \"taxApn\": \"taxApn\",\n          \"preciselyId\": \"preciselyId\",\n          \"propLinkId\": \"propLinkId\",\n          \"parentPreciselyId\": \"parentPreciselyId\"\n        }\n      ],\n      \"adjacentParcelBoundary\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/ParcelBoundaryV2 detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/ParcelBoundaryV2 detected>\"\n        }\n      ],\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    }\n  ],\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "764f6706-74d9-4f8c-b04d-770c47390b4c",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property",
+                    "v2",
+                    "parcelboundary",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa9699e1-699f-4e68-a444-f94e19af3f5f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property",
+                    "v2",
+                    "parcelboundary",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "address",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e365e88-79b7-48bf-9898-4edf9057a9ef",
+          "name": "Get Parcel Boundary By PreciselyID",
+          "request": {
+            "name": "Get Parcel Boundary By PreciselyID",
+            "description": {
+              "content": "Accepts PB key as input and returns property attributes for the matched address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "property",
+                "v2",
+                "parcelboundary",
+                "bypreciselyID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "preciselyID",
+                  "value": "<string>",
+                  "description": "(Required) precisely ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "aed4143d-1be4-4dfd-b9d1-bff93fc55236",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property",
+                    "v2",
+                    "parcelboundary",
+                    "bypreciselyID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "preciselyID",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"objectId\": \"string\",\n  \"parcelApn\": \"string\",\n  \"geoId\": \"string\",\n  \"center\": {\n    \"coordinates\": [\n      0.8008281904610115,\n      0.8008281904610115\n    ],\n    \"type\": \"type\"\n  },\n  \"countyfips\": \"string\",\n  \"parcelAreaSqFt\": \"string\",\n  \"geometry\": {\n    \"type\": \"string\",\n    \"crs\": {\n      \"type\": \"type\",\n      \"properties\": {\n        \"name\": \"name\"\n      }\n    },\n    \"coordinates\": {}\n  },\n  \"parcelList\": [\n    {\n      \"taxAccountNumber\": \"taxAccountNumber\",\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"taxApn\": \"taxApn\",\n      \"preciselyId\": \"preciselyId\",\n      \"propLinkId\": \"propLinkId\",\n      \"parentPreciselyId\": \"parentPreciselyId\"\n    },\n    {\n      \"taxAccountNumber\": \"taxAccountNumber\",\n      \"address\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      },\n      \"taxApn\": \"taxApn\",\n      \"preciselyId\": \"preciselyId\",\n      \"propLinkId\": \"propLinkId\",\n      \"parentPreciselyId\": \"parentPreciselyId\"\n    }\n  ],\n  \"adjacentParcelBoundary\": [\n    {\n      \"objectId\": \"string\",\n      \"parcelApn\": \"string\",\n      \"geoId\": \"string\",\n      \"center\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"countyfips\": \"string\",\n      \"parcelAreaSqFt\": \"string\",\n      \"geometry\": {\n        \"type\": \"string\",\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": {}\n      },\n      \"parcelList\": [\n        {\n          \"taxAccountNumber\": \"taxAccountNumber\",\n          \"address\": {\n            \"country\": \"country\",\n            \"streetSide\": \"streetSide\",\n            \"city\": \"city\",\n            \"displayName\": \"displayName\",\n            \"postalCode\": \"postalCode\",\n            \"latitude\": \"latitude\",\n            \"businessName\": \"businessName\",\n            \"county\": \"county\",\n            \"unitType\": \"unitType\",\n            \"streetName\": \"streetName\",\n            \"formattedAddress\": \"formattedAddress\",\n            \"addressLine1\": \"addressLine1\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"addressLine2\": \"addressLine2\",\n            \"addressLine3\": \"addressLine3\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"longitude\": \"longitude\",\n            \"unitValue\": \"unitValue\",\n            \"stateProvince\": \"stateProvince\",\n            \"urbanizationName\": \"urbanizationName\",\n            \"areaName1\": \"areaName1\",\n            \"areaName2\": \"areaName2\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"postCode\": \"postCode\",\n            \"postCodeExt\": \"postCodeExt\",\n            \"placeName\": \"placeName\",\n            \"status\": \"status\"\n          },\n          \"taxApn\": \"taxApn\",\n          \"preciselyId\": \"preciselyId\",\n          \"propLinkId\": \"propLinkId\",\n          \"parentPreciselyId\": \"parentPreciselyId\"\n        },\n        {\n          \"taxAccountNumber\": \"taxAccountNumber\",\n          \"address\": {\n            \"country\": \"country\",\n            \"streetSide\": \"streetSide\",\n            \"city\": \"city\",\n            \"displayName\": \"displayName\",\n            \"postalCode\": \"postalCode\",\n            \"latitude\": \"latitude\",\n            \"businessName\": \"businessName\",\n            \"county\": \"county\",\n            \"unitType\": \"unitType\",\n            \"streetName\": \"streetName\",\n            \"formattedAddress\": \"formattedAddress\",\n            \"addressLine1\": \"addressLine1\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"addressLine2\": \"addressLine2\",\n            \"addressLine3\": \"addressLine3\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"longitude\": \"longitude\",\n            \"unitValue\": \"unitValue\",\n            \"stateProvince\": \"stateProvince\",\n            \"urbanizationName\": \"urbanizationName\",\n            \"areaName1\": \"areaName1\",\n            \"areaName2\": \"areaName2\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"postCode\": \"postCode\",\n            \"postCodeExt\": \"postCodeExt\",\n            \"placeName\": \"placeName\",\n            \"status\": \"status\"\n          },\n          \"taxApn\": \"taxApn\",\n          \"preciselyId\": \"preciselyId\",\n          \"propLinkId\": \"propLinkId\",\n          \"parentPreciselyId\": \"parentPreciselyId\"\n        }\n      ],\n      \"adjacentParcelBoundary\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/ParcelBoundaryV2 detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/ParcelBoundaryV2 detected>\"\n        }\n      ],\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    },\n    {\n      \"objectId\": \"string\",\n      \"parcelApn\": \"string\",\n      \"geoId\": \"string\",\n      \"center\": {\n        \"coordinates\": [\n          0.8008281904610115,\n          0.8008281904610115\n        ],\n        \"type\": \"type\"\n      },\n      \"countyfips\": \"string\",\n      \"parcelAreaSqFt\": \"string\",\n      \"geometry\": {\n        \"type\": \"string\",\n        \"crs\": {\n          \"type\": \"type\",\n          \"properties\": {\n            \"name\": \"name\"\n          }\n        },\n        \"coordinates\": {}\n      },\n      \"parcelList\": [\n        {\n          \"taxAccountNumber\": \"taxAccountNumber\",\n          \"address\": {\n            \"country\": \"country\",\n            \"streetSide\": \"streetSide\",\n            \"city\": \"city\",\n            \"displayName\": \"displayName\",\n            \"postalCode\": \"postalCode\",\n            \"latitude\": \"latitude\",\n            \"businessName\": \"businessName\",\n            \"county\": \"county\",\n            \"unitType\": \"unitType\",\n            \"streetName\": \"streetName\",\n            \"formattedAddress\": \"formattedAddress\",\n            \"addressLine1\": \"addressLine1\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"addressLine2\": \"addressLine2\",\n            \"addressLine3\": \"addressLine3\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"longitude\": \"longitude\",\n            \"unitValue\": \"unitValue\",\n            \"stateProvince\": \"stateProvince\",\n            \"urbanizationName\": \"urbanizationName\",\n            \"areaName1\": \"areaName1\",\n            \"areaName2\": \"areaName2\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"postCode\": \"postCode\",\n            \"postCodeExt\": \"postCodeExt\",\n            \"placeName\": \"placeName\",\n            \"status\": \"status\"\n          },\n          \"taxApn\": \"taxApn\",\n          \"preciselyId\": \"preciselyId\",\n          \"propLinkId\": \"propLinkId\",\n          \"parentPreciselyId\": \"parentPreciselyId\"\n        },\n        {\n          \"taxAccountNumber\": \"taxAccountNumber\",\n          \"address\": {\n            \"country\": \"country\",\n            \"streetSide\": \"streetSide\",\n            \"city\": \"city\",\n            \"displayName\": \"displayName\",\n            \"postalCode\": \"postalCode\",\n            \"latitude\": \"latitude\",\n            \"businessName\": \"businessName\",\n            \"county\": \"county\",\n            \"unitType\": \"unitType\",\n            \"streetName\": \"streetName\",\n            \"formattedAddress\": \"formattedAddress\",\n            \"addressLine1\": \"addressLine1\",\n            \"mainAddressLine\": \"mainAddressLine\",\n            \"addressLine2\": \"addressLine2\",\n            \"addressLine3\": \"addressLine3\",\n            \"objectId\": \"objectId\",\n            \"addressLastLine\": \"addressLastLine\",\n            \"longitude\": \"longitude\",\n            \"unitValue\": \"unitValue\",\n            \"stateProvince\": \"stateProvince\",\n            \"urbanizationName\": \"urbanizationName\",\n            \"areaName1\": \"areaName1\",\n            \"areaName2\": \"areaName2\",\n            \"areaName3\": \"areaName3\",\n            \"areaName4\": \"areaName4\",\n            \"addressNumber\": \"addressNumber\",\n            \"postCode\": \"postCode\",\n            \"postCodeExt\": \"postCodeExt\",\n            \"placeName\": \"placeName\",\n            \"status\": \"status\"\n          },\n          \"taxApn\": \"taxApn\",\n          \"preciselyId\": \"preciselyId\",\n          \"propLinkId\": \"propLinkId\",\n          \"parentPreciselyId\": \"parentPreciselyId\"\n        }\n      ],\n      \"adjacentParcelBoundary\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/ParcelBoundaryV2 detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/ParcelBoundaryV2 detected>\"\n        }\n      ],\n      \"matchedAddress\": {\n        \"country\": \"country\",\n        \"streetSide\": \"streetSide\",\n        \"city\": \"city\",\n        \"displayName\": \"displayName\",\n        \"postalCode\": \"postalCode\",\n        \"latitude\": \"latitude\",\n        \"businessName\": \"businessName\",\n        \"county\": \"county\",\n        \"unitType\": \"unitType\",\n        \"streetName\": \"streetName\",\n        \"formattedAddress\": \"formattedAddress\",\n        \"addressLine1\": \"addressLine1\",\n        \"mainAddressLine\": \"mainAddressLine\",\n        \"addressLine2\": \"addressLine2\",\n        \"addressLine3\": \"addressLine3\",\n        \"objectId\": \"objectId\",\n        \"addressLastLine\": \"addressLastLine\",\n        \"longitude\": \"longitude\",\n        \"unitValue\": \"unitValue\",\n        \"stateProvince\": \"stateProvince\",\n        \"urbanizationName\": \"urbanizationName\",\n        \"areaName1\": \"areaName1\",\n        \"areaName2\": \"areaName2\",\n        \"areaName3\": \"areaName3\",\n        \"areaName4\": \"areaName4\",\n        \"addressNumber\": \"addressNumber\",\n        \"postCode\": \"postCode\",\n        \"postCodeExt\": \"postCodeExt\",\n        \"placeName\": \"placeName\",\n        \"status\": \"status\"\n      }\n    }\n  ],\n  \"matchedAddress\": {\n    \"country\": \"country\",\n    \"streetSide\": \"streetSide\",\n    \"city\": \"city\",\n    \"displayName\": \"displayName\",\n    \"postalCode\": \"postalCode\",\n    \"latitude\": \"latitude\",\n    \"businessName\": \"businessName\",\n    \"county\": \"county\",\n    \"unitType\": \"unitType\",\n    \"streetName\": \"streetName\",\n    \"formattedAddress\": \"formattedAddress\",\n    \"addressLine1\": \"addressLine1\",\n    \"mainAddressLine\": \"mainAddressLine\",\n    \"addressLine2\": \"addressLine2\",\n    \"addressLine3\": \"addressLine3\",\n    \"objectId\": \"objectId\",\n    \"addressLastLine\": \"addressLastLine\",\n    \"longitude\": \"longitude\",\n    \"unitValue\": \"unitValue\",\n    \"stateProvince\": \"stateProvince\",\n    \"urbanizationName\": \"urbanizationName\",\n    \"areaName1\": \"areaName1\",\n    \"areaName2\": \"areaName2\",\n    \"areaName3\": \"areaName3\",\n    \"areaName4\": \"areaName4\",\n    \"addressNumber\": \"addressNumber\",\n    \"postCode\": \"postCode\",\n    \"postCodeExt\": \"postCodeExt\",\n    \"placeName\": \"placeName\",\n    \"status\": \"status\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7cadb94-1ae4-423b-b710-866e39313588",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property",
+                    "v2",
+                    "parcelboundary",
+                    "bypreciselyID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "preciselyID",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94e4c04f-28bf-410e-b5e9-89dcae31b28f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "property",
+                    "v2",
+                    "parcelboundary",
+                    "bypreciselyID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "preciselyID",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c574d244-a534-409c-8a65-1a2c0c7f1bcb",
+    "name": "Precisely APIs Properties API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

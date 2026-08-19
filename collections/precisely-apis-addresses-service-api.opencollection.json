@@ -1,0 +1,120 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Addresses  Service. API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Addresses  Service.",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Addresses by Boundary.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.precisely.com/addresses/v1/address/byboundary",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service accepts custom geographic boundaries or drive time & drive distance, returns all known & valid addresses within these boundaries."
+        },
+        {
+          "info": {
+            "name": "Addresses by Boundary Name.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/addresses/v1/address/byboundaryname",
+            "params": [
+              {
+                "name": "areaName1",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the largest geographical area, typically a state or province."
+              },
+              {
+                "name": "areaName2",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the secondary geographic area, typically a county or district."
+              },
+              {
+                "name": "areaName3",
+                "value": "",
+                "type": "query",
+                "description": "Specifies a city or town name."
+              },
+              {
+                "name": "areaName4",
+                "value": "",
+                "type": "query",
+                "description": "Specifies a city subdivision or locality/neighborhood."
+              },
+              {
+                "name": "postCode",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the postcode (ZIP code) in the appropriate format for the country."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Name of country. Acceptable values are CAN, USA."
+              },
+              {
+                "name": "maxCandidates",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of addresses to be returned in response. Max. value is 100 for XML/JSON, and 2000 for CSV."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Response will indicate the page number."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service accepts zip code, neighborhood, county, or city names, and returns all known & valid addresses associated with these names."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,204 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Precisely APIs Autocomplete API",
+    "version": "18.1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://api.precisely.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Autocomplete",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Points Of Interest Autocomplete",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.precisely.com/places/v1/poi/autocomplete",
+            "headers": [
+              {
+                "name": "X-Forwarded-For",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location."
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location."
+              },
+              {
+                "name": "searchText",
+                "value": "",
+                "type": "query",
+                "description": "Free text which will accept a multi-word string. Combination of POI name and address is possible."
+              },
+              {
+                "name": "searchOnNameOnly",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "searchRadius",
+                "value": "",
+                "type": "query",
+                "description": "Radius range within which search is performed."
+              },
+              {
+                "name": "searchRadiusUnit",
+                "value": "",
+                "type": "query",
+                "description": "Radius unit such as Feet, Kilometers, Miles or Meters (default)."
+              },
+              {
+                "name": "travelTime",
+                "value": "",
+                "type": "query",
+                "description": "Travel time within which search is performed (POIs which can be reached within travel time)."
+              },
+              {
+                "name": "travelTimeUnit",
+                "value": "",
+                "type": "query",
+                "description": "Travel time unit such as minutes (default), hours, seconds or milliseconds."
+              },
+              {
+                "name": "travelDistance",
+                "value": "",
+                "type": "query",
+                "description": "Travel distance within which search is performed (POIs which can be reached within travel distance)."
+              },
+              {
+                "name": "travelDistanceUnit",
+                "value": "",
+                "type": "query",
+                "description": "Travel distance unit such as Feet (default), Kilometers, Miles or Meters."
+              },
+              {
+                "name": "travelMode",
+                "value": "",
+                "type": "query",
+                "description": "Mode of commute."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Country ISO code."
+              },
+              {
+                "name": "areaName1",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the largest geographical area, typically a state or province."
+              },
+              {
+                "name": "areaName3",
+                "value": "",
+                "type": "query",
+                "description": "Specifies a city or town name."
+              },
+              {
+                "name": "postcode1",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the postcode(ZIP code) in the appropriate format for the country."
+              },
+              {
+                "name": "postcode2",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the postcode(ZIP code) extension."
+              },
+              {
+                "name": "ipAddress",
+                "value": "",
+                "type": "query",
+                "description": "IP address which will be used to auto detect the location in order to serve contextually relevant results."
+              },
+              {
+                "name": "autoDetectLocation",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether to detect client's location using IP address. If IP address(below) is not provided and autoDetectLocation is set 'True' then IP address will be picked from HTTP request automatically."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filters the points of interest (POIs) by place types."
+              },
+              {
+                "name": "categoryCode",
+                "value": "",
+                "type": "query",
+                "description": "Acts as a filter to narrow down and refine POI search results. The category codes are unique 4, 6, or 11 digit numeric values."
+              },
+              {
+                "name": "sicCode",
+                "value": "",
+                "type": "query",
+                "description": "Acts as a filter to narrow down and refine POI search results. The SIC codes are unique 4 or 8 digit numerical values."
+              },
+              {
+                "name": "maxCandidates",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of POIs that can be retrieved."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "sortBy"
+              },
+              {
+                "name": "matchMode",
+                "value": "",
+                "type": "query",
+                "description": "Determine the leniency used to make a match between the input name and the reference data."
+              },
+              {
+                "name": "specificMatchOn",
+                "value": "",
+                "type": "query",
+                "description": "Specifies the field for the Specific Match Mode."
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "implicit",
+              "authorizationUrl": "https://api.precisely.com/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}"
+              }
+            }
+          },
+          "docs": "This service accepts partial text input and returns matching points of interest, sorted by relevance or distance."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

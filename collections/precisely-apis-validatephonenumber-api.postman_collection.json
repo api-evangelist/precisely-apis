@@ -1,0 +1,278 @@
+{
+  "item": [
+    {
+      "id": "2e912696-64b2-4e69-9db9-bc39e12399c0",
+      "name": "Validatephonenumber",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "84f97179-1f2f-48e9-8123-fc68d16107a5",
+          "name": "Phone verification.",
+          "request": {
+            "name": "Phone verification.",
+            "description": {
+              "content": "This service accepts a phone number as input and returns details distinguishing landline and wireless numbers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "phoneverification",
+                "v2",
+                "validatephonenumber",
+                "results.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Input\": {\n    \"Row\": [\n      {\n        \"PhoneNumber\": \"<string>\",\n        \"Country\": \"<string>\"\n      },\n      {\n        \"PhoneNumber\": \"<string>\",\n        \"Country\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ac15b752-88d2-4513-9db1-5204dd19ec96",
+              "name": "successful operation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "phoneverification",
+                    "v2",
+                    "validatephonenumber",
+                    "results.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Input\": {\n    \"Row\": [\n      {\n        \"PhoneNumber\": \"PhoneNumber\",\n        \"Country\": \"Country\"\n      },\n      {\n        \"PhoneNumber\": \"PhoneNumber\",\n        \"Country\": \"Country\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Output\": [\n    {\n      \"CarrierName\": \"CarrierName\",\n      \"MNC\": \"MNC\",\n      \"user_fields\": [\n        \"user_fields\",\n        \"user_fields\"\n      ],\n      \"PhoneType\": \"PhoneType\",\n      \"PhoneNumberFormatted\": \"PhoneNumberFormatted\",\n      \"PhoneNumber\": \"PhoneNumber\",\n      \"MCC\": \"MCC\",\n      \"CountryCode\": \"CountryCode\",\n      \"ResultCode\": \"ResultCode\"\n    },\n    {\n      \"CarrierName\": \"CarrierName\",\n      \"MNC\": \"MNC\",\n      \"user_fields\": [\n        \"user_fields\",\n        \"user_fields\"\n      ],\n      \"PhoneType\": \"PhoneType\",\n      \"PhoneNumberFormatted\": \"PhoneNumberFormatted\",\n      \"PhoneNumber\": \"PhoneNumber\",\n      \"MCC\": \"MCC\",\n      \"CountryCode\": \"CountryCode\",\n      \"ResultCode\": \"ResultCode\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e6d2a5e-7f0e-49ca-ac7a-ba5f36e91718",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "phoneverification",
+                    "v2",
+                    "validatephonenumber",
+                    "results.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Input\": {\n    \"Row\": [\n      {\n        \"PhoneNumber\": \"PhoneNumber\",\n        \"Country\": \"Country\"\n      },\n      {\n        \"PhoneNumber\": \"PhoneNumber\",\n        \"Country\": \"Country\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af5fc585-f9c1-4d5d-a911-9a8a8fd480e9",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "phoneverification",
+                    "v2",
+                    "validatephonenumber",
+                    "results.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Input\": {\n    \"Row\": [\n      {\n        \"PhoneNumber\": \"PhoneNumber\",\n        \"Country\": \"Country\"\n      },\n      {\n        \"PhoneNumber\": \"PhoneNumber\",\n        \"Country\": \"Country\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "afe11eb5-63d9-4602-8d6b-a7895dbf5eed",
+    "name": "Precisely APIs Validatephonenumber API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}

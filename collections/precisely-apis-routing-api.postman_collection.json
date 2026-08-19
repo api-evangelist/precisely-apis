@@ -1,0 +1,2777 @@
+{
+  "item": [
+    {
+      "id": "0eb5ec51-41e2-4ff7-83b2-4e3927813237",
+      "name": "Routing",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "23a772ef-bd05-4897-9d81-1fb088ffaf71",
+          "name": "Get Cost Matrix By Location.",
+          "request": {
+            "name": "Get Cost Matrix By Location.",
+            "description": {
+              "content": "Accepts latitude & longitude as input and Returns travel distances and times for multiple origins to multiple destinations by various travel modes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "routing",
+                "v1",
+                "travelcostmatrix",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startPoints",
+                  "value": "<string>",
+                  "description": "The address to be searched."
+                },
+                {
+                  "disabled": false,
+                  "key": "endPoints",
+                  "value": "<string>",
+                  "description": "The address to be searched."
+                },
+                {
+                  "disabled": false,
+                  "key": "db",
+                  "value": "driving",
+                  "description": "Mode of commute."
+                },
+                {
+                  "disabled": false,
+                  "key": "optimizeBy",
+                  "value": "time",
+                  "description": "Specifies whether routes should be optimized by time or distance."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnDistance",
+                  "value": "true",
+                  "description": "Specifies whether distance needs to be returned in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "destinationSrs",
+                  "value": "epsg:4326",
+                  "description": "Specifies the desired coordinate system of returned routes."
+                },
+                {
+                  "disabled": false,
+                  "key": "distanceUnit",
+                  "value": "m",
+                  "description": "Return Distance Unit such as ft(Foot), km(Kilometer), mi(Mile), m(Meter) or yd(Yard)."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnTime",
+                  "value": "true",
+                  "description": "Specifies whether time needs to be returned in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "timeUnit",
+                  "value": "min",
+                  "description": "Return time unit such as min(Minute), h(Hour), s(Second) or msec(Millisecond)."
+                },
+                {
+                  "disabled": false,
+                  "key": "majorRoads",
+                  "value": "false",
+                  "description": "Whether to include all roads in routes calculation or just major roads."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnOptimalRoutesOnly",
+                  "value": "true",
+                  "description": "Specifies whether to return only the optimized route for each start and end point combination."
+                },
+                {
+                  "disabled": false,
+                  "key": "historicTrafficTimeBucket",
+                  "value": "None",
+                  "description": "Specifies whether routing calculation uses the historic traffic speeds."
+                },
+                {
+                  "disabled": false,
+                  "key": "useCvr",
+                  "value": "N",
+                  "description": "This parameter will enable/disable CVR (Commercial Vehicle Restrictions) capability in our APIs."
+                },
+                {
+                  "disabled": false,
+                  "key": "looseningBarrierRestrictions",
+                  "value": "Y",
+                  "description": "Specifies that barriers will be removed when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleType",
+                  "value": "ALL",
+                  "description": "vehicle type."
+                },
+                {
+                  "disabled": false,
+                  "key": "weight",
+                  "value": "",
+                  "description": "Specifies the maximum weight of a vehicle. Any vehicles over this value will be restricted when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "weightUnit",
+                  "value": "kg",
+                  "description": "The unit of weight eg. kg(kilogram), lb(pound), mt(metric ton), t(ton)."
+                },
+                {
+                  "disabled": false,
+                  "key": "height",
+                  "value": "",
+                  "description": "Specifies the maximum height of a vehicle. Any vehicles over this value will be restricted when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "heightUnit",
+                  "value": "ft",
+                  "description": "The unit of height e.g m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+                },
+                {
+                  "disabled": false,
+                  "key": "length",
+                  "value": "",
+                  "description": "Specifies the maximum length of a vehicle. Any vehicles over this value will be restricted when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "lengthUnit",
+                  "value": "ft",
+                  "description": "The unit of length eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+                },
+                {
+                  "disabled": false,
+                  "key": "width",
+                  "value": "",
+                  "description": "Specifies the maximum width of a vehicle. Any vehicles over this value will be restricted when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "widthUnit",
+                  "value": "ft",
+                  "description": "The unit of width eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8756520b-cc04-47ba-9842-3279f3b8d8db",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routing",
+                    "v1",
+                    "travelcostmatrix",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startPoints",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endPoints",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "db",
+                      "value": "driving"
+                    },
+                    {
+                      "key": "optimizeBy",
+                      "value": "time"
+                    },
+                    {
+                      "key": "returnDistance",
+                      "value": "true"
+                    },
+                    {
+                      "key": "destinationSrs",
+                      "value": "epsg:4326"
+                    },
+                    {
+                      "key": "distanceUnit",
+                      "value": "m"
+                    },
+                    {
+                      "key": "returnTime",
+                      "value": "true"
+                    },
+                    {
+                      "key": "timeUnit",
+                      "value": "min"
+                    },
+                    {
+                      "key": "majorRoads",
+                      "value": "false"
+                    },
+                    {
+                      "key": "returnOptimalRoutesOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "None"
+                    },
+                    {
+                      "key": "useCvr",
+                      "value": "N"
+                    },
+                    {
+                      "key": "looseningBarrierRestrictions",
+                      "value": "Y"
+                    },
+                    {
+                      "key": "vehicleType",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "weight",
+                      "value": ""
+                    },
+                    {
+                      "key": "weightUnit",
+                      "value": "kg"
+                    },
+                    {
+                      "key": "height",
+                      "value": ""
+                    },
+                    {
+                      "key": "heightUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "length",
+                      "value": ""
+                    },
+                    {
+                      "key": "lengthUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "width",
+                      "value": ""
+                    },
+                    {
+                      "key": "widthUnit",
+                      "value": "ft"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"matrix\": [\n    {\n      \"distanceUnit\": \"distanceUnit\",\n      \"endPoint\": {\n        \"coordinates\": [\n          6.027456183070403,\n          6.027456183070403\n        ],\n        \"type\": \"type\"\n      },\n      \"distance\": 0.8008281904610115,\n      \"startPoint\": {\n        \"coordinates\": [\n          6.027456183070403,\n          6.027456183070403\n        ],\n        \"type\": \"type\"\n      },\n      \"time\": 1.4658129805029452,\n      \"timeUnit\": \"timeUnit\"\n    },\n    {\n      \"distanceUnit\": \"distanceUnit\",\n      \"endPoint\": {\n        \"coordinates\": [\n          6.027456183070403,\n          6.027456183070403\n        ],\n        \"type\": \"type\"\n      },\n      \"distance\": 0.8008281904610115,\n      \"startPoint\": {\n        \"coordinates\": [\n          6.027456183070403,\n          6.027456183070403\n        ],\n        \"type\": \"type\"\n      },\n      \"time\": 1.4658129805029452,\n      \"timeUnit\": \"timeUnit\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e3d8126-422c-45dd-84d9-9cab92fb8dc0",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routing",
+                    "v1",
+                    "travelcostmatrix",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startPoints",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endPoints",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "db",
+                      "value": "driving"
+                    },
+                    {
+                      "key": "optimizeBy",
+                      "value": "time"
+                    },
+                    {
+                      "key": "returnDistance",
+                      "value": "true"
+                    },
+                    {
+                      "key": "destinationSrs",
+                      "value": "epsg:4326"
+                    },
+                    {
+                      "key": "distanceUnit",
+                      "value": "m"
+                    },
+                    {
+                      "key": "returnTime",
+                      "value": "true"
+                    },
+                    {
+                      "key": "timeUnit",
+                      "value": "min"
+                    },
+                    {
+                      "key": "majorRoads",
+                      "value": "false"
+                    },
+                    {
+                      "key": "returnOptimalRoutesOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "None"
+                    },
+                    {
+                      "key": "useCvr",
+                      "value": "N"
+                    },
+                    {
+                      "key": "looseningBarrierRestrictions",
+                      "value": "Y"
+                    },
+                    {
+                      "key": "vehicleType",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "weight",
+                      "value": ""
+                    },
+                    {
+                      "key": "weightUnit",
+                      "value": "kg"
+                    },
+                    {
+                      "key": "height",
+                      "value": ""
+                    },
+                    {
+                      "key": "heightUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "length",
+                      "value": ""
+                    },
+                    {
+                      "key": "lengthUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "width",
+                      "value": ""
+                    },
+                    {
+                      "key": "widthUnit",
+                      "value": "ft"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bddc047c-d090-4b66-a709-dd78d2bf7b64",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routing",
+                    "v1",
+                    "travelcostmatrix",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startPoints",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endPoints",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "db",
+                      "value": "driving"
+                    },
+                    {
+                      "key": "optimizeBy",
+                      "value": "time"
+                    },
+                    {
+                      "key": "returnDistance",
+                      "value": "true"
+                    },
+                    {
+                      "key": "destinationSrs",
+                      "value": "epsg:4326"
+                    },
+                    {
+                      "key": "distanceUnit",
+                      "value": "m"
+                    },
+                    {
+                      "key": "returnTime",
+                      "value": "true"
+                    },
+                    {
+                      "key": "timeUnit",
+                      "value": "min"
+                    },
+                    {
+                      "key": "majorRoads",
+                      "value": "false"
+                    },
+                    {
+                      "key": "returnOptimalRoutesOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "None"
+                    },
+                    {
+                      "key": "useCvr",
+                      "value": "N"
+                    },
+                    {
+                      "key": "looseningBarrierRestrictions",
+                      "value": "Y"
+                    },
+                    {
+                      "key": "vehicleType",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "weight",
+                      "value": ""
+                    },
+                    {
+                      "key": "weightUnit",
+                      "value": "kg"
+                    },
+                    {
+                      "key": "height",
+                      "value": ""
+                    },
+                    {
+                      "key": "heightUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "length",
+                      "value": ""
+                    },
+                    {
+                      "key": "lengthUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "width",
+                      "value": ""
+                    },
+                    {
+                      "key": "widthUnit",
+                      "value": "ft"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d2d879b-7d82-450e-99ab-dbf0319f8cff",
+          "name": "Get Cost Matrix By Address.",
+          "request": {
+            "name": "Get Cost Matrix By Address.",
+            "description": {
+              "content": "Accepts addresses as input and Returns travel distances and times for multiple origins to multiple destinations by various travel modes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "routing",
+                "v1",
+                "travelcostmatrix",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startAddresses",
+                  "value": "<string>",
+                  "description": "Start locations in text based addresses."
+                },
+                {
+                  "disabled": false,
+                  "key": "endAddresses",
+                  "value": "<string>",
+                  "description": "End locations in text based addresses."
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "USA",
+                  "description": "3 Digit ISO country code."
+                },
+                {
+                  "disabled": false,
+                  "key": "db",
+                  "value": "driving",
+                  "description": "Mode of commute."
+                },
+                {
+                  "disabled": false,
+                  "key": "optimizeBy",
+                  "value": "time",
+                  "description": "Specifies whether routes should be optimized by time or distance."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnDistance",
+                  "value": "true",
+                  "description": "Specifies whether distance needs to be returned in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "destinationSrs",
+                  "value": "<string>",
+                  "description": "Specifies the desired coordinate system of returned routes."
+                },
+                {
+                  "disabled": false,
+                  "key": "distanceUnit",
+                  "value": "m",
+                  "description": "Return Distance Unit such as ft(Foot), km(Kilometer), mi(Mile), m(Meter) or yd(Yard)."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnTime",
+                  "value": "true",
+                  "description": "Specifies whether time needs to be returned in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "timeUnit",
+                  "value": "min",
+                  "description": "Return time unit such as min(Minute), h(Hour), s(Second) or msec(Millisecond)."
+                },
+                {
+                  "disabled": false,
+                  "key": "majorRoads",
+                  "value": "false",
+                  "description": "Whether to include all roads in routes calculation or just major roads."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnOptimalRoutesOnly",
+                  "value": "true",
+                  "description": "Specifies whether to return only the optimized route for each start and end point combination."
+                },
+                {
+                  "disabled": false,
+                  "key": "historicTrafficTimeBucket",
+                  "value": "None",
+                  "description": "Specifies whether routing calculation uses the historic traffic speeds."
+                },
+                {
+                  "disabled": false,
+                  "key": "useCvr",
+                  "value": "N",
+                  "description": "This parameter will enable/disable CVR (Commercial Vehicle Restrictions) capability in our APIs."
+                },
+                {
+                  "disabled": false,
+                  "key": "looseningBarrierRestrictions",
+                  "value": "Y",
+                  "description": "Specifies that barriers will be removed when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleType",
+                  "value": "ALL",
+                  "description": "vehicle type."
+                },
+                {
+                  "disabled": false,
+                  "key": "weight",
+                  "value": "",
+                  "description": "Specifies the maximum weight of a vehicle. Any vehicles over this value will be restricted when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "weightUnit",
+                  "value": "kg",
+                  "description": "The unit of weight eg. kg(kilogram), lb(pound), mt(metric ton), t(ton)."
+                },
+                {
+                  "disabled": false,
+                  "key": "height",
+                  "value": "",
+                  "description": "Specifies the maximum height of a vehicle. Any vehicles over this value will be restricted when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "heightUnit",
+                  "value": "ft",
+                  "description": "The unit of height e.g m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+                },
+                {
+                  "disabled": false,
+                  "key": "length",
+                  "value": "",
+                  "description": "Specifies the maximum length of a vehicle. Any vehicles over this value will be restricted when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "lengthUnit",
+                  "value": "ft",
+                  "description": "The unit of length eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+                },
+                {
+                  "disabled": false,
+                  "key": "width",
+                  "value": "",
+                  "description": "Specifies the maximum width of a vehicle. Any vehicles over this value will be restricted when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "widthUnit",
+                  "value": "ft",
+                  "description": "The unit of width eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ec1e4fef-09d2-4a1a-9d01-9a148f1519dc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routing",
+                    "v1",
+                    "travelcostmatrix",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startAddresses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endAddresses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "USA"
+                    },
+                    {
+                      "key": "db",
+                      "value": "driving"
+                    },
+                    {
+                      "key": "optimizeBy",
+                      "value": "time"
+                    },
+                    {
+                      "key": "returnDistance",
+                      "value": "true"
+                    },
+                    {
+                      "key": "destinationSrs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "distanceUnit",
+                      "value": "m"
+                    },
+                    {
+                      "key": "returnTime",
+                      "value": "true"
+                    },
+                    {
+                      "key": "timeUnit",
+                      "value": "min"
+                    },
+                    {
+                      "key": "majorRoads",
+                      "value": "false"
+                    },
+                    {
+                      "key": "returnOptimalRoutesOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "None"
+                    },
+                    {
+                      "key": "useCvr",
+                      "value": "N"
+                    },
+                    {
+                      "key": "looseningBarrierRestrictions",
+                      "value": "Y"
+                    },
+                    {
+                      "key": "vehicleType",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "weight",
+                      "value": ""
+                    },
+                    {
+                      "key": "weightUnit",
+                      "value": "kg"
+                    },
+                    {
+                      "key": "height",
+                      "value": ""
+                    },
+                    {
+                      "key": "heightUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "length",
+                      "value": ""
+                    },
+                    {
+                      "key": "lengthUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "width",
+                      "value": ""
+                    },
+                    {
+                      "key": "widthUnit",
+                      "value": "ft"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"matrix\": [\n    {\n      \"distanceUnit\": \"distanceUnit\",\n      \"endPoint\": {\n        \"coordinates\": [\n          6.027456183070403,\n          6.027456183070403\n        ],\n        \"type\": \"type\"\n      },\n      \"distance\": 0.8008281904610115,\n      \"startPoint\": {\n        \"coordinates\": [\n          6.027456183070403,\n          6.027456183070403\n        ],\n        \"type\": \"type\"\n      },\n      \"time\": 1.4658129805029452,\n      \"timeUnit\": \"timeUnit\"\n    },\n    {\n      \"distanceUnit\": \"distanceUnit\",\n      \"endPoint\": {\n        \"coordinates\": [\n          6.027456183070403,\n          6.027456183070403\n        ],\n        \"type\": \"type\"\n      },\n      \"distance\": 0.8008281904610115,\n      \"startPoint\": {\n        \"coordinates\": [\n          6.027456183070403,\n          6.027456183070403\n        ],\n        \"type\": \"type\"\n      },\n      \"time\": 1.4658129805029452,\n      \"timeUnit\": \"timeUnit\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8279ae9f-89d9-43bc-8946-bb04f00dc862",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routing",
+                    "v1",
+                    "travelcostmatrix",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startAddresses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endAddresses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "USA"
+                    },
+                    {
+                      "key": "db",
+                      "value": "driving"
+                    },
+                    {
+                      "key": "optimizeBy",
+                      "value": "time"
+                    },
+                    {
+                      "key": "returnDistance",
+                      "value": "true"
+                    },
+                    {
+                      "key": "destinationSrs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "distanceUnit",
+                      "value": "m"
+                    },
+                    {
+                      "key": "returnTime",
+                      "value": "true"
+                    },
+                    {
+                      "key": "timeUnit",
+                      "value": "min"
+                    },
+                    {
+                      "key": "majorRoads",
+                      "value": "false"
+                    },
+                    {
+                      "key": "returnOptimalRoutesOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "None"
+                    },
+                    {
+                      "key": "useCvr",
+                      "value": "N"
+                    },
+                    {
+                      "key": "looseningBarrierRestrictions",
+                      "value": "Y"
+                    },
+                    {
+                      "key": "vehicleType",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "weight",
+                      "value": ""
+                    },
+                    {
+                      "key": "weightUnit",
+                      "value": "kg"
+                    },
+                    {
+                      "key": "height",
+                      "value": ""
+                    },
+                    {
+                      "key": "heightUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "length",
+                      "value": ""
+                    },
+                    {
+                      "key": "lengthUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "width",
+                      "value": ""
+                    },
+                    {
+                      "key": "widthUnit",
+                      "value": "ft"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96f33119-2504-4eb2-9915-08104e7ad809",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routing",
+                    "v1",
+                    "travelcostmatrix",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startAddresses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endAddresses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "USA"
+                    },
+                    {
+                      "key": "db",
+                      "value": "driving"
+                    },
+                    {
+                      "key": "optimizeBy",
+                      "value": "time"
+                    },
+                    {
+                      "key": "returnDistance",
+                      "value": "true"
+                    },
+                    {
+                      "key": "destinationSrs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "distanceUnit",
+                      "value": "m"
+                    },
+                    {
+                      "key": "returnTime",
+                      "value": "true"
+                    },
+                    {
+                      "key": "timeUnit",
+                      "value": "min"
+                    },
+                    {
+                      "key": "majorRoads",
+                      "value": "false"
+                    },
+                    {
+                      "key": "returnOptimalRoutesOnly",
+                      "value": "true"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "None"
+                    },
+                    {
+                      "key": "useCvr",
+                      "value": "N"
+                    },
+                    {
+                      "key": "looseningBarrierRestrictions",
+                      "value": "Y"
+                    },
+                    {
+                      "key": "vehicleType",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "weight",
+                      "value": ""
+                    },
+                    {
+                      "key": "weightUnit",
+                      "value": "kg"
+                    },
+                    {
+                      "key": "height",
+                      "value": ""
+                    },
+                    {
+                      "key": "heightUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "length",
+                      "value": ""
+                    },
+                    {
+                      "key": "lengthUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "width",
+                      "value": ""
+                    },
+                    {
+                      "key": "widthUnit",
+                      "value": "ft"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "716174c5-81f7-457c-8c3b-a1f2b50b9b63",
+          "name": "Gets Route By Location.",
+          "request": {
+            "name": "Gets Route By Location.",
+            "description": {
+              "content": "Accepts latitude & longitude as input and Returns Point-to-Point and Multi-Point travel directions by various travel modes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "routing",
+                "v1",
+                "route",
+                "bylocation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startPoint",
+                  "value": "<string>",
+                  "description": "Start Point in 'Lat,Long,coordsys' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "endPoint",
+                  "value": "<string>",
+                  "description": "End Point in 'Lat,Long,coordsys' format."
+                },
+                {
+                  "disabled": false,
+                  "key": "db",
+                  "value": "driving",
+                  "description": "Mode of commute."
+                },
+                {
+                  "disabled": false,
+                  "key": "intermediatePoints",
+                  "value": "<string>",
+                  "description": "List of intermediate points of the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnIntermediatePoints",
+                  "value": "false",
+                  "description": "returnIntermediatePoints route."
+                },
+                {
+                  "disabled": false,
+                  "key": "oip",
+                  "value": "false",
+                  "description": "Specifies whether waypoints need to be optimized."
+                },
+                {
+                  "disabled": false,
+                  "key": "destinationSrs",
+                  "value": "<string>",
+                  "description": "Specifies the desired coordinate system of the returned route."
+                },
+                {
+                  "disabled": false,
+                  "key": "optimizeBy",
+                  "value": "time",
+                  "description": "Specifies whether the route should be optimized by time or distance."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnDistance",
+                  "value": "true",
+                  "description": "Specifies whether distance needs to be part of direction information in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "distanceUnit",
+                  "value": "m",
+                  "description": "Return Distance Unit such as ft(Foot), km(Kilometer), mi(Mile), m(Meter) or yd(Yard)."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnTime",
+                  "value": "true",
+                  "description": "Specifies whether time needs to be part of direction information in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "timeUnit",
+                  "value": "min",
+                  "description": "Return time unit such as min(Minute), h(Hour), s(Second) or msec(Millisecond)"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Specifies the language of travel directions."
+                },
+                {
+                  "disabled": false,
+                  "key": "directionsStyle",
+                  "value": "None",
+                  "description": "Specifies whether route directions text is to be returned in the response and in what detail (Normal or Terse)."
+                },
+                {
+                  "disabled": false,
+                  "key": "segmentGeometryStyle",
+                  "value": "none",
+                  "description": "Specifies whether the route geometry is to be returned in the response and in what detail (End or All)."
+                },
+                {
+                  "disabled": false,
+                  "key": "primaryNameOnly",
+                  "value": "false",
+                  "description": "If true then only the primary street name is returned otherwise all the names for a street."
+                },
+                {
+                  "disabled": false,
+                  "key": "majorRoads",
+                  "value": "false",
+                  "description": "Whether to include all roads in route calculation or just major roads."
+                },
+                {
+                  "disabled": false,
+                  "key": "historicTrafficTimeBucket",
+                  "value": "None",
+                  "description": "Specifies whether routing calculation uses the historic traffic speeds."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnDirectionGeometry",
+                  "value": "false",
+                  "description": "Whether to include geometry associated with each route instruction in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "useCvr",
+                  "value": "N",
+                  "description": "This parameter will enable/disable CVR (Commercial Vehicle Restrictions) capability in our APIs."
+                },
+                {
+                  "disabled": false,
+                  "key": "looseningBarrierRestrictions",
+                  "value": "Y",
+                  "description": "Specifies that barriers will be removed when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleType",
+                  "value": "ALL",
+                  "description": "vehicle type."
+                },
+                {
+                  "disabled": false,
+                  "key": "weight",
+                  "value": "",
+                  "description": "Specifies the maximum weight of a vehicle. Any vehicles over this value will be restricted when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "weightUnit",
+                  "value": "kg",
+                  "description": "The unit of weight eg. kg(kilogram), lb(pound), mt(metric ton), t(ton)."
+                },
+                {
+                  "disabled": false,
+                  "key": "height",
+                  "value": "",
+                  "description": "Specifies the maximum height of a vehicle. Any vehicles over this value will be restricted when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "heightUnit",
+                  "value": "ft",
+                  "description": "The unit of height e.g m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+                },
+                {
+                  "disabled": false,
+                  "key": "length",
+                  "value": "",
+                  "description": "Specifies the maximum length of a vehicle. Any vehicles over this value will be restricted when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "lengthUnit",
+                  "value": "ft",
+                  "description": "The unit of length eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+                },
+                {
+                  "disabled": false,
+                  "key": "width",
+                  "value": "",
+                  "description": "Specifies the maximum width of a vehicle. Any vehicles over this value will be restricted when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "widthUnit",
+                  "value": "ft",
+                  "description": "The unit of width eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "004d531f-4bb2-46bc-b97c-86c5065a30c4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routing",
+                    "v1",
+                    "route",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startPoint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endPoint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "db",
+                      "value": "driving"
+                    },
+                    {
+                      "key": "intermediatePoints",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnIntermediatePoints",
+                      "value": "false"
+                    },
+                    {
+                      "key": "oip",
+                      "value": "false"
+                    },
+                    {
+                      "key": "destinationSrs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "optimizeBy",
+                      "value": "time"
+                    },
+                    {
+                      "key": "returnDistance",
+                      "value": "true"
+                    },
+                    {
+                      "key": "distanceUnit",
+                      "value": "m"
+                    },
+                    {
+                      "key": "returnTime",
+                      "value": "true"
+                    },
+                    {
+                      "key": "timeUnit",
+                      "value": "min"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "directionsStyle",
+                      "value": "None"
+                    },
+                    {
+                      "key": "segmentGeometryStyle",
+                      "value": "none"
+                    },
+                    {
+                      "key": "primaryNameOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "majorRoads",
+                      "value": "false"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "None"
+                    },
+                    {
+                      "key": "returnDirectionGeometry",
+                      "value": "false"
+                    },
+                    {
+                      "key": "useCvr",
+                      "value": "N"
+                    },
+                    {
+                      "key": "looseningBarrierRestrictions",
+                      "value": "Y"
+                    },
+                    {
+                      "key": "vehicleType",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "weight",
+                      "value": ""
+                    },
+                    {
+                      "key": "weightUnit",
+                      "value": "kg"
+                    },
+                    {
+                      "key": "height",
+                      "value": ""
+                    },
+                    {
+                      "key": "heightUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "length",
+                      "value": ""
+                    },
+                    {
+                      "key": "lengthUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "width",
+                      "value": ""
+                    },
+                    {
+                      "key": "widthUnit",
+                      "value": "ft"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"directionsStyle\": \"string\",\n  \"distance\": 6560.8834399788375,\n  \"distanceUnit\": \"string\",\n  \"language\": \"string\",\n  \"timeUnit\": \"string\",\n  \"time\": 8283.863601053867,\n  \"geometry\": {\n    \"coordinates\": [\n      [\n        1.4658129805029452,\n        1.4658129805029452\n      ],\n      [\n        1.4658129805029452,\n        1.4658129805029452\n      ]\n    ],\n    \"type\": \"type\"\n  },\n  \"routeDirections\": {\n    \"empty\": true\n  },\n  \"intermediatePoints\": {\n    \"coordinates\": [\n      [\n        2.3021358869347655,\n        2.3021358869347655\n      ],\n      [\n        2.3021358869347655,\n        2.3021358869347655\n      ]\n    ],\n    \"type\": \"type\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7860879d-e58c-4b07-b113-a7b8e52b7b23",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routing",
+                    "v1",
+                    "route",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startPoint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endPoint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "db",
+                      "value": "driving"
+                    },
+                    {
+                      "key": "intermediatePoints",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnIntermediatePoints",
+                      "value": "false"
+                    },
+                    {
+                      "key": "oip",
+                      "value": "false"
+                    },
+                    {
+                      "key": "destinationSrs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "optimizeBy",
+                      "value": "time"
+                    },
+                    {
+                      "key": "returnDistance",
+                      "value": "true"
+                    },
+                    {
+                      "key": "distanceUnit",
+                      "value": "m"
+                    },
+                    {
+                      "key": "returnTime",
+                      "value": "true"
+                    },
+                    {
+                      "key": "timeUnit",
+                      "value": "min"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "directionsStyle",
+                      "value": "None"
+                    },
+                    {
+                      "key": "segmentGeometryStyle",
+                      "value": "none"
+                    },
+                    {
+                      "key": "primaryNameOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "majorRoads",
+                      "value": "false"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "None"
+                    },
+                    {
+                      "key": "returnDirectionGeometry",
+                      "value": "false"
+                    },
+                    {
+                      "key": "useCvr",
+                      "value": "N"
+                    },
+                    {
+                      "key": "looseningBarrierRestrictions",
+                      "value": "Y"
+                    },
+                    {
+                      "key": "vehicleType",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "weight",
+                      "value": ""
+                    },
+                    {
+                      "key": "weightUnit",
+                      "value": "kg"
+                    },
+                    {
+                      "key": "height",
+                      "value": ""
+                    },
+                    {
+                      "key": "heightUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "length",
+                      "value": ""
+                    },
+                    {
+                      "key": "lengthUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "width",
+                      "value": ""
+                    },
+                    {
+                      "key": "widthUnit",
+                      "value": "ft"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c721ff3-d517-4da7-ae12-8bd5f0e671ae",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routing",
+                    "v1",
+                    "route",
+                    "bylocation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startPoint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endPoint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "db",
+                      "value": "driving"
+                    },
+                    {
+                      "key": "intermediatePoints",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnIntermediatePoints",
+                      "value": "false"
+                    },
+                    {
+                      "key": "oip",
+                      "value": "false"
+                    },
+                    {
+                      "key": "destinationSrs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "optimizeBy",
+                      "value": "time"
+                    },
+                    {
+                      "key": "returnDistance",
+                      "value": "true"
+                    },
+                    {
+                      "key": "distanceUnit",
+                      "value": "m"
+                    },
+                    {
+                      "key": "returnTime",
+                      "value": "true"
+                    },
+                    {
+                      "key": "timeUnit",
+                      "value": "min"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "directionsStyle",
+                      "value": "None"
+                    },
+                    {
+                      "key": "segmentGeometryStyle",
+                      "value": "none"
+                    },
+                    {
+                      "key": "primaryNameOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "majorRoads",
+                      "value": "false"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "None"
+                    },
+                    {
+                      "key": "returnDirectionGeometry",
+                      "value": "false"
+                    },
+                    {
+                      "key": "useCvr",
+                      "value": "N"
+                    },
+                    {
+                      "key": "looseningBarrierRestrictions",
+                      "value": "Y"
+                    },
+                    {
+                      "key": "vehicleType",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "weight",
+                      "value": ""
+                    },
+                    {
+                      "key": "weightUnit",
+                      "value": "kg"
+                    },
+                    {
+                      "key": "height",
+                      "value": ""
+                    },
+                    {
+                      "key": "heightUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "length",
+                      "value": ""
+                    },
+                    {
+                      "key": "lengthUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "width",
+                      "value": ""
+                    },
+                    {
+                      "key": "widthUnit",
+                      "value": "ft"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db6ffeae-776d-4104-8866-1def73a80ed5",
+          "name": "Gets Route By Address.",
+          "request": {
+            "name": "Gets Route By Address.",
+            "description": {
+              "content": "Accepts addresses as input and Returns Point-to-Point and Multi-Point travel directions by various travel modes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "routing",
+                "v1",
+                "route",
+                "byaddress"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startAddress",
+                  "value": "<string>",
+                  "description": "Starting address of the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "endAddress",
+                  "value": "<string>",
+                  "description": "Ending address of the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "db",
+                  "value": "driving",
+                  "description": "Mode of commute."
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "USA",
+                  "description": "Three digit ISO country code."
+                },
+                {
+                  "disabled": false,
+                  "key": "intermediateAddresses",
+                  "value": "<string>",
+                  "description": "List of intermediate points of the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnIntermediatePoints",
+                  "value": "false",
+                  "description": "return intermediate points"
+                },
+                {
+                  "disabled": false,
+                  "key": "oip",
+                  "value": "false",
+                  "description": "Specifies whether waypoints need to be optimized."
+                },
+                {
+                  "disabled": false,
+                  "key": "destinationSrs",
+                  "value": "<string>",
+                  "description": "Specifies the desired coordinate system of the returned route."
+                },
+                {
+                  "disabled": false,
+                  "key": "optimizeBy",
+                  "value": "time",
+                  "description": "Specifies whether the route should be optimized by time or distance."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnDistance",
+                  "value": "true",
+                  "description": "Specifies whether distance needs to be part of direction information in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "distanceUnit",
+                  "value": "m",
+                  "description": "Return Distance Unit such as ft(Foot), km(Kilometer), mi(Mile), m(Meter) or yd(Yard)."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnTime",
+                  "value": "true",
+                  "description": "Specifies whether time needs to be part of direction information in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "timeUnit",
+                  "value": "min",
+                  "description": "Return time unit such as min(Minute), h(Hour), s(Second) or msec(Millisecond)"
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Specifies the language of travel directions."
+                },
+                {
+                  "disabled": false,
+                  "key": "directionsStyle",
+                  "value": "None",
+                  "description": "Specifies whether route directions text is to be returned in the response and in what detail (Normal or Terse)."
+                },
+                {
+                  "disabled": false,
+                  "key": "segmentGeometryStyle",
+                  "value": "none",
+                  "description": "Specifies whether the route geometry is to be returned in the response and in what detail (End or All)."
+                },
+                {
+                  "disabled": false,
+                  "key": "primaryNameOnly",
+                  "value": "false",
+                  "description": "If true then only the primary street name is returned otherwise all the names for a street."
+                },
+                {
+                  "disabled": false,
+                  "key": "majorRoads",
+                  "value": "false",
+                  "description": "Whether to include all roads in route calculation or just major roads."
+                },
+                {
+                  "disabled": false,
+                  "key": "historicTrafficTimeBucket",
+                  "value": "None",
+                  "description": "Specifies whether routing calculation uses the historic traffic speeds."
+                },
+                {
+                  "disabled": false,
+                  "key": "returnDirectionGeometry",
+                  "value": "false",
+                  "description": "Whether to include geometry associated with each route instruction in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "useCvr",
+                  "value": "N",
+                  "description": "This parameter will enable/disable CVR (Commercial Vehicle Restrictions) capability in our APIs."
+                },
+                {
+                  "disabled": false,
+                  "key": "looseningBarrierRestrictions",
+                  "value": "Y",
+                  "description": "Specifies that barriers will be removed when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleType",
+                  "value": "ALL",
+                  "description": "vehicle type."
+                },
+                {
+                  "disabled": false,
+                  "key": "weight",
+                  "value": "",
+                  "description": "Specifies the maximum weight of a vehicle. Any vehicles over this value will be restricted when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "weightUnit",
+                  "value": "kg",
+                  "description": "The unit of weight eg. kg(kilogram), lb(pound), mt(metric ton), t(ton)."
+                },
+                {
+                  "disabled": false,
+                  "key": "height",
+                  "value": "",
+                  "description": "Specifies the maximum height of a vehicle. Any vehicles over this value will be restricted when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "heightUnit",
+                  "value": "ft",
+                  "description": "The unit of height e.g m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+                },
+                {
+                  "disabled": false,
+                  "key": "length",
+                  "value": "",
+                  "description": "Specifies the maximum length of a vehicle. Any vehicles over this value will be restricted when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "lengthUnit",
+                  "value": "ft",
+                  "description": "The unit of length eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+                },
+                {
+                  "disabled": false,
+                  "key": "width",
+                  "value": "",
+                  "description": "Specifies the maximum width of a vehicle. Any vehicles over this value will be restricted when determining the route."
+                },
+                {
+                  "disabled": false,
+                  "key": "widthUnit",
+                  "value": "ft",
+                  "description": "The unit of width eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "bearer token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.precisely.com/oauth/token"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d6d02984-d06f-4f80-8584-f0e3e09571dc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routing",
+                    "v1",
+                    "route",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "db",
+                      "value": "driving"
+                    },
+                    {
+                      "key": "country",
+                      "value": "USA"
+                    },
+                    {
+                      "key": "intermediateAddresses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnIntermediatePoints",
+                      "value": "false"
+                    },
+                    {
+                      "key": "oip",
+                      "value": "false"
+                    },
+                    {
+                      "key": "destinationSrs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "optimizeBy",
+                      "value": "time"
+                    },
+                    {
+                      "key": "returnDistance",
+                      "value": "true"
+                    },
+                    {
+                      "key": "distanceUnit",
+                      "value": "m"
+                    },
+                    {
+                      "key": "returnTime",
+                      "value": "true"
+                    },
+                    {
+                      "key": "timeUnit",
+                      "value": "min"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "directionsStyle",
+                      "value": "None"
+                    },
+                    {
+                      "key": "segmentGeometryStyle",
+                      "value": "none"
+                    },
+                    {
+                      "key": "primaryNameOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "majorRoads",
+                      "value": "false"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "None"
+                    },
+                    {
+                      "key": "returnDirectionGeometry",
+                      "value": "false"
+                    },
+                    {
+                      "key": "useCvr",
+                      "value": "N"
+                    },
+                    {
+                      "key": "looseningBarrierRestrictions",
+                      "value": "Y"
+                    },
+                    {
+                      "key": "vehicleType",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "weight",
+                      "value": ""
+                    },
+                    {
+                      "key": "weightUnit",
+                      "value": "kg"
+                    },
+                    {
+                      "key": "height",
+                      "value": ""
+                    },
+                    {
+                      "key": "heightUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "length",
+                      "value": ""
+                    },
+                    {
+                      "key": "lengthUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "width",
+                      "value": ""
+                    },
+                    {
+                      "key": "widthUnit",
+                      "value": "ft"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"directionsStyle\": \"string\",\n  \"distance\": 4394.3480969094935,\n  \"distanceUnit\": \"string\",\n  \"language\": \"string\",\n  \"timeUnit\": \"string\",\n  \"time\": 234.23945157831304,\n  \"geometry\": {\n    \"coordinates\": [\n      [\n        1.4658129805029452,\n        1.4658129805029452\n      ],\n      [\n        1.4658129805029452,\n        1.4658129805029452\n      ]\n    ],\n    \"type\": \"type\"\n  },\n  \"routeDirections\": {\n    \"empty\": true\n  },\n  \"intermediatePoints\": {\n    \"coordinates\": [\n      [\n        2.3021358869347655,\n        2.3021358869347655\n      ],\n      [\n        2.3021358869347655,\n        2.3021358869347655\n      ]\n    ],\n    \"type\": \"type\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ee6f273-7464-44bf-b4d6-5bdc71c2edea",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routing",
+                    "v1",
+                    "route",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "db",
+                      "value": "driving"
+                    },
+                    {
+                      "key": "country",
+                      "value": "USA"
+                    },
+                    {
+                      "key": "intermediateAddresses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnIntermediatePoints",
+                      "value": "false"
+                    },
+                    {
+                      "key": "oip",
+                      "value": "false"
+                    },
+                    {
+                      "key": "destinationSrs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "optimizeBy",
+                      "value": "time"
+                    },
+                    {
+                      "key": "returnDistance",
+                      "value": "true"
+                    },
+                    {
+                      "key": "distanceUnit",
+                      "value": "m"
+                    },
+                    {
+                      "key": "returnTime",
+                      "value": "true"
+                    },
+                    {
+                      "key": "timeUnit",
+                      "value": "min"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "directionsStyle",
+                      "value": "None"
+                    },
+                    {
+                      "key": "segmentGeometryStyle",
+                      "value": "none"
+                    },
+                    {
+                      "key": "primaryNameOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "majorRoads",
+                      "value": "false"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "None"
+                    },
+                    {
+                      "key": "returnDirectionGeometry",
+                      "value": "false"
+                    },
+                    {
+                      "key": "useCvr",
+                      "value": "N"
+                    },
+                    {
+                      "key": "looseningBarrierRestrictions",
+                      "value": "Y"
+                    },
+                    {
+                      "key": "vehicleType",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "weight",
+                      "value": ""
+                    },
+                    {
+                      "key": "weightUnit",
+                      "value": "kg"
+                    },
+                    {
+                      "key": "height",
+                      "value": ""
+                    },
+                    {
+                      "key": "heightUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "length",
+                      "value": ""
+                    },
+                    {
+                      "key": "lengthUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "width",
+                      "value": ""
+                    },
+                    {
+                      "key": "widthUnit",
+                      "value": "ft"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    },\n    {\n      \"errorCode\": \"string\",\n      \"errorDescription\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "314f4675-eac2-4111-b712-5a9105f746ea",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routing",
+                    "v1",
+                    "route",
+                    "byaddress"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "endAddress",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "db",
+                      "value": "driving"
+                    },
+                    {
+                      "key": "country",
+                      "value": "USA"
+                    },
+                    {
+                      "key": "intermediateAddresses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnIntermediatePoints",
+                      "value": "false"
+                    },
+                    {
+                      "key": "oip",
+                      "value": "false"
+                    },
+                    {
+                      "key": "destinationSrs",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "optimizeBy",
+                      "value": "time"
+                    },
+                    {
+                      "key": "returnDistance",
+                      "value": "true"
+                    },
+                    {
+                      "key": "distanceUnit",
+                      "value": "m"
+                    },
+                    {
+                      "key": "returnTime",
+                      "value": "true"
+                    },
+                    {
+                      "key": "timeUnit",
+                      "value": "min"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "directionsStyle",
+                      "value": "None"
+                    },
+                    {
+                      "key": "segmentGeometryStyle",
+                      "value": "none"
+                    },
+                    {
+                      "key": "primaryNameOnly",
+                      "value": "false"
+                    },
+                    {
+                      "key": "majorRoads",
+                      "value": "false"
+                    },
+                    {
+                      "key": "historicTrafficTimeBucket",
+                      "value": "None"
+                    },
+                    {
+                      "key": "returnDirectionGeometry",
+                      "value": "false"
+                    },
+                    {
+                      "key": "useCvr",
+                      "value": "N"
+                    },
+                    {
+                      "key": "looseningBarrierRestrictions",
+                      "value": "Y"
+                    },
+                    {
+                      "key": "vehicleType",
+                      "value": "ALL"
+                    },
+                    {
+                      "key": "weight",
+                      "value": ""
+                    },
+                    {
+                      "key": "weightUnit",
+                      "value": "kg"
+                    },
+                    {
+                      "key": "height",
+                      "value": ""
+                    },
+                    {
+                      "key": "heightUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "length",
+                      "value": ""
+                    },
+                    {
+                      "key": "lengthUnit",
+                      "value": "ft"
+                    },
+                    {
+                      "key": "width",
+                      "value": ""
+                    },
+                    {
+                      "key": "widthUnit",
+                      "value": "ft"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.precisely.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "bearer token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://api.precisely.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d2b761e7-b17c-4ab4-8887-a3a34579c498",
+    "name": "Precisely APIs Routing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "\nDemographics. Audience Enrichment. Add local demographics and lifestyle\nsegmentation to your audience profiles. The Demographics API returns\nhousehold demographics and lifestyle characteristics with the input of an\naddress, location coordinate, or geographic boundary. This service covers\nselect countries.\n\nContact Support:\n Name: Precisely APIs Support",
+      "type": "text/plain"
+    }
+  }
+}
