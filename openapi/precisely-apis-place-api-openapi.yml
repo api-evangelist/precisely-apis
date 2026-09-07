@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Place API
+  title: Precisely Place API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -99,17 +99,11 @@ components:
         level:
           type: string
       type: object
-    name:
-      example:
-        langISOCode: langISOCode
-        langType: langType
-        value: value
+    ErrorCode:
       properties:
-        langISOCode:
+        errorCode:
           type: string
-        langType:
-          type: string
-        value:
+        errorDescription:
           type: string
       type: object
     ErrorInfo_1:
@@ -148,11 +142,17 @@ components:
             $ref: '#/components/schemas/location'
           type: array
       type: object
-    ErrorCode:
+    name:
+      example:
+        langISOCode: langISOCode
+        langType: langType
+        value: value
       properties:
-        errorCode:
+        langISOCode:
           type: string
-        errorDescription:
+        langType:
+          type: string
+        value:
           type: string
       type: object
     location:

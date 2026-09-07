@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Psap API
+  title: Precisely Psap API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -108,6 +108,220 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    siteDetails:
+      example:
+        address:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        phone: phone
+        contactName: contactName
+        fax: fax
+        email: email
+      properties:
+        phone:
+          type: string
+        fax:
+          type: string
+        contactName:
+          type: string
+        email:
+          type: string
+        address:
+          $ref: '#/components/schemas/AHJmailingAddress'
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    county:
+      example:
+        name: name
+        fips: fips
+      properties:
+        name:
+          type: string
+        fips:
+          type: string
+      type: object
+    coverage:
+      example:
+        area: area
+        comments: comments
+        exceptions: exceptions
+      properties:
+        area:
+          type: string
+        comments:
+          type: string
+        exceptions:
+          type: string
+      type: object
+    AHJmailingAddress:
+      example:
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
+      properties:
+        objectId:
+          type: string
+        displayName:
+          type: string
+        streetSide:
+          type: string
+        businessName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+      type: object
+    contactPerson:
+      example:
+        firstName: firstName
+        lastName: lastName
+        comments: comments
+        phone: phone
+        prefix: prefix
+        fullName: fullName
+        title: title
+        fax: fax
+        additionalDetails: additionalDetails
+        email: email
+      properties:
+        title:
+          type: string
+        fullName:
+          type: string
+        prefix:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        phone:
+          type: string
+        fax:
+          type: string
+        email:
+          type: string
+        comments:
+          type: string
+        additionalDetails:
+          type: string
+      type: object
     PSAPResponse:
       example:
         coverage:
@@ -225,220 +439,6 @@ components:
           $ref: '#/components/schemas/siteDetails'
         mailingAddress:
           $ref: '#/components/schemas/AHJmailingAddress'
-      type: object
-    siteDetails:
-      example:
-        address:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        phone: phone
-        contactName: contactName
-        fax: fax
-        email: email
-      properties:
-        phone:
-          type: string
-        fax:
-          type: string
-        contactName:
-          type: string
-        email:
-          type: string
-        address:
-          $ref: '#/components/schemas/AHJmailingAddress'
-      type: object
-    coverage:
-      example:
-        area: area
-        comments: comments
-        exceptions: exceptions
-      properties:
-        area:
-          type: string
-        comments:
-          type: string
-        exceptions:
-          type: string
-      type: object
-    contactPerson:
-      example:
-        firstName: firstName
-        lastName: lastName
-        comments: comments
-        phone: phone
-        prefix: prefix
-        fullName: fullName
-        title: title
-        fax: fax
-        additionalDetails: additionalDetails
-        email: email
-      properties:
-        title:
-          type: string
-        fullName:
-          type: string
-        prefix:
-          type: string
-        firstName:
-          type: string
-        lastName:
-          type: string
-        phone:
-          type: string
-        fax:
-          type: string
-        email:
-          type: string
-        comments:
-          type: string
-        additionalDetails:
-          type: string
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
-    county:
-      example:
-        name: name
-        fips: fips
-      properties:
-        name:
-          type: string
-        fips:
-          type: string
-      type: object
-    AHJmailingAddress:
-      example:
-        country: country
-        streetSide: streetSide
-        city: city
-        displayName: displayName
-        postalCode: postalCode
-        latitude: latitude
-        businessName: businessName
-        county: county
-        unitType: unitType
-        streetName: streetName
-        formattedAddress: formattedAddress
-        addressLine1: addressLine1
-        mainAddressLine: mainAddressLine
-        addressLine2: addressLine2
-        addressLine3: addressLine3
-        objectId: objectId
-        addressLastLine: addressLastLine
-        longitude: longitude
-        unitValue: unitValue
-        stateProvince: stateProvince
-        urbanizationName: urbanizationName
-        areaName1: areaName1
-        areaName2: areaName2
-        areaName3: areaName3
-        areaName4: areaName4
-        addressNumber: addressNumber
-        postCode: postCode
-        postCodeExt: postCodeExt
-        placeName: placeName
-        status: status
-      properties:
-        objectId:
-          type: string
-        displayName:
-          type: string
-        streetSide:
-          type: string
-        businessName:
-          type: string
-        addressLine1:
-          type: string
-        addressLine2:
-          type: string
-        addressLine3:
-          type: string
-        city:
-          type: string
-        stateProvince:
-          type: string
-        county:
-          type: string
-        postalCode:
-          type: string
-        latitude:
-          type: string
-        longitude:
-          type: string
-        status:
-          type: string
-        urbanizationName:
-          type: string
-        formattedAddress:
-          type: string
-        mainAddressLine:
-          type: string
-        addressLastLine:
-          type: string
-        placeName:
-          type: string
-        areaName1:
-          type: string
-        areaName2:
-          type: string
-        areaName3:
-          type: string
-        areaName4:
-          type: string
-        postCode:
-          type: string
-        postCodeExt:
-          type: string
-        country:
-          type: string
-        addressNumber:
-          type: string
-        streetName:
-          type: string
-        unitType:
-          type: string
-        unitValue:
-          type: string
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
       type: object
   securitySchemes:
     oAuth2Password:

@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Earthquake API
+  title: Precisely Earthquake API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -202,23 +202,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    RiskGeometry:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      required:
-      - type
-      type: object
     RiskLocations:
       example:
         geometry:
@@ -238,98 +221,11 @@ components:
       required:
       - geometry
       type: object
-    RiskAddress:
-      example:
-        country: country
-        streetSide: streetSide
-        city: city
-        displayName: displayName
-        postalCode: postalCode
-        latitude: latitude
-        businessName: businessName
-        county: county
-        unitType: unitType
-        streetName: streetName
-        formattedAddress: formattedAddress
-        addressLine1: addressLine1
-        mainAddressLine: mainAddressLine
-        addressLine2: addressLine2
-        addressLine3: addressLine3
-        objectId: objectId
-        addressLastLine: addressLastLine
-        longitude: longitude
-        unitValue: unitValue
-        stateProvince: stateProvince
-        urbanizationName: urbanizationName
-        areaName1: areaName1
-        areaName2: areaName2
-        areaName3: areaName3
-        areaName4: areaName4
-        addressNumber: addressNumber
-        postCode: postCode
-        postCodeExt: postCodeExt
-        placeName: placeName
-        status: status
+    ErrorCode:
       properties:
-        objectId:
+        errorCode:
           type: string
-        displayName:
-          type: string
-        streetSide:
-          type: string
-        businessName:
-          type: string
-        addressLine1:
-          type: string
-        addressLine2:
-          type: string
-        addressLine3:
-          type: string
-        city:
-          type: string
-        stateProvince:
-          type: string
-        county:
-          type: string
-        postalCode:
-          type: string
-        latitude:
-          type: string
-        longitude:
-          type: string
-        status:
-          type: string
-        urbanizationName:
-          type: string
-        formattedAddress:
-          type: string
-        mainAddressLine:
-          type: string
-        addressLastLine:
-          type: string
-        placeName:
-          type: string
-        areaName1:
-          type: string
-        areaName2:
-          type: string
-        areaName3:
-          type: string
-        areaName4:
-          type: string
-        postCode:
-          type: string
-        postCodeExt:
-          type: string
-        country:
-          type: string
-        addressNumber:
-          type: string
-        streetName:
-          type: string
-        unitType:
-          type: string
-        unitValue:
+        errorDescription:
           type: string
       type: object
     EarthquakeRiskResponseList:
@@ -461,42 +357,114 @@ components:
             $ref: '#/components/schemas/EarthquakeRiskResponse'
           type: array
       type: object
-    EarthquakeRiskByLocationRequest:
+    Grid:
       example:
-        preferences:
-          richterValue: richterValue
-          includeZoneDesc: includeZoneDesc
-          includeGeometry: includeGeometry
-        locations:
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
+        code: code
+        geometry:
+          crs:
             type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
+            properties:
+              name: name
+          coordinates: '{}'
+          type: type
       properties:
-        locations:
-          items:
-            $ref: '#/components/schemas/RiskLocations'
-          type: array
-        preferences:
-          $ref: '#/components/schemas/RiskPreferences'
-      required:
-      - locations
+        code:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/CommonGeometry'
       type: object
-    GeometryProperties:
+    RiskAddress:
       example:
-        name: name
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
       properties:
-        name:
+        objectId:
+          type: string
+        displayName:
+          type: string
+        streetSide:
+          type: string
+        businessName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
           type: string
       type: object
     CommonGeometry:
@@ -515,40 +483,11 @@ components:
         coordinates:
           type: object
       type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
-    Grid:
+    GeometryProperties:
       example:
-        code: code
-        geometry:
-          crs:
-            type: type
-            properties:
-              name: name
-          coordinates: '{}'
-          type: type
+        name: name
       properties:
-        code:
-          type: string
-        geometry:
-          $ref: '#/components/schemas/CommonGeometry'
-      type: object
-    RiskPreferences:
-      example:
-        richterValue: richterValue
-        includeZoneDesc: includeZoneDesc
-        includeGeometry: includeGeometry
-      properties:
-        includeGeometry:
-          type: string
-        includeZoneDesc:
-          type: string
-        richterValue:
+        name:
           type: string
       type: object
     EarthquakeRiskResponse:
@@ -624,6 +563,72 @@ components:
           $ref: '#/components/schemas/Grid'
         matchedAddress:
           $ref: '#/components/schemas/RiskAddress'
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    EarthquakeRiskByLocationRequest:
+      example:
+        preferences:
+          richterValue: richterValue
+          includeZoneDesc: includeZoneDesc
+          includeGeometry: includeGeometry
+        locations:
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+      properties:
+        locations:
+          items:
+            $ref: '#/components/schemas/RiskLocations'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/RiskPreferences'
+      required:
+      - locations
+      type: object
+    RiskGeometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      required:
+      - type
+      type: object
+    RisksGeometryCRC:
+      example:
+        type: type
+        properties:
+          name: name
+      properties:
+        type:
+          type: string
+        properties:
+          $ref: '#/components/schemas/GeometryProperties'
       type: object
     EarthquakeRiskByAddressRequest:
       example:
@@ -702,22 +707,17 @@ components:
       required:
       - addresses
       type: object
-    RisksGeometryCRC:
+    RiskPreferences:
       example:
-        type: type
-        properties:
-          name: name
+        richterValue: richterValue
+        includeZoneDesc: includeZoneDesc
+        includeGeometry: includeGeometry
       properties:
-        type:
+        includeGeometry:
           type: string
-        properties:
-          $ref: '#/components/schemas/GeometryProperties'
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
+        includeZoneDesc:
           type: string
-        errorDescription:
+        richterValue:
           type: string
       type: object
     EventsCount:

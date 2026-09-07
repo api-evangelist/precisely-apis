@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Validatemailingaddresspro API
+  title: Precisely Validatemailingaddresspro API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -74,108 +74,53 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ValidateMailingAddressProResponse:
-      example:
-        Output:
-        - Status: Status
-          BlockAddress: BlockAddress
-          FirmName: FirmName
-          Suburb: Suburb
-          Locality: Locality
-          StateProvince: StateProvince
-          AddressQuality: AddressQuality
-          PostalCode: PostalCode
-          City: City
-          Status.Code: Status.Code
-          CouldNotValidate: CouldNotValidate
-          Deliverability: Deliverability
-          AdditionalInputData: AdditionalInputData
-          AddressLine2: AddressLine2
-          AddressLine1: AddressLine1
-          PostalCode.Base: PostalCode.Base
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          ChangeScore: ChangeScore
-          Country: Country
-          Status.Description: Status.Description
-          AddressType: AddressType
-          PostalCode.AddOn: PostalCode.AddOn
-        - Status: Status
-          BlockAddress: BlockAddress
-          FirmName: FirmName
-          Suburb: Suburb
-          Locality: Locality
-          StateProvince: StateProvince
-          AddressQuality: AddressQuality
-          PostalCode: PostalCode
-          City: City
-          Status.Code: Status.Code
-          CouldNotValidate: CouldNotValidate
-          Deliverability: Deliverability
-          AdditionalInputData: AdditionalInputData
-          AddressLine2: AddressLine2
-          AddressLine1: AddressLine1
-          PostalCode.Base: PostalCode.Base
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          ChangeScore: ChangeScore
-          Country: Country
-          Status.Description: Status.Description
-          AddressType: AddressType
-          PostalCode.AddOn: PostalCode.AddOn
+    ErrorCode:
       properties:
-        Output:
-          items:
-            $ref: '#/components/schemas/ValidateMailingAddressProOutput'
-          type: array
-      type: object
-    ValidateMailingAddressProInput:
-      example:
-        Row:
-        - AddressLine2: AddressLine2
-          AddressLine1: AddressLine1
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          FirmName: FirmName
-          StateProvince: StateProvince
-          Country: Country
-          PostalCode: PostalCode
-          City: City
-        - AddressLine2: AddressLine2
-          AddressLine1: AddressLine1
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          FirmName: FirmName
-          StateProvince: StateProvince
-          Country: Country
-          PostalCode: PostalCode
-          City: City
-      properties:
-        Row:
-          items:
-            $ref: '#/components/schemas/ValidateMailingAddressProInputRow'
-          type: array
-      type: object
-    GetPostalCodesAPIOutput_user_fields:
-      example:
-        name: name
-        value: value
-      properties:
-        name:
+        errorCode:
           type: string
-        value:
+        errorDescription:
+          type: string
+      type: object
+    ValidateMailingAddressProInputRow:
+      example:
+        AddressLine2: AddressLine2
+        AddressLine1: AddressLine1
+        user_fields:
+        - name: name
+          value: value
+        - name: name
+          value: value
+        FirmName: FirmName
+        StateProvince: StateProvince
+        Country: Country
+        PostalCode: PostalCode
+        City: City
+      properties:
+        user_fields:
+          description: These fields are returned, unmodified, in the user_fields section of the response.
+          items:
+            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
+          type: array
+        AddressLine1:
+          description: The first address line.
+          type: string
+        AddressLine2:
+          description: The second address line.
+          type: string
+        FirmName:
+          description: The company or firm name.
+          type: string
+        City:
+          description: The city name.
+          type: string
+        StateProvince:
+          description: The state or province.
+          type: string
+        Country:
+          description: The country code or name.
+          type: string
+        PostalCode:
+          description: The postal code for the address.
           type: string
       type: object
     ValidateMailingAddressProOptions:
@@ -210,6 +155,27 @@ components:
         MaximumResults:
           default: '10'
           description: A number between 1 and 10 that indicates the maximum number of addresses to return.
+          type: string
+      type: object
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
+    GetPostalCodesAPIOutput_user_fields:
+      example:
+        name: name
+        value: value
+      properties:
+        name:
+          type: string
+        value:
           type: string
       type: object
     ValidateMailingAddressProOutput:
@@ -351,65 +317,99 @@ components:
         Input:
           $ref: '#/components/schemas/ValidateMailingAddressProInput'
       type: object
-    ValidateMailingAddressProInputRow:
+    ValidateMailingAddressProInput:
       example:
-        AddressLine2: AddressLine2
-        AddressLine1: AddressLine1
-        user_fields:
-        - name: name
-          value: value
-        - name: name
-          value: value
-        FirmName: FirmName
-        StateProvince: StateProvince
-        Country: Country
-        PostalCode: PostalCode
-        City: City
+        Row:
+        - AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          FirmName: FirmName
+          StateProvince: StateProvince
+          Country: Country
+          PostalCode: PostalCode
+          City: City
+        - AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          FirmName: FirmName
+          StateProvince: StateProvince
+          Country: Country
+          PostalCode: PostalCode
+          City: City
       properties:
-        user_fields:
-          description: These fields are returned, unmodified, in the user_fields section of the response.
+        Row:
           items:
-            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
+            $ref: '#/components/schemas/ValidateMailingAddressProInputRow'
           type: array
-        AddressLine1:
-          description: The first address line.
-          type: string
-        AddressLine2:
-          description: The second address line.
-          type: string
-        FirmName:
-          description: The company or firm name.
-          type: string
-        City:
-          description: The city name.
-          type: string
-        StateProvince:
-          description: The state or province.
-          type: string
-        Country:
-          description: The country code or name.
-          type: string
-        PostalCode:
-          description: The postal code for the address.
-          type: string
       type: object
-    ErrorInfo:
+    ValidateMailingAddressProResponse:
+      example:
+        Output:
+        - Status: Status
+          BlockAddress: BlockAddress
+          FirmName: FirmName
+          Suburb: Suburb
+          Locality: Locality
+          StateProvince: StateProvince
+          AddressQuality: AddressQuality
+          PostalCode: PostalCode
+          City: City
+          Status.Code: Status.Code
+          CouldNotValidate: CouldNotValidate
+          Deliverability: Deliverability
+          AdditionalInputData: AdditionalInputData
+          AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          PostalCode.Base: PostalCode.Base
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          ChangeScore: ChangeScore
+          Country: Country
+          Status.Description: Status.Description
+          AddressType: AddressType
+          PostalCode.AddOn: PostalCode.AddOn
+        - Status: Status
+          BlockAddress: BlockAddress
+          FirmName: FirmName
+          Suburb: Suburb
+          Locality: Locality
+          StateProvince: StateProvince
+          AddressQuality: AddressQuality
+          PostalCode: PostalCode
+          City: City
+          Status.Code: Status.Code
+          CouldNotValidate: CouldNotValidate
+          Deliverability: Deliverability
+          AdditionalInputData: AdditionalInputData
+          AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          PostalCode.Base: PostalCode.Base
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          ChangeScore: ChangeScore
+          Country: Country
+          Status.Description: Status.Description
+          AddressType: AddressType
+          PostalCode.AddOn: PostalCode.AddOn
       properties:
-        errors:
+        Output:
           items:
-            $ref: '#/components/schemas/ErrorCode'
+            $ref: '#/components/schemas/ValidateMailingAddressProOutput'
           type: array
-          xml:
-            name: error
-      type: object
-      xml:
-        name: errors
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
       type: object
   securitySchemes:
     oAuth2Password:

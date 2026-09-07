@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Routing  Service API
+  title: Precisely Routing  Service API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -507,6 +507,13 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
     RouteGeometry:
       example:
         coordinates:
@@ -524,41 +531,6 @@ components:
               format: double
               type: number
             type: array
-          type: array
-      type: object
-    RouteDirection:
-      example:
-        distanceUnit: distanceUnit
-        distance: 5.962133916683182
-        instruction: instruction
-        time: 5.637376656633329
-        timeUnit: timeUnit
-        directionGeometry:
-          coordinates:
-          - - 1.4658129805029452
-            - 1.4658129805029452
-          - - 1.4658129805029452
-            - 1.4658129805029452
-          type: type
-      properties:
-        distance:
-          type: number
-        distanceUnit:
-          type: string
-        timeUnit:
-          type: string
-        time:
-          type: number
-        instruction:
-          type: string
-        directionGeometry:
-          $ref: '#/components/schemas/RouteGeometry'
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
           type: array
       type: object
     RouteResponse:
@@ -633,6 +605,41 @@ components:
         intermediatePoints:
           $ref: '#/components/schemas/IntermediatePoints'
       type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    RouteDirection:
+      example:
+        distanceUnit: distanceUnit
+        distance: 5.962133916683182
+        instruction: instruction
+        time: 5.637376656633329
+        timeUnit: timeUnit
+        directionGeometry:
+          coordinates:
+          - - 1.4658129805029452
+            - 1.4658129805029452
+          - - 1.4658129805029452
+            - 1.4658129805029452
+          type: type
+      properties:
+        distance:
+          type: number
+        distanceUnit:
+          type: string
+        timeUnit:
+          type: string
+        time:
+          type: number
+        instruction:
+          type: string
+        directionGeometry:
+          $ref: '#/components/schemas/RouteGeometry'
+      type: object
     IntermediatePoints:
       example:
         coordinates:
@@ -651,13 +658,6 @@ components:
               type: number
             type: array
           type: array
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
       type: object
   securitySchemes:
     oAuth2Password:

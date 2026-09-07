@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Phone  Verification  Service API
+  title: Precisely Phone  Verification  Service API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -75,16 +75,24 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ValidatePhoneNumberAPIRequest_Input_Row:
-      example:
-        PhoneNumber: PhoneNumber
-        Country: Country
+    ErrorCode:
       properties:
-        PhoneNumber:
+        errorCode:
           type: string
-        Country:
+        errorDescription:
           type: string
       type: object
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
     PhoneVerification_Output:
       example:
         CarrierName: CarrierName
@@ -120,19 +128,6 @@ components:
             type: string
           type: array
       type: object
-    ValidatePhoneNumberAPIRequest_Input:
-      example:
-        Row:
-        - PhoneNumber: PhoneNumber
-          Country: Country
-        - PhoneNumber: PhoneNumber
-          Country: Country
-      properties:
-        Row:
-          items:
-            $ref: '#/components/schemas/ValidatePhoneNumberAPIRequest_Input_Row'
-          type: array
-      type: object
     PhoneVerification:
       example:
         Output:
@@ -164,17 +159,19 @@ components:
             $ref: '#/components/schemas/PhoneVerification_Output'
           type: array
       type: object
-    ErrorInfo:
+    ValidatePhoneNumberAPIRequest_Input:
+      example:
+        Row:
+        - PhoneNumber: PhoneNumber
+          Country: Country
+        - PhoneNumber: PhoneNumber
+          Country: Country
       properties:
-        errors:
+        Row:
           items:
-            $ref: '#/components/schemas/ErrorCode'
+            $ref: '#/components/schemas/ValidatePhoneNumberAPIRequest_Input_Row'
           type: array
-          xml:
-            name: error
       type: object
-      xml:
-        name: errors
     ValidatePhoneNumberAPIRequest:
       example:
         Input:
@@ -187,11 +184,14 @@ components:
         Input:
           $ref: '#/components/schemas/ValidatePhoneNumberAPIRequest_Input'
       type: object
-    ErrorCode:
+    ValidatePhoneNumberAPIRequest_Input_Row:
+      example:
+        PhoneNumber: PhoneNumber
+        Country: Country
       properties:
-        errorCode:
+        PhoneNumber:
           type: string
-        errorDescription:
+        Country:
           type: string
       type: object
   securitySchemes:

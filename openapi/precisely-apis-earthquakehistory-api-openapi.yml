@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Earthquakehistory API
+  title: Precisely Earthquakehistory API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -96,34 +96,87 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    Magnitude:
-      example:
-        surfaceWave: 5.637376656633329
-        bodyWave: 5.962133916683182
-        bodyWaveValue: 7.061401241503109
-        scale: scale
-        surfaceWaveValue: 2.3021358869347655
-        value: 1.4658129805029452
+    ErrorCode:
       properties:
-        value:
-          format: double
-          type: number
-        scale:
+        errorCode:
           type: string
-        bodyWave:
-          format: double
-          type: number
-        surfaceWave:
-          format: double
-          type: number
-        surfaceWaveValue:
-          format: double
-          type: number
-          writeOnly: true
-        bodyWaveValue:
-          format: double
-          type: number
-          writeOnly: true
+        errorDescription:
+          type: string
+      type: object
+    EarthquakeDateTime:
+      example:
+        date: date
+        time: time
+      properties:
+        date:
+          type: string
+        time:
+          type: string
+      type: object
+    EarthquakeEvent:
+      example:
+        dateTime:
+          date: date
+          time: time
+        intensity: 9
+        culturalEffect: culturalEffect
+        depth:
+          unit: unit
+          value: 6
+        diastrophism: diastrophism
+        cause: cause
+        magnitude:
+          surfaceWave: 5.637376656633329
+          bodyWave: 5.962133916683182
+          bodyWaveValue: 7.061401241503109
+          scale: scale
+          surfaceWaveValue: 2.3021358869347655
+          value: 1.4658129805029452
+        location:
+          coordinates:
+          - 3.616076749251911
+          - 3.616076749251911
+          type: type
+        miscPhenomena: miscPhenomena
+        seismicRegionNumber: 0
+      properties:
+        dateTime:
+          $ref: '#/components/schemas/EarthquakeDateTime'
+        seismicRegionNumber:
+          format: int32
+          type: integer
+        depth:
+          $ref: '#/components/schemas/Depth'
+        magnitude:
+          $ref: '#/components/schemas/Magnitude'
+        cause:
+          type: string
+        culturalEffect:
+          type: string
+        intensity:
+          format: int32
+          type: integer
+        diastrophism:
+          type: string
+        miscPhenomena:
+          type: string
+        location:
+          $ref: '#/components/schemas/EarthquakeLocation'
+      type: object
+    EarthquakeLocation:
+      example:
+        coordinates:
+        - 3.616076749251911
+        - 3.616076749251911
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
       type: object
     Depth:
       example:
@@ -135,6 +188,124 @@ components:
         value:
           format: int32
           type: integer
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    EarthquakeEventsResponse:
+      example:
+        earthuakeEvents:
+        - dateTime:
+            date: date
+            time: time
+          intensity: 9
+          culturalEffect: culturalEffect
+          depth:
+            unit: unit
+            value: 6
+          diastrophism: diastrophism
+          cause: cause
+          magnitude:
+            surfaceWave: 5.637376656633329
+            bodyWave: 5.962133916683182
+            bodyWaveValue: 7.061401241503109
+            scale: scale
+            surfaceWaveValue: 2.3021358869347655
+            value: 1.4658129805029452
+          location:
+            coordinates:
+            - 3.616076749251911
+            - 3.616076749251911
+            type: type
+          miscPhenomena: miscPhenomena
+          seismicRegionNumber: 0
+        - dateTime:
+            date: date
+            time: time
+          intensity: 9
+          culturalEffect: culturalEffect
+          depth:
+            unit: unit
+            value: 6
+          diastrophism: diastrophism
+          cause: cause
+          magnitude:
+            surfaceWave: 5.637376656633329
+            bodyWave: 5.962133916683182
+            bodyWaveValue: 7.061401241503109
+            scale: scale
+            surfaceWaveValue: 2.3021358869347655
+            value: 1.4658129805029452
+          location:
+            coordinates:
+            - 3.616076749251911
+            - 3.616076749251911
+            type: type
+          miscPhenomena: miscPhenomena
+          seismicRegionNumber: 0
+        event:
+        - dateTime:
+            date: date
+            time: time
+          intensity: 9
+          culturalEffect: culturalEffect
+          depth:
+            unit: unit
+            value: 6
+          diastrophism: diastrophism
+          cause: cause
+          magnitude:
+            surfaceWave: 5.637376656633329
+            bodyWave: 5.962133916683182
+            bodyWaveValue: 7.061401241503109
+            scale: scale
+            surfaceWaveValue: 2.3021358869347655
+            value: 1.4658129805029452
+          location:
+            coordinates:
+            - 3.616076749251911
+            - 3.616076749251911
+            type: type
+          miscPhenomena: miscPhenomena
+          seismicRegionNumber: 0
+        - dateTime:
+            date: date
+            time: time
+          intensity: 9
+          culturalEffect: culturalEffect
+          depth:
+            unit: unit
+            value: 6
+          diastrophism: diastrophism
+          cause: cause
+          magnitude:
+            surfaceWave: 5.637376656633329
+            bodyWave: 5.962133916683182
+            bodyWaveValue: 7.061401241503109
+            scale: scale
+            surfaceWaveValue: 2.3021358869347655
+            value: 1.4658129805029452
+          location:
+            coordinates:
+            - 3.616076749251911
+            - 3.616076749251911
+            type: type
+          miscPhenomena: miscPhenomena
+          seismicRegionNumber: 0
+      properties:
+        earthuakeEvents:
+          items:
+            $ref: '#/components/schemas/EarthquakeEvent'
+          type: array
+          writeOnly: true
+        event:
+          items:
+            $ref: '#/components/schemas/EarthquakeEvent'
+          type: array
       type: object
     earthquakeHistory:
       example:
@@ -250,205 +421,34 @@ components:
         events:
           $ref: '#/components/schemas/EarthquakeEventsResponse'
       type: object
-    EarthquakeEventsResponse:
+    Magnitude:
       example:
-        earthuakeEvents:
-        - dateTime:
-            date: date
-            time: time
-          intensity: 9
-          culturalEffect: culturalEffect
-          depth:
-            unit: unit
-            value: 6
-          diastrophism: diastrophism
-          cause: cause
-          magnitude:
-            surfaceWave: 5.637376656633329
-            bodyWave: 5.962133916683182
-            bodyWaveValue: 7.061401241503109
-            scale: scale
-            surfaceWaveValue: 2.3021358869347655
-            value: 1.4658129805029452
-          location:
-            coordinates:
-            - 3.616076749251911
-            - 3.616076749251911
-            type: type
-          miscPhenomena: miscPhenomena
-          seismicRegionNumber: 0
-        - dateTime:
-            date: date
-            time: time
-          intensity: 9
-          culturalEffect: culturalEffect
-          depth:
-            unit: unit
-            value: 6
-          diastrophism: diastrophism
-          cause: cause
-          magnitude:
-            surfaceWave: 5.637376656633329
-            bodyWave: 5.962133916683182
-            bodyWaveValue: 7.061401241503109
-            scale: scale
-            surfaceWaveValue: 2.3021358869347655
-            value: 1.4658129805029452
-          location:
-            coordinates:
-            - 3.616076749251911
-            - 3.616076749251911
-            type: type
-          miscPhenomena: miscPhenomena
-          seismicRegionNumber: 0
-        event:
-        - dateTime:
-            date: date
-            time: time
-          intensity: 9
-          culturalEffect: culturalEffect
-          depth:
-            unit: unit
-            value: 6
-          diastrophism: diastrophism
-          cause: cause
-          magnitude:
-            surfaceWave: 5.637376656633329
-            bodyWave: 5.962133916683182
-            bodyWaveValue: 7.061401241503109
-            scale: scale
-            surfaceWaveValue: 2.3021358869347655
-            value: 1.4658129805029452
-          location:
-            coordinates:
-            - 3.616076749251911
-            - 3.616076749251911
-            type: type
-          miscPhenomena: miscPhenomena
-          seismicRegionNumber: 0
-        - dateTime:
-            date: date
-            time: time
-          intensity: 9
-          culturalEffect: culturalEffect
-          depth:
-            unit: unit
-            value: 6
-          diastrophism: diastrophism
-          cause: cause
-          magnitude:
-            surfaceWave: 5.637376656633329
-            bodyWave: 5.962133916683182
-            bodyWaveValue: 7.061401241503109
-            scale: scale
-            surfaceWaveValue: 2.3021358869347655
-            value: 1.4658129805029452
-          location:
-            coordinates:
-            - 3.616076749251911
-            - 3.616076749251911
-            type: type
-          miscPhenomena: miscPhenomena
-          seismicRegionNumber: 0
+        surfaceWave: 5.637376656633329
+        bodyWave: 5.962133916683182
+        bodyWaveValue: 7.061401241503109
+        scale: scale
+        surfaceWaveValue: 2.3021358869347655
+        value: 1.4658129805029452
       properties:
-        earthuakeEvents:
-          items:
-            $ref: '#/components/schemas/EarthquakeEvent'
-          type: array
+        value:
+          format: double
+          type: number
+        scale:
+          type: string
+        bodyWave:
+          format: double
+          type: number
+        surfaceWave:
+          format: double
+          type: number
+        surfaceWaveValue:
+          format: double
+          type: number
           writeOnly: true
-        event:
-          items:
-            $ref: '#/components/schemas/EarthquakeEvent'
-          type: array
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
-    EarthquakeLocation:
-      example:
-        coordinates:
-        - 3.616076749251911
-        - 3.616076749251911
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      type: object
-    EarthquakeEvent:
-      example:
-        dateTime:
-          date: date
-          time: time
-        intensity: 9
-        culturalEffect: culturalEffect
-        depth:
-          unit: unit
-          value: 6
-        diastrophism: diastrophism
-        cause: cause
-        magnitude:
-          surfaceWave: 5.637376656633329
-          bodyWave: 5.962133916683182
-          bodyWaveValue: 7.061401241503109
-          scale: scale
-          surfaceWaveValue: 2.3021358869347655
-          value: 1.4658129805029452
-        location:
-          coordinates:
-          - 3.616076749251911
-          - 3.616076749251911
-          type: type
-        miscPhenomena: miscPhenomena
-        seismicRegionNumber: 0
-      properties:
-        dateTime:
-          $ref: '#/components/schemas/EarthquakeDateTime'
-        seismicRegionNumber:
-          format: int32
-          type: integer
-        depth:
-          $ref: '#/components/schemas/Depth'
-        magnitude:
-          $ref: '#/components/schemas/Magnitude'
-        cause:
-          type: string
-        culturalEffect:
-          type: string
-        intensity:
-          format: int32
-          type: integer
-        diastrophism:
-          type: string
-        miscPhenomena:
-          type: string
-        location:
-          $ref: '#/components/schemas/EarthquakeLocation'
-      type: object
-    EarthquakeDateTime:
-      example:
-        date: date
-        time: time
-      properties:
-        date:
-          type: string
-        time:
-          type: string
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
+        bodyWaveValue:
+          format: double
+          type: number
+          writeOnly: true
       type: object
   securitySchemes:
     oAuth2Password:

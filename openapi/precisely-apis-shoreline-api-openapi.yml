@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Shoreline API
+  title: Precisely Shoreline API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -226,23 +226,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    RiskGeometry:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      required:
-      - type
-      type: object
     RiskLocations:
       example:
         geometry:
@@ -262,83 +245,54 @@ components:
       required:
       - geometry
       type: object
-    DistanceToFloodHazardAddressRequest:
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    DistanceToFloodHazardLocationRequest:
       example:
-        addresses:
-        - country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        - country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
         preferences:
           waterBodyType: waterBodyType
           maxCandidates: maxCandidates
           searchDistance: searchDistance
           searchDistanceUnit: searchDistanceUnit
+        locations:
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
       properties:
-        addresses:
+        locations:
           items:
-            $ref: '#/components/schemas/RiskAddress'
+            $ref: '#/components/schemas/RiskLocations'
           type: array
         preferences:
           $ref: '#/components/schemas/FloodHazardPreferences'
       required:
-      - addresses
+      - locations
+      type: object
+    ShoreLineDistance:
+      example:
+        unit: unit
+        value: value
+      properties:
+        unit:
+          type: string
+        value:
+          type: string
       type: object
     RiskAddress:
       example:
@@ -434,6 +388,29 @@ components:
         unitValue:
           type: string
       type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    FloodHazardPreferences:
+      example:
+        waterBodyType: waterBodyType
+        maxCandidates: maxCandidates
+        searchDistance: searchDistance
+        searchDistanceUnit: searchDistanceUnit
+      properties:
+        waterBodyType:
+          type: string
+        maxCandidates:
+          type: string
+        searchDistance:
+          type: string
+        searchDistanceUnit:
+          type: string
+      type: object
     WaterBodyResponse:
       example:
         waterBody:
@@ -493,49 +470,6 @@ components:
         matchedAddress:
           $ref: '#/components/schemas/RiskAddress'
       type: object
-    FloodHazardPreferences:
-      example:
-        waterBodyType: waterBodyType
-        maxCandidates: maxCandidates
-        searchDistance: searchDistance
-        searchDistanceUnit: searchDistanceUnit
-      properties:
-        waterBodyType:
-          type: string
-        maxCandidates:
-          type: string
-        searchDistance:
-          type: string
-        searchDistanceUnit:
-          type: string
-      type: object
-    Type:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
-    ShoreLineDistance:
-      example:
-        unit: unit
-        value: value
-      properties:
-        unit:
-          type: string
-        value:
-          type: string
-      type: object
     waterBody:
       example:
         distance:
@@ -552,38 +486,6 @@ components:
           $ref: '#/components/schemas/ShoreLineDistance'
         type:
           $ref: '#/components/schemas/Type'
-      type: object
-    DistanceToFloodHazardLocationRequest:
-      example:
-        preferences:
-          waterBodyType: waterBodyType
-          maxCandidates: maxCandidates
-          searchDistance: searchDistance
-          searchDistanceUnit: searchDistanceUnit
-        locations:
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-      properties:
-        locations:
-          items:
-            $ref: '#/components/schemas/RiskLocations'
-          type: array
-        preferences:
-          $ref: '#/components/schemas/FloodHazardPreferences'
-      required:
-      - locations
       type: object
     DistanceToFloodHazardResponse:
       example:
@@ -688,12 +590,110 @@ components:
             $ref: '#/components/schemas/WaterBodyResponse'
           type: array
       type: object
-    ErrorCode:
+    RiskGeometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
       properties:
-        errorCode:
+        type:
           type: string
-        errorDescription:
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      required:
+      - type
+      type: object
+    Type:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
           type: string
+        value:
+          type: string
+      type: object
+    DistanceToFloodHazardAddressRequest:
+      example:
+        addresses:
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        preferences:
+          waterBodyType: waterBodyType
+          maxCandidates: maxCandidates
+          searchDistance: searchDistance
+          searchDistanceUnit: searchDistanceUnit
+      properties:
+        addresses:
+          items:
+            $ref: '#/components/schemas/RiskAddress'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/FloodHazardPreferences'
+      required:
+      - addresses
       type: object
   securitySchemes:
     oAuth2Password:

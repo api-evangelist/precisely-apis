@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Key API
+  title: Precisely Key API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -125,152 +125,24 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    PBKeyResponse:
-      example:
-        key: key
-        matchedAddress:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
+    ErrorCode:
       properties:
-        key:
+        errorCode:
           type: string
-        matchedAddress:
-          $ref: '#/components/schemas/address'
+        errorDescription:
+          type: string
       type: object
-      xml:
-        name: pbKeyResponse
-    PBKeyAddressRequest:
-      example:
-        addresses:
-        - country: country
-          customFields:
-            key: '{}'
-          postCode2: postCode2
-          unitType: unitType
-          areaName1: areaName1
-          postCode1: postCode1
-          areaName2: areaName2
-          streetName: streetName
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          mainAddressLine: mainAddressLine
-          placeName: placeName
-          objectId: objectId
-          addressLastLine: addressLastLine
-          unitValue: unitValue
-        - country: country
-          customFields:
-            key: '{}'
-          postCode2: postCode2
-          unitType: unitType
-          areaName1: areaName1
-          postCode1: postCode1
-          areaName2: areaName2
-          streetName: streetName
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          mainAddressLine: mainAddressLine
-          placeName: placeName
-          objectId: objectId
-          addressLastLine: addressLastLine
-          unitValue: unitValue
+    ErrorInfo:
       properties:
-        addresses:
+        errors:
           items:
-            $ref: '#/components/schemas/GeocodeAddress'
+            $ref: '#/components/schemas/ErrorCode'
           type: array
           xml:
-            name: address
-      required:
-      - addresses
+            name: error
       type: object
       xml:
-        name: keyByAddressRequest
-    GeocodeAddress:
-      example:
-        country: country
-        customFields:
-          key: '{}'
-        postCode2: postCode2
-        unitType: unitType
-        areaName1: areaName1
-        postCode1: postCode1
-        areaName2: areaName2
-        streetName: streetName
-        areaName3: areaName3
-        areaName4: areaName4
-        addressNumber: addressNumber
-        mainAddressLine: mainAddressLine
-        placeName: placeName
-        objectId: objectId
-        addressLastLine: addressLastLine
-        unitValue: unitValue
-      properties:
-        objectId:
-          type: string
-        mainAddressLine:
-          type: string
-        addressLastLine:
-          type: string
-        placeName:
-          type: string
-        areaName1:
-          type: string
-        areaName2:
-          type: string
-        areaName3:
-          type: string
-        areaName4:
-          type: string
-        postCode1:
-          type: string
-        postCode2:
-          type: string
-        country:
-          type: string
-        addressNumber:
-          type: string
-        streetName:
-          type: string
-        unitType:
-          type: string
-        unitValue:
-          type: string
-        customFields:
-          additionalProperties:
-            type: object
-          type: object
-      type: object
+        name: errors
     address:
       example:
         country: country
@@ -367,6 +239,152 @@ components:
       type: object
       xml:
         name: address
+    GeocodeAddress:
+      example:
+        country: country
+        customFields:
+          key: '{}'
+        postCode2: postCode2
+        unitType: unitType
+        areaName1: areaName1
+        postCode1: postCode1
+        areaName2: areaName2
+        streetName: streetName
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        mainAddressLine: mainAddressLine
+        placeName: placeName
+        objectId: objectId
+        addressLastLine: addressLastLine
+        unitValue: unitValue
+      properties:
+        objectId:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode1:
+          type: string
+        postCode2:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+        customFields:
+          additionalProperties:
+            type: object
+          type: object
+      type: object
+    PBKeyResponse:
+      example:
+        key: key
+        matchedAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+      properties:
+        key:
+          type: string
+        matchedAddress:
+          $ref: '#/components/schemas/address'
+      type: object
+      xml:
+        name: pbKeyResponse
+    PBKeyAddressRequest:
+      example:
+        addresses:
+        - country: country
+          customFields:
+            key: '{}'
+          postCode2: postCode2
+          unitType: unitType
+          areaName1: areaName1
+          postCode1: postCode1
+          areaName2: areaName2
+          streetName: streetName
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          mainAddressLine: mainAddressLine
+          placeName: placeName
+          objectId: objectId
+          addressLastLine: addressLastLine
+          unitValue: unitValue
+        - country: country
+          customFields:
+            key: '{}'
+          postCode2: postCode2
+          unitType: unitType
+          areaName1: areaName1
+          postCode1: postCode1
+          areaName2: areaName2
+          streetName: streetName
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          mainAddressLine: mainAddressLine
+          placeName: placeName
+          objectId: objectId
+          addressLastLine: addressLastLine
+          unitValue: unitValue
+      properties:
+        addresses:
+          items:
+            $ref: '#/components/schemas/GeocodeAddress'
+          type: array
+          xml:
+            name: address
+      required:
+      - addresses
+      type: object
+      xml:
+        name: keyByAddressRequest
     pbkey:
       example:
         objectId: objectId
@@ -489,24 +507,6 @@ components:
       type: object
       xml:
         name: pbKeyResponse
-    ErrorInfo:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-          xml:
-            name: error
-      type: object
-      xml:
-        name: errors
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
   securitySchemes:
     oAuth2Password:
       flows:

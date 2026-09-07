@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Risks  Service API
+  title: Precisely Risks  Service API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -1028,115 +1028,19 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    RisksBoundaries:
+    Time:
       example:
-        boundary:
-        - ref: ref
-          geometry:
-            crs:
-              type: type
-              properties:
-                name: name
-            coordinates: '{}'
-            type: type
-          id: id
-          type: type
-        - ref: ref
-          geometry:
-            crs:
-              type: type
-              properties:
-                name: name
-            coordinates: '{}'
-            type: type
-          id: id
-          type: type
+        unit: unit
+        value: value
       properties:
-        boundary:
-          items:
-            $ref: '#/components/schemas/CrimeBoundary'
-          type: array
+        value:
+          type: string
+        unit:
+          type: string
       type: object
-    EarthquakeRiskByAddressRequest:
+    Grid:
       example:
-        addresses:
-        - country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        - country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        preferences:
-          richterValue: richterValue
-          includeZoneDesc: includeZoneDesc
-          includeGeometry: includeGeometry
-      properties:
-        addresses:
-          items:
-            $ref: '#/components/schemas/RiskAddress'
-          type: array
-        preferences:
-          $ref: '#/components/schemas/RiskPreferences'
-      required:
-      - addresses
-      type: object
-    CrimeBoundary:
-      example:
-        ref: ref
+        code: code
         geometry:
           crs:
             type: type
@@ -1144,14 +1048,8 @@ components:
               name: name
           coordinates: '{}'
           type: type
-        id: id
-        type: type
       properties:
-        id:
-          type: string
-        type:
-          type: string
-        ref:
+        code:
           type: string
         geometry:
           $ref: '#/components/schemas/CommonGeometry'
@@ -1370,561 +1268,6 @@ components:
         matchedAddress:
           $ref: '#/components/schemas/RiskAddress'
       type: object
-    FireDepartment:
-      example:
-        name: name
-        numberOfStations: 0
-        administrativeOfficeOnly: true
-        type: type
-        contactDetails:
-          address:
-            country: country
-            streetSide: streetSide
-            city: city
-            displayName: displayName
-            postalCode: postalCode
-            latitude: latitude
-            businessName: businessName
-            county: county
-            unitType: unitType
-            streetName: streetName
-            formattedAddress: formattedAddress
-            addressLine1: addressLine1
-            mainAddressLine: mainAddressLine
-            addressLine2: addressLine2
-            addressLine3: addressLine3
-            objectId: objectId
-            addressLastLine: addressLastLine
-            longitude: longitude
-            unitValue: unitValue
-            stateProvince: stateProvince
-            urbanizationName: urbanizationName
-            areaName1: areaName1
-            areaName2: areaName2
-            areaName3: areaName3
-            areaName4: areaName4
-            addressNumber: addressNumber
-            postCode: postCode
-            postCodeExt: postCodeExt
-            placeName: placeName
-            status: status
-          phone: phone
-          fax: fax
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-        numberOfStations:
-          format: int32
-          type: integer
-        administrativeOfficeOnly:
-          type: boolean
-        contactDetails:
-          $ref: '#/components/schemas/FireStationContactDetails'
-      type: object
-    distance:
-      example:
-        unit: unit
-        value: value
-      properties:
-        unit:
-          type: string
-        value:
-          type: string
-      type: object
-    CrimeRiskPreferences:
-      example:
-        includeGeometry: includeGeometry
-        type: type
-      properties:
-        includeGeometry:
-          type: string
-        type:
-          type: string
-      type: object
-    PrimaryZone:
-      example:
-        code: code
-        description: description
-      properties:
-        code:
-          type: string
-        description:
-          type: string
-      type: object
-    MitigationGroup:
-      example:
-        topoPos: 9
-        fStnDist: 8
-        waterDist: 9
-        burnable: 6
-      properties:
-        waterDist:
-          format: int32
-          type: integer
-        topoPos:
-          format: int32
-          type: integer
-        burnable:
-          format: int32
-          type: integer
-        fStnDist:
-          format: int32
-          type: integer
-      type: object
-    EarthquakeRiskByLocationRequest:
-      example:
-        preferences:
-          richterValue: richterValue
-          includeZoneDesc: includeZoneDesc
-          includeGeometry: includeGeometry
-        locations:
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-      properties:
-        locations:
-          items:
-            $ref: '#/components/schemas/RiskLocations'
-          type: array
-        preferences:
-          $ref: '#/components/schemas/RiskPreferences'
-      required:
-      - locations
-      type: object
-    FireRiskByLocationRequest:
-      example:
-        preferences:
-          richterValue: richterValue
-          includeZoneDesc: includeZoneDesc
-          includeGeometry: includeGeometry
-        locations:
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-      properties:
-        locations:
-          items:
-            $ref: '#/components/schemas/RiskLocations'
-          type: array
-        preferences:
-          $ref: '#/components/schemas/RiskPreferences'
-      required:
-      - locations
-      type: object
-    FireRiskResponseList:
-      example:
-        fireRisk:
-        - state:
-            code: code
-            fips: fips
-          objectId: objectId
-          fireShed:
-            risk:
-              severity: 5
-              risk50Rating: 6
-              distanceToFireStation: 2
-              pastFires: 5
-              golfCourse: golfCourse
-              roadDist: roadDist
-              continuity: continuity
-              description: description
-              vegetation: vegetation
-              waterDist: waterDist
-              tierDescription: tierDescription
-              type: type
-              slope: slope
-              frequency: 1
-              nonburn: nonburn
-              foehn: foehn
-              tier: tier
-              aspect: aspect
-              adjustment: adjustment
-              crownFire: crownFire
-            geometry:
-              crs:
-                type: type
-                properties:
-                  name: name
-              coordinates: '{}'
-              type: type
-            id: 0
-          matchedAddress:
-            country: country
-            streetSide: streetSide
-            city: city
-            displayName: displayName
-            postalCode: postalCode
-            latitude: latitude
-            businessName: businessName
-            county: county
-            unitType: unitType
-            streetName: streetName
-            formattedAddress: formattedAddress
-            addressLine1: addressLine1
-            mainAddressLine: mainAddressLine
-            addressLine2: addressLine2
-            addressLine3: addressLine3
-            objectId: objectId
-            addressLastLine: addressLastLine
-            longitude: longitude
-            unitValue: unitValue
-            stateProvince: stateProvince
-            urbanizationName: urbanizationName
-            areaName1: areaName1
-            areaName2: areaName2
-            areaName3: areaName3
-            areaName4: areaName4
-            addressNumber: addressNumber
-            postCode: postCode
-            postCodeExt: postCodeExt
-            placeName: placeName
-            status: status
-        - state:
-            code: code
-            fips: fips
-          objectId: objectId
-          fireShed:
-            risk:
-              severity: 5
-              risk50Rating: 6
-              distanceToFireStation: 2
-              pastFires: 5
-              golfCourse: golfCourse
-              roadDist: roadDist
-              continuity: continuity
-              description: description
-              vegetation: vegetation
-              waterDist: waterDist
-              tierDescription: tierDescription
-              type: type
-              slope: slope
-              frequency: 1
-              nonburn: nonburn
-              foehn: foehn
-              tier: tier
-              aspect: aspect
-              adjustment: adjustment
-              crownFire: crownFire
-            geometry:
-              crs:
-                type: type
-                properties:
-                  name: name
-              coordinates: '{}'
-              type: type
-            id: 0
-          matchedAddress:
-            country: country
-            streetSide: streetSide
-            city: city
-            displayName: displayName
-            postalCode: postalCode
-            latitude: latitude
-            businessName: businessName
-            county: county
-            unitType: unitType
-            streetName: streetName
-            formattedAddress: formattedAddress
-            addressLine1: addressLine1
-            mainAddressLine: mainAddressLine
-            addressLine2: addressLine2
-            addressLine3: addressLine3
-            objectId: objectId
-            addressLastLine: addressLastLine
-            longitude: longitude
-            unitValue: unitValue
-            stateProvince: stateProvince
-            urbanizationName: urbanizationName
-            areaName1: areaName1
-            areaName2: areaName2
-            areaName3: areaName3
-            areaName4: areaName4
-            addressNumber: addressNumber
-            postCode: postCode
-            postCodeExt: postCodeExt
-            placeName: placeName
-            status: status
-      properties:
-        fireRisk:
-          items:
-            $ref: '#/components/schemas/FireRiskResponse'
-          type: array
-      type: object
-    RisksGeometryCRC:
-      example:
-        type: type
-        properties:
-          name: name
-      properties:
-        type:
-          type: string
-        properties:
-          $ref: '#/components/schemas/GeometryProperties'
-      type: object
-    SeverityGroup:
-      example:
-        intensity: 7
-        windSpd: 3
-        emberCast: 2
-        crownFire: 9
-      properties:
-        intensity:
-          format: int32
-          type: integer
-        crownFire:
-          format: int32
-          type: integer
-        windSpd:
-          format: int32
-          type: integer
-        emberCast:
-          format: int32
-          type: integer
-      type: object
-    EventsCount:
-      example:
-        r2: r2
-        r1_ge: r1_ge
-        r3: r3
-        r4: r4
-        r0_ge: r0_ge
-        r5: r5
-        r2_ge: r2_ge
-        r3_ge: r3_ge
-        r6: r6
-        r4_ge: r4_ge
-        r7: r7
-        total: total
-        r7_ge: r7_ge
-        r6_ge: r6_ge
-        r5_ge: r5_ge
-        r0: r0
-        r1: r1
-      properties:
-        total:
-          type: string
-        r0:
-          type: string
-        r1:
-          type: string
-        r2:
-          type: string
-        r3:
-          type: string
-        r4:
-          type: string
-        r5:
-          type: string
-        r6:
-          type: string
-        r7:
-          type: string
-        r0_ge:
-          type: string
-        r1_ge:
-          type: string
-        r2_ge:
-          type: string
-        r3_ge:
-          type: string
-        r4_ge:
-          type: string
-        r5_ge:
-          type: string
-        r6_ge:
-          type: string
-        r7_ge:
-          type: string
-      type: object
-    BaseFloodElevation:
-      example:
-        unit: unit
-        value: value
-      properties:
-        unit:
-          type: string
-        value:
-          type: string
-      type: object
-    RiskGeometry:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      required:
-      - type
-      type: object
-    CrimeRiskByAddressBatchRequest:
-      example:
-        addresses:
-        - country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        - country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        preferences:
-          includeGeometry: includeGeometry
-          type: type
-      properties:
-        addresses:
-          items:
-            $ref: '#/components/schemas/RiskAddress'
-          type: array
-        preferences:
-          $ref: '#/components/schemas/CrimeRiskPreferences'
-      required:
-      - addresses
-      type: object
-    FireStationContactDetails:
-      example:
-        address:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        phone: phone
-        fax: fax
-      properties:
-        address:
-          $ref: '#/components/schemas/RiskAddress'
-        phone:
-          type: string
-        fax:
-          type: string
-      type: object
-    IndexVariable:
-      example:
-        score: score
-        percentile: percentile
-        name: name
-        category: category
-        stateScore: stateScore
-      properties:
-        name:
-          type: string
-        score:
-          type: string
-        category:
-          type: string
-        percentile:
-          type: string
-        stateScore:
-          type: string
-      type: object
     FloodRiskResponseList:
       example:
         floodRisk:
@@ -2058,17 +1401,67 @@ components:
             $ref: '#/components/schemas/FloodRiskResponse'
           type: array
       type: object
-    GeometryProperties:
+    RisksCrimeTheme:
       example:
-        name: name
+        crimeIndexTheme:
+          boundaryRef: boundaryRef
+          source: source
+          indexVariable:
+          - score: score
+            percentile: percentile
+            name: name
+            category: category
+            stateScore: stateScore
+          - score: score
+            percentile: percentile
+            name: name
+            category: category
+            stateScore: stateScore
       properties:
-        name:
-          type: string
+        crimeIndexTheme:
+          $ref: '#/components/schemas/CrimeIndexTheme'
       type: object
-    FloodRiskResponse:
+    CommunityGroup:
+      example:
+        wAlignRd: 1
+        vegCover: 7
+        accEgress: 6
+        structure: 1
+      properties:
+        structure:
+          format: int32
+          type: integer
+        accEgress:
+          format: int32
+          type: integer
+        vegCover:
+          format: int32
+          type: integer
+        wAlignRd:
+          format: int32
+          type: integer
+      type: object
+    RiskGeometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      required:
+      - type
+      type: object
+    RisksBoundaries:
       example:
         boundary:
-          ref: ref
+        - ref: ref
           geometry:
             crs:
               type: type
@@ -2078,76 +1471,7 @@ components:
             type: type
           id: id
           type: type
-        floodZone:
-          primaryZone:
-            code: code
-            description: description
-          code: code
-          riskLevel: riskLevel
-          areaType: areaType
-          baseFloodElevation:
-            unit: unit
-            value: value
-          additionalInfo: additionalInfo
-        state:
-          code: code
-          fips: fips
-        community:
-          number: number
-          status:
-            code: code
-            description: description
-        objectId: objectId
-        matchedAddress:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-      properties:
-        objectId:
-          type: string
-        state:
-          $ref: '#/components/schemas/State'
-        floodZone:
-          $ref: '#/components/schemas/FloodZone'
-        community:
-          $ref: '#/components/schemas/Community'
-        boundary:
-          $ref: '#/components/schemas/CrimeBoundary'
-        matchedAddress:
-          $ref: '#/components/schemas/RiskAddress'
-      type: object
-    EarthquakeRiskResponse:
-      example:
-        riskLevel: riskLevel
-        grid:
-          code: code
+        - ref: ref
           geometry:
             crs:
               type: type
@@ -2155,67 +1479,13 @@ components:
                 name: name
             coordinates: '{}'
             type: type
-        eventsCount:
-          r2: r2
-          r1_ge: r1_ge
-          r3: r3
-          r4: r4
-          r0_ge: r0_ge
-          r5: r5
-          r2_ge: r2_ge
-          r3_ge: r3_ge
-          r6: r6
-          r4_ge: r4_ge
-          r7: r7
-          total: total
-          r7_ge: r7_ge
-          r6_ge: r6_ge
-          r5_ge: r5_ge
-          r0: r0
-          r1: r1
-        objectId: objectId
-        matchedAddress:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
+          id: id
+          type: type
       properties:
-        objectId:
-          type: string
-        riskLevel:
-          type: string
-        eventsCount:
-          $ref: '#/components/schemas/EventsCount'
-        grid:
-          $ref: '#/components/schemas/Grid'
-        matchedAddress:
-          $ref: '#/components/schemas/RiskAddress'
+        boundary:
+          items:
+            $ref: '#/components/schemas/CrimeBoundary'
+          type: array
       type: object
     CrimeIndexTheme:
       example:
@@ -2242,126 +1512,35 @@ components:
             $ref: '#/components/schemas/IndexVariable'
           type: array
       type: object
-    FireRiskV2Response:
+    FrequencyGroup:
       example:
-        severity: 6
-        damage: 5
-        severityGroupElements:
-          intensity: 7
-          windSpd: 3
-          emberCast: 2
-          crownFire: 9
-        mitigation: 2
-        frequencyGroupElements:
-          histPerim: 7
-          lineDist: 1
-          burnProb: 4
-          probIgnit: 1
-        noharmCls: noharmCls
-        noharmModel: noharmModel
-        mitigationGroupElements:
-          topoPos: 9
-          fStnDist: 8
-          waterDist: 9
-          burnable: 6
-        noharmId: noharmId
-        damageGroupElements:
-          histLoss: 4
-          insectsAndDisease: 5
-        community: 5
-        risk50: 0
-        frequency: 1
-        matchedAddress:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        riskDesc: riskDesc
-        communityGroupElements:
-          wAlignRd: 1
-          vegCover: 7
-          accEgress: 6
-          structure: 1
-        geometry:
-          crs:
-            type: type
-            properties:
-              name: name
-          coordinates: '{}'
-          type: type
-        state: state
-        objectId: objectId
+        histPerim: 7
+        lineDist: 1
+        burnProb: 4
+        probIgnit: 1
       properties:
-        objectId:
-          type: string
-        state:
-          type: string
-        noharmId:
-          type: string
-        noharmCls:
-          type: string
-        noharmModel:
-          type: string
-        riskDesc:
-          type: string
-        risk50:
+        burnProb:
           format: int32
           type: integer
-        severity:
+        histPerim:
           format: int32
           type: integer
-        frequency:
+        probIgnit:
           format: int32
           type: integer
-        community:
+        lineDist:
           format: int32
           type: integer
-        damage:
-          format: int32
-          type: integer
-        mitigation:
-          format: int32
-          type: integer
-        severityGroupElements:
-          $ref: '#/components/schemas/SeverityGroup'
-        frequencyGroupElements:
-          $ref: '#/components/schemas/FrequencyGroup'
-        communityGroupElements:
-          $ref: '#/components/schemas/CommunityGroup'
-        damageGroupElements:
-          $ref: '#/components/schemas/DamageGroup'
-        mitigationGroupElements:
-          $ref: '#/components/schemas/MitigationGroup'
-        geometry:
-          $ref: '#/components/schemas/CommonGeometry'
-        matchedAddress:
-          $ref: '#/components/schemas/RiskAddress'
+      type: object
+    BaseFloodElevation:
+      example:
+        unit: unit
+        value: value
+      properties:
+        unit:
+          type: string
+        value:
+          type: string
       type: object
     FloodRiskPreferences:
       example:
@@ -2375,299 +1554,6 @@ components:
           type: string
         richterValue:
           type: string
-      type: object
-    FloodRiskByLocationRequest:
-      example:
-        preferences:
-          richterValue: richterValue
-          includeZoneDesc: includeZoneDesc
-          includeGeometry: includeGeometry
-        locations:
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-      properties:
-        locations:
-          items:
-            $ref: '#/components/schemas/RiskLocations'
-          type: array
-        preferences:
-          $ref: '#/components/schemas/FloodRiskPreferences'
-      required:
-      - locations
-      type: object
-    FireRiskResponse:
-      example:
-        state:
-          code: code
-          fips: fips
-        objectId: objectId
-        fireShed:
-          risk:
-            severity: 5
-            risk50Rating: 6
-            distanceToFireStation: 2
-            pastFires: 5
-            golfCourse: golfCourse
-            roadDist: roadDist
-            continuity: continuity
-            description: description
-            vegetation: vegetation
-            waterDist: waterDist
-            tierDescription: tierDescription
-            type: type
-            slope: slope
-            frequency: 1
-            nonburn: nonburn
-            foehn: foehn
-            tier: tier
-            aspect: aspect
-            adjustment: adjustment
-            crownFire: crownFire
-          geometry:
-            crs:
-              type: type
-              properties:
-                name: name
-            coordinates: '{}'
-            type: type
-          id: 0
-        matchedAddress:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-      properties:
-        objectId:
-          type: string
-        state:
-          $ref: '#/components/schemas/State'
-        fireShed:
-          $ref: '#/components/schemas/FireShed'
-        matchedAddress:
-          $ref: '#/components/schemas/RiskAddress'
-      type: object
-    DamageGroup:
-      example:
-        histLoss: 4
-        insectsAndDisease: 5
-      properties:
-        histLoss:
-          format: int32
-          type: integer
-        insectsAndDisease:
-          format: int32
-          type: integer
-      type: object
-    Risk:
-      example:
-        severity: 5
-        risk50Rating: 6
-        distanceToFireStation: 2
-        pastFires: 5
-        golfCourse: golfCourse
-        roadDist: roadDist
-        continuity: continuity
-        description: description
-        vegetation: vegetation
-        waterDist: waterDist
-        tierDescription: tierDescription
-        type: type
-        slope: slope
-        frequency: 1
-        nonburn: nonburn
-        foehn: foehn
-        tier: tier
-        aspect: aspect
-        adjustment: adjustment
-        crownFire: crownFire
-      properties:
-        type:
-          type: string
-        description:
-          type: string
-        risk50Rating:
-          format: int32
-          type: integer
-        frequency:
-          format: int32
-          type: integer
-        nonburn:
-          type: string
-        pastFires:
-          format: int32
-          type: integer
-        severity:
-          format: int32
-          type: integer
-        continuity:
-          type: string
-        adjustment:
-          type: string
-        aspect:
-          type: string
-        crownFire:
-          type: string
-        vegetation:
-          type: string
-        foehn:
-          type: string
-        golfCourse:
-          type: string
-        roadDist:
-          type: string
-        slope:
-          type: string
-        waterDist:
-          type: string
-        tier:
-          type: string
-        tierDescription:
-          type: string
-        distanceToFireStation:
-          format: int32
-          type: integer
-      type: object
-    fireStation:
-      example:
-        numWithinDepartment: numWithinDepartment
-        travelTime:
-          unit: unit
-          value: value
-        travelDistance:
-          unit: unit
-          value: value
-        fireDepartment:
-          name: name
-          numberOfStations: 0
-          administrativeOfficeOnly: true
-          type: type
-          contactDetails:
-            address:
-              country: country
-              streetSide: streetSide
-              city: city
-              displayName: displayName
-              postalCode: postalCode
-              latitude: latitude
-              businessName: businessName
-              county: county
-              unitType: unitType
-              streetName: streetName
-              formattedAddress: formattedAddress
-              addressLine1: addressLine1
-              mainAddressLine: mainAddressLine
-              addressLine2: addressLine2
-              addressLine3: addressLine3
-              objectId: objectId
-              addressLastLine: addressLastLine
-              longitude: longitude
-              unitValue: unitValue
-              stateProvince: stateProvince
-              urbanizationName: urbanizationName
-              areaName1: areaName1
-              areaName2: areaName2
-              areaName3: areaName3
-              areaName4: areaName4
-              addressNumber: addressNumber
-              postCode: postCode
-              postCodeExt: postCodeExt
-              placeName: placeName
-              status: status
-            phone: phone
-            fax: fax
-        geometry:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
-        locationReference: locationReference
-        contactDetails:
-          address:
-            country: country
-            streetSide: streetSide
-            city: city
-            displayName: displayName
-            postalCode: postalCode
-            latitude: latitude
-            businessName: businessName
-            county: county
-            unitType: unitType
-            streetName: streetName
-            formattedAddress: formattedAddress
-            addressLine1: addressLine1
-            mainAddressLine: mainAddressLine
-            addressLine2: addressLine2
-            addressLine3: addressLine3
-            objectId: objectId
-            addressLastLine: addressLastLine
-            longitude: longitude
-            unitValue: unitValue
-            stateProvince: stateProvince
-            urbanizationName: urbanizationName
-            areaName1: areaName1
-            areaName2: areaName2
-            areaName3: areaName3
-            areaName4: areaName4
-            addressNumber: addressNumber
-            postCode: postCode
-            postCodeExt: postCodeExt
-            placeName: placeName
-            status: status
-          phone: phone
-          fax: fax
-      properties:
-        numWithinDepartment:
-          type: string
-        locationReference:
-          type: string
-        travelDistance:
-          $ref: '#/components/schemas/distance'
-        travelTime:
-          $ref: '#/components/schemas/Time'
-        contactDetails:
-          $ref: '#/components/schemas/FireStationContactDetails'
-        fireDepartment:
-          $ref: '#/components/schemas/FireDepartment'
-        geometry:
-          $ref: '#/components/schemas/Geometry'
       type: object
     EarthquakeRiskResponseList:
       example:
@@ -2798,238 +1684,124 @@ components:
             $ref: '#/components/schemas/EarthquakeRiskResponse'
           type: array
       type: object
-    Community:
+    Risk:
       example:
-        number: number
-        status:
-          code: code
-          description: description
+        severity: 5
+        risk50Rating: 6
+        distanceToFireStation: 2
+        pastFires: 5
+        golfCourse: golfCourse
+        roadDist: roadDist
+        continuity: continuity
+        description: description
+        vegetation: vegetation
+        waterDist: waterDist
+        tierDescription: tierDescription
+        type: type
+        slope: slope
+        frequency: 1
+        nonburn: nonburn
+        foehn: foehn
+        tier: tier
+        aspect: aspect
+        adjustment: adjustment
+        crownFire: crownFire
       properties:
-        number:
+        type:
           type: string
-        status:
-          $ref: '#/components/schemas/Status'
-      type: object
-    FrequencyGroup:
-      example:
-        histPerim: 7
-        lineDist: 1
-        burnProb: 4
-        probIgnit: 1
-      properties:
-        burnProb:
+        description:
+          type: string
+        risk50Rating:
           format: int32
           type: integer
-        histPerim:
+        frequency:
           format: int32
           type: integer
-        probIgnit:
+        nonburn:
+          type: string
+        pastFires:
           format: int32
           type: integer
-        lineDist:
+        severity:
+          format: int32
+          type: integer
+        continuity:
+          type: string
+        adjustment:
+          type: string
+        aspect:
+          type: string
+        crownFire:
+          type: string
+        vegetation:
+          type: string
+        foehn:
+          type: string
+        golfCourse:
+          type: string
+        roadDist:
+          type: string
+        slope:
+          type: string
+        waterDist:
+          type: string
+        tier:
+          type: string
+        tierDescription:
+          type: string
+        distanceToFireStation:
           format: int32
           type: integer
       type: object
-    FloodZone:
+    FireStationContactDetails:
       example:
-        primaryZone:
-          code: code
-          description: description
-        code: code
-        riskLevel: riskLevel
-        areaType: areaType
-        baseFloodElevation:
-          unit: unit
-          value: value
-        additionalInfo: additionalInfo
-      properties:
-        code:
-          type: string
-        areaType:
-          type: string
-        riskLevel:
-          type: string
-        primaryZone:
-          $ref: '#/components/schemas/PrimaryZone'
-        baseFloodElevation:
-          $ref: '#/components/schemas/BaseFloodElevation'
-        additionalInfo:
-          type: string
-      type: object
-    Time:
-      example:
-        unit: unit
-        value: value
-      properties:
-        value:
-          type: string
-        unit:
-          type: string
-      type: object
-    State:
-      example:
-        code: code
-        fips: fips
-      properties:
-        fips:
-          type: string
-        code:
-          type: string
-      type: object
-    FireRiskV2ResponseList:
-      example:
-        fireRisk:
-        - severity: 6
-          damage: 5
-          severityGroupElements:
-            intensity: 7
-            windSpd: 3
-            emberCast: 2
-            crownFire: 9
-          mitigation: 2
-          frequencyGroupElements:
-            histPerim: 7
-            lineDist: 1
-            burnProb: 4
-            probIgnit: 1
-          noharmCls: noharmCls
-          noharmModel: noharmModel
-          mitigationGroupElements:
-            topoPos: 9
-            fStnDist: 8
-            waterDist: 9
-            burnable: 6
-          noharmId: noharmId
-          damageGroupElements:
-            histLoss: 4
-            insectsAndDisease: 5
-          community: 5
-          risk50: 0
-          frequency: 1
-          matchedAddress:
-            country: country
-            streetSide: streetSide
-            city: city
-            displayName: displayName
-            postalCode: postalCode
-            latitude: latitude
-            businessName: businessName
-            county: county
-            unitType: unitType
-            streetName: streetName
-            formattedAddress: formattedAddress
-            addressLine1: addressLine1
-            mainAddressLine: mainAddressLine
-            addressLine2: addressLine2
-            addressLine3: addressLine3
-            objectId: objectId
-            addressLastLine: addressLastLine
-            longitude: longitude
-            unitValue: unitValue
-            stateProvince: stateProvince
-            urbanizationName: urbanizationName
-            areaName1: areaName1
-            areaName2: areaName2
-            areaName3: areaName3
-            areaName4: areaName4
-            addressNumber: addressNumber
-            postCode: postCode
-            postCodeExt: postCodeExt
-            placeName: placeName
-            status: status
-          riskDesc: riskDesc
-          communityGroupElements:
-            wAlignRd: 1
-            vegCover: 7
-            accEgress: 6
-            structure: 1
-          geometry:
-            crs:
-              type: type
-              properties:
-                name: name
-            coordinates: '{}'
-            type: type
-          state: state
+        address:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
           objectId: objectId
-        - severity: 6
-          damage: 5
-          severityGroupElements:
-            intensity: 7
-            windSpd: 3
-            emberCast: 2
-            crownFire: 9
-          mitigation: 2
-          frequencyGroupElements:
-            histPerim: 7
-            lineDist: 1
-            burnProb: 4
-            probIgnit: 1
-          noharmCls: noharmCls
-          noharmModel: noharmModel
-          mitigationGroupElements:
-            topoPos: 9
-            fStnDist: 8
-            waterDist: 9
-            burnable: 6
-          noharmId: noharmId
-          damageGroupElements:
-            histLoss: 4
-            insectsAndDisease: 5
-          community: 5
-          risk50: 0
-          frequency: 1
-          matchedAddress:
-            country: country
-            streetSide: streetSide
-            city: city
-            displayName: displayName
-            postalCode: postalCode
-            latitude: latitude
-            businessName: businessName
-            county: county
-            unitType: unitType
-            streetName: streetName
-            formattedAddress: formattedAddress
-            addressLine1: addressLine1
-            mainAddressLine: mainAddressLine
-            addressLine2: addressLine2
-            addressLine3: addressLine3
-            objectId: objectId
-            addressLastLine: addressLastLine
-            longitude: longitude
-            unitValue: unitValue
-            stateProvince: stateProvince
-            urbanizationName: urbanizationName
-            areaName1: areaName1
-            areaName2: areaName2
-            areaName3: areaName3
-            areaName4: areaName4
-            addressNumber: addressNumber
-            postCode: postCode
-            postCodeExt: postCodeExt
-            placeName: placeName
-            status: status
-          riskDesc: riskDesc
-          communityGroupElements:
-            wAlignRd: 1
-            vegCover: 7
-            accEgress: 6
-            structure: 1
-          geometry:
-            crs:
-              type: type
-              properties:
-                name: name
-            coordinates: '{}'
-            type: type
-          state: state
-          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        phone: phone
+        fax: fax
       properties:
-        fireRisk:
-          items:
-            $ref: '#/components/schemas/FireRiskV2Response'
-          type: array
+        address:
+          $ref: '#/components/schemas/RiskAddress'
+        phone:
+          type: string
+        fax:
+          type: string
+      type: object
+    GeometryProperties:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
       type: object
     CommonGeometry:
       example:
@@ -3047,18 +1819,748 @@ components:
         coordinates:
           type: object
       type: object
-    RiskPreferences:
+    FloodRiskByLocationRequest:
       example:
-        richterValue: richterValue
-        includeZoneDesc: includeZoneDesc
+        preferences:
+          richterValue: richterValue
+          includeZoneDesc: includeZoneDesc
+          includeGeometry: includeGeometry
+        locations:
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+      properties:
+        locations:
+          items:
+            $ref: '#/components/schemas/RiskLocations'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/FloodRiskPreferences'
+      required:
+      - locations
+      type: object
+    FloodRiskByAddressRequest:
+      example:
+        addresses:
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        preferences:
+          richterValue: richterValue
+          includeZoneDesc: includeZoneDesc
+          includeGeometry: includeGeometry
+      properties:
+        addresses:
+          items:
+            $ref: '#/components/schemas/RiskAddress'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/FloodRiskPreferences'
+      required:
+      - addresses
+      type: object
+    Status:
+      example:
+        code: code
+        description: description
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+      type: object
+    CrimeRiskByAddressBatchRequest:
+      example:
+        addresses:
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        preferences:
+          includeGeometry: includeGeometry
+          type: type
+      properties:
+        addresses:
+          items:
+            $ref: '#/components/schemas/RiskAddress'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/CrimeRiskPreferences'
+      required:
+      - addresses
+      type: object
+    Community:
+      example:
+        number: number
+        status:
+          code: code
+          description: description
+      properties:
+        number:
+          type: string
+        status:
+          $ref: '#/components/schemas/Status'
+      type: object
+    FireShed:
+      example:
+        risk:
+          severity: 5
+          risk50Rating: 6
+          distanceToFireStation: 2
+          pastFires: 5
+          golfCourse: golfCourse
+          roadDist: roadDist
+          continuity: continuity
+          description: description
+          vegetation: vegetation
+          waterDist: waterDist
+          tierDescription: tierDescription
+          type: type
+          slope: slope
+          frequency: 1
+          nonburn: nonburn
+          foehn: foehn
+          tier: tier
+          aspect: aspect
+          adjustment: adjustment
+          crownFire: crownFire
+        geometry:
+          crs:
+            type: type
+            properties:
+              name: name
+          coordinates: '{}'
+          type: type
+        id: 0
+      properties:
+        id:
+          format: int32
+          type: integer
+        risk:
+          $ref: '#/components/schemas/Risk'
+        geometry:
+          $ref: '#/components/schemas/CommonGeometry'
+      type: object
+    CrimeBoundary:
+      example:
+        ref: ref
+        geometry:
+          crs:
+            type: type
+            properties:
+              name: name
+          coordinates: '{}'
+          type: type
+        id: id
+        type: type
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        ref:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/CommonGeometry'
+      type: object
+    PrimaryZone:
+      example:
+        code: code
+        description: description
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    FireRiskByLocationRequest:
+      example:
+        preferences:
+          richterValue: richterValue
+          includeZoneDesc: includeZoneDesc
+          includeGeometry: includeGeometry
+        locations:
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+      properties:
+        locations:
+          items:
+            $ref: '#/components/schemas/RiskLocations'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/RiskPreferences'
+      required:
+      - locations
+      type: object
+    State:
+      example:
+        code: code
+        fips: fips
+      properties:
+        fips:
+          type: string
+        code:
+          type: string
+      type: object
+    EarthquakeRiskByLocationRequest:
+      example:
+        preferences:
+          richterValue: richterValue
+          includeZoneDesc: includeZoneDesc
+          includeGeometry: includeGeometry
+        locations:
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+      properties:
+        locations:
+          items:
+            $ref: '#/components/schemas/RiskLocations'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/RiskPreferences'
+      required:
+      - locations
+      type: object
+    CrimeRiskPreferences:
+      example:
         includeGeometry: includeGeometry
+        type: type
       properties:
         includeGeometry:
           type: string
-        includeZoneDesc:
+        type:
           type: string
-        richterValue:
+      type: object
+    EarthquakeRiskResponse:
+      example:
+        riskLevel: riskLevel
+        grid:
+          code: code
+          geometry:
+            crs:
+              type: type
+              properties:
+                name: name
+            coordinates: '{}'
+            type: type
+        eventsCount:
+          r2: r2
+          r1_ge: r1_ge
+          r3: r3
+          r4: r4
+          r0_ge: r0_ge
+          r5: r5
+          r2_ge: r2_ge
+          r3_ge: r3_ge
+          r6: r6
+          r4_ge: r4_ge
+          r7: r7
+          total: total
+          r7_ge: r7_ge
+          r6_ge: r6_ge
+          r5_ge: r5_ge
+          r0: r0
+          r1: r1
+        objectId: objectId
+        matchedAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+      properties:
+        objectId:
           type: string
+        riskLevel:
+          type: string
+        eventsCount:
+          $ref: '#/components/schemas/EventsCount'
+        grid:
+          $ref: '#/components/schemas/Grid'
+        matchedAddress:
+          $ref: '#/components/schemas/RiskAddress'
+      type: object
+    FireRiskByAddressRequest:
+      example:
+        addresses:
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        preferences:
+          richterValue: richterValue
+          includeZoneDesc: includeZoneDesc
+          includeGeometry: includeGeometry
+      properties:
+        addresses:
+          items:
+            $ref: '#/components/schemas/RiskAddress'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/RiskPreferences'
+      required:
+      - addresses
+      type: object
+    DamageGroup:
+      example:
+        histLoss: 4
+        insectsAndDisease: 5
+      properties:
+        histLoss:
+          format: int32
+          type: integer
+        insectsAndDisease:
+          format: int32
+          type: integer
+      type: object
+    fireStation:
+      example:
+        numWithinDepartment: numWithinDepartment
+        travelTime:
+          unit: unit
+          value: value
+        travelDistance:
+          unit: unit
+          value: value
+        fireDepartment:
+          name: name
+          numberOfStations: 0
+          administrativeOfficeOnly: true
+          type: type
+          contactDetails:
+            address:
+              country: country
+              streetSide: streetSide
+              city: city
+              displayName: displayName
+              postalCode: postalCode
+              latitude: latitude
+              businessName: businessName
+              county: county
+              unitType: unitType
+              streetName: streetName
+              formattedAddress: formattedAddress
+              addressLine1: addressLine1
+              mainAddressLine: mainAddressLine
+              addressLine2: addressLine2
+              addressLine3: addressLine3
+              objectId: objectId
+              addressLastLine: addressLastLine
+              longitude: longitude
+              unitValue: unitValue
+              stateProvince: stateProvince
+              urbanizationName: urbanizationName
+              areaName1: areaName1
+              areaName2: areaName2
+              areaName3: areaName3
+              areaName4: areaName4
+              addressNumber: addressNumber
+              postCode: postCode
+              postCodeExt: postCodeExt
+              placeName: placeName
+              status: status
+            phone: phone
+            fax: fax
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        locationReference: locationReference
+        contactDetails:
+          address:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          phone: phone
+          fax: fax
+      properties:
+        numWithinDepartment:
+          type: string
+        locationReference:
+          type: string
+        travelDistance:
+          $ref: '#/components/schemas/distance'
+        travelTime:
+          $ref: '#/components/schemas/Time'
+        contactDetails:
+          $ref: '#/components/schemas/FireStationContactDetails'
+        fireDepartment:
+          $ref: '#/components/schemas/FireDepartment'
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+      type: object
+    EventsCount:
+      example:
+        r2: r2
+        r1_ge: r1_ge
+        r3: r3
+        r4: r4
+        r0_ge: r0_ge
+        r5: r5
+        r2_ge: r2_ge
+        r3_ge: r3_ge
+        r6: r6
+        r4_ge: r4_ge
+        r7: r7
+        total: total
+        r7_ge: r7_ge
+        r6_ge: r6_ge
+        r5_ge: r5_ge
+        r0: r0
+        r1: r1
+      properties:
+        total:
+          type: string
+        r0:
+          type: string
+        r1:
+          type: string
+        r2:
+          type: string
+        r3:
+          type: string
+        r4:
+          type: string
+        r5:
+          type: string
+        r6:
+          type: string
+        r7:
+          type: string
+        r0_ge:
+          type: string
+        r1_ge:
+          type: string
+        r2_ge:
+          type: string
+        r3_ge:
+          type: string
+        r4_ge:
+          type: string
+        r5_ge:
+          type: string
+        r6_ge:
+          type: string
+        r7_ge:
+          type: string
+      type: object
+    RiskLocations:
+      example:
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        objectId: objectId
+        purchaseAmount: purchaseAmount
+      properties:
+        geometry:
+          $ref: '#/components/schemas/RiskGeometry'
+        purchaseAmount:
+          type: string
+        objectId:
+          type: string
+      required:
+      - geometry
+      type: object
+    SeverityGroup:
+      example:
+        intensity: 7
+        windSpd: 3
+        emberCast: 2
+        crownFire: 9
+      properties:
+        intensity:
+          format: int32
+          type: integer
+        crownFire:
+          format: int32
+          type: integer
+        windSpd:
+          format: int32
+          type: integer
+        emberCast:
+          format: int32
+          type: integer
+      type: object
+    Geometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
       type: object
     RiskAddress:
       example:
@@ -3154,166 +2656,45 @@ components:
         unitValue:
           type: string
       type: object
-    FloodRiskByAddressRequest:
-      example:
-        addresses:
-        - country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        - country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        preferences:
-          richterValue: richterValue
-          includeZoneDesc: includeZoneDesc
-          includeGeometry: includeGeometry
+    ErrorInfo_1:
       properties:
-        addresses:
+        errors:
           items:
-            $ref: '#/components/schemas/RiskAddress'
+            $ref: '#/components/schemas/ErrorCode'
           type: array
-        preferences:
-          $ref: '#/components/schemas/FloodRiskPreferences'
-      required:
-      - addresses
       type: object
-    CrimeRiskByLocationBatchRequest:
+    FloodRiskResponse:
       example:
-        preferences:
-          includeGeometry: includeGeometry
+        boundary:
+          ref: ref
+          geometry:
+            crs:
+              type: type
+              properties:
+                name: name
+            coordinates: '{}'
+            type: type
+          id: id
           type: type
-        locations:
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-      properties:
-        locations:
-          items:
-            $ref: '#/components/schemas/RiskLocations'
-          type: array
-        preferences:
-          $ref: '#/components/schemas/CrimeRiskPreferences'
-      required:
-      - locations
-      type: object
-    CrimeRiskResponse:
-      example:
-        themes:
-        - crimeIndexTheme:
-            boundaryRef: boundaryRef
-            source: source
-            indexVariable:
-            - score: score
-              percentile: percentile
-              name: name
-              category: category
-              stateScore: stateScore
-            - score: score
-              percentile: percentile
-              name: name
-              category: category
-              stateScore: stateScore
-        - crimeIndexTheme:
-            boundaryRef: boundaryRef
-            source: source
-            indexVariable:
-            - score: score
-              percentile: percentile
-              name: name
-              category: category
-              stateScore: stateScore
-            - score: score
-              percentile: percentile
-              name: name
-              category: category
-              stateScore: stateScore
-        boundaries:
-          boundary:
-          - ref: ref
-            geometry:
-              crs:
-                type: type
-                properties:
-                  name: name
-              coordinates: '{}'
-              type: type
-            id: id
-            type: type
-          - ref: ref
-            geometry:
-              crs:
-                type: type
-                properties:
-                  name: name
-              coordinates: '{}'
-              type: type
-            id: id
-            type: type
+        floodZone:
+          primaryZone:
+            code: code
+            description: description
+          code: code
+          riskLevel: riskLevel
+          areaType: areaType
+          baseFloodElevation:
+            unit: unit
+            value: value
+          additionalInfo: additionalInfo
+        state:
+          code: code
+          fips: fips
+        community:
+          number: number
+          status:
+            code: code
+            description: description
         objectId: objectId
         matchedAddress:
           country: country
@@ -3349,12 +2730,111 @@ components:
       properties:
         objectId:
           type: string
-        themes:
-          items:
-            $ref: '#/components/schemas/RisksCrimeTheme'
-          type: array
-        boundaries:
-          $ref: '#/components/schemas/RisksBoundaries'
+        state:
+          $ref: '#/components/schemas/State'
+        floodZone:
+          $ref: '#/components/schemas/FloodZone'
+        community:
+          $ref: '#/components/schemas/Community'
+        boundary:
+          $ref: '#/components/schemas/CrimeBoundary'
+        matchedAddress:
+          $ref: '#/components/schemas/RiskAddress'
+      type: object
+    MitigationGroup:
+      example:
+        topoPos: 9
+        fStnDist: 8
+        waterDist: 9
+        burnable: 6
+      properties:
+        waterDist:
+          format: int32
+          type: integer
+        topoPos:
+          format: int32
+          type: integer
+        burnable:
+          format: int32
+          type: integer
+        fStnDist:
+          format: int32
+          type: integer
+      type: object
+    FireRiskResponse:
+      example:
+        state:
+          code: code
+          fips: fips
+        objectId: objectId
+        fireShed:
+          risk:
+            severity: 5
+            risk50Rating: 6
+            distanceToFireStation: 2
+            pastFires: 5
+            golfCourse: golfCourse
+            roadDist: roadDist
+            continuity: continuity
+            description: description
+            vegetation: vegetation
+            waterDist: waterDist
+            tierDescription: tierDescription
+            type: type
+            slope: slope
+            frequency: 1
+            nonburn: nonburn
+            foehn: foehn
+            tier: tier
+            aspect: aspect
+            adjustment: adjustment
+            crownFire: crownFire
+          geometry:
+            crs:
+              type: type
+              properties:
+                name: name
+            coordinates: '{}'
+            type: type
+          id: 0
+        matchedAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+      properties:
+        objectId:
+          type: string
+        state:
+          $ref: '#/components/schemas/State'
+        fireShed:
+          $ref: '#/components/schemas/FireShed'
         matchedAddress:
           $ref: '#/components/schemas/RiskAddress'
       type: object
@@ -3533,105 +3013,197 @@ components:
             $ref: '#/components/schemas/CrimeRiskResponse'
           type: array
       type: object
-    RisksCrimeTheme:
+    FireRiskResponseList:
       example:
-        crimeIndexTheme:
-          boundaryRef: boundaryRef
-          source: source
-          indexVariable:
-          - score: score
-            percentile: percentile
-            name: name
-            category: category
-            stateScore: stateScore
-          - score: score
-            percentile: percentile
-            name: name
-            category: category
-            stateScore: stateScore
+        fireRisk:
+        - state:
+            code: code
+            fips: fips
+          objectId: objectId
+          fireShed:
+            risk:
+              severity: 5
+              risk50Rating: 6
+              distanceToFireStation: 2
+              pastFires: 5
+              golfCourse: golfCourse
+              roadDist: roadDist
+              continuity: continuity
+              description: description
+              vegetation: vegetation
+              waterDist: waterDist
+              tierDescription: tierDescription
+              type: type
+              slope: slope
+              frequency: 1
+              nonburn: nonburn
+              foehn: foehn
+              tier: tier
+              aspect: aspect
+              adjustment: adjustment
+              crownFire: crownFire
+            geometry:
+              crs:
+                type: type
+                properties:
+                  name: name
+              coordinates: '{}'
+              type: type
+            id: 0
+          matchedAddress:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+        - state:
+            code: code
+            fips: fips
+          objectId: objectId
+          fireShed:
+            risk:
+              severity: 5
+              risk50Rating: 6
+              distanceToFireStation: 2
+              pastFires: 5
+              golfCourse: golfCourse
+              roadDist: roadDist
+              continuity: continuity
+              description: description
+              vegetation: vegetation
+              waterDist: waterDist
+              tierDescription: tierDescription
+              type: type
+              slope: slope
+              frequency: 1
+              nonburn: nonburn
+              foehn: foehn
+              tier: tier
+              aspect: aspect
+              adjustment: adjustment
+              crownFire: crownFire
+            geometry:
+              crs:
+                type: type
+                properties:
+                  name: name
+              coordinates: '{}'
+              type: type
+            id: 0
+          matchedAddress:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
       properties:
-        crimeIndexTheme:
-          $ref: '#/components/schemas/CrimeIndexTheme'
-      type: object
-    FireShed:
-      example:
-        risk:
-          severity: 5
-          risk50Rating: 6
-          distanceToFireStation: 2
-          pastFires: 5
-          golfCourse: golfCourse
-          roadDist: roadDist
-          continuity: continuity
-          description: description
-          vegetation: vegetation
-          waterDist: waterDist
-          tierDescription: tierDescription
-          type: type
-          slope: slope
-          frequency: 1
-          nonburn: nonburn
-          foehn: foehn
-          tier: tier
-          aspect: aspect
-          adjustment: adjustment
-          crownFire: crownFire
-        geometry:
-          crs:
-            type: type
-            properties:
-              name: name
-          coordinates: '{}'
-          type: type
-        id: 0
-      properties:
-        id:
-          format: int32
-          type: integer
-        risk:
-          $ref: '#/components/schemas/Risk'
-        geometry:
-          $ref: '#/components/schemas/CommonGeometry'
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
+        fireRisk:
           items:
-            $ref: '#/components/schemas/ErrorCode'
+            $ref: '#/components/schemas/FireRiskResponse'
           type: array
       type: object
-    Geometry:
+    distance:
       example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
+        unit: unit
+        value: value
+      properties:
+        unit:
+          type: string
+        value:
+          type: string
+      type: object
+    RisksGeometryCRC:
+      example:
         type: type
+        properties:
+          name: name
       properties:
         type:
           type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
+        properties:
+          $ref: '#/components/schemas/GeometryProperties'
       type: object
-    Grid:
+    CrimeRiskByLocationBatchRequest:
       example:
-        code: code
-        geometry:
-          crs:
-            type: type
-            properties:
-              name: name
-          coordinates: '{}'
+        preferences:
+          includeGeometry: includeGeometry
           type: type
+        locations:
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
       properties:
-        code:
-          type: string
-        geometry:
-          $ref: '#/components/schemas/CommonGeometry'
+        locations:
+          items:
+            $ref: '#/components/schemas/RiskLocations'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/CrimeRiskPreferences'
+      required:
+      - locations
       type: object
-    FireRiskByAddressRequest:
+    EarthquakeRiskByAddressRequest:
       example:
         addresses:
         - country: country
@@ -3708,60 +3280,488 @@ components:
       required:
       - addresses
       type: object
-    CommunityGroup:
+    FireRiskV2ResponseList:
       example:
-        wAlignRd: 1
-        vegCover: 7
-        accEgress: 6
-        structure: 1
+        fireRisk:
+        - severity: 6
+          damage: 5
+          severityGroupElements:
+            intensity: 7
+            windSpd: 3
+            emberCast: 2
+            crownFire: 9
+          mitigation: 2
+          frequencyGroupElements:
+            histPerim: 7
+            lineDist: 1
+            burnProb: 4
+            probIgnit: 1
+          noharmCls: noharmCls
+          noharmModel: noharmModel
+          mitigationGroupElements:
+            topoPos: 9
+            fStnDist: 8
+            waterDist: 9
+            burnable: 6
+          noharmId: noharmId
+          damageGroupElements:
+            histLoss: 4
+            insectsAndDisease: 5
+          community: 5
+          risk50: 0
+          frequency: 1
+          matchedAddress:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          riskDesc: riskDesc
+          communityGroupElements:
+            wAlignRd: 1
+            vegCover: 7
+            accEgress: 6
+            structure: 1
+          geometry:
+            crs:
+              type: type
+              properties:
+                name: name
+            coordinates: '{}'
+            type: type
+          state: state
+          objectId: objectId
+        - severity: 6
+          damage: 5
+          severityGroupElements:
+            intensity: 7
+            windSpd: 3
+            emberCast: 2
+            crownFire: 9
+          mitigation: 2
+          frequencyGroupElements:
+            histPerim: 7
+            lineDist: 1
+            burnProb: 4
+            probIgnit: 1
+          noharmCls: noharmCls
+          noharmModel: noharmModel
+          mitigationGroupElements:
+            topoPos: 9
+            fStnDist: 8
+            waterDist: 9
+            burnable: 6
+          noharmId: noharmId
+          damageGroupElements:
+            histLoss: 4
+            insectsAndDisease: 5
+          community: 5
+          risk50: 0
+          frequency: 1
+          matchedAddress:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          riskDesc: riskDesc
+          communityGroupElements:
+            wAlignRd: 1
+            vegCover: 7
+            accEgress: 6
+            structure: 1
+          geometry:
+            crs:
+              type: type
+              properties:
+                name: name
+            coordinates: '{}'
+            type: type
+          state: state
+          objectId: objectId
       properties:
-        structure:
-          format: int32
-          type: integer
-        accEgress:
-          format: int32
-          type: integer
-        vegCover:
-          format: int32
-          type: integer
-        wAlignRd:
-          format: int32
-          type: integer
+        fireRisk:
+          items:
+            $ref: '#/components/schemas/FireRiskV2Response'
+          type: array
       type: object
-    RiskLocations:
+    FireDepartment:
       example:
-        geometry:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
-        objectId: objectId
-        purchaseAmount: purchaseAmount
+        name: name
+        numberOfStations: 0
+        administrativeOfficeOnly: true
+        type: type
+        contactDetails:
+          address:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          phone: phone
+          fax: fax
       properties:
-        geometry:
-          $ref: '#/components/schemas/RiskGeometry'
-        purchaseAmount:
+        name:
           type: string
+        type:
+          type: string
+        numberOfStations:
+          format: int32
+          type: integer
+        administrativeOfficeOnly:
+          type: boolean
+        contactDetails:
+          $ref: '#/components/schemas/FireStationContactDetails'
+      type: object
+    RiskPreferences:
+      example:
+        richterValue: richterValue
+        includeZoneDesc: includeZoneDesc
+        includeGeometry: includeGeometry
+      properties:
+        includeGeometry:
+          type: string
+        includeZoneDesc:
+          type: string
+        richterValue:
+          type: string
+      type: object
+    IndexVariable:
+      example:
+        score: score
+        percentile: percentile
+        name: name
+        category: category
+        stateScore: stateScore
+      properties:
+        name:
+          type: string
+        score:
+          type: string
+        category:
+          type: string
+        percentile:
+          type: string
+        stateScore:
+          type: string
+      type: object
+    CrimeRiskResponse:
+      example:
+        themes:
+        - crimeIndexTheme:
+            boundaryRef: boundaryRef
+            source: source
+            indexVariable:
+            - score: score
+              percentile: percentile
+              name: name
+              category: category
+              stateScore: stateScore
+            - score: score
+              percentile: percentile
+              name: name
+              category: category
+              stateScore: stateScore
+        - crimeIndexTheme:
+            boundaryRef: boundaryRef
+            source: source
+            indexVariable:
+            - score: score
+              percentile: percentile
+              name: name
+              category: category
+              stateScore: stateScore
+            - score: score
+              percentile: percentile
+              name: name
+              category: category
+              stateScore: stateScore
+        boundaries:
+          boundary:
+          - ref: ref
+            geometry:
+              crs:
+                type: type
+                properties:
+                  name: name
+              coordinates: '{}'
+              type: type
+            id: id
+            type: type
+          - ref: ref
+            geometry:
+              crs:
+                type: type
+                properties:
+                  name: name
+              coordinates: '{}'
+              type: type
+            id: id
+            type: type
+        objectId: objectId
+        matchedAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+      properties:
         objectId:
           type: string
-      required:
-      - geometry
+        themes:
+          items:
+            $ref: '#/components/schemas/RisksCrimeTheme'
+          type: array
+        boundaries:
+          $ref: '#/components/schemas/RisksBoundaries'
+        matchedAddress:
+          $ref: '#/components/schemas/RiskAddress'
       type: object
-    Status:
+    FireRiskV2Response:
       example:
+        severity: 6
+        damage: 5
+        severityGroupElements:
+          intensity: 7
+          windSpd: 3
+          emberCast: 2
+          crownFire: 9
+        mitigation: 2
+        frequencyGroupElements:
+          histPerim: 7
+          lineDist: 1
+          burnProb: 4
+          probIgnit: 1
+        noharmCls: noharmCls
+        noharmModel: noharmModel
+        mitigationGroupElements:
+          topoPos: 9
+          fStnDist: 8
+          waterDist: 9
+          burnable: 6
+        noharmId: noharmId
+        damageGroupElements:
+          histLoss: 4
+          insectsAndDisease: 5
+        community: 5
+        risk50: 0
+        frequency: 1
+        matchedAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        riskDesc: riskDesc
+        communityGroupElements:
+          wAlignRd: 1
+          vegCover: 7
+          accEgress: 6
+          structure: 1
+        geometry:
+          crs:
+            type: type
+            properties:
+              name: name
+          coordinates: '{}'
+          type: type
+        state: state
+        objectId: objectId
+      properties:
+        objectId:
+          type: string
+        state:
+          type: string
+        noharmId:
+          type: string
+        noharmCls:
+          type: string
+        noharmModel:
+          type: string
+        riskDesc:
+          type: string
+        risk50:
+          format: int32
+          type: integer
+        severity:
+          format: int32
+          type: integer
+        frequency:
+          format: int32
+          type: integer
+        community:
+          format: int32
+          type: integer
+        damage:
+          format: int32
+          type: integer
+        mitigation:
+          format: int32
+          type: integer
+        severityGroupElements:
+          $ref: '#/components/schemas/SeverityGroup'
+        frequencyGroupElements:
+          $ref: '#/components/schemas/FrequencyGroup'
+        communityGroupElements:
+          $ref: '#/components/schemas/CommunityGroup'
+        damageGroupElements:
+          $ref: '#/components/schemas/DamageGroup'
+        mitigationGroupElements:
+          $ref: '#/components/schemas/MitigationGroup'
+        geometry:
+          $ref: '#/components/schemas/CommonGeometry'
+        matchedAddress:
+          $ref: '#/components/schemas/RiskAddress'
+      type: object
+    FloodZone:
+      example:
+        primaryZone:
+          code: code
+          description: description
         code: code
-        description: description
+        riskLevel: riskLevel
+        areaType: areaType
+        baseFloodElevation:
+          unit: unit
+          value: value
+        additionalInfo: additionalInfo
       properties:
         code:
           type: string
-        description:
+        areaType:
           type: string
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
+        riskLevel:
           type: string
-        errorDescription:
+        primaryZone:
+          $ref: '#/components/schemas/PrimaryZone'
+        baseFloodElevation:
+          $ref: '#/components/schemas/BaseFloodElevation'
+        additionalInfo:
           type: string
       type: object
   securitySchemes:

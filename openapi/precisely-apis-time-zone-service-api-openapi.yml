@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Time  Zone  Service API
+  title: Precisely Time  Zone  Service API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -204,17 +204,19 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    TimezoneGeometry:
+    ErrorCode:
       properties:
-        type:
+        errorCode:
           type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      required:
-      - type
+        errorDescription:
+          type: string
+      type: object
+    addressTime:
+      properties:
+        timestamp:
+          type: string
+        address:
+          $ref: '#/components/schemas/address_1'
       type: object
     TimezoneResponse:
       example:
@@ -310,6 +312,13 @@ components:
         dstEndDate:
           type: string
       type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
     address_1:
       example:
         country: country
@@ -404,29 +413,6 @@ components:
         unitValue:
           type: string
       type: object
-    timezoneAddressRequest:
-      properties:
-        preferences:
-          $ref: '#/components/schemas/PreferencTimeZone'
-        addressTime:
-          items:
-            $ref: '#/components/schemas/addressTime'
-          type: array
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
-    addressTime:
-      properties:
-        timestamp:
-          type: string
-        address:
-          $ref: '#/components/schemas/address_1'
-      type: object
     locationTime:
       properties:
         geometry:
@@ -439,6 +425,15 @@ components:
           type: string
       required:
       - geometry
+      type: object
+    timezoneAddressRequest:
+      properties:
+        preferences:
+          $ref: '#/components/schemas/PreferencTimeZone'
+        addressTime:
+          items:
+            $ref: '#/components/schemas/addressTime'
+          type: array
       type: object
     TimezoneResponseList:
       example:
@@ -547,6 +542,18 @@ components:
             $ref: '#/components/schemas/TimezoneResponse'
           type: array
       type: object
+    TimezoneGeometry:
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      required:
+      - type
+      type: object
     timezoneLocationRequest:
       properties:
         locationTime:
@@ -557,13 +564,6 @@ components:
     PreferencTimeZone:
       properties:
         matchMode:
-          type: string
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
           type: string
       type: object
   securitySchemes:

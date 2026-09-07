@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Speedlimit API
+  title: Precisely Speedlimit API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -66,13 +66,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
     road:
       example:
         endingLevel: endingLevel
@@ -111,6 +104,20 @@ components:
         beginningLevel:
           type: string
         endingLevel:
+          type: string
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
           type: string
       type: object
     SpeedLimit:
@@ -155,13 +162,6 @@ components:
           type: string
         road:
           $ref: '#/components/schemas/road'
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
       type: object
   securitySchemes:
     oAuth2Password:

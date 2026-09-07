@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Byprecisely API
+  title: Byprecisely API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -66,6 +66,13 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
     GeometryProperties:
       example:
         name: name
@@ -73,60 +80,39 @@ components:
         name:
           type: string
       type: object
-    ParcelV2:
-      example:
-        taxAccountNumber: taxAccountNumber
-        address:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        taxApn: taxApn
-        preciselyId: preciselyId
-        propLinkId: propLinkId
-        id: id
-        parentPreciselyId: parentPreciselyId
+    ErrorInfo_1:
       properties:
-        id:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    PropertyInformationGeometry:
+      example:
+        crs:
+          type: type
+          properties:
+            name: name
+        coordinates: '{}'
+        type: type
+      properties:
+        type:
           type: string
-        preciselyId:
+        crs:
+          $ref: '#/components/schemas/PropertyInformationGeometryCRC'
+        coordinates:
+          type: object
+      type: object
+    PropertyInformationGeometryCRC:
+      example:
+        type: type
+        properties:
+          name: name
+      properties:
+        type:
           type: string
-        parentPreciselyId:
-          type: string
-        address:
-          $ref: '#/components/schemas/MatchedAddress'
-        taxApn:
-          type: string
-        taxAccountNumber:
-          type: string
-        propLinkId:
-          type: string
+        properties:
+          $ref: '#/components/schemas/GeometryProperties'
       type: object
     ParcelBoundaryV2:
       example:
@@ -282,39 +268,6 @@ components:
         matchedAddress:
           $ref: '#/components/schemas/MatchedAddress'
       type: object
-    PropertyInformationGeometryCRC:
-      example:
-        type: type
-        properties:
-          name: name
-      properties:
-        type:
-          type: string
-        properties:
-          $ref: '#/components/schemas/GeometryProperties'
-      type: object
-    Center:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
     MatchedAddress:
       example:
         country: country
@@ -409,27 +362,74 @@ components:
         unitValue:
           type: string
       type: object
-    PropertyInformationGeometry:
+    Center:
       example:
-        crs:
-          type: type
-          properties:
-            name: name
-        coordinates: '{}'
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
         type: type
       properties:
         type:
           type: string
-        crs:
-          $ref: '#/components/schemas/PropertyInformationGeometryCRC'
         coordinates:
-          type: object
+          items:
+            format: double
+            type: number
+          type: array
       type: object
-    ErrorCode:
+    ParcelV2:
+      example:
+        taxAccountNumber: taxAccountNumber
+        address:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        taxApn: taxApn
+        preciselyId: preciselyId
+        propLinkId: propLinkId
+        id: id
+        parentPreciselyId: parentPreciselyId
       properties:
-        errorCode:
+        id:
           type: string
-        errorDescription:
+        preciselyId:
+          type: string
+        parentPreciselyId:
+          type: string
+        address:
+          $ref: '#/components/schemas/MatchedAddress'
+        taxApn:
+          type: string
+        taxAccountNumber:
+          type: string
+        propLinkId:
           type: string
       type: object
   securitySchemes:

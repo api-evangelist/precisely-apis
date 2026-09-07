@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Firehistory API
+  title: Precisely Firehistory API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -138,17 +138,7 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    Area:
-      example:
-        unit: unit
-        value: value
-      properties:
-        unit:
-          type: string
-        value:
-          type: string
-      type: object
-    FireEventV2:
+    FireEvent:
       example:
         fireEndDate: fireEndDate
         area:
@@ -165,9 +155,33 @@ components:
         fireName:
           type: string
         area:
-          $ref: '#/components/schemas/AreaV2'
+          $ref: '#/components/schemas/Area'
         agency:
           type: string
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    Area:
+      example:
+        unit: unit
+        value: value
+      properties:
+        unit:
+          type: string
+        value:
+          type: string
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
       type: object
     FireEventsV2Response:
       example:
@@ -192,61 +206,15 @@ components:
             $ref: '#/components/schemas/FireEventV2'
           type: array
       type: object
-    FireHistory:
+    AreaV2:
       example:
-        stateCode: stateCode
-        postCode: postCode
-        events:
-          event:
-          - fireEndDate: fireEndDate
-            area:
-              unit: unit
-              value: value
-            fireName: fireName
-            agency: agency
-            fireStartDate: fireStartDate
-          - fireEndDate: fireEndDate
-            area:
-              unit: unit
-              value: value
-            fireName: fireName
-            agency: agency
-            fireStartDate: fireStartDate
+        unit: unit
+        value: value
       properties:
-        stateCode:
+        unit:
           type: string
-        postCode:
+        value:
           type: string
-        events:
-          $ref: '#/components/schemas/FireEventsResponse'
-      type: object
-    FireEvent:
-      example:
-        fireEndDate: fireEndDate
-        area:
-          unit: unit
-          value: value
-        fireName: fireName
-        agency: agency
-        fireStartDate: fireStartDate
-      properties:
-        fireStartDate:
-          type: string
-        fireEndDate:
-          type: string
-        fireName:
-          type: string
-        area:
-          $ref: '#/components/schemas/Area'
-        agency:
-          type: string
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
       type: object
     FireHistoryV2:
       example:
@@ -299,21 +267,53 @@ components:
             $ref: '#/components/schemas/FireEvent'
           type: array
       type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    AreaV2:
+    FireHistory:
       example:
-        unit: unit
-        value: value
+        stateCode: stateCode
+        postCode: postCode
+        events:
+          event:
+          - fireEndDate: fireEndDate
+            area:
+              unit: unit
+              value: value
+            fireName: fireName
+            agency: agency
+            fireStartDate: fireStartDate
+          - fireEndDate: fireEndDate
+            area:
+              unit: unit
+              value: value
+            fireName: fireName
+            agency: agency
+            fireStartDate: fireStartDate
       properties:
-        unit:
+        stateCode:
           type: string
-        value:
+        postCode:
+          type: string
+        events:
+          $ref: '#/components/schemas/FireEventsResponse'
+      type: object
+    FireEventV2:
+      example:
+        fireEndDate: fireEndDate
+        area:
+          unit: unit
+          value: value
+        fireName: fireName
+        agency: agency
+        fireStartDate: fireStartDate
+      properties:
+        fireStartDate:
+          type: string
+        fireEndDate:
+          type: string
+        fireName:
+          type: string
+        area:
+          $ref: '#/components/schemas/AreaV2'
+        agency:
           type: string
       type: object
   securitySchemes:

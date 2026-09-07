@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Advanced API
+  title: Precisely Advanced API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -66,45 +66,7 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    DemographicsAdvancedRequest:
-      example:
-        preferences:
-          filter: filter
-          profile: profile
-          includeGeometry: includeGeometry
-        geometry:
-          crs:
-            type: type
-            properties:
-              name: name
-          coordinates: '{}'
-          type: type
-        geometryAsText: geometryAsText
-      properties:
-        preferences:
-          $ref: '#/components/schemas/DemographicsAdvancedPreferences'
-        geometry:
-          $ref: '#/components/schemas/DemographicsGeometry'
-        geometryAsText:
-          type: string
-      type: object
-    IndividualValueVariable:
-      example:
-        year: year
-        name: name
-        description: description
-        value: value
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        year:
-          type: string
-        value:
-          type: string
-      type: object
-    EmploymentTheme:
+    HealthTheme:
       example:
         rangeVariable:
         - field:
@@ -157,72 +119,21 @@ components:
             $ref: '#/components/schemas/RangeVariable'
           type: array
       type: object
-    Field:
+    IndividualValueVariable:
       example:
+        year: year
         name: name
         description: description
         value: value
       properties:
-        value:
-          type: string
         name:
           type: string
         description:
-          type: string
-      type: object
-    DemographicsGeometry:
-      example:
-        crs:
-          type: type
-          properties:
-            name: name
-        coordinates: '{}'
-        type: type
-      properties:
-        type:
-          type: string
-        crs:
-          $ref: '#/components/schemas/DemographicsGeometryCRC'
-        coordinates:
-          type: object
-      type: object
-    RangeVariable:
-      example:
-        field:
-        - name: name
-          description: description
-          value: value
-        - name: name
-          description: description
-          value: value
-        year: year
-        count: count
-        name: name
-        baseVariable: baseVariable
-        alias: alias
-        description: description
-        order: order
-      properties:
-        count:
-          type: string
-        order:
-          type: string
-        name:
-          type: string
-        alias:
-          type: string
-        description:
-          type: string
-        baseVariable:
           type: string
         year:
           type: string
-        field:
-          items:
-            $ref: '#/components/schemas/Field'
-          type: array
-      required:
-      - field
+        value:
+          type: string
       type: object
     IncomeTheme:
       example:
@@ -276,6 +187,97 @@ components:
           items:
             $ref: '#/components/schemas/RangeVariable'
           type: array
+      type: object
+    PopulationTheme:
+      example:
+        rangeVariable:
+        - field:
+          - name: name
+            description: description
+            value: value
+          - name: name
+            description: description
+            value: value
+          year: year
+          count: count
+          name: name
+          baseVariable: baseVariable
+          alias: alias
+          description: description
+          order: order
+        - field:
+          - name: name
+            description: description
+            value: value
+          - name: name
+            description: description
+            value: value
+          year: year
+          count: count
+          name: name
+          baseVariable: baseVariable
+          alias: alias
+          description: description
+          order: order
+        individualValueVariable:
+        - year: year
+          name: name
+          description: description
+          value: value
+        - year: year
+          name: name
+          description: description
+          value: value
+        boundaryRef: boundaryRef
+      properties:
+        boundaryRef:
+          type: string
+        individualValueVariable:
+          items:
+            $ref: '#/components/schemas/IndividualValueVariable'
+          type: array
+        rangeVariable:
+          items:
+            $ref: '#/components/schemas/RangeVariable'
+          type: array
+      type: object
+    RangeVariable:
+      example:
+        field:
+        - name: name
+          description: description
+          value: value
+        - name: name
+          description: description
+          value: value
+        year: year
+        count: count
+        name: name
+        baseVariable: baseVariable
+        alias: alias
+        description: description
+        order: order
+      properties:
+        count:
+          type: string
+        order:
+          type: string
+        name:
+          type: string
+        alias:
+          type: string
+        description:
+          type: string
+        baseVariable:
+          type: string
+        year:
+          type: string
+        field:
+          items:
+            $ref: '#/components/schemas/Field'
+          type: array
+      required:
+      - field
       type: object
     GeometryProperties:
       example:
@@ -390,710 +392,7 @@ components:
             $ref: '#/components/schemas/RangeVariable'
           type: array
       type: object
-    EducationTheme:
-      example:
-        rangeVariable:
-        - field:
-          - name: name
-            description: description
-            value: value
-          - name: name
-            description: description
-            value: value
-          year: year
-          count: count
-          name: name
-          baseVariable: baseVariable
-          alias: alias
-          description: description
-          order: order
-        - field:
-          - name: name
-            description: description
-            value: value
-          - name: name
-            description: description
-            value: value
-          year: year
-          count: count
-          name: name
-          baseVariable: baseVariable
-          alias: alias
-          description: description
-          order: order
-        individualValueVariable:
-        - year: year
-          name: name
-          description: description
-          value: value
-        - year: year
-          name: name
-          description: description
-          value: value
-        boundaryRef: boundaryRef
-      properties:
-        boundaryRef:
-          type: string
-        individualValueVariable:
-          items:
-            $ref: '#/components/schemas/IndividualValueVariable'
-          type: array
-        rangeVariable:
-          items:
-            $ref: '#/components/schemas/RangeVariable'
-          type: array
-      type: object
-    Boundaries:
-      example:
-        boundary:
-        - boundaryId: boundaryId
-          boundaryRef: boundaryRef
-          boundaryType: boundaryType
-          geometry:
-            crs:
-              type: type
-              properties:
-                name: name
-            coordinates: '{}'
-            type: type
-          url: url
-        - boundaryId: boundaryId
-          boundaryRef: boundaryRef
-          boundaryType: boundaryType
-          geometry:
-            crs:
-              type: type
-              properties:
-                name: name
-            coordinates: '{}'
-            type: type
-          url: url
-        boundaryRef: boundaryRef
-        boundaryType: boundaryType
-      properties:
-        boundaryType:
-          type: string
-        boundaryRef:
-          type: string
-        boundary:
-          items:
-            $ref: '#/components/schemas/Boundary'
-          type: array
-      required:
-      - boundary
-      type: object
-    DemographicsGeometryCRC:
-      example:
-        type: type
-        properties:
-          name: name
-      properties:
-        type:
-          type: string
-        properties:
-          $ref: '#/components/schemas/GeometryProperties'
-      type: object
-    PopulationTheme:
-      example:
-        rangeVariable:
-        - field:
-          - name: name
-            description: description
-            value: value
-          - name: name
-            description: description
-            value: value
-          year: year
-          count: count
-          name: name
-          baseVariable: baseVariable
-          alias: alias
-          description: description
-          order: order
-        - field:
-          - name: name
-            description: description
-            value: value
-          - name: name
-            description: description
-            value: value
-          year: year
-          count: count
-          name: name
-          baseVariable: baseVariable
-          alias: alias
-          description: description
-          order: order
-        individualValueVariable:
-        - year: year
-          name: name
-          description: description
-          value: value
-        - year: year
-          name: name
-          description: description
-          value: value
-        boundaryRef: boundaryRef
-      properties:
-        boundaryRef:
-          type: string
-        individualValueVariable:
-          items:
-            $ref: '#/components/schemas/IndividualValueVariable'
-          type: array
-        rangeVariable:
-          items:
-            $ref: '#/components/schemas/RangeVariable'
-          type: array
-      type: object
-    Boundary:
-      example:
-        boundaryId: boundaryId
-        boundaryRef: boundaryRef
-        boundaryType: boundaryType
-        geometry:
-          crs:
-            type: type
-            properties:
-              name: name
-          coordinates: '{}'
-          type: type
-        url: url
-      properties:
-        boundaryId:
-          type: string
-        boundaryType:
-          type: string
-        boundaryRef:
-          type: string
-        geometry:
-          $ref: '#/components/schemas/DemographicsGeometry'
-        url:
-          type: string
-      type: object
-    ExpenditureTheme:
-      example:
-        rangeVariable:
-        - field:
-          - name: name
-            description: description
-            value: value
-          - name: name
-            description: description
-            value: value
-          year: year
-          count: count
-          name: name
-          baseVariable: baseVariable
-          alias: alias
-          description: description
-          order: order
-        - field:
-          - name: name
-            description: description
-            value: value
-          - name: name
-            description: description
-            value: value
-          year: year
-          count: count
-          name: name
-          baseVariable: baseVariable
-          alias: alias
-          description: description
-          order: order
-        individualValueVariable:
-        - year: year
-          name: name
-          description: description
-          value: value
-        - year: year
-          name: name
-          description: description
-          value: value
-        boundaryRef: boundaryRef
-      properties:
-        boundaryRef:
-          type: string
-        individualValueVariable:
-          items:
-            $ref: '#/components/schemas/IndividualValueVariable'
-          type: array
-        rangeVariable:
-          items:
-            $ref: '#/components/schemas/RangeVariable'
-          type: array
-      type: object
-    DemographicsThemesV2:
-      example:
-        householdsTheme:
-          rangeVariable:
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          individualValueVariable:
-          - year: year
-            name: name
-            description: description
-            value: value
-          - year: year
-            name: name
-            description: description
-            value: value
-          boundaryRef: boundaryRef
-        supplyAndDemandTheme:
-          rangeVariable:
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          individualValueVariable:
-          - year: year
-            name: name
-            description: description
-            value: value
-          - year: year
-            name: name
-            description: description
-            value: value
-          boundaryRef: boundaryRef
-        housingTheme:
-          rangeVariable:
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          individualValueVariable:
-          - year: year
-            name: name
-            description: description
-            value: value
-          - year: year
-            name: name
-            description: description
-            value: value
-          boundaryRef: boundaryRef
-        employmentTheme:
-          rangeVariable:
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          individualValueVariable:
-          - year: year
-            name: name
-            description: description
-            value: value
-          - year: year
-            name: name
-            description: description
-            value: value
-          boundaryRef: boundaryRef
-        boundaryId: boundaryId
-        incomeTheme:
-          rangeVariable:
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          individualValueVariable:
-          - year: year
-            name: name
-            description: description
-            value: value
-          - year: year
-            name: name
-            description: description
-            value: value
-          boundaryRef: boundaryRef
-        assetsAndWealthTheme:
-          rangeVariable:
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          individualValueVariable:
-          - year: year
-            name: name
-            description: description
-            value: value
-          - year: year
-            name: name
-            description: description
-            value: value
-          boundaryRef: boundaryRef
-        healthTheme:
-          rangeVariable:
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          individualValueVariable:
-          - year: year
-            name: name
-            description: description
-            value: value
-          - year: year
-            name: name
-            description: description
-            value: value
-          boundaryRef: boundaryRef
-        educationTheme:
-          rangeVariable:
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          individualValueVariable:
-          - year: year
-            name: name
-            description: description
-            value: value
-          - year: year
-            name: name
-            description: description
-            value: value
-          boundaryRef: boundaryRef
-        raceAndEthnicityTheme:
-          rangeVariable:
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          individualValueVariable:
-          - year: year
-            name: name
-            description: description
-            value: value
-          - year: year
-            name: name
-            description: description
-            value: value
-          boundaryRef: boundaryRef
-        expenditureTheme:
-          rangeVariable:
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          individualValueVariable:
-          - year: year
-            name: name
-            description: description
-            value: value
-          - year: year
-            name: name
-            description: description
-            value: value
-          boundaryRef: boundaryRef
-        populationTheme:
-          rangeVariable:
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          - field:
-            - name: name
-              description: description
-              value: value
-            - name: name
-              description: description
-              value: value
-            year: year
-            count: count
-            name: name
-            baseVariable: baseVariable
-            alias: alias
-            description: description
-            order: order
-          individualValueVariable:
-          - year: year
-            name: name
-            description: description
-            value: value
-          - year: year
-            name: name
-            description: description
-            value: value
-          boundaryRef: boundaryRef
-      properties:
-        boundaryId:
-          type: string
-        populationTheme:
-          $ref: '#/components/schemas/PopulationTheme'
-        raceAndEthnicityTheme:
-          $ref: '#/components/schemas/RaceAndEthnicityTheme'
-        healthTheme:
-          $ref: '#/components/schemas/HealthTheme'
-        educationTheme:
-          $ref: '#/components/schemas/EducationTheme'
-        incomeTheme:
-          $ref: '#/components/schemas/IncomeTheme'
-        assetsAndWealthTheme:
-          $ref: '#/components/schemas/AssetsAndWealthTheme'
-        householdsTheme:
-          $ref: '#/components/schemas/HouseholdsTheme'
-        housingTheme:
-          $ref: '#/components/schemas/HousingTheme'
-        employmentTheme:
-          $ref: '#/components/schemas/EmploymentTheme'
-        expenditureTheme:
-          $ref: '#/components/schemas/ExpenditureTheme'
-        supplyAndDemandTheme:
-          $ref: '#/components/schemas/SupplyAndDemandTheme'
-      type: object
-    SupplyAndDemandTheme:
+    EmploymentTheme:
       example:
         rangeVariable:
         - field:
@@ -2512,7 +1811,675 @@ components:
       - boundaries
       - themes
       type: object
-    HealthTheme:
+    DemographicsAdvancedPreferences:
+      example:
+        filter: filter
+        profile: profile
+        includeGeometry: includeGeometry
+      properties:
+        profile:
+          type: string
+        filter:
+          type: string
+        includeGeometry:
+          type: string
+      type: object
+    Boundaries:
+      example:
+        boundary:
+        - boundaryId: boundaryId
+          boundaryRef: boundaryRef
+          boundaryType: boundaryType
+          geometry:
+            crs:
+              type: type
+              properties:
+                name: name
+            coordinates: '{}'
+            type: type
+          url: url
+        - boundaryId: boundaryId
+          boundaryRef: boundaryRef
+          boundaryType: boundaryType
+          geometry:
+            crs:
+              type: type
+              properties:
+                name: name
+            coordinates: '{}'
+            type: type
+          url: url
+        boundaryRef: boundaryRef
+        boundaryType: boundaryType
+      properties:
+        boundaryType:
+          type: string
+        boundaryRef:
+          type: string
+        boundary:
+          items:
+            $ref: '#/components/schemas/Boundary'
+          type: array
+      required:
+      - boundary
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    Boundary:
+      example:
+        boundaryId: boundaryId
+        boundaryRef: boundaryRef
+        boundaryType: boundaryType
+        geometry:
+          crs:
+            type: type
+            properties:
+              name: name
+          coordinates: '{}'
+          type: type
+        url: url
+      properties:
+        boundaryId:
+          type: string
+        boundaryType:
+          type: string
+        boundaryRef:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/DemographicsGeometry'
+        url:
+          type: string
+      type: object
+    Field:
+      example:
+        name: name
+        description: description
+        value: value
+      properties:
+        value:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+      type: object
+    EducationTheme:
+      example:
+        rangeVariable:
+        - field:
+          - name: name
+            description: description
+            value: value
+          - name: name
+            description: description
+            value: value
+          year: year
+          count: count
+          name: name
+          baseVariable: baseVariable
+          alias: alias
+          description: description
+          order: order
+        - field:
+          - name: name
+            description: description
+            value: value
+          - name: name
+            description: description
+            value: value
+          year: year
+          count: count
+          name: name
+          baseVariable: baseVariable
+          alias: alias
+          description: description
+          order: order
+        individualValueVariable:
+        - year: year
+          name: name
+          description: description
+          value: value
+        - year: year
+          name: name
+          description: description
+          value: value
+        boundaryRef: boundaryRef
+      properties:
+        boundaryRef:
+          type: string
+        individualValueVariable:
+          items:
+            $ref: '#/components/schemas/IndividualValueVariable'
+          type: array
+        rangeVariable:
+          items:
+            $ref: '#/components/schemas/RangeVariable'
+          type: array
+      type: object
+    DemographicsGeometry:
+      example:
+        crs:
+          type: type
+          properties:
+            name: name
+        coordinates: '{}'
+        type: type
+      properties:
+        type:
+          type: string
+        crs:
+          $ref: '#/components/schemas/DemographicsGeometryCRC'
+        coordinates:
+          type: object
+      type: object
+    DemographicsAdvancedRequest:
+      example:
+        preferences:
+          filter: filter
+          profile: profile
+          includeGeometry: includeGeometry
+        geometry:
+          crs:
+            type: type
+            properties:
+              name: name
+          coordinates: '{}'
+          type: type
+        geometryAsText: geometryAsText
+      properties:
+        preferences:
+          $ref: '#/components/schemas/DemographicsAdvancedPreferences'
+        geometry:
+          $ref: '#/components/schemas/DemographicsGeometry'
+        geometryAsText:
+          type: string
+      type: object
+    DemographicsGeometryCRC:
+      example:
+        type: type
+        properties:
+          name: name
+      properties:
+        type:
+          type: string
+        properties:
+          $ref: '#/components/schemas/GeometryProperties'
+      type: object
+    DemographicsThemesV2:
+      example:
+        householdsTheme:
+          rangeVariable:
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          individualValueVariable:
+          - year: year
+            name: name
+            description: description
+            value: value
+          - year: year
+            name: name
+            description: description
+            value: value
+          boundaryRef: boundaryRef
+        supplyAndDemandTheme:
+          rangeVariable:
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          individualValueVariable:
+          - year: year
+            name: name
+            description: description
+            value: value
+          - year: year
+            name: name
+            description: description
+            value: value
+          boundaryRef: boundaryRef
+        housingTheme:
+          rangeVariable:
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          individualValueVariable:
+          - year: year
+            name: name
+            description: description
+            value: value
+          - year: year
+            name: name
+            description: description
+            value: value
+          boundaryRef: boundaryRef
+        employmentTheme:
+          rangeVariable:
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          individualValueVariable:
+          - year: year
+            name: name
+            description: description
+            value: value
+          - year: year
+            name: name
+            description: description
+            value: value
+          boundaryRef: boundaryRef
+        boundaryId: boundaryId
+        incomeTheme:
+          rangeVariable:
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          individualValueVariable:
+          - year: year
+            name: name
+            description: description
+            value: value
+          - year: year
+            name: name
+            description: description
+            value: value
+          boundaryRef: boundaryRef
+        assetsAndWealthTheme:
+          rangeVariable:
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          individualValueVariable:
+          - year: year
+            name: name
+            description: description
+            value: value
+          - year: year
+            name: name
+            description: description
+            value: value
+          boundaryRef: boundaryRef
+        healthTheme:
+          rangeVariable:
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          individualValueVariable:
+          - year: year
+            name: name
+            description: description
+            value: value
+          - year: year
+            name: name
+            description: description
+            value: value
+          boundaryRef: boundaryRef
+        educationTheme:
+          rangeVariable:
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          individualValueVariable:
+          - year: year
+            name: name
+            description: description
+            value: value
+          - year: year
+            name: name
+            description: description
+            value: value
+          boundaryRef: boundaryRef
+        raceAndEthnicityTheme:
+          rangeVariable:
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          individualValueVariable:
+          - year: year
+            name: name
+            description: description
+            value: value
+          - year: year
+            name: name
+            description: description
+            value: value
+          boundaryRef: boundaryRef
+        expenditureTheme:
+          rangeVariable:
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          individualValueVariable:
+          - year: year
+            name: name
+            description: description
+            value: value
+          - year: year
+            name: name
+            description: description
+            value: value
+          boundaryRef: boundaryRef
+        populationTheme:
+          rangeVariable:
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          - field:
+            - name: name
+              description: description
+              value: value
+            - name: name
+              description: description
+              value: value
+            year: year
+            count: count
+            name: name
+            baseVariable: baseVariable
+            alias: alias
+            description: description
+            order: order
+          individualValueVariable:
+          - year: year
+            name: name
+            description: description
+            value: value
+          - year: year
+            name: name
+            description: description
+            value: value
+          boundaryRef: boundaryRef
+      properties:
+        boundaryId:
+          type: string
+        populationTheme:
+          $ref: '#/components/schemas/PopulationTheme'
+        raceAndEthnicityTheme:
+          $ref: '#/components/schemas/RaceAndEthnicityTheme'
+        healthTheme:
+          $ref: '#/components/schemas/HealthTheme'
+        educationTheme:
+          $ref: '#/components/schemas/EducationTheme'
+        incomeTheme:
+          $ref: '#/components/schemas/IncomeTheme'
+        assetsAndWealthTheme:
+          $ref: '#/components/schemas/AssetsAndWealthTheme'
+        householdsTheme:
+          $ref: '#/components/schemas/HouseholdsTheme'
+        housingTheme:
+          $ref: '#/components/schemas/HousingTheme'
+        employmentTheme:
+          $ref: '#/components/schemas/EmploymentTheme'
+        expenditureTheme:
+          $ref: '#/components/schemas/ExpenditureTheme'
+        supplyAndDemandTheme:
+          $ref: '#/components/schemas/SupplyAndDemandTheme'
+      type: object
+    ExpenditureTheme:
       example:
         rangeVariable:
         - field:
@@ -2618,7 +2585,7 @@ components:
             $ref: '#/components/schemas/RangeVariable'
           type: array
       type: object
-    RaceAndEthnicityTheme:
+    SupplyAndDemandTheme:
       example:
         rangeVariable:
         - field:
@@ -2671,19 +2638,6 @@ components:
             $ref: '#/components/schemas/RangeVariable'
           type: array
       type: object
-    DemographicsAdvancedPreferences:
-      example:
-        filter: filter
-        profile: profile
-        includeGeometry: includeGeometry
-      properties:
-        profile:
-          type: string
-        filter:
-          type: string
-        includeGeometry:
-          type: string
-      type: object
     ErrorInfo_1:
       properties:
         errors:
@@ -2691,12 +2645,58 @@ components:
             $ref: '#/components/schemas/ErrorCode'
           type: array
       type: object
-    ErrorCode:
+    RaceAndEthnicityTheme:
+      example:
+        rangeVariable:
+        - field:
+          - name: name
+            description: description
+            value: value
+          - name: name
+            description: description
+            value: value
+          year: year
+          count: count
+          name: name
+          baseVariable: baseVariable
+          alias: alias
+          description: description
+          order: order
+        - field:
+          - name: name
+            description: description
+            value: value
+          - name: name
+            description: description
+            value: value
+          year: year
+          count: count
+          name: name
+          baseVariable: baseVariable
+          alias: alias
+          description: description
+          order: order
+        individualValueVariable:
+        - year: year
+          name: name
+          description: description
+          value: value
+        - year: year
+          name: name
+          description: description
+          value: value
+        boundaryRef: boundaryRef
       properties:
-        errorCode:
+        boundaryRef:
           type: string
-        errorDescription:
-          type: string
+        individualValueVariable:
+          items:
+            $ref: '#/components/schemas/IndividualValueVariable'
+          type: array
+        rangeVariable:
+          items:
+            $ref: '#/components/schemas/RangeVariable'
+          type: array
       type: object
   securitySchemes:
     oAuth2Password:

@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Bydistance API
+  title: Precisely Bydistance API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -163,39 +163,68 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    DirectionGeometry:
-      example:
-        coordinates:
-        - - - - 6.027456183070403
-              - 6.027456183070403
-            - - 6.027456183070403
-              - 6.027456183070403
-          - - - 6.027456183070403
-              - 6.027456183070403
-            - - 6.027456183070403
-              - 6.027456183070403
-        - - - - 6.027456183070403
-              - 6.027456183070403
-            - - 6.027456183070403
-              - 6.027456183070403
-          - - - 6.027456183070403
-              - 6.027456183070403
-            - - 6.027456183070403
-              - 6.027456183070403
-        type: type
+    ErrorCode:
       properties:
-        type:
+        errorCode:
           type: string
-        coordinates:
+        errorDescription:
+          type: string
+      type: object
+    TravelBoundaries:
+      example:
+        travelBoundary:
+          costs:
+          - costUnit: costUnit
+            cost: 0.8008281904610115
+            geometry:
+              coordinates:
+              - - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+                - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+              - - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+                - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+              type: type
+          - costUnit: costUnit
+            cost: 0.8008281904610115
+            geometry:
+              coordinates:
+              - - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+                - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+              - - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+                - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+              type: type
+      properties:
+        travelBoundary:
+          $ref: '#/components/schemas/TravelBoundary'
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
           items:
-            items:
-              items:
-                items:
-                  format: double
-                  type: number
-                type: array
-              type: array
-            type: array
+            $ref: '#/components/schemas/ErrorCode'
           type: array
       type: object
     TravelBoundary:
@@ -252,11 +281,39 @@ components:
               type: boolean
           type: array
       type: object
-    ErrorInfo_1:
+    DirectionGeometry:
+      example:
+        coordinates:
+        - - - - 6.027456183070403
+              - 6.027456183070403
+            - - 6.027456183070403
+              - 6.027456183070403
+          - - - 6.027456183070403
+              - 6.027456183070403
+            - - 6.027456183070403
+              - 6.027456183070403
+        - - - - 6.027456183070403
+              - 6.027456183070403
+            - - 6.027456183070403
+              - 6.027456183070403
+          - - - 6.027456183070403
+              - 6.027456183070403
+            - - 6.027456183070403
+              - 6.027456183070403
+        type: type
       properties:
-        errors:
+        type:
+          type: string
+        coordinates:
           items:
-            $ref: '#/components/schemas/ErrorCode'
+            items:
+              items:
+                items:
+                  format: double
+                  type: number
+                type: array
+              type: array
+            type: array
           type: array
       type: object
     Cost:
@@ -289,63 +346,6 @@ components:
           type: string
         geometry:
           $ref: '#/components/schemas/DirectionGeometry'
-      type: object
-    TravelBoundaries:
-      example:
-        travelBoundary:
-          costs:
-          - costUnit: costUnit
-            cost: 0.8008281904610115
-            geometry:
-              coordinates:
-              - - - - 6.027456183070403
-                    - 6.027456183070403
-                  - - 6.027456183070403
-                    - 6.027456183070403
-                - - - 6.027456183070403
-                    - 6.027456183070403
-                  - - 6.027456183070403
-                    - 6.027456183070403
-              - - - - 6.027456183070403
-                    - 6.027456183070403
-                  - - 6.027456183070403
-                    - 6.027456183070403
-                - - - 6.027456183070403
-                    - 6.027456183070403
-                  - - 6.027456183070403
-                    - 6.027456183070403
-              type: type
-          - costUnit: costUnit
-            cost: 0.8008281904610115
-            geometry:
-              coordinates:
-              - - - - 6.027456183070403
-                    - 6.027456183070403
-                  - - 6.027456183070403
-                    - 6.027456183070403
-                - - - 6.027456183070403
-                    - 6.027456183070403
-                  - - 6.027456183070403
-                    - 6.027456183070403
-              - - - - 6.027456183070403
-                    - 6.027456183070403
-                  - - 6.027456183070403
-                    - 6.027456183070403
-                - - - 6.027456183070403
-                    - 6.027456183070403
-                  - - 6.027456183070403
-                    - 6.027456183070403
-              type: type
-      properties:
-        travelBoundary:
-          $ref: '#/components/schemas/TravelBoundary'
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
       type: object
   securitySchemes:
     oAuth2Password:

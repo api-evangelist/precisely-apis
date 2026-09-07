@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Ratecenter API
+  title: Precisely Ratecenter API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -138,140 +138,12 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    match:
-      example:
-        matchCode: matchCode
-        confidence: confidence
-        percentGeocode: percentGeocode
-        locationCode: locationCode
-        precisionLevel: precisionLevel
+    ErrorCode:
       properties:
-        confidence:
+        errorCode:
           type: string
-        percentGeocode:
+        errorDescription:
           type: string
-        precisionLevel:
-          type: string
-        locationCode:
-          type: string
-        matchCode:
-          type: string
-      type: object
-    address_1:
-      example:
-        country: country
-        streetSide: streetSide
-        city: city
-        displayName: displayName
-        postalCode: postalCode
-        latitude: latitude
-        businessName: businessName
-        county: county
-        unitType: unitType
-        streetName: streetName
-        formattedAddress: formattedAddress
-        addressLine1: addressLine1
-        mainAddressLine: mainAddressLine
-        addressLine2: addressLine2
-        addressLine3: addressLine3
-        objectId: objectId
-        addressLastLine: addressLastLine
-        longitude: longitude
-        unitValue: unitValue
-        stateProvince: stateProvince
-        urbanizationName: urbanizationName
-        areaName1: areaName1
-        areaName2: areaName2
-        areaName3: areaName3
-        areaName4: areaName4
-        addressNumber: addressNumber
-        postCode: postCode
-        postCodeExt: postCodeExt
-        placeName: placeName
-        status: status
-      properties:
-        objectId:
-          type: string
-        displayName:
-          type: string
-        streetSide:
-          type: string
-        businessName:
-          type: string
-        addressLine1:
-          type: string
-        addressLine2:
-          type: string
-        addressLine3:
-          type: string
-        city:
-          type: string
-        stateProvince:
-          type: string
-        county:
-          type: string
-        postalCode:
-          type: string
-        latitude:
-          type: string
-        longitude:
-          type: string
-        status:
-          type: string
-        urbanizationName:
-          type: string
-        formattedAddress:
-          type: string
-        mainAddressLine:
-          type: string
-        addressLastLine:
-          type: string
-        placeName:
-          type: string
-        areaName1:
-          type: string
-        areaName2:
-          type: string
-        areaName3:
-          type: string
-        areaName4:
-          type: string
-        postCode:
-          type: string
-        postCodeExt:
-          type: string
-        country:
-          type: string
-        addressNumber:
-          type: string
-        streetName:
-          type: string
-        unitType:
-          type: string
-        unitValue:
-          type: string
-      type: object
-    Geometry:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
       type: object
     RateCenterResponse:
       example:
@@ -372,14 +244,45 @@ components:
         product_code:
           type: string
       type: object
-    county:
+    Geometry:
       example:
-        name: name
-        fips: fips
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
       properties:
-        name:
+        type:
           type: string
-        fips:
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    match:
+      example:
+        matchCode: matchCode
+        confidence: confidence
+        percentGeocode: percentGeocode
+        locationCode: locationCode
+        precisionLevel: precisionLevel
+      properties:
+        confidence:
+          type: string
+        percentGeocode:
+          type: string
+        precisionLevel:
+          type: string
+        locationCode:
+          type: string
+        matchCode:
           type: string
       type: object
     areaCodeInfo:
@@ -413,11 +316,108 @@ components:
         areaName4:
           type: string
       type: object
-    ErrorCode:
+    county:
+      example:
+        name: name
+        fips: fips
       properties:
-        errorCode:
+        name:
           type: string
-        errorDescription:
+        fips:
+          type: string
+      type: object
+    address_1:
+      example:
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
+      properties:
+        objectId:
+          type: string
+        displayName:
+          type: string
+        streetSide:
+          type: string
+        businessName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
           type: string
       type: object
   securitySchemes:

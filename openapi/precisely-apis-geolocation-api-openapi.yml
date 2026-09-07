@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Geolocation API
+  title: Precisely Geolocation API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -103,6 +103,29 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    ConsistencyCode:
+      example:
+        description: description
+        value: value
+      properties:
+        description:
+          type: string
+        value:
+          type: string
+      type: object
+    OrganizationType:
+      example:
+        isicCode: isicCode
+        value: value
+        naicsCode: naicsCode
+      properties:
+        naicsCode:
+          type: string
+        isicCode:
+          type: string
+        value:
+          type: string
+      type: object
     Carrier:
       example:
         asn: asn
@@ -113,48 +136,85 @@ components:
         value:
           type: string
       type: object
-    City:
+    Accuracy:
       example:
+        unit: unit
+        value: value
+      properties:
+        unit:
+          type: string
+        value:
+          type: string
+      type: object
+    GeoLocationCountry:
+      example:
+        code: code
         confidence: confidence
         value: value
       properties:
+        code:
+          type: string
         confidence:
           type: string
         value:
           type: string
       type: object
-    Network:
+    GeoLocationIpAddr:
       example:
-        organizationType:
-          isicCode: isicCode
+        accuracy:
+          unit: unit
           value: value
-          naicsCode: naicsCode
-        carrier:
-          asn: asn
-          value: value
-        ipRouteType: ipRouteType
-        connectionFromHome: connectionFromHome
-        lineSpeed: lineSpeed
-        organization: organization
-        hostingFacility: hostingFacility
-        connectionType: connectionType
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        ipInfo:
+          proxy:
+            level: level
+            anonymizerStatus: anonymizerStatus
+            lastDetected: lastDetected
+            type: type
+          ipAddress: ipAddress
+          place:
+            continent: continent
+            country:
+              code: code
+              confidence: confidence
+              value: value
+            postCodeConfidence: postCodeConfidence
+            city:
+              confidence: confidence
+              value: value
+            postCode: postCode
+            state:
+              confidence: confidence
+              value: value
+            consistencyCode:
+              description: description
+              value: value
+            region: region
+          network:
+            organizationType:
+              isicCode: isicCode
+              value: value
+              naicsCode: naicsCode
+            carrier:
+              asn: asn
+              value: value
+            ipRouteType: ipRouteType
+            connectionFromHome: connectionFromHome
+            lineSpeed: lineSpeed
+            organization: organization
+            hostingFacility: hostingFacility
+            connectionType: connectionType
       properties:
-        connectionFromHome:
-          type: string
-        organization:
-          type: string
-        carrier:
-          $ref: '#/components/schemas/Carrier'
-        organizationType:
-          $ref: '#/components/schemas/OrganizationType'
-        connectionType:
-          type: string
-        lineSpeed:
-          type: string
-        ipRouteType:
-          type: string
-        hostingFacility:
-          type: string
+        geometry:
+          $ref: '#/components/schemas/GeolocationGeometry'
+        accuracy:
+          $ref: '#/components/schemas/Accuracy'
+        ipInfo:
+          $ref: '#/components/schemas/IpInfo'
       type: object
     IpInfo:
       example:
@@ -206,12 +266,12 @@ components:
         place:
           $ref: '#/components/schemas/GeoLocationPlace'
       type: object
-    Accuracy:
+    City:
       example:
-        unit: unit
+        confidence: confidence
         value: value
       properties:
-        unit:
+        confidence:
           type: string
         value:
           type: string
@@ -284,104 +344,44 @@ components:
             type: number
           type: array
       type: object
+    Network:
+      example:
+        organizationType:
+          isicCode: isicCode
+          value: value
+          naicsCode: naicsCode
+        carrier:
+          asn: asn
+          value: value
+        ipRouteType: ipRouteType
+        connectionFromHome: connectionFromHome
+        lineSpeed: lineSpeed
+        organization: organization
+        hostingFacility: hostingFacility
+        connectionType: connectionType
+      properties:
+        connectionFromHome:
+          type: string
+        organization:
+          type: string
+        carrier:
+          $ref: '#/components/schemas/Carrier'
+        organizationType:
+          $ref: '#/components/schemas/OrganizationType'
+        connectionType:
+          type: string
+        lineSpeed:
+          type: string
+        ipRouteType:
+          type: string
+        hostingFacility:
+          type: string
+      type: object
     GeoLocationState:
       example:
         confidence: confidence
         value: value
       properties:
-        confidence:
-          type: string
-        value:
-          type: string
-      type: object
-    GeoLocationIpAddr:
-      example:
-        accuracy:
-          unit: unit
-          value: value
-        geometry:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
-        ipInfo:
-          proxy:
-            level: level
-            anonymizerStatus: anonymizerStatus
-            lastDetected: lastDetected
-            type: type
-          ipAddress: ipAddress
-          place:
-            continent: continent
-            country:
-              code: code
-              confidence: confidence
-              value: value
-            postCodeConfidence: postCodeConfidence
-            city:
-              confidence: confidence
-              value: value
-            postCode: postCode
-            state:
-              confidence: confidence
-              value: value
-            consistencyCode:
-              description: description
-              value: value
-            region: region
-          network:
-            organizationType:
-              isicCode: isicCode
-              value: value
-              naicsCode: naicsCode
-            carrier:
-              asn: asn
-              value: value
-            ipRouteType: ipRouteType
-            connectionFromHome: connectionFromHome
-            lineSpeed: lineSpeed
-            organization: organization
-            hostingFacility: hostingFacility
-            connectionType: connectionType
-      properties:
-        geometry:
-          $ref: '#/components/schemas/GeolocationGeometry'
-        accuracy:
-          $ref: '#/components/schemas/Accuracy'
-        ipInfo:
-          $ref: '#/components/schemas/IpInfo'
-      type: object
-    ConsistencyCode:
-      example:
-        description: description
-        value: value
-      properties:
-        description:
-          type: string
-        value:
-          type: string
-      type: object
-    OrganizationType:
-      example:
-        isicCode: isicCode
-        value: value
-        naicsCode: naicsCode
-      properties:
-        naicsCode:
-          type: string
-        isicCode:
-          type: string
-        value:
-          type: string
-      type: object
-    GeoLocationCountry:
-      example:
-        code: code
-        confidence: confidence
-        value: value
-      properties:
-        code:
-          type: string
         confidence:
           type: string
         value:

@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Address API
+  title: Precisely Address API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -178,26 +178,61 @@ components:
         errorDescription:
           type: string
       type: object
-    AddressType:
+    AddressesByBoundaryRequest:
       example:
-        description: description
-        value: value
+        travelDistanceUnit: travelDistanceUnit
+        preferences:
+          maxCandidates: maxCandidates
+          page: page
+        travelTime: travelTime
+        latitude: 6.027456183070403
+        travelTimeUnit: travelTimeUnit
+        travelDistance: travelDistance
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        geometryAsText: geometryAsText
+        longitude: 1.4658129805029452
+        travelMode: travelMode
       properties:
-        value:
+        preferences:
+          $ref: '#/components/schemas/AddressesPreferences'
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+        geometryAsText:
           type: string
-        description:
+        latitude:
+          format: double
+          type: number
+        longitude:
+          format: double
+          type: number
+        travelTime:
+          type: string
+        travelTimeUnit:
+          type: string
+        travelDistance:
+          type: string
+        travelDistanceUnit:
+          type: string
+        travelMode:
           type: string
       type: object
-    AddressesPreferences:
-      example:
-        maxCandidates: maxCandidates
-        page: page
+      xml:
+        name: addressesByBoundaryRequest
+    ErrorInfo:
       properties:
-        maxCandidates:
-          type: string
-        page:
-          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
       type: object
+      xml:
+        name: errors
     Geometry:
       example:
         coordinates:
@@ -212,6 +247,90 @@ components:
             format: double
             type: number
           type: array
+      type: object
+    AddressesPreferences:
+      example:
+        maxCandidates: maxCandidates
+        page: page
+      properties:
+        maxCandidates:
+          type: string
+        page:
+          type: string
+      type: object
+    AddressesDTO:
+      example:
+        country: country
+        parentPbKey: parentPbKey
+        type:
+          description: description
+          value: value
+        unitType: unitType
+        areaName1: areaName1
+        streetName: streetName
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        propertyType: propertyType
+        geoId: geoId
+        addressNumber: addressNumber
+        propertyTypeDescription: propertyTypeDescription
+        pbKey: pbKey
+        postCode: postCode
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        postCodeExt: postCodeExt
+        unitValue: unitValue
+      properties:
+        pbKey:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+        type:
+          $ref: '#/components/schemas/AddressType'
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+        propertyType:
+          type: string
+        propertyTypeDescription:
+          type: string
+        parentPbKey:
+          type: string
+        geoId:
+          type: string
+      type: object
+    AddressType:
+      example:
+        description: description
+        value: value
+      properties:
+        value:
+          type: string
+        description:
+          type: string
       type: object
     AddressesResponse:
       example:
@@ -284,125 +403,6 @@ components:
       type: object
       xml:
         name: addresses
-    AddressesDTO:
-      example:
-        country: country
-        parentPbKey: parentPbKey
-        type:
-          description: description
-          value: value
-        unitType: unitType
-        areaName1: areaName1
-        streetName: streetName
-        areaName2: areaName2
-        areaName3: areaName3
-        areaName4: areaName4
-        propertyType: propertyType
-        geoId: geoId
-        addressNumber: addressNumber
-        propertyTypeDescription: propertyTypeDescription
-        pbKey: pbKey
-        postCode: postCode
-        geometry:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
-        postCodeExt: postCodeExt
-        unitValue: unitValue
-      properties:
-        pbKey:
-          type: string
-        addressNumber:
-          type: string
-        streetName:
-          type: string
-        unitType:
-          type: string
-        unitValue:
-          type: string
-        type:
-          $ref: '#/components/schemas/AddressType'
-        areaName1:
-          type: string
-        areaName2:
-          type: string
-        areaName3:
-          type: string
-        areaName4:
-          type: string
-        postCode:
-          type: string
-        postCodeExt:
-          type: string
-        country:
-          type: string
-        geometry:
-          $ref: '#/components/schemas/Geometry'
-        propertyType:
-          type: string
-        propertyTypeDescription:
-          type: string
-        parentPbKey:
-          type: string
-        geoId:
-          type: string
-      type: object
-    ErrorInfo:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-          xml:
-            name: error
-      type: object
-      xml:
-        name: errors
-    AddressesByBoundaryRequest:
-      example:
-        travelDistanceUnit: travelDistanceUnit
-        preferences:
-          maxCandidates: maxCandidates
-          page: page
-        travelTime: travelTime
-        latitude: 6.027456183070403
-        travelTimeUnit: travelTimeUnit
-        travelDistance: travelDistance
-        geometry:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
-        geometryAsText: geometryAsText
-        longitude: 1.4658129805029452
-        travelMode: travelMode
-      properties:
-        preferences:
-          $ref: '#/components/schemas/AddressesPreferences'
-        geometry:
-          $ref: '#/components/schemas/Geometry'
-        geometryAsText:
-          type: string
-        latitude:
-          format: double
-          type: number
-        longitude:
-          format: double
-          type: number
-        travelTime:
-          type: string
-        travelTimeUnit:
-          type: string
-        travelDistance:
-          type: string
-        travelDistanceUnit:
-          type: string
-        travelMode:
-          type: string
-      type: object
-      xml:
-        name: addressesByBoundaryRequest
   securitySchemes:
     oAuth2Password:
       flows:

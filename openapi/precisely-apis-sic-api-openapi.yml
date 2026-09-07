@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Sic API
+  title: Precisely Sic API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -81,38 +81,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    CategoryMetadata:
-      example:
-        tradeGroup: tradeGroup
-        code: code
-        subClass: subClass
-        tradeDivision: tradeDivision
-        description: description
-        sic: sic
-        class: class
-      properties:
-        code:
-          type: string
-        sic:
-          type: string
-        tradeDivision:
-          type: string
-        tradeGroup:
-          type: string
-        class:
-          type: string
-        subClass:
-          type: string
-        description:
-          type: string
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
     SicMetadata:
       example:
         tradeGroup: tradeGroup
@@ -138,12 +106,44 @@ components:
         description:
           type: string
       type: object
+    CategoryMetadata:
+      example:
+        tradeGroup: tradeGroup
+        code: code
+        subClass: subClass
+        tradeDivision: tradeDivision
+        description: description
+        sic: sic
+        class: class
+      properties:
+        code:
+          type: string
+        sic:
+          type: string
+        tradeDivision:
+          type: string
+        tradeGroup:
+          type: string
+        class:
+          type: string
+        subClass:
+          type: string
+        description:
+          type: string
+      type: object
     ErrorCode:
       properties:
         errorCode:
           type: string
         errorDescription:
           type: string
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
       type: object
     MetadataResponse:
       example:

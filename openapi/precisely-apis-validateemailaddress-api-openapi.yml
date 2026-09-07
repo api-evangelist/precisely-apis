@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   contact:
     name: Precisely APIs Support
@@ -18,7 +18,7 @@ info:
     name: Apache 2.0
     url: http://springdoc.org
   termsOfService: http://swagger.io/terms/
-  title: Precisely APIs Validateemailaddress API
+  title: Precisely Validateemailaddress API
   version: 18.1.0
 servers:
 - url: https://api.precisely.com
@@ -74,71 +74,65 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ValidateEmailAddressOutput:
-      example:
-        SUGG_COMMENT: SUGG_COMMENT
-        Status: Status
-        user_fields:
-        - name: name
-          value: value
-        - name: name
-          value: value
-        FINDING: FINDING
-        ERROR_RESPONSE: ERROR_RESPONSE
-        ERROR: ERROR
-        Status.Description: Status.Description
-        COMMENT_CODE: COMMENT_CODE
-        Status.Code: Status.Code
-        EMAIL: EMAIL
-        SUGG_EMAIL: SUGG_EMAIL
-        COMMENT: COMMENT
+    ErrorCode:
       properties:
-        user_fields:
-          description: These fields are returned, unmodified, in the user_fields section of the response.
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    ValidateEmailAddressInput:
+      example:
+        Row:
+        - rtc: rtc
+          bogus: bogus
+          atc: atc
+          emailAddress: emailAddress
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          role: role
+          emps: emps
+          fccwireless: fccwireless
+          rtc_timeout: rtc_timeout
+          language: language
+          complain: complain
+          disposable: disposable
+        - rtc: rtc
+          bogus: bogus
+          atc: atc
+          emailAddress: emailAddress
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          role: role
+          emps: emps
+          fccwireless: fccwireless
+          rtc_timeout: rtc_timeout
+          language: language
+          complain: complain
+          disposable: disposable
+      properties:
+        Row:
           items:
-            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
+            $ref: '#/components/schemas/ValidateEmailAddressInputRow'
           type: array
-        EMAIL:
-          description: The email address submitted for verification.
-          type: string
-        FINDING:
-          description: One character code indicating the validity of the submitted email address.
-          type: string
-        COMMENT:
-          description: The comment string pertaining to the result of the submitted email address.
-          type: string
-        COMMENT_CODE:
-          description: A short code which maps to each returned COMMENT field value.
-          type: string
-        SUGG_EMAIL:
-          description: Suggested correction for submitted email address, if found. A suggestion will only be provided if it is valid and SafeToDeliver.
-          type: string
-        SUGG_COMMENT:
-          description: This field contains suggestion not SafeToDeliver when ValidateEmailAddress corrected the address and the corrected version of the email address failed one or more SafeToDeliver process checks.
-          type: string
-        ERROR_RESPONSE:
-          description: Pre-formatted response intended to be provided to user.
-          type: string
-        ERROR:
-          description: Field reserved for special features only.
-          type: string
-        Status:
-          type: string
-        Status.Code:
-          type: string
-        Status.Description:
-          type: string
       type: object
-    GetPostalCodesAPIOutput_user_fields:
-      example:
-        name: name
-        value: value
+    ErrorInfo:
       properties:
-        name:
-          type: string
-        value:
-          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
       type: object
+      xml:
+        name: errors
     ValidateEmailAddressInputRow:
       example:
         rtc: rtc
@@ -197,48 +191,15 @@ components:
           description: Specifies the timeout for real-time confirmation. See the description of the rtc parameter. Specify the timeout value in milliseconds. Valid values are 0 to 4000. By default, the system allows 1200 milliseconds for this check.
           type: string
       type: object
-    ValidateEmailAddressAPIRequest:
+    GetPostalCodesAPIOutput_user_fields:
       example:
-        Input:
-          Row:
-          - rtc: rtc
-            bogus: bogus
-            atc: atc
-            emailAddress: emailAddress
-            user_fields:
-            - name: name
-              value: value
-            - name: name
-              value: value
-            role: role
-            emps: emps
-            fccwireless: fccwireless
-            rtc_timeout: rtc_timeout
-            language: language
-            complain: complain
-            disposable: disposable
-          - rtc: rtc
-            bogus: bogus
-            atc: atc
-            emailAddress: emailAddress
-            user_fields:
-            - name: name
-              value: value
-            - name: name
-              value: value
-            role: role
-            emps: emps
-            fccwireless: fccwireless
-            rtc_timeout: rtc_timeout
-            language: language
-            complain: complain
-            disposable: disposable
-        options: '{}'
+        name: name
+        value: value
       properties:
-        options:
-          type: object
-        Input:
-          $ref: '#/components/schemas/ValidateEmailAddressInput'
+        name:
+          type: string
+        value:
+          type: string
       type: object
     ValidateEmailAddressAPIResponse:
       example:
@@ -281,64 +242,103 @@ components:
             $ref: '#/components/schemas/ValidateEmailAddressOutput'
           type: array
       type: object
-    ValidateEmailAddressInput:
+    ValidateEmailAddressOutput:
       example:
-        Row:
-        - rtc: rtc
-          bogus: bogus
-          atc: atc
-          emailAddress: emailAddress
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          role: role
-          emps: emps
-          fccwireless: fccwireless
-          rtc_timeout: rtc_timeout
-          language: language
-          complain: complain
-          disposable: disposable
-        - rtc: rtc
-          bogus: bogus
-          atc: atc
-          emailAddress: emailAddress
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          role: role
-          emps: emps
-          fccwireless: fccwireless
-          rtc_timeout: rtc_timeout
-          language: language
-          complain: complain
-          disposable: disposable
+        SUGG_COMMENT: SUGG_COMMENT
+        Status: Status
+        user_fields:
+        - name: name
+          value: value
+        - name: name
+          value: value
+        FINDING: FINDING
+        ERROR_RESPONSE: ERROR_RESPONSE
+        ERROR: ERROR
+        Status.Description: Status.Description
+        COMMENT_CODE: COMMENT_CODE
+        Status.Code: Status.Code
+        EMAIL: EMAIL
+        SUGG_EMAIL: SUGG_EMAIL
+        COMMENT: COMMENT
       properties:
-        Row:
+        user_fields:
+          description: These fields are returned, unmodified, in the user_fields section of the response.
           items:
-            $ref: '#/components/schemas/ValidateEmailAddressInputRow'
+            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
           type: array
-      type: object
-    ErrorInfo:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-          xml:
-            name: error
-      type: object
-      xml:
-        name: errors
-    ErrorCode:
-      properties:
-        errorCode:
+        EMAIL:
+          description: The email address submitted for verification.
           type: string
-        errorDescription:
+        FINDING:
+          description: One character code indicating the validity of the submitted email address.
           type: string
+        COMMENT:
+          description: The comment string pertaining to the result of the submitted email address.
+          type: string
+        COMMENT_CODE:
+          description: A short code which maps to each returned COMMENT field value.
+          type: string
+        SUGG_EMAIL:
+          description: Suggested correction for submitted email address, if found. A suggestion will only be provided if it is valid and SafeToDeliver.
+          type: string
+        SUGG_COMMENT:
+          description: This field contains suggestion not SafeToDeliver when ValidateEmailAddress corrected the address and the corrected version of the email address failed one or more SafeToDeliver process checks.
+          type: string
+        ERROR_RESPONSE:
+          description: Pre-formatted response intended to be provided to user.
+          type: string
+        ERROR:
+          description: Field reserved for special features only.
+          type: string
+        Status:
+          type: string
+        Status.Code:
+          type: string
+        Status.Description:
+          type: string
+      type: object
+    ValidateEmailAddressAPIRequest:
+      example:
+        Input:
+          Row:
+          - rtc: rtc
+            bogus: bogus
+            atc: atc
+            emailAddress: emailAddress
+            user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            role: role
+            emps: emps
+            fccwireless: fccwireless
+            rtc_timeout: rtc_timeout
+            language: language
+            complain: complain
+            disposable: disposable
+          - rtc: rtc
+            bogus: bogus
+            atc: atc
+            emailAddress: emailAddress
+            user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            role: role
+            emps: emps
+            fccwireless: fccwireless
+            rtc_timeout: rtc_timeout
+            language: language
+            complain: complain
+            disposable: disposable
+        options: '{}'
+      properties:
+        options:
+          type: object
+        Input:
+          $ref: '#/components/schemas/ValidateEmailAddressInput'
       type: object
   securitySchemes:
     oAuth2Password:
