@@ -1,0 +1,89 @@
+slug: precisely-apis
+provider: Precisely APIs
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: Rates
+  spec_file: precisely-apis-rates-api-openapi.yml
+  capability_id: BC-220.20
+  capability_id_l1: BC-220
+  capability_name: Indirect Tax Management
+  confidence: 0.85
+  evidence: 'GET /localtax/v1/taxrate/{taxRateTypeId}/byaddress  getSpecificTaxRateByAddress  Get Taxrate
+    By Address; schemas: SalesTax, UseTax, SpecialPurposeDistrictTax, TaxJurisdiction'
+  reason: Determines local sales/use tax rates and tax amounts by address or coordinate, with jurisdiction
+    breakdown — this is indirect tax determination, squarely BC-220.20 (sales tax). Not the telecom 'rate
+    center' sense.
+- tag: Local  Tax  Service
+  spec_file: precisely-apis-local-tax-service-api-openapi.yml
+  capability_id: BC-220.20
+  capability_id_l1: BC-220
+  capability_name: Indirect Tax Management
+  confidence: 0.8
+  evidence: GET /localtax/v1/taxrate/{taxRateTypeId}/byaddress 'Get Taxrate By Address'; schemas SalesTax,
+    UseTax, TaxJurisdiction, SpecialPurposeDistrictTax
+  reason: Operations determine applicable sales/use tax rates and jurisdictions for a given address or
+    coordinate — jurisdiction determination and calculation of indirect (sales/use) tax, which is Indirect
+    Tax Management. Some residual ambiguity because it is a rate-lookup data service rather than a full
+    compliance/filing process.
+- tag: Tax
+  spec_file: precisely-apis-tax-api-openapi.yml
+  capability_id: BC-220.20
+  capability_id_l1: BC-220
+  capability_name: Indirect Tax Management
+  confidence: 0.8
+  evidence: GET /localtax/v1/tax/{taxRateTypeId}/byaddress  Get Tax By Address; schemas SalesTax, UseTax,
+    TaxJurisdiction, SpecialPurposeDistrictTax
+  reason: Operations determine local sales/use tax and jurisdiction for an address or coordinate — indirect
+    tax determination content used for VAT/sales-tax compliance. Maps to Indirect Tax Management; residual
+    doubt only because the vendor supplies data rather than running the filing process.
+- tag: Taxes
+  spec_file: precisely-apis-taxes-api-openapi.yml
+  capability_id: BC-220.20
+  capability_id_l1: BC-220
+  capability_name: Indirect Tax Management
+  confidence: 0.8
+  evidence: GET /localtax/v1/taxrate/{taxRateTypeId}/byaddress  Get Taxrate By Address; schemas SalesTax,
+    UseTax, TaxJurisdiction
+  reason: 'Same surface as the Tax tag: sales/use tax rate and jurisdiction determination by address or
+    location, i.e. indirect tax calculation content.'
+- tag: Taxrate
+  spec_file: precisely-apis-taxrate-api-openapi.yml
+  capability_id: BC-220.20
+  capability_id_l1: BC-220
+  capability_name: Indirect Tax Management
+  confidence: 0.8
+  evidence: GET /localtax/v1/taxrate/{taxRateTypeId}/bylocation  Get Taxrate By Location; schemas SalesTax,
+    UseTax, TaxRateResponse
+  reason: Tax rate determination (sales tax, use tax, special purpose district) by address/coordinate
+    — indirect tax rate determination.
+- tag: Taxdistrict
+  spec_file: precisely-apis-taxdistrict-api-openapi.yml
+  capability_id: BC-220.20
+  capability_id_l1: BC-220
+  capability_name: Indirect Tax Management
+  confidence: 0.75
+  evidence: GET /localtax/v1/taxdistrict/ipd/byaddress  Get IPD Tax by Address; schemas IPDTaxJurisdiction,
+    TaxCounty, DistrictType
+  reason: Returns insurance-premium/special-district tax jurisdictions and rates for an address — indirect
+    tax jurisdiction determination. Slightly thinner than the main tax rate tags, hence 0.75.
+- tag: Address  Verification  Service
+  spec_file: precisely-apis-address-verification-service-api-openapi.yml
+  capability_id: BC-610.30
+  capability_id_l1: BC-610
+  capability_name: Data Quality Management
+  confidence: 0.7
+  evidence: ValidateMailingAddressUSCAN, ValidateMailingAddressPremium, GetCityStateProvince, GetPostalCodes
+  reason: Operations validate, standardise and correct mailing addresses and derive postal/city/state
+    values — classic address cleansing used for record quality remediation, which maps to Data Quality
+    Management. Moderate confidence because it could equally be read as pure reference-data lookup plumbing.
