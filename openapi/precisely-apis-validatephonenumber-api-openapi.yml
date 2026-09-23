@@ -3,9 +3,7 @@ info:
   contact:
     name: Precisely APIs Support
     url: https://support.precisely.com
-  description: '
-
-    Demographics. Audience Enrichment. Add local demographics and lifestyle
+  description: 'Demographics. Audience Enrichment. Add local demographics and lifestyle
 
     segmentation to your audience profiles. The Demographics API returns
 
@@ -68,13 +66,36 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Phone verification.
+      summary: Phone verification
       tags:
       - Validatephonenumber
       x-contentType: application/json
       x-accepts: application/json
 components:
   schemas:
+    ValidatePhoneNumberAPIRequest_Input:
+      example:
+        Row:
+        - PhoneNumber: PhoneNumber
+          Country: Country
+        - PhoneNumber: PhoneNumber
+          Country: Country
+      properties:
+        Row:
+          items:
+            $ref: '#/components/schemas/ValidatePhoneNumberAPIRequest_Input_Row'
+          type: array
+      type: object
+    ValidatePhoneNumberAPIRequest_Input_Row:
+      example:
+        PhoneNumber: PhoneNumber
+        Country: Country
+      properties:
+        PhoneNumber:
+          type: string
+        Country:
+          type: string
+      type: object
     ErrorCode:
       properties:
         errorCode:
@@ -93,6 +114,49 @@ components:
       type: object
       xml:
         name: errors
+    ValidatePhoneNumberAPIRequest:
+      example:
+        Input:
+          Row:
+          - PhoneNumber: PhoneNumber
+            Country: Country
+          - PhoneNumber: PhoneNumber
+            Country: Country
+      properties:
+        Input:
+          $ref: '#/components/schemas/ValidatePhoneNumberAPIRequest_Input'
+      type: object
+    PhoneVerification:
+      example:
+        Output:
+        - CarrierName: CarrierName
+          MNC: MNC
+          user_fields:
+          - user_fields
+          - user_fields
+          PhoneType: PhoneType
+          PhoneNumberFormatted: PhoneNumberFormatted
+          PhoneNumber: PhoneNumber
+          MCC: MCC
+          CountryCode: CountryCode
+          ResultCode: ResultCode
+        - CarrierName: CarrierName
+          MNC: MNC
+          user_fields:
+          - user_fields
+          - user_fields
+          PhoneType: PhoneType
+          PhoneNumberFormatted: PhoneNumberFormatted
+          PhoneNumber: PhoneNumber
+          MCC: MCC
+          CountryCode: CountryCode
+          ResultCode: ResultCode
+      properties:
+        Output:
+          items:
+            $ref: '#/components/schemas/PhoneVerification_Output'
+          type: array
+      type: object
     PhoneVerification_Output:
       example:
         CarrierName: CarrierName
@@ -127,72 +191,6 @@ components:
           items:
             type: string
           type: array
-      type: object
-    PhoneVerification:
-      example:
-        Output:
-        - CarrierName: CarrierName
-          MNC: MNC
-          user_fields:
-          - user_fields
-          - user_fields
-          PhoneType: PhoneType
-          PhoneNumberFormatted: PhoneNumberFormatted
-          PhoneNumber: PhoneNumber
-          MCC: MCC
-          CountryCode: CountryCode
-          ResultCode: ResultCode
-        - CarrierName: CarrierName
-          MNC: MNC
-          user_fields:
-          - user_fields
-          - user_fields
-          PhoneType: PhoneType
-          PhoneNumberFormatted: PhoneNumberFormatted
-          PhoneNumber: PhoneNumber
-          MCC: MCC
-          CountryCode: CountryCode
-          ResultCode: ResultCode
-      properties:
-        Output:
-          items:
-            $ref: '#/components/schemas/PhoneVerification_Output'
-          type: array
-      type: object
-    ValidatePhoneNumberAPIRequest_Input:
-      example:
-        Row:
-        - PhoneNumber: PhoneNumber
-          Country: Country
-        - PhoneNumber: PhoneNumber
-          Country: Country
-      properties:
-        Row:
-          items:
-            $ref: '#/components/schemas/ValidatePhoneNumberAPIRequest_Input_Row'
-          type: array
-      type: object
-    ValidatePhoneNumberAPIRequest:
-      example:
-        Input:
-          Row:
-          - PhoneNumber: PhoneNumber
-            Country: Country
-          - PhoneNumber: PhoneNumber
-            Country: Country
-      properties:
-        Input:
-          $ref: '#/components/schemas/ValidatePhoneNumberAPIRequest_Input'
-      type: object
-    ValidatePhoneNumberAPIRequest_Input_Row:
-      example:
-        PhoneNumber: PhoneNumber
-        Country: Country
-      properties:
-        PhoneNumber:
-          type: string
-        Country:
-          type: string
       type: object
   securitySchemes:
     oAuth2Password:

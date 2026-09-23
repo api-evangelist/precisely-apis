@@ -3,9 +3,7 @@ info:
   contact:
     name: Precisely APIs Support
     url: https://support.precisely.com
-  description: '
-
-    Demographics. Audience Enrichment. Add local demographics and lifestyle
+  description: 'Demographics. Audience Enrichment. Add local demographics and lifestyle
 
     segmentation to your audience profiles. The Demographics API returns
 
@@ -300,7 +298,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Get POIs By Location.
+      summary: Get POIs By Location
       tags:
       - Places
       x-accepts: application/json
@@ -423,7 +421,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: GET Points Of Interest By Area.
+      summary: GET Points Of Interest By Area
       tags:
       - Places
       x-accepts: application/json
@@ -577,7 +575,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Get POIs By Address.
+      summary: Get POIs By Address
       tags:
       - Places
       x-accepts: application/json
@@ -865,97 +863,159 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Category Code Metadata.
+      summary: Category Code Metadata
       tags:
       - Places
       x-accepts: application/json
 components:
   schemas:
-    SicMetadata:
+    ContactDetails:
       example:
-        tradeGroup: tradeGroup
-        code: code
-        subClass: subClass
-        tradeDivision: tradeDivision
-        description: description
-        categoryCode: categoryCode
-        class: class
+        address:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        phone: phone
+        countryAccessCode: countryAccessCode
+        fax: fax
+        email: email
+        url: url
       properties:
-        code:
+        address:
+          $ref: '#/components/schemas/address_1'
+        phone:
           type: string
-        categoryCode:
+        fax:
           type: string
-        tradeDivision:
+        countryAccessCode:
           type: string
-        tradeGroup:
+        email:
           type: string
-        class:
-          type: string
-        subClass:
-          type: string
-        description:
+        url:
           type: string
       type: object
-    Category:
+    GlobalUltimateBusiness:
       example:
-        tradeGroup: tradeGroup
-        subClass: subClass
-        tradeDivision: tradeDivision
-        categoryCode: categoryCode
-        class: class
+        address:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        name: name
+        id: id
       properties:
-        categoryCode:
+        id:
           type: string
-        tradeDivision:
+        name:
           type: string
-        tradeGroup:
+        address:
+          $ref: '#/components/schemas/address_1'
+      type: object
+    EmployeeCount:
+      example:
+        inLocalBranch: inLocalBranch
+        inOrganization: inOrganization
+      properties:
+        inLocalBranch:
           type: string
-        subClass:
-          type: string
-        class:
+        inOrganization:
           type: string
       type: object
-    MetadataResponse:
+    ParentBusiness:
       example:
-        sic:
-        - tradeGroup: tradeGroup
-          code: code
-          subClass: subClass
-          tradeDivision: tradeDivision
-          description: description
-          categoryCode: categoryCode
-          class: class
-        - tradeGroup: tradeGroup
-          code: code
-          subClass: subClass
-          tradeDivision: tradeDivision
-          description: description
-          categoryCode: categoryCode
-          class: class
-        category:
-        - tradeGroup: tradeGroup
-          code: code
-          subClass: subClass
-          tradeDivision: tradeDivision
-          description: description
-          sic: sic
-          class: class
-        - tradeGroup: tradeGroup
-          code: code
-          subClass: subClass
-          tradeDivision: tradeDivision
-          description: description
-          sic: sic
-          class: class
+        address:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        name: name
+        id: id
       properties:
-        sic:
-          items:
-            $ref: '#/components/schemas/SicMetadata'
-          type: array
-        category:
-          items:
-            $ref: '#/components/schemas/CategoryMetadata'
-          type: array
+        id:
+          type: string
+        name:
+          type: string
+        address:
+          $ref: '#/components/schemas/address_1'
       type: object
     poi:
       example:
@@ -1235,6 +1295,16 @@ components:
         geometry:
           $ref: '#/components/schemas/Geometry'
       type: object
+    distance:
+      example:
+        unit: unit
+        value: value
+      properties:
+        unit:
+          type: string
+        value:
+          type: string
+      type: object
     CategoryMetadata:
       example:
         tradeGroup: tradeGroup
@@ -1260,8 +1330,29 @@ components:
         description:
           type: string
       type: object
-    PoiCountRequest:
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    salesVolume:
       example:
+        currencyCode: currencyCode
+        worldBaseCurrencyCode: worldBaseCurrencyCode
+        value: value
+      properties:
+        currencyCode:
+          type: string
+        worldBaseCurrencyCode:
+          type: string
+        value:
+          type: string
+      type: object
+    POIByGeometryRequest:
+      example:
+        maxCandidates: maxCandidates
         fuzzyOnName: fuzzyOnName
         sicCode: sicCode
         name: name
@@ -1272,6 +1363,7 @@ components:
           - 0.8008281904610115
           type: type
         categoryCode: categoryCode
+        page: page
         type: type
         matchMode: matchMode
         geometryAsText: geometryAsText
@@ -1284,7 +1376,11 @@ components:
           type: string
         sicCode:
           type: string
+        maxCandidates:
+          type: string
         fuzzyOnName:
+          type: string
+        page:
           type: string
         matchMode:
           type: string
@@ -1295,117 +1391,69 @@ components:
         geometryAsText:
           type: string
       type: object
-    Sic:
+    MetadataResponse:
       example:
-        sicCode: sicCode
-        primarySicCode: primarySicCode
-        businessLine: businessLine
-        sicCodeDescription: sicCodeDescription
-        secondarySicCode: secondarySicCode
+        sic:
+        - tradeGroup: tradeGroup
+          code: code
+          subClass: subClass
+          tradeDivision: tradeDivision
+          description: description
+          categoryCode: categoryCode
+          class: class
+        - tradeGroup: tradeGroup
+          code: code
+          subClass: subClass
+          tradeDivision: tradeDivision
+          description: description
+          categoryCode: categoryCode
+          class: class
+        category:
+        - tradeGroup: tradeGroup
+          code: code
+          subClass: subClass
+          tradeDivision: tradeDivision
+          description: description
+          sic: sic
+          class: class
+        - tradeGroup: tradeGroup
+          code: code
+          subClass: subClass
+          tradeDivision: tradeDivision
+          description: description
+          sic: sic
+          class: class
       properties:
-        businessLine:
-          type: string
-        sicCode:
-          type: string
-        sicCodeDescription:
-          type: string
-        primarySicCode:
-          type: string
-        secondarySicCode:
-          type: string
+        sic:
+          items:
+            $ref: '#/components/schemas/SicMetadata'
+          type: array
+        category:
+          items:
+            $ref: '#/components/schemas/CategoryMetadata'
+          type: array
       type: object
-    address_1:
+    PoiClassification:
       example:
-        country: country
-        streetSide: streetSide
-        city: city
-        displayName: displayName
-        postalCode: postalCode
-        latitude: latitude
-        businessName: businessName
-        county: county
-        unitType: unitType
-        streetName: streetName
-        formattedAddress: formattedAddress
-        addressLine1: addressLine1
-        mainAddressLine: mainAddressLine
-        addressLine2: addressLine2
-        addressLine3: addressLine3
-        objectId: objectId
-        addressLastLine: addressLastLine
-        longitude: longitude
-        unitValue: unitValue
-        stateProvince: stateProvince
-        urbanizationName: urbanizationName
-        areaName1: areaName1
-        areaName2: areaName2
-        areaName3: areaName3
-        areaName4: areaName4
-        addressNumber: addressNumber
-        postCode: postCode
-        postCodeExt: postCodeExt
-        placeName: placeName
-        status: status
+        alternateIndustryCode: alternateIndustryCode
+        sic:
+          sicCode: sicCode
+          primarySicCode: primarySicCode
+          businessLine: businessLine
+          sicCodeDescription: sicCodeDescription
+          secondarySicCode: secondarySicCode
+        category:
+          tradeGroup: tradeGroup
+          subClass: subClass
+          tradeDivision: tradeDivision
+          categoryCode: categoryCode
+          class: class
       properties:
-        objectId:
-          type: string
-        displayName:
-          type: string
-        streetSide:
-          type: string
-        businessName:
-          type: string
-        addressLine1:
-          type: string
-        addressLine2:
-          type: string
-        addressLine3:
-          type: string
-        city:
-          type: string
-        stateProvince:
-          type: string
-        county:
-          type: string
-        postalCode:
-          type: string
-        latitude:
-          type: string
-        longitude:
-          type: string
-        status:
-          type: string
-        urbanizationName:
-          type: string
-        formattedAddress:
-          type: string
-        mainAddressLine:
-          type: string
-        addressLastLine:
-          type: string
-        placeName:
-          type: string
-        areaName1:
-          type: string
-        areaName2:
-          type: string
-        areaName3:
-          type: string
-        areaName4:
-          type: string
-        postCode:
-          type: string
-        postCodeExt:
-          type: string
-        country:
-          type: string
-        addressNumber:
-          type: string
-        streetName:
-          type: string
-        unitType:
-          type: string
-        unitValue:
+        sic:
+          $ref: '#/components/schemas/Sic'
+        category:
+          $ref: '#/components/schemas/Category'
+        alternateIndustryCode:
           type: string
       type: object
     PlacesResponse:
@@ -1859,120 +1907,84 @@ components:
         matchedAddress:
           $ref: '#/components/schemas/address_1'
       type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    salesVolume:
+    PoiCountRequest:
       example:
-        currencyCode: currencyCode
-        worldBaseCurrencyCode: worldBaseCurrencyCode
-        value: value
-      properties:
-        currencyCode:
-          type: string
-        worldBaseCurrencyCode:
-          type: string
-        value:
-          type: string
-      type: object
-    ContactDetails:
-      example:
-        address:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        phone: phone
-        countryAccessCode: countryAccessCode
-        fax: fax
-        email: email
-        url: url
-      properties:
-        address:
-          $ref: '#/components/schemas/address_1'
-        phone:
-          type: string
-        fax:
-          type: string
-        countryAccessCode:
-          type: string
-        email:
-          type: string
-        url:
-          type: string
-      type: object
-    ParentBusiness:
-      example:
-        address:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
+        fuzzyOnName: fuzzyOnName
+        sicCode: sicCode
         name: name
-        id: id
+        specificMatchOn: specificMatchOn
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        categoryCode: categoryCode
+        type: type
+        matchMode: matchMode
+        geometryAsText: geometryAsText
       properties:
-        id:
-          type: string
         name:
           type: string
-        address:
-          $ref: '#/components/schemas/address_1'
+        type:
+          type: string
+        categoryCode:
+          type: string
+        sicCode:
+          type: string
+        fuzzyOnName:
+          type: string
+        matchMode:
+          type: string
+        specificMatchOn:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+        geometryAsText:
+          type: string
+      type: object
+    Sic:
+      example:
+        sicCode: sicCode
+        primarySicCode: primarySicCode
+        businessLine: businessLine
+        sicCodeDescription: sicCodeDescription
+        secondarySicCode: secondarySicCode
+      properties:
+        businessLine:
+          type: string
+        sicCode:
+          type: string
+        sicCodeDescription:
+          type: string
+        primarySicCode:
+          type: string
+        secondarySicCode:
+          type: string
+      type: object
+    SicMetadata:
+      example:
+        tradeGroup: tradeGroup
+        code: code
+        subClass: subClass
+        tradeDivision: tradeDivision
+        description: description
+        categoryCode: categoryCode
+        class: class
+      properties:
+        code:
+          type: string
+        categoryCode:
+          type: string
+        tradeDivision:
+          type: string
+        tradeGroup:
+          type: string
+        class:
+          type: string
+        subClass:
+          type: string
+        description:
+          type: string
       type: object
     DomesticUltimateBusiness:
       example:
@@ -2017,15 +2029,133 @@ components:
         address:
           $ref: '#/components/schemas/address_1'
       type: object
-    EmployeeCount:
+    address_1:
       example:
-        inLocalBranch: inLocalBranch
-        inOrganization: inOrganization
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
       properties:
-        inLocalBranch:
+        objectId:
           type: string
-        inOrganization:
+        displayName:
           type: string
+        streetSide:
+          type: string
+        businessName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    Category:
+      example:
+        tradeGroup: tradeGroup
+        subClass: subClass
+        tradeDivision: tradeDivision
+        categoryCode: categoryCode
+        class: class
+      properties:
+        categoryCode:
+          type: string
+        tradeDivision:
+          type: string
+        tradeGroup:
+          type: string
+        subClass:
+          type: string
+        class:
+          type: string
+      type: object
+    poiCount:
+      example:
+        totalPoisFound: 0
+      properties:
+        totalPoisFound:
+          format: int32
+          type: integer
       type: object
     Geometry:
       example:
@@ -2042,39 +2172,6 @@ components:
             type: number
           type: array
       type: object
-    PoiClassification:
-      example:
-        alternateIndustryCode: alternateIndustryCode
-        sic:
-          sicCode: sicCode
-          primarySicCode: primarySicCode
-          businessLine: businessLine
-          sicCodeDescription: sicCodeDescription
-          secondarySicCode: secondarySicCode
-        category:
-          tradeGroup: tradeGroup
-          subClass: subClass
-          tradeDivision: tradeDivision
-          categoryCode: categoryCode
-          class: class
-      properties:
-        sic:
-          $ref: '#/components/schemas/Sic'
-        category:
-          $ref: '#/components/schemas/Category'
-        alternateIndustryCode:
-          type: string
-      type: object
-    distance:
-      example:
-        unit: unit
-        value: value
-      properties:
-        unit:
-          type: string
-        value:
-          type: string
-      type: object
     businessId:
       example:
         type: type
@@ -2083,105 +2180,6 @@ components:
         type:
           type: string
         value:
-          type: string
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
-    GlobalUltimateBusiness:
-      example:
-        address:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        name: name
-        id: id
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        address:
-          $ref: '#/components/schemas/address_1'
-      type: object
-    poiCount:
-      example:
-        totalPoisFound: 0
-      properties:
-        totalPoisFound:
-          format: int32
-          type: integer
-      type: object
-    POIByGeometryRequest:
-      example:
-        maxCandidates: maxCandidates
-        fuzzyOnName: fuzzyOnName
-        sicCode: sicCode
-        name: name
-        specificMatchOn: specificMatchOn
-        geometry:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
-        categoryCode: categoryCode
-        page: page
-        type: type
-        matchMode: matchMode
-        geometryAsText: geometryAsText
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-        categoryCode:
-          type: string
-        sicCode:
-          type: string
-        maxCandidates:
-          type: string
-        fuzzyOnName:
-          type: string
-        page:
-          type: string
-        matchMode:
-          type: string
-        specificMatchOn:
-          type: string
-        geometry:
-          $ref: '#/components/schemas/Geometry'
-        geometryAsText:
           type: string
       type: object
   securitySchemes:

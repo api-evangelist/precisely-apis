@@ -3,9 +3,7 @@ info:
   contact:
     name: Precisely APIs Support
     url: https://support.precisely.com
-  description: '
-
-    Demographics. Audience Enrichment. Add local demographics and lifestyle
+  description: 'Demographics. Audience Enrichment. Add local demographics and lifestyle
 
     segmentation to your audience profiles. The Demographics API returns
 
@@ -138,6 +136,13 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
     FireEvent:
       example:
         fireEndDate: fireEndDate
@@ -158,30 +163,6 @@ components:
           $ref: '#/components/schemas/Area'
         agency:
           type: string
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    Area:
-      example:
-        unit: unit
-        value: value
-      properties:
-        unit:
-          type: string
-        value:
-          type: string
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
       type: object
     FireEventsV2Response:
       example:
@@ -206,43 +187,12 @@ components:
             $ref: '#/components/schemas/FireEventV2'
           type: array
       type: object
-    AreaV2:
-      example:
-        unit: unit
-        value: value
+    ErrorCode:
       properties:
-        unit:
+        errorCode:
           type: string
-        value:
+        errorDescription:
           type: string
-      type: object
-    FireHistoryV2:
-      example:
-        stateCode: stateCode
-        postCode: postCode
-        events:
-          event:
-          - fireEndDate: fireEndDate
-            area:
-              unit: unit
-              value: value
-            fireName: fireName
-            agency: agency
-            fireStartDate: fireStartDate
-          - fireEndDate: fireEndDate
-            area:
-              unit: unit
-              value: value
-            fireName: fireName
-            agency: agency
-            fireStartDate: fireStartDate
-      properties:
-        stateCode:
-          type: string
-        postCode:
-          type: string
-        events:
-          $ref: '#/components/schemas/FireEventsV2Response'
       type: object
     FireEventsResponse:
       example:
@@ -295,6 +245,44 @@ components:
         events:
           $ref: '#/components/schemas/FireEventsResponse'
       type: object
+    AreaV2:
+      example:
+        unit: unit
+        value: value
+      properties:
+        unit:
+          type: string
+        value:
+          type: string
+      type: object
+    FireHistoryV2:
+      example:
+        stateCode: stateCode
+        postCode: postCode
+        events:
+          event:
+          - fireEndDate: fireEndDate
+            area:
+              unit: unit
+              value: value
+            fireName: fireName
+            agency: agency
+            fireStartDate: fireStartDate
+          - fireEndDate: fireEndDate
+            area:
+              unit: unit
+              value: value
+            fireName: fireName
+            agency: agency
+            fireStartDate: fireStartDate
+      properties:
+        stateCode:
+          type: string
+        postCode:
+          type: string
+        events:
+          $ref: '#/components/schemas/FireEventsV2Response'
+      type: object
     FireEventV2:
       example:
         fireEndDate: fireEndDate
@@ -314,6 +302,16 @@ components:
         area:
           $ref: '#/components/schemas/AreaV2'
         agency:
+          type: string
+      type: object
+    Area:
+      example:
+        unit: unit
+        value: value
+      properties:
+        unit:
+          type: string
+        value:
           type: string
       type: object
   securitySchemes:

@@ -3,9 +3,7 @@ info:
   contact:
     name: Precisely APIs Support
     url: https://support.precisely.com
-  description: '
-
-    Demographics. Audience Enrichment. Add local demographics and lifestyle
+  description: 'Demographics. Audience Enrichment. Add local demographics and lifestyle
 
     segmentation to your audience profiles. The Demographics API returns
 
@@ -213,7 +211,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Get Cost Matrix By Location.
+      summary: Get Cost Matrix By Location
       tags:
       - Routing
       x-accepts: application/json
@@ -408,7 +406,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Get Cost Matrix By Address.
+      summary: Get Cost Matrix By Address
       tags:
       - Routing
       x-accepts: application/json
@@ -643,7 +641,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Gets Route By Location.
+      summary: Gets Route By Location
       tags:
       - Routing
       x-accepts: application/json
@@ -885,69 +883,46 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Gets Route By Address.
+      summary: Gets Route By Address
       tags:
       - Routing
       x-accepts: application/json
 components:
   schemas:
-    ErrorCode:
+    ErrorInfo_1:
       properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    StartEndPoint:
-      example:
-        coordinates:
-        - 6.027456183070403
-        - 6.027456183070403
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
+        errors:
           items:
-            type: number
+            $ref: '#/components/schemas/ErrorCode'
           type: array
       type: object
-    TravelCostMatrixResponse:
+    RouteDirection:
       example:
-        matrix:
-        - distanceUnit: distanceUnit
-          endPoint:
-            coordinates:
-            - 6.027456183070403
-            - 6.027456183070403
-            type: type
-          distance: 0.8008281904610115
-          startPoint:
-            coordinates:
-            - 6.027456183070403
-            - 6.027456183070403
-            type: type
-          time: 1.4658129805029452
-          timeUnit: timeUnit
-        - distanceUnit: distanceUnit
-          endPoint:
-            coordinates:
-            - 6.027456183070403
-            - 6.027456183070403
-            type: type
-          distance: 0.8008281904610115
-          startPoint:
-            coordinates:
-            - 6.027456183070403
-            - 6.027456183070403
-            type: type
-          time: 1.4658129805029452
-          timeUnit: timeUnit
+        distanceUnit: distanceUnit
+        distance: 5.962133916683182
+        instruction: instruction
+        time: 5.637376656633329
+        timeUnit: timeUnit
+        directionGeometry:
+          coordinates:
+          - - 1.4658129805029452
+            - 1.4658129805029452
+          - - 1.4658129805029452
+            - 1.4658129805029452
+          type: type
       properties:
-        matrix:
-          items:
-            $ref: '#/components/schemas/Matrix'
-          type: array
+        distance:
+          type: number
+        distanceUnit:
+          type: string
+        timeUnit:
+          type: string
+        time:
+          type: number
+        instruction:
+          type: string
+        directionGeometry:
+          $ref: '#/components/schemas/RouteGeometry'
       type: object
     RouteGeometry:
       example:
@@ -967,6 +942,76 @@ components:
               type: number
             type: array
           type: array
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    IntermediatePoints:
+      example:
+        coordinates:
+        - - 2.3021358869347655
+          - 2.3021358869347655
+        - - 2.3021358869347655
+          - 2.3021358869347655
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            items:
+              format: double
+              type: number
+            type: array
+          type: array
+      type: object
+    StartEndPoint:
+      example:
+        coordinates:
+        - 6.027456183070403
+        - 6.027456183070403
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            type: number
+          type: array
+      type: object
+    Matrix:
+      example:
+        distanceUnit: distanceUnit
+        endPoint:
+          coordinates:
+          - 6.027456183070403
+          - 6.027456183070403
+          type: type
+        distance: 0.8008281904610115
+        startPoint:
+          coordinates:
+          - 6.027456183070403
+          - 6.027456183070403
+          type: type
+        time: 1.4658129805029452
+        timeUnit: timeUnit
+      properties:
+        distance:
+          type: number
+        distanceUnit:
+          type: string
+        endPoint:
+          $ref: '#/components/schemas/StartEndPoint'
+        startPoint:
+          $ref: '#/components/schemas/StartEndPoint'
+        time:
+          type: number
+        timeUnit:
+          type: string
       type: object
     RouteResponse:
       example:
@@ -1040,89 +1085,42 @@ components:
         intermediatePoints:
           $ref: '#/components/schemas/IntermediatePoints'
       type: object
-    ErrorInfo_1:
+    TravelCostMatrixResponse:
+      example:
+        matrix:
+        - distanceUnit: distanceUnit
+          endPoint:
+            coordinates:
+            - 6.027456183070403
+            - 6.027456183070403
+            type: type
+          distance: 0.8008281904610115
+          startPoint:
+            coordinates:
+            - 6.027456183070403
+            - 6.027456183070403
+            type: type
+          time: 1.4658129805029452
+          timeUnit: timeUnit
+        - distanceUnit: distanceUnit
+          endPoint:
+            coordinates:
+            - 6.027456183070403
+            - 6.027456183070403
+            type: type
+          distance: 0.8008281904610115
+          startPoint:
+            coordinates:
+            - 6.027456183070403
+            - 6.027456183070403
+            type: type
+          time: 1.4658129805029452
+          timeUnit: timeUnit
       properties:
-        errors:
+        matrix:
           items:
-            $ref: '#/components/schemas/ErrorCode'
+            $ref: '#/components/schemas/Matrix'
           type: array
-      type: object
-    RouteDirection:
-      example:
-        distanceUnit: distanceUnit
-        distance: 5.962133916683182
-        instruction: instruction
-        time: 5.637376656633329
-        timeUnit: timeUnit
-        directionGeometry:
-          coordinates:
-          - - 1.4658129805029452
-            - 1.4658129805029452
-          - - 1.4658129805029452
-            - 1.4658129805029452
-          type: type
-      properties:
-        distance:
-          type: number
-        distanceUnit:
-          type: string
-        timeUnit:
-          type: string
-        time:
-          type: number
-        instruction:
-          type: string
-        directionGeometry:
-          $ref: '#/components/schemas/RouteGeometry'
-      type: object
-    IntermediatePoints:
-      example:
-        coordinates:
-        - - 2.3021358869347655
-          - 2.3021358869347655
-        - - 2.3021358869347655
-          - 2.3021358869347655
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            items:
-              format: double
-              type: number
-            type: array
-          type: array
-      type: object
-    Matrix:
-      example:
-        distanceUnit: distanceUnit
-        endPoint:
-          coordinates:
-          - 6.027456183070403
-          - 6.027456183070403
-          type: type
-        distance: 0.8008281904610115
-        startPoint:
-          coordinates:
-          - 6.027456183070403
-          - 6.027456183070403
-          type: type
-        time: 1.4658129805029452
-        timeUnit: timeUnit
-      properties:
-        distance:
-          type: number
-        distanceUnit:
-          type: string
-        endPoint:
-          $ref: '#/components/schemas/StartEndPoint'
-        startPoint:
-          $ref: '#/components/schemas/StartEndPoint'
-        time:
-          type: number
-        timeUnit:
-          type: string
       type: object
   securitySchemes:
     oAuth2Password:

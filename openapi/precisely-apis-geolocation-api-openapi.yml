@@ -3,9 +3,7 @@ info:
   contact:
     name: Precisely APIs Support
     url: https://support.precisely.com
-  description: '
-
-    Demographics. Audience Enrichment. Add local demographics and lifestyle
+  description: 'Demographics. Audience Enrichment. Add local demographics and lifestyle
 
     segmentation to your audience profiles. The Demographics API returns
 
@@ -51,7 +49,7 @@ paths:
           description: successful operation
       security:
       - oAuth2Password: []
-      summary: Location By IP Address.
+      summary: Location By IP Address
       tags:
       - Geolocation
       x-accepts: application/json
@@ -97,7 +95,7 @@ paths:
           description: successful operation
       security:
       - oAuth2Password: []
-      summary: Location by WiFi Access Point.
+      summary: Location by WiFi Access Point
       tags:
       - Geolocation
       x-accepts: application/json
@@ -113,19 +111,6 @@ components:
         value:
           type: string
       type: object
-    OrganizationType:
-      example:
-        isicCode: isicCode
-        value: value
-        naicsCode: naicsCode
-      properties:
-        naicsCode:
-          type: string
-        isicCode:
-          type: string
-        value:
-          type: string
-      type: object
     Carrier:
       example:
         asn: asn
@@ -135,6 +120,31 @@ components:
           type: string
         value:
           type: string
+      type: object
+    GeoLocationState:
+      example:
+        confidence: confidence
+        value: value
+      properties:
+        confidence:
+          type: string
+        value:
+          type: string
+      type: object
+    GeolocationGeometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
       type: object
     Accuracy:
       example:
@@ -146,15 +156,15 @@ components:
         value:
           type: string
       type: object
-    GeoLocationCountry:
+    OrganizationType:
       example:
-        code: code
-        confidence: confidence
+        isicCode: isicCode
         value: value
+        naicsCode: naicsCode
       properties:
-        code:
+        naicsCode:
           type: string
-        confidence:
+        isicCode:
           type: string
         value:
           type: string
@@ -216,6 +226,48 @@ components:
         ipInfo:
           $ref: '#/components/schemas/IpInfo'
       type: object
+    Proxy:
+      example:
+        level: level
+        anonymizerStatus: anonymizerStatus
+        lastDetected: lastDetected
+        type: type
+      properties:
+        anonymizerStatus:
+          type: string
+        level:
+          type: string
+        lastDetected:
+          type: string
+        type:
+          type: string
+      type: object
+    City:
+      example:
+        confidence: confidence
+        value: value
+      properties:
+        confidence:
+          type: string
+        value:
+          type: string
+      type: object
+    GeoLocationAccessPoint:
+      example:
+        accuracy:
+          unit: unit
+          value: value
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+      properties:
+        geometry:
+          $ref: '#/components/schemas/GeolocationGeometry'
+        accuracy:
+          $ref: '#/components/schemas/Accuracy'
+      type: object
     IpInfo:
       example:
         proxy:
@@ -266,11 +318,47 @@ components:
         place:
           $ref: '#/components/schemas/GeoLocationPlace'
       type: object
-    City:
+    Network:
       example:
+        organizationType:
+          isicCode: isicCode
+          value: value
+          naicsCode: naicsCode
+        carrier:
+          asn: asn
+          value: value
+        ipRouteType: ipRouteType
+        connectionFromHome: connectionFromHome
+        lineSpeed: lineSpeed
+        organization: organization
+        hostingFacility: hostingFacility
+        connectionType: connectionType
+      properties:
+        connectionFromHome:
+          type: string
+        organization:
+          type: string
+        carrier:
+          $ref: '#/components/schemas/Carrier'
+        organizationType:
+          $ref: '#/components/schemas/OrganizationType'
+        connectionType:
+          type: string
+        lineSpeed:
+          type: string
+        ipRouteType:
+          type: string
+        hostingFacility:
+          type: string
+      type: object
+    GeoLocationCountry:
+      example:
+        code: code
         confidence: confidence
         value: value
       properties:
+        code:
+          type: string
         confidence:
           type: string
         value:
@@ -311,96 +399,6 @@ components:
         postCode:
           type: string
         postCodeConfidence:
-          type: string
-      type: object
-    GeoLocationAccessPoint:
-      example:
-        accuracy:
-          unit: unit
-          value: value
-        geometry:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
-      properties:
-        geometry:
-          $ref: '#/components/schemas/GeolocationGeometry'
-        accuracy:
-          $ref: '#/components/schemas/Accuracy'
-      type: object
-    GeolocationGeometry:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      type: object
-    Network:
-      example:
-        organizationType:
-          isicCode: isicCode
-          value: value
-          naicsCode: naicsCode
-        carrier:
-          asn: asn
-          value: value
-        ipRouteType: ipRouteType
-        connectionFromHome: connectionFromHome
-        lineSpeed: lineSpeed
-        organization: organization
-        hostingFacility: hostingFacility
-        connectionType: connectionType
-      properties:
-        connectionFromHome:
-          type: string
-        organization:
-          type: string
-        carrier:
-          $ref: '#/components/schemas/Carrier'
-        organizationType:
-          $ref: '#/components/schemas/OrganizationType'
-        connectionType:
-          type: string
-        lineSpeed:
-          type: string
-        ipRouteType:
-          type: string
-        hostingFacility:
-          type: string
-      type: object
-    GeoLocationState:
-      example:
-        confidence: confidence
-        value: value
-      properties:
-        confidence:
-          type: string
-        value:
-          type: string
-      type: object
-    Proxy:
-      example:
-        level: level
-        anonymizerStatus: anonymizerStatus
-        lastDetected: lastDetected
-        type: type
-      properties:
-        anonymizerStatus:
-          type: string
-        level:
-          type: string
-        lastDetected:
-          type: string
-        type:
           type: string
       type: object
   securitySchemes:

@@ -3,9 +3,7 @@ info:
   contact:
     name: Precisely APIs Support
     url: https://support.precisely.com
-  description: '
-
-    Demographics. Audience Enrichment. Add local demographics and lifestyle
+  description: 'Demographics. Audience Enrichment. Add local demographics and lifestyle
 
     segmentation to your audience profiles. The Demographics API returns
 
@@ -74,110 +72,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    ValidateMailingAddressProInputRow:
-      example:
-        AddressLine2: AddressLine2
-        AddressLine1: AddressLine1
-        user_fields:
-        - name: name
-          value: value
-        - name: name
-          value: value
-        FirmName: FirmName
-        StateProvince: StateProvince
-        Country: Country
-        PostalCode: PostalCode
-        City: City
-      properties:
-        user_fields:
-          description: These fields are returned, unmodified, in the user_fields section of the response.
-          items:
-            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
-          type: array
-        AddressLine1:
-          description: The first address line.
-          type: string
-        AddressLine2:
-          description: The second address line.
-          type: string
-        FirmName:
-          description: The company or firm name.
-          type: string
-        City:
-          description: The city name.
-          type: string
-        StateProvince:
-          description: The state or province.
-          type: string
-        Country:
-          description: The country code or name.
-          type: string
-        PostalCode:
-          description: The postal code for the address.
-          type: string
-      type: object
-    ValidateMailingAddressProOptions:
-      example:
-        OutputCasing: M
-        OutputAddressBlocks: Y
-        OutputCountryFormat: E
-        OutputScript: InputScript
-        KeepMultimatch: N
-        MaximumResults: '10'
-      properties:
-        OutputAddressBlocks:
-          default: Y
-          description: Specifies whether to return a formatted version of the address as it would be printed on a physical mail piece.
-          type: string
-        KeepMultimatch:
-          default: N
-          description: Specifies whether to return multiple address for those input addresses that have more than one possible match.
-          type: string
-        OutputCountryFormat:
-          default: E
-          description: Specifies the format to use for the country name returned in the Country output field.
-          type: string
-        OutputScript:
-          default: InputScript
-          description: Specifies the alphabet or script in which the output should be returned.
-          type: string
-        OutputCasing:
-          default: M
-          description: Specify the casing of the output data.
-          type: string
-        MaximumResults:
-          default: '10'
-          description: A number between 1 and 10 that indicates the maximum number of addresses to return.
-          type: string
-      type: object
-    ErrorInfo:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-          xml:
-            name: error
-      type: object
-      xml:
-        name: errors
-    GetPostalCodesAPIOutput_user_fields:
-      example:
-        name: name
-        value: value
-      properties:
-        name:
-          type: string
-        value:
-          type: string
-      type: object
     ValidateMailingAddressProOutput:
       example:
         Status: Status
@@ -317,6 +211,76 @@ components:
         Input:
           $ref: '#/components/schemas/ValidateMailingAddressProInput'
       type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
+    ValidateMailingAddressProInputRow:
+      example:
+        AddressLine2: AddressLine2
+        AddressLine1: AddressLine1
+        user_fields:
+        - name: name
+          value: value
+        - name: name
+          value: value
+        FirmName: FirmName
+        StateProvince: StateProvince
+        Country: Country
+        PostalCode: PostalCode
+        City: City
+      properties:
+        user_fields:
+          description: These fields are returned, unmodified, in the user_fields section of the response.
+          items:
+            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
+          type: array
+        AddressLine1:
+          description: The first address line.
+          type: string
+        AddressLine2:
+          description: The second address line.
+          type: string
+        FirmName:
+          description: The company or firm name.
+          type: string
+        City:
+          description: The city name.
+          type: string
+        StateProvince:
+          description: The state or province.
+          type: string
+        Country:
+          description: The country code or name.
+          type: string
+        PostalCode:
+          description: The postal code for the address.
+          type: string
+      type: object
+    GetPostalCodesAPIOutput_user_fields:
+      example:
+        name: name
+        value: value
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+      type: object
     ValidateMailingAddressProInput:
       example:
         Row:
@@ -349,6 +313,40 @@ components:
           items:
             $ref: '#/components/schemas/ValidateMailingAddressProInputRow'
           type: array
+      type: object
+    ValidateMailingAddressProOptions:
+      example:
+        OutputCasing: M
+        OutputAddressBlocks: Y
+        OutputCountryFormat: E
+        OutputScript: InputScript
+        KeepMultimatch: N
+        MaximumResults: '10'
+      properties:
+        OutputAddressBlocks:
+          default: Y
+          description: Specifies whether to return a formatted version of the address as it would be printed on a physical mail piece.
+          type: string
+        KeepMultimatch:
+          default: N
+          description: Specifies whether to return multiple address for those input addresses that have more than one possible match.
+          type: string
+        OutputCountryFormat:
+          default: E
+          description: Specifies the format to use for the country name returned in the Country output field.
+          type: string
+        OutputScript:
+          default: InputScript
+          description: Specifies the alphabet or script in which the output should be returned.
+          type: string
+        OutputCasing:
+          default: M
+          description: Specify the casing of the output data.
+          type: string
+        MaximumResults:
+          default: '10'
+          description: A number between 1 and 10 that indicates the maximum number of addresses to return.
+          type: string
       type: object
     ValidateMailingAddressProResponse:
       example:

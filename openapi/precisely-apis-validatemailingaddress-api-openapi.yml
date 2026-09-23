@@ -3,9 +3,7 @@ info:
   contact:
     name: Precisely APIs Support
     url: https://support.precisely.com
-  description: '
-
-    Demographics. Audience Enrichment. Add local demographics and lifestyle
+  description: 'Demographics. Audience Enrichment. Add local demographics and lifestyle
 
     segmentation to your audience profiles. The Demographics API returns
 
@@ -74,24 +72,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    ErrorInfo:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-          xml:
-            name: error
-      type: object
-      xml:
-        name: errors
     ValidateMailingAddressOutput:
       example:
         Status: Status
@@ -162,6 +142,24 @@ components:
           description: Description of the problem, if there is one.
           type: string
       type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
     ValidateMailingAddressOptions:
       example:
         OutputCasing: M
@@ -169,16 +167,6 @@ components:
         OutputCasing:
           default: M
           description: Specify the casing of the output data.
-          type: string
-      type: object
-    GetPostalCodesAPIOutput_user_fields:
-      example:
-        name: name
-        value: value
-      properties:
-        name:
-          type: string
-        value:
           type: string
       type: object
     ValidateMailingAddressInputRow:
@@ -259,6 +247,49 @@ components:
         Input:
           $ref: '#/components/schemas/ValidateMailingAddressInput'
       type: object
+    ValidateMailingAddressInput:
+      example:
+        Row:
+        - AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          FirmName: FirmName
+          StateProvince: StateProvince
+          Country: Country
+          PostalCode: PostalCode
+          City: City
+        - AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          FirmName: FirmName
+          StateProvince: StateProvince
+          Country: Country
+          PostalCode: PostalCode
+          City: City
+      properties:
+        Row:
+          items:
+            $ref: '#/components/schemas/ValidateMailingAddressInputRow'
+          type: array
+      type: object
+    GetPostalCodesAPIOutput_user_fields:
+      example:
+        name: name
+        value: value
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+      type: object
     ValidateMailingAddressResponse:
       example:
         Output:
@@ -304,39 +335,6 @@ components:
         Output:
           items:
             $ref: '#/components/schemas/ValidateMailingAddressOutput'
-          type: array
-      type: object
-    ValidateMailingAddressInput:
-      example:
-        Row:
-        - AddressLine2: AddressLine2
-          AddressLine1: AddressLine1
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          FirmName: FirmName
-          StateProvince: StateProvince
-          Country: Country
-          PostalCode: PostalCode
-          City: City
-        - AddressLine2: AddressLine2
-          AddressLine1: AddressLine1
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          FirmName: FirmName
-          StateProvince: StateProvince
-          Country: Country
-          PostalCode: PostalCode
-          City: City
-      properties:
-        Row:
-          items:
-            $ref: '#/components/schemas/ValidateMailingAddressInputRow'
           type: array
       type: object
   securitySchemes:

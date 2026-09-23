@@ -3,9 +3,7 @@ info:
   contact:
     name: Precisely APIs Support
     url: https://support.precisely.com
-  description: '
-
-    Demographics. Audience Enrichment. Add local demographics and lifestyle
+  description: 'Demographics. Audience Enrichment. Add local demographics and lifestyle
 
     segmentation to your audience profiles. The Demographics API returns
 
@@ -60,12 +58,19 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Nearest Speedlimit.
+      summary: Nearest Speedlimit
       tags:
       - Speedlimit
       x-accepts: application/json
 components:
   schemas:
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
     road:
       example:
         endingLevel: endingLevel
@@ -105,13 +110,6 @@ components:
           type: string
         endingLevel:
           type: string
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
       type: object
     ErrorCode:
       properties:

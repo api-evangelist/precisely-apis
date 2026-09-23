@@ -3,9 +3,7 @@ info:
   contact:
     name: Precisely APIs Support
     url: https://support.precisely.com
-  description: '
-
-    Demographics. Audience Enrichment. Add local demographics and lifestyle
+  description: 'Demographics. Audience Enrichment. Add local demographics and lifestyle
 
     segmentation to your audience profiles. The Demographics API returns
 
@@ -561,135 +559,179 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    GeocodePreferences:
+    ReturnFieldsDescriptor:
       example:
-        clientCoordSysName: clientCoordSysName
-        squeeze: squeeze
-        distance: distance
-        outputRecordType: outputRecordType
-        latLongFormat: latLongFormat
-        useGeoTaxAuxiliaryFile: useGeoTaxAuxiliaryFile
-        returnFieldsDescriptor:
-          returnStreetAddressFields: true
-          returnAllCustomFields: true
-          returnUnitInformation: true
-          returnMatchDescriptor: true
-          returnedCustomFieldKeys:
-          - returnedCustomFieldKeys
-          - returnedCustomFieldKeys
-        clientLocale: clientLocale
-        maxReturnedCandidates: maxReturnedCandidates
-        preferredDictionaryOrders:
-        - preferredDictionaryOrders
-        - preferredDictionaryOrders
-        streetOffset: streetOffset
-        matchMode: matchMode
-        mustMatchFields:
-          matchOnAreaName1: true
-          matchOnAreaName3: true
-          matchOnAreaName2: true
-          matchOnAreaName4: true
-          matchOnStreetType: true
-          matchOnStreetDirectional: true
-          matchOnAddressNumber: true
-          matchOnAllStreetFields: true
-          matchOnPlaceName: true
-          matchOnInputFields: true
-          matchOnStreetName: true
-          matchOnPostCode1: true
-          matchOnPostCode2: true
-        latLongOffset: latLongOffset
-        returnCensusFields: returnCensusFields
-        streetOffsetUnits: streetOffsetUnits
-        customPreferences:
-          key: '{}'
-        defaultBufferWidth: defaultBufferWidth
-        fallbackToPostal: fallbackToPostal
-        outputCasing: outputCasing
-        cornerOffsetUnits: cornerOffsetUnits
-        returnAllCandidateInfo: true
-        returnLatLongFields: returnLatLongFields
-        fallbackToGeographic: fallbackToGeographic
-        distanceUnits: distanceUnits
-        cornerOffset: cornerOffset
+        returnStreetAddressFields: true
+        returnAllCustomFields: true
+        returnUnitInformation: true
+        returnMatchDescriptor: true
+        returnedCustomFieldKeys:
+        - returnedCustomFieldKeys
+        - returnedCustomFieldKeys
       properties:
-        returnAllCandidateInfo:
+        returnAllCustomFields:
           type: boolean
-        fallbackToGeographic:
-          type: string
-        fallbackToPostal:
-          type: string
-        maxReturnedCandidates:
-          type: string
-        distance:
-          type: string
-        streetOffset:
-          type: string
-        cornerOffset:
-          type: string
-        matchMode:
-          type: string
-        clientLocale:
-          type: string
-        clientCoordSysName:
-          type: string
-        distanceUnits:
-          type: string
-        streetOffsetUnits:
-          type: string
-        cornerOffsetUnits:
-          type: string
-        mustMatchFields:
-          $ref: '#/components/schemas/FieldsMatching'
-        returnFieldsDescriptor:
-          $ref: '#/components/schemas/ReturnFieldsDescriptor'
-        outputRecordType:
-          type: string
-        customPreferences:
-          additionalProperties:
-            type: object
-          type: object
-        preferredDictionaryOrders:
+        returnMatchDescriptor:
+          type: boolean
+        returnStreetAddressFields:
+          type: boolean
+        returnUnitInformation:
+          type: boolean
+        returnedCustomFieldKeys:
           items:
             type: string
           type: array
-        outputCasing:
-          type: string
-        latLongOffset:
-          type: string
-        squeeze:
-          type: string
-        returnLatLongFields:
-          type: string
-        useGeoTaxAuxiliaryFile:
-          type: string
-        latLongFormat:
-          type: string
-        defaultBufferWidth:
-          type: string
-        returnCensusFields:
-          type: string
-      required:
-      - cornerOffset
-      - distance
-      - fallbackToGeographic
-      - fallbackToPostal
-      - maxReturnedCandidates
-      - returnAllCandidateInfo
-      - streetOffset
       type: object
-    ErrorInfo:
+    CandidateRange:
+      example:
+        lowHouse: lowHouse
+        side: UNKNOWN
+        highHouse: highHouse
+        oddEvenIndicator: UNKNOWN
+        units:
+        - unitType: unitType
+          lowUnitValue: lowUnitValue
+          placeName: placeName
+          highUnitValue: highUnitValue
+          customValues:
+            key: '{}'
+        - unitType: unitType
+          lowUnitValue: lowUnitValue
+          placeName: placeName
+          highUnitValue: highUnitValue
+          customValues:
+            key: '{}'
+        placeName: placeName
+        customValues:
+          key: '{}'
       properties:
-        errors:
+        placeName:
+          type: string
+        lowHouse:
+          type: string
+        highHouse:
+          type: string
+        side:
+          enum:
+          - UNKNOWN
+          - LEFT
+          - RIGHT
+          - BOTH
+          type: string
+        oddEvenIndicator:
+          enum:
+          - UNKNOWN
+          - BOTH
+          - ODD
+          - EVEN
+          - IRREGULAR
+          type: string
+        units:
           items:
-            $ref: '#/components/schemas/ErrorCode'
+            $ref: '#/components/schemas/CandidateRangeUnit'
           type: array
-          xml:
-            name: error
+        customValues:
+          additionalProperties:
+            type: object
+          type: object
+      type: object
+    address:
+      example:
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
+      properties:
+        objectId:
+          type: string
+        displayName:
+          type: string
+        streetSide:
+          type: string
+        businessName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
       type: object
       xml:
-        name: errors
-    KeyLookupRequest:
+        name: address
+    GeocodeRequest:
       example:
         preferences:
           clientCoordSysName: clientCoordSysName
@@ -741,136 +783,53 @@ components:
           fallbackToGeographic: fallbackToGeographic
           distanceUnits: distanceUnits
           cornerOffset: cornerOffset
-        keys:
+        addresses:
         - country: country
-          value: value
+          customFields:
+            key: '{}'
+          postCode2: postCode2
+          unitType: unitType
+          areaName1: areaName1
+          postCode1: postCode1
+          areaName2: areaName2
+          streetName: streetName
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          mainAddressLine: mainAddressLine
+          placeName: placeName
           objectId: objectId
+          addressLastLine: addressLastLine
+          unitValue: unitValue
         - country: country
-          value: value
+          customFields:
+            key: '{}'
+          postCode2: postCode2
+          unitType: unitType
+          areaName1: areaName1
+          postCode1: postCode1
+          areaName2: areaName2
+          streetName: streetName
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          mainAddressLine: mainAddressLine
+          placeName: placeName
           objectId: objectId
+          addressLastLine: addressLastLine
+          unitValue: unitValue
         type: type
       properties:
         type:
           type: string
         preferences:
           $ref: '#/components/schemas/GeocodePreferences'
-        keys:
+        addresses:
           items:
-            $ref: '#/components/schemas/keys'
+            $ref: '#/components/schemas/GeocodeAddress'
           type: array
-      type: object
-      xml:
-        name: keyLookupRequest
-    Crs:
-      example:
-        type: type
-        properties:
-          name: name
-      properties:
-        type:
-          type: string
-        properties:
-          $ref: '#/components/schemas/Properties'
       required:
-      - properties
-      - type
-      type: object
-    PBKeyResponse:
-      example:
-        key: key
-        matchedAddress:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-      properties:
-        key:
-          type: string
-        matchedAddress:
-          $ref: '#/components/schemas/address'
-      type: object
-      xml:
-        name: pbKeyResponse
-    Points:
-      example:
-        country: country
-        geometry:
-          crs:
-            type: type
-            properties:
-              name: name
-          coordinates:
-          - 5.962133916683182
-          - 5.962133916683182
-          type: type
-        objectId: objectId
-      properties:
-        objectId:
-          type: string
-        country:
-          type: string
-        geometry:
-          $ref: '#/components/schemas/GeoPos'
-      required:
-      - country
-      - geometry
-      type: object
-    CandidateRangeUnit:
-      example:
-        unitType: unitType
-        lowUnitValue: lowUnitValue
-        placeName: placeName
-        highUnitValue: highUnitValue
-        customValues:
-          key: '{}'
-      properties:
-        placeName:
-          type: string
-        unitType:
-          type: string
-        highUnitValue:
-          type: string
-        lowUnitValue:
-          type: string
-        customValues:
-          additionalProperties:
-            type: object
-          type: object
-      type: object
-    Properties:
-      example:
-        name: name
-      properties:
-        name:
-          type: string
-      required:
-      - name
+      - addresses
       type: object
     GeocodeServiceResponseList:
       example:
@@ -1243,83 +1202,82 @@ components:
       type: object
       xml:
         name: GeocodeServiceResponseList
-    Candidate:
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    pbkey:
       example:
-        identifier: identifier
-        formattedStreetAddress: formattedStreetAddress
-        address:
+        objectId: objectId
+        key: key
+        matchedAddress:
           country: country
-          customFields:
-            key: '{}'
-          postCode2: postCode2
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
           unitType: unitType
-          areaName1: areaName1
-          postCode1: postCode1
-          areaName2: areaName2
           streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
           areaName3: areaName3
           areaName4: areaName4
           addressNumber: addressNumber
-          mainAddressLine: mainAddressLine
+          postCode: postCode
+          postCodeExt: postCodeExt
           placeName: placeName
-          objectId: objectId
-          addressLastLine: addressLastLine
-          unitValue: unitValue
-        ranges:
-        - lowHouse: lowHouse
-          side: UNKNOWN
-          highHouse: highHouse
-          oddEvenIndicator: UNKNOWN
-          units:
-          - unitType: unitType
-            lowUnitValue: lowUnitValue
-            placeName: placeName
-            highUnitValue: highUnitValue
-            customValues:
-              key: '{}'
-          - unitType: unitType
-            lowUnitValue: lowUnitValue
-            placeName: placeName
-            highUnitValue: highUnitValue
-            customValues:
-              key: '{}'
-          placeName: placeName
-          customValues:
-            key: '{}'
-        - lowHouse: lowHouse
-          side: UNKNOWN
-          highHouse: highHouse
-          oddEvenIndicator: UNKNOWN
-          units:
-          - unitType: unitType
-            lowUnitValue: lowUnitValue
-            placeName: placeName
-            highUnitValue: highUnitValue
-            customValues:
-              key: '{}'
-          - unitType: unitType
-            lowUnitValue: lowUnitValue
-            placeName: placeName
-            highUnitValue: highUnitValue
-            customValues:
-              key: '{}'
-          placeName: placeName
-          customValues:
-            key: '{}'
-        precisionCode: precisionCode
-        sourceDictionary: sourceDictionary
-        formattedLocationAddress: formattedLocationAddress
-        geometry:
-          crs:
-            type: type
-            properties:
-              name: name
-          coordinates:
-          - 5.962133916683182
-          - 5.962133916683182
-          type: type
-        precisionLevel: 1
-        matching:
+          status: status
+      properties:
+        objectId:
+          type: string
+        key:
+          type: string
+        matchedAddress:
+          $ref: '#/components/schemas/address'
+      type: object
+      xml:
+        name: pbkey
+    GeocodePreferences:
+      example:
+        clientCoordSysName: clientCoordSysName
+        squeeze: squeeze
+        distance: distance
+        outputRecordType: outputRecordType
+        latLongFormat: latLongFormat
+        useGeoTaxAuxiliaryFile: useGeoTaxAuxiliaryFile
+        returnFieldsDescriptor:
+          returnStreetAddressFields: true
+          returnAllCustomFields: true
+          returnUnitInformation: true
+          returnMatchDescriptor: true
+          returnedCustomFieldKeys:
+          - returnedCustomFieldKeys
+          - returnedCustomFieldKeys
+        clientLocale: clientLocale
+        maxReturnedCandidates: maxReturnedCandidates
+        preferredDictionaryOrders:
+        - preferredDictionaryOrders
+        - preferredDictionaryOrders
+        streetOffset: streetOffset
+        matchMode: matchMode
+        mustMatchFields:
           matchOnAreaName1: true
           matchOnAreaName3: true
           matchOnAreaName2: true
@@ -1333,302 +1291,157 @@ components:
           matchOnStreetName: true
           matchOnPostCode1: true
           matchOnPostCode2: true
+        latLongOffset: latLongOffset
+        returnCensusFields: returnCensusFields
+        streetOffsetUnits: streetOffsetUnits
+        customPreferences:
+          key: '{}'
+        defaultBufferWidth: defaultBufferWidth
+        fallbackToPostal: fallbackToPostal
+        outputCasing: outputCasing
+        cornerOffsetUnits: cornerOffsetUnits
+        returnAllCandidateInfo: true
+        returnLatLongFields: returnLatLongFields
+        fallbackToGeographic: fallbackToGeographic
+        distanceUnits: distanceUnits
+        cornerOffset: cornerOffset
       properties:
-        precisionLevel:
-          format: int32
-          type: integer
-        formattedStreetAddress:
+        returnAllCandidateInfo:
+          type: boolean
+        fallbackToGeographic:
           type: string
-        formattedLocationAddress:
+        fallbackToPostal:
           type: string
-        identifier:
+        maxReturnedCandidates:
           type: string
-        precisionCode:
+        distance:
           type: string
-        sourceDictionary:
+        streetOffset:
           type: string
-        matching:
+        cornerOffset:
+          type: string
+        matchMode:
+          type: string
+        clientLocale:
+          type: string
+        clientCoordSysName:
+          type: string
+        distanceUnits:
+          type: string
+        streetOffsetUnits:
+          type: string
+        cornerOffsetUnits:
+          type: string
+        mustMatchFields:
           $ref: '#/components/schemas/FieldsMatching'
-        geometry:
-          $ref: '#/components/schemas/GeoPos'
-        address:
-          $ref: '#/components/schemas/GeocodeAddress'
-        ranges:
-          items:
-            $ref: '#/components/schemas/CandidateRange'
-          type: array
-      type: object
-    FieldsMatching:
-      example:
-        matchOnAreaName1: true
-        matchOnAreaName3: true
-        matchOnAreaName2: true
-        matchOnAreaName4: true
-        matchOnStreetType: true
-        matchOnStreetDirectional: true
-        matchOnAddressNumber: true
-        matchOnAllStreetFields: true
-        matchOnPlaceName: true
-        matchOnInputFields: true
-        matchOnStreetName: true
-        matchOnPostCode1: true
-        matchOnPostCode2: true
-      properties:
-        matchOnAddressNumber:
-          type: boolean
-        matchOnPostCode1:
-          type: boolean
-        matchOnPostCode2:
-          type: boolean
-        matchOnAreaName1:
-          type: boolean
-        matchOnAreaName2:
-          type: boolean
-        matchOnAreaName3:
-          type: boolean
-        matchOnAreaName4:
-          type: boolean
-        matchOnAllStreetFields:
-          type: boolean
-        matchOnStreetName:
-          type: boolean
-        matchOnStreetType:
-          type: boolean
-        matchOnStreetDirectional:
-          type: boolean
-        matchOnPlaceName:
-          type: boolean
-        matchOnInputFields:
-          type: boolean
-      type: object
-    PBKeyAddressRequest:
-      example:
-        addresses:
-        - country: country
-          customFields:
-            key: '{}'
-          postCode2: postCode2
-          unitType: unitType
-          areaName1: areaName1
-          postCode1: postCode1
-          areaName2: areaName2
-          streetName: streetName
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          mainAddressLine: mainAddressLine
-          placeName: placeName
-          objectId: objectId
-          addressLastLine: addressLastLine
-          unitValue: unitValue
-        - country: country
-          customFields:
-            key: '{}'
-          postCode2: postCode2
-          unitType: unitType
-          areaName1: areaName1
-          postCode1: postCode1
-          areaName2: areaName2
-          streetName: streetName
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          mainAddressLine: mainAddressLine
-          placeName: placeName
-          objectId: objectId
-          addressLastLine: addressLastLine
-          unitValue: unitValue
-      properties:
-        addresses:
-          items:
-            $ref: '#/components/schemas/GeocodeAddress'
-          type: array
-          xml:
-            name: address
-      required:
-      - addresses
-      type: object
-      xml:
-        name: keyByAddressRequest
-    ReverseGeocodeRequest:
-      example:
-        preferences:
-          clientCoordSysName: clientCoordSysName
-          squeeze: squeeze
-          distance: distance
-          outputRecordType: outputRecordType
-          latLongFormat: latLongFormat
-          useGeoTaxAuxiliaryFile: useGeoTaxAuxiliaryFile
-          returnFieldsDescriptor:
-            returnStreetAddressFields: true
-            returnAllCustomFields: true
-            returnUnitInformation: true
-            returnMatchDescriptor: true
-            returnedCustomFieldKeys:
-            - returnedCustomFieldKeys
-            - returnedCustomFieldKeys
-          clientLocale: clientLocale
-          maxReturnedCandidates: maxReturnedCandidates
-          preferredDictionaryOrders:
-          - preferredDictionaryOrders
-          - preferredDictionaryOrders
-          streetOffset: streetOffset
-          matchMode: matchMode
-          mustMatchFields:
-            matchOnAreaName1: true
-            matchOnAreaName3: true
-            matchOnAreaName2: true
-            matchOnAreaName4: true
-            matchOnStreetType: true
-            matchOnStreetDirectional: true
-            matchOnAddressNumber: true
-            matchOnAllStreetFields: true
-            matchOnPlaceName: true
-            matchOnInputFields: true
-            matchOnStreetName: true
-            matchOnPostCode1: true
-            matchOnPostCode2: true
-          latLongOffset: latLongOffset
-          returnCensusFields: returnCensusFields
-          streetOffsetUnits: streetOffsetUnits
-          customPreferences:
-            key: '{}'
-          defaultBufferWidth: defaultBufferWidth
-          fallbackToPostal: fallbackToPostal
-          outputCasing: outputCasing
-          cornerOffsetUnits: cornerOffsetUnits
-          returnAllCandidateInfo: true
-          returnLatLongFields: returnLatLongFields
-          fallbackToGeographic: fallbackToGeographic
-          distanceUnits: distanceUnits
-          cornerOffset: cornerOffset
-        points:
-        - country: country
-          geometry:
-            crs:
-              type: type
-              properties:
-                name: name
-            coordinates:
-            - 5.962133916683182
-            - 5.962133916683182
-            type: type
-          objectId: objectId
-        - country: country
-          geometry:
-            crs:
-              type: type
-              properties:
-                name: name
-            coordinates:
-            - 5.962133916683182
-            - 5.962133916683182
-            type: type
-          objectId: objectId
-      properties:
-        preferences:
-          $ref: '#/components/schemas/GeocodePreferences'
-        points:
-          items:
-            $ref: '#/components/schemas/Points'
-          type: array
-      required:
-      - points
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
+        returnFieldsDescriptor:
+          $ref: '#/components/schemas/ReturnFieldsDescriptor'
+        outputRecordType:
           type: string
-        errorDescription:
-          type: string
-      type: object
-    ReturnFieldsDescriptor:
-      example:
-        returnStreetAddressFields: true
-        returnAllCustomFields: true
-        returnUnitInformation: true
-        returnMatchDescriptor: true
-        returnedCustomFieldKeys:
-        - returnedCustomFieldKeys
-        - returnedCustomFieldKeys
-      properties:
-        returnAllCustomFields:
-          type: boolean
-        returnMatchDescriptor:
-          type: boolean
-        returnStreetAddressFields:
-          type: boolean
-        returnUnitInformation:
-          type: boolean
-        returnedCustomFieldKeys:
+        customPreferences:
+          additionalProperties:
+            type: object
+          type: object
+        preferredDictionaryOrders:
           items:
             type: string
           type: array
+        outputCasing:
+          type: string
+        latLongOffset:
+          type: string
+        squeeze:
+          type: string
+        returnLatLongFields:
+          type: string
+        useGeoTaxAuxiliaryFile:
+          type: string
+        latLongFormat:
+          type: string
+        defaultBufferWidth:
+          type: string
+        returnCensusFields:
+          type: string
+      required:
+      - cornerOffset
+      - distance
+      - fallbackToGeographic
+      - fallbackToPostal
+      - maxReturnedCandidates
+      - returnAllCandidateInfo
+      - streetOffset
       type: object
-    address:
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
+    keys:
       example:
         country: country
-        streetSide: streetSide
-        city: city
-        displayName: displayName
-        postalCode: postalCode
-        latitude: latitude
-        businessName: businessName
-        county: county
-        unitType: unitType
-        streetName: streetName
-        formattedAddress: formattedAddress
-        addressLine1: addressLine1
-        mainAddressLine: mainAddressLine
-        addressLine2: addressLine2
-        addressLine3: addressLine3
+        value: value
         objectId: objectId
-        addressLastLine: addressLastLine
-        longitude: longitude
-        unitValue: unitValue
-        stateProvince: stateProvince
-        urbanizationName: urbanizationName
-        areaName1: areaName1
-        areaName2: areaName2
-        areaName3: areaName3
-        areaName4: areaName4
-        addressNumber: addressNumber
-        postCode: postCode
-        postCodeExt: postCodeExt
-        placeName: placeName
-        status: status
       properties:
         objectId:
           type: string
-        displayName:
+        country:
           type: string
-        streetSide:
+        value:
           type: string
-        businessName:
+      type: object
+      xml:
+        name: keys
+    Points:
+      example:
+        country: country
+        geometry:
+          crs:
+            type: type
+            properties:
+              name: name
+          coordinates:
+          - 5.962133916683182
+          - 5.962133916683182
+          type: type
+        objectId: objectId
+      properties:
+        objectId:
           type: string
-        addressLine1:
+        country:
           type: string
-        addressLine2:
-          type: string
-        addressLine3:
-          type: string
-        city:
-          type: string
-        stateProvince:
-          type: string
-        county:
-          type: string
-        postalCode:
-          type: string
-        latitude:
-          type: string
-        longitude:
-          type: string
-        status:
-          type: string
-        urbanizationName:
-          type: string
-        formattedAddress:
+        geometry:
+          $ref: '#/components/schemas/GeoPos'
+      required:
+      - country
+      - geometry
+      type: object
+    GeocodeAddress:
+      example:
+        country: country
+        customFields:
+          key: '{}'
+        postCode2: postCode2
+        unitType: unitType
+        areaName1: areaName1
+        postCode1: postCode1
+        areaName2: areaName2
+        streetName: streetName
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        mainAddressLine: mainAddressLine
+        placeName: placeName
+        objectId: objectId
+        addressLastLine: addressLastLine
+        unitValue: unitValue
+      properties:
+        objectId:
           type: string
         mainAddressLine:
           type: string
@@ -1644,9 +1457,9 @@ components:
           type: string
         areaName4:
           type: string
-        postCode:
+        postCode1:
           type: string
-        postCodeExt:
+        postCode2:
           type: string
         country:
           type: string
@@ -1658,108 +1471,34 @@ components:
           type: string
         unitValue:
           type: string
+        customFields:
+          additionalProperties:
+            type: object
+          type: object
       type: object
-      xml:
-        name: address
-    GeocodeRequest:
+    GeoPos:
       example:
-        preferences:
-          clientCoordSysName: clientCoordSysName
-          squeeze: squeeze
-          distance: distance
-          outputRecordType: outputRecordType
-          latLongFormat: latLongFormat
-          useGeoTaxAuxiliaryFile: useGeoTaxAuxiliaryFile
-          returnFieldsDescriptor:
-            returnStreetAddressFields: true
-            returnAllCustomFields: true
-            returnUnitInformation: true
-            returnMatchDescriptor: true
-            returnedCustomFieldKeys:
-            - returnedCustomFieldKeys
-            - returnedCustomFieldKeys
-          clientLocale: clientLocale
-          maxReturnedCandidates: maxReturnedCandidates
-          preferredDictionaryOrders:
-          - preferredDictionaryOrders
-          - preferredDictionaryOrders
-          streetOffset: streetOffset
-          matchMode: matchMode
-          mustMatchFields:
-            matchOnAreaName1: true
-            matchOnAreaName3: true
-            matchOnAreaName2: true
-            matchOnAreaName4: true
-            matchOnStreetType: true
-            matchOnStreetDirectional: true
-            matchOnAddressNumber: true
-            matchOnAllStreetFields: true
-            matchOnPlaceName: true
-            matchOnInputFields: true
-            matchOnStreetName: true
-            matchOnPostCode1: true
-            matchOnPostCode2: true
-          latLongOffset: latLongOffset
-          returnCensusFields: returnCensusFields
-          streetOffsetUnits: streetOffsetUnits
-          customPreferences:
-            key: '{}'
-          defaultBufferWidth: defaultBufferWidth
-          fallbackToPostal: fallbackToPostal
-          outputCasing: outputCasing
-          cornerOffsetUnits: cornerOffsetUnits
-          returnAllCandidateInfo: true
-          returnLatLongFields: returnLatLongFields
-          fallbackToGeographic: fallbackToGeographic
-          distanceUnits: distanceUnits
-          cornerOffset: cornerOffset
-        addresses:
-        - country: country
-          customFields:
-            key: '{}'
-          postCode2: postCode2
-          unitType: unitType
-          areaName1: areaName1
-          postCode1: postCode1
-          areaName2: areaName2
-          streetName: streetName
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          mainAddressLine: mainAddressLine
-          placeName: placeName
-          objectId: objectId
-          addressLastLine: addressLastLine
-          unitValue: unitValue
-        - country: country
-          customFields:
-            key: '{}'
-          postCode2: postCode2
-          unitType: unitType
-          areaName1: areaName1
-          postCode1: postCode1
-          areaName2: areaName2
-          streetName: streetName
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          mainAddressLine: mainAddressLine
-          placeName: placeName
-          objectId: objectId
-          addressLastLine: addressLastLine
-          unitValue: unitValue
+        crs:
+          type: type
+          properties:
+            name: name
+        coordinates:
+        - 5.962133916683182
+        - 5.962133916683182
         type: type
       properties:
         type:
           type: string
-        preferences:
-          $ref: '#/components/schemas/GeocodePreferences'
-        addresses:
+        coordinates:
           items:
-            $ref: '#/components/schemas/GeocodeAddress'
+            format: double
+            type: number
           type: array
+        crs:
+          $ref: '#/components/schemas/Crs'
       required:
-      - addresses
+      - crs
+      - type
       type: object
     GeocodeServiceResponse:
       example:
@@ -1959,33 +1698,417 @@ components:
       type: object
       xml:
         name: GeocodeServiceResponse
-    GeoPos:
+    CandidateRangeUnit:
       example:
-        crs:
-          type: type
-          properties:
-            name: name
-        coordinates:
-        - 5.962133916683182
-        - 5.962133916683182
+        unitType: unitType
+        lowUnitValue: lowUnitValue
+        placeName: placeName
+        highUnitValue: highUnitValue
+        customValues:
+          key: '{}'
+      properties:
+        placeName:
+          type: string
+        unitType:
+          type: string
+        highUnitValue:
+          type: string
+        lowUnitValue:
+          type: string
+        customValues:
+          additionalProperties:
+            type: object
+          type: object
+      type: object
+    PBKeyAddressRequest:
+      example:
+        addresses:
+        - country: country
+          customFields:
+            key: '{}'
+          postCode2: postCode2
+          unitType: unitType
+          areaName1: areaName1
+          postCode1: postCode1
+          areaName2: areaName2
+          streetName: streetName
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          mainAddressLine: mainAddressLine
+          placeName: placeName
+          objectId: objectId
+          addressLastLine: addressLastLine
+          unitValue: unitValue
+        - country: country
+          customFields:
+            key: '{}'
+          postCode2: postCode2
+          unitType: unitType
+          areaName1: areaName1
+          postCode1: postCode1
+          areaName2: areaName2
+          streetName: streetName
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          mainAddressLine: mainAddressLine
+          placeName: placeName
+          objectId: objectId
+          addressLastLine: addressLastLine
+          unitValue: unitValue
+      properties:
+        addresses:
+          items:
+            $ref: '#/components/schemas/GeocodeAddress'
+          type: array
+          xml:
+            name: address
+      required:
+      - addresses
+      type: object
+      xml:
+        name: keyByAddressRequest
+    Crs:
+      example:
+        type: type
+        properties:
+          name: name
+      properties:
+        type:
+          type: string
+        properties:
+          $ref: '#/components/schemas/Properties'
+      required:
+      - properties
+      - type
+      type: object
+    ReverseGeocodeRequest:
+      example:
+        preferences:
+          clientCoordSysName: clientCoordSysName
+          squeeze: squeeze
+          distance: distance
+          outputRecordType: outputRecordType
+          latLongFormat: latLongFormat
+          useGeoTaxAuxiliaryFile: useGeoTaxAuxiliaryFile
+          returnFieldsDescriptor:
+            returnStreetAddressFields: true
+            returnAllCustomFields: true
+            returnUnitInformation: true
+            returnMatchDescriptor: true
+            returnedCustomFieldKeys:
+            - returnedCustomFieldKeys
+            - returnedCustomFieldKeys
+          clientLocale: clientLocale
+          maxReturnedCandidates: maxReturnedCandidates
+          preferredDictionaryOrders:
+          - preferredDictionaryOrders
+          - preferredDictionaryOrders
+          streetOffset: streetOffset
+          matchMode: matchMode
+          mustMatchFields:
+            matchOnAreaName1: true
+            matchOnAreaName3: true
+            matchOnAreaName2: true
+            matchOnAreaName4: true
+            matchOnStreetType: true
+            matchOnStreetDirectional: true
+            matchOnAddressNumber: true
+            matchOnAllStreetFields: true
+            matchOnPlaceName: true
+            matchOnInputFields: true
+            matchOnStreetName: true
+            matchOnPostCode1: true
+            matchOnPostCode2: true
+          latLongOffset: latLongOffset
+          returnCensusFields: returnCensusFields
+          streetOffsetUnits: streetOffsetUnits
+          customPreferences:
+            key: '{}'
+          defaultBufferWidth: defaultBufferWidth
+          fallbackToPostal: fallbackToPostal
+          outputCasing: outputCasing
+          cornerOffsetUnits: cornerOffsetUnits
+          returnAllCandidateInfo: true
+          returnLatLongFields: returnLatLongFields
+          fallbackToGeographic: fallbackToGeographic
+          distanceUnits: distanceUnits
+          cornerOffset: cornerOffset
+        points:
+        - country: country
+          geometry:
+            crs:
+              type: type
+              properties:
+                name: name
+            coordinates:
+            - 5.962133916683182
+            - 5.962133916683182
+            type: type
+          objectId: objectId
+        - country: country
+          geometry:
+            crs:
+              type: type
+              properties:
+                name: name
+            coordinates:
+            - 5.962133916683182
+            - 5.962133916683182
+            type: type
+          objectId: objectId
+      properties:
+        preferences:
+          $ref: '#/components/schemas/GeocodePreferences'
+        points:
+          items:
+            $ref: '#/components/schemas/Points'
+          type: array
+      required:
+      - points
+      type: object
+    FieldsMatching:
+      example:
+        matchOnAreaName1: true
+        matchOnAreaName3: true
+        matchOnAreaName2: true
+        matchOnAreaName4: true
+        matchOnStreetType: true
+        matchOnStreetDirectional: true
+        matchOnAddressNumber: true
+        matchOnAllStreetFields: true
+        matchOnPlaceName: true
+        matchOnInputFields: true
+        matchOnStreetName: true
+        matchOnPostCode1: true
+        matchOnPostCode2: true
+      properties:
+        matchOnAddressNumber:
+          type: boolean
+        matchOnPostCode1:
+          type: boolean
+        matchOnPostCode2:
+          type: boolean
+        matchOnAreaName1:
+          type: boolean
+        matchOnAreaName2:
+          type: boolean
+        matchOnAreaName3:
+          type: boolean
+        matchOnAreaName4:
+          type: boolean
+        matchOnAllStreetFields:
+          type: boolean
+        matchOnStreetName:
+          type: boolean
+        matchOnStreetType:
+          type: boolean
+        matchOnStreetDirectional:
+          type: boolean
+        matchOnPlaceName:
+          type: boolean
+        matchOnInputFields:
+          type: boolean
+      type: object
+    KeyLookupRequest:
+      example:
+        preferences:
+          clientCoordSysName: clientCoordSysName
+          squeeze: squeeze
+          distance: distance
+          outputRecordType: outputRecordType
+          latLongFormat: latLongFormat
+          useGeoTaxAuxiliaryFile: useGeoTaxAuxiliaryFile
+          returnFieldsDescriptor:
+            returnStreetAddressFields: true
+            returnAllCustomFields: true
+            returnUnitInformation: true
+            returnMatchDescriptor: true
+            returnedCustomFieldKeys:
+            - returnedCustomFieldKeys
+            - returnedCustomFieldKeys
+          clientLocale: clientLocale
+          maxReturnedCandidates: maxReturnedCandidates
+          preferredDictionaryOrders:
+          - preferredDictionaryOrders
+          - preferredDictionaryOrders
+          streetOffset: streetOffset
+          matchMode: matchMode
+          mustMatchFields:
+            matchOnAreaName1: true
+            matchOnAreaName3: true
+            matchOnAreaName2: true
+            matchOnAreaName4: true
+            matchOnStreetType: true
+            matchOnStreetDirectional: true
+            matchOnAddressNumber: true
+            matchOnAllStreetFields: true
+            matchOnPlaceName: true
+            matchOnInputFields: true
+            matchOnStreetName: true
+            matchOnPostCode1: true
+            matchOnPostCode2: true
+          latLongOffset: latLongOffset
+          returnCensusFields: returnCensusFields
+          streetOffsetUnits: streetOffsetUnits
+          customPreferences:
+            key: '{}'
+          defaultBufferWidth: defaultBufferWidth
+          fallbackToPostal: fallbackToPostal
+          outputCasing: outputCasing
+          cornerOffsetUnits: cornerOffsetUnits
+          returnAllCandidateInfo: true
+          returnLatLongFields: returnLatLongFields
+          fallbackToGeographic: fallbackToGeographic
+          distanceUnits: distanceUnits
+          cornerOffset: cornerOffset
+        keys:
+        - country: country
+          value: value
+          objectId: objectId
+        - country: country
+          value: value
+          objectId: objectId
         type: type
       properties:
         type:
           type: string
-        coordinates:
+        preferences:
+          $ref: '#/components/schemas/GeocodePreferences'
+        keys:
           items:
-            format: double
-            type: number
+            $ref: '#/components/schemas/keys'
           type: array
-        crs:
-          $ref: '#/components/schemas/Crs'
-      required:
-      - crs
-      - type
       type: object
-    pbkey:
+      xml:
+        name: keyLookupRequest
+    Candidate:
       example:
-        objectId: objectId
+        identifier: identifier
+        formattedStreetAddress: formattedStreetAddress
+        address:
+          country: country
+          customFields:
+            key: '{}'
+          postCode2: postCode2
+          unitType: unitType
+          areaName1: areaName1
+          postCode1: postCode1
+          areaName2: areaName2
+          streetName: streetName
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          mainAddressLine: mainAddressLine
+          placeName: placeName
+          objectId: objectId
+          addressLastLine: addressLastLine
+          unitValue: unitValue
+        ranges:
+        - lowHouse: lowHouse
+          side: UNKNOWN
+          highHouse: highHouse
+          oddEvenIndicator: UNKNOWN
+          units:
+          - unitType: unitType
+            lowUnitValue: lowUnitValue
+            placeName: placeName
+            highUnitValue: highUnitValue
+            customValues:
+              key: '{}'
+          - unitType: unitType
+            lowUnitValue: lowUnitValue
+            placeName: placeName
+            highUnitValue: highUnitValue
+            customValues:
+              key: '{}'
+          placeName: placeName
+          customValues:
+            key: '{}'
+        - lowHouse: lowHouse
+          side: UNKNOWN
+          highHouse: highHouse
+          oddEvenIndicator: UNKNOWN
+          units:
+          - unitType: unitType
+            lowUnitValue: lowUnitValue
+            placeName: placeName
+            highUnitValue: highUnitValue
+            customValues:
+              key: '{}'
+          - unitType: unitType
+            lowUnitValue: lowUnitValue
+            placeName: placeName
+            highUnitValue: highUnitValue
+            customValues:
+              key: '{}'
+          placeName: placeName
+          customValues:
+            key: '{}'
+        precisionCode: precisionCode
+        sourceDictionary: sourceDictionary
+        formattedLocationAddress: formattedLocationAddress
+        geometry:
+          crs:
+            type: type
+            properties:
+              name: name
+          coordinates:
+          - 5.962133916683182
+          - 5.962133916683182
+          type: type
+        precisionLevel: 1
+        matching:
+          matchOnAreaName1: true
+          matchOnAreaName3: true
+          matchOnAreaName2: true
+          matchOnAreaName4: true
+          matchOnStreetType: true
+          matchOnStreetDirectional: true
+          matchOnAddressNumber: true
+          matchOnAllStreetFields: true
+          matchOnPlaceName: true
+          matchOnInputFields: true
+          matchOnStreetName: true
+          matchOnPostCode1: true
+          matchOnPostCode2: true
+      properties:
+        precisionLevel:
+          format: int32
+          type: integer
+        formattedStreetAddress:
+          type: string
+        formattedLocationAddress:
+          type: string
+        identifier:
+          type: string
+        precisionCode:
+          type: string
+        sourceDictionary:
+          type: string
+        matching:
+          $ref: '#/components/schemas/FieldsMatching'
+        geometry:
+          $ref: '#/components/schemas/GeoPos'
+        address:
+          $ref: '#/components/schemas/GeocodeAddress'
+        ranges:
+          items:
+            $ref: '#/components/schemas/CandidateRange'
+          type: array
+      type: object
+    Properties:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+      required:
+      - name
+      type: object
+    PBKeyResponse:
+      example:
         key: key
         matchedAddress:
           country: country
@@ -2019,15 +2142,13 @@ components:
           placeName: placeName
           status: status
       properties:
-        objectId:
-          type: string
         key:
           type: string
         matchedAddress:
           $ref: '#/components/schemas/address'
       type: object
       xml:
-        name: pbkey
+        name: pbKeyResponse
     PBKeyResponseList:
       example:
         pbkey:
@@ -2105,129 +2226,6 @@ components:
       type: object
       xml:
         name: pbKeyResponse
-    GeocodeAddress:
-      example:
-        country: country
-        customFields:
-          key: '{}'
-        postCode2: postCode2
-        unitType: unitType
-        areaName1: areaName1
-        postCode1: postCode1
-        areaName2: areaName2
-        streetName: streetName
-        areaName3: areaName3
-        areaName4: areaName4
-        addressNumber: addressNumber
-        mainAddressLine: mainAddressLine
-        placeName: placeName
-        objectId: objectId
-        addressLastLine: addressLastLine
-        unitValue: unitValue
-      properties:
-        objectId:
-          type: string
-        mainAddressLine:
-          type: string
-        addressLastLine:
-          type: string
-        placeName:
-          type: string
-        areaName1:
-          type: string
-        areaName2:
-          type: string
-        areaName3:
-          type: string
-        areaName4:
-          type: string
-        postCode1:
-          type: string
-        postCode2:
-          type: string
-        country:
-          type: string
-        addressNumber:
-          type: string
-        streetName:
-          type: string
-        unitType:
-          type: string
-        unitValue:
-          type: string
-        customFields:
-          additionalProperties:
-            type: object
-          type: object
-      type: object
-    keys:
-      example:
-        country: country
-        value: value
-        objectId: objectId
-      properties:
-        objectId:
-          type: string
-        country:
-          type: string
-        value:
-          type: string
-      type: object
-      xml:
-        name: keys
-    CandidateRange:
-      example:
-        lowHouse: lowHouse
-        side: UNKNOWN
-        highHouse: highHouse
-        oddEvenIndicator: UNKNOWN
-        units:
-        - unitType: unitType
-          lowUnitValue: lowUnitValue
-          placeName: placeName
-          highUnitValue: highUnitValue
-          customValues:
-            key: '{}'
-        - unitType: unitType
-          lowUnitValue: lowUnitValue
-          placeName: placeName
-          highUnitValue: highUnitValue
-          customValues:
-            key: '{}'
-        placeName: placeName
-        customValues:
-          key: '{}'
-      properties:
-        placeName:
-          type: string
-        lowHouse:
-          type: string
-        highHouse:
-          type: string
-        side:
-          enum:
-          - UNKNOWN
-          - LEFT
-          - RIGHT
-          - BOTH
-          type: string
-        oddEvenIndicator:
-          enum:
-          - UNKNOWN
-          - BOTH
-          - ODD
-          - EVEN
-          - IRREGULAR
-          type: string
-        units:
-          items:
-            $ref: '#/components/schemas/CandidateRangeUnit'
-          type: array
-        customValues:
-          additionalProperties:
-            type: object
-          type: object
-      type: object
   securitySchemes:
     oAuth2Password:
       flows:

@@ -3,9 +3,7 @@ info:
   contact:
     name: Precisely APIs Support
     url: https://support.precisely.com
-  description: '
-
-    Demographics. Audience Enrichment. Add local demographics and lifestyle
+  description: 'Demographics. Audience Enrichment. Add local demographics and lifestyle
 
     segmentation to your audience profiles. The Demographics API returns
 
@@ -65,7 +63,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Addresses count by Boundary.
+      summary: Addresses count by Boundary
       tags:
       - Addresses
       x-contentType: application/json
@@ -116,7 +114,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Addresses by Boundary.
+      summary: Addresses by Boundary
       tags:
       - Addresses
       x-contentType: application/json
@@ -189,7 +187,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Addresses Count by Boundary Name.
+      summary: Addresses Count by Boundary Name
       tags:
       - Addresses
       x-accepts: application/json
@@ -279,19 +277,83 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Addresses by Boundary Name.
+      summary: Addresses by Boundary Name
       tags:
       - Addresses
       x-accepts: application/json
 components:
   schemas:
-    ErrorCode:
+    AddressesResponse:
+      example:
+        candidates: candidates
+        addressList:
+        - country: country
+          parentPbKey: parentPbKey
+          type:
+            description: description
+            value: value
+          unitType: unitType
+          areaName1: areaName1
+          streetName: streetName
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          propertyType: propertyType
+          geoId: geoId
+          addressNumber: addressNumber
+          propertyTypeDescription: propertyTypeDescription
+          pbKey: pbKey
+          postCode: postCode
+          geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          postCodeExt: postCodeExt
+          unitValue: unitValue
+        - country: country
+          parentPbKey: parentPbKey
+          type:
+            description: description
+            value: value
+          unitType: unitType
+          areaName1: areaName1
+          streetName: streetName
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          propertyType: propertyType
+          geoId: geoId
+          addressNumber: addressNumber
+          propertyTypeDescription: propertyTypeDescription
+          pbKey: pbKey
+          postCode: postCode
+          geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          postCodeExt: postCodeExt
+          unitValue: unitValue
+        page: page
       properties:
-        errorCode:
+        page:
           type: string
-        errorDescription:
+          xml:
+            attribute: true
+        candidates:
           type: string
+          xml:
+            attribute: true
+        addressList:
+          items:
+            $ref: '#/components/schemas/AddressesDTO'
+          type: array
+          xml:
+            name: address
       type: object
+      xml:
+        name: addresses
     addressesCount:
       example:
         totalAddressesFound: 0
@@ -302,76 +364,6 @@ components:
       type: object
       xml:
         name: addressesCount
-    AddressesByBoundaryRequest:
-      example:
-        travelDistanceUnit: travelDistanceUnit
-        preferences:
-          maxCandidates: maxCandidates
-          page: page
-        travelTime: travelTime
-        latitude: 6.027456183070403
-        travelTimeUnit: travelTimeUnit
-        travelDistance: travelDistance
-        geometry:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
-        geometryAsText: geometryAsText
-        longitude: 1.4658129805029452
-        travelMode: travelMode
-      properties:
-        preferences:
-          $ref: '#/components/schemas/AddressesPreferences'
-        geometry:
-          $ref: '#/components/schemas/Geometry'
-        geometryAsText:
-          type: string
-        latitude:
-          format: double
-          type: number
-        longitude:
-          format: double
-          type: number
-        travelTime:
-          type: string
-        travelTimeUnit:
-          type: string
-        travelDistance:
-          type: string
-        travelDistanceUnit:
-          type: string
-        travelMode:
-          type: string
-      type: object
-      xml:
-        name: addressesByBoundaryRequest
-    ErrorInfo:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-          xml:
-            name: error
-      type: object
-      xml:
-        name: errors
-    Geometry:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      type: object
     AddressesPreferences:
       example:
         maxCandidates: maxCandidates
@@ -446,6 +438,39 @@ components:
         geoId:
           type: string
       type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
+    Geometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
     AddressType:
       example:
         description: description
@@ -456,77 +481,50 @@ components:
         description:
           type: string
       type: object
-    AddressesResponse:
+    AddressesByBoundaryRequest:
       example:
-        candidates: candidates
-        addressList:
-        - country: country
-          parentPbKey: parentPbKey
-          type:
-            description: description
-            value: value
-          unitType: unitType
-          areaName1: areaName1
-          streetName: streetName
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          propertyType: propertyType
-          geoId: geoId
-          addressNumber: addressNumber
-          propertyTypeDescription: propertyTypeDescription
-          pbKey: pbKey
-          postCode: postCode
-          geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          postCodeExt: postCodeExt
-          unitValue: unitValue
-        - country: country
-          parentPbKey: parentPbKey
-          type:
-            description: description
-            value: value
-          unitType: unitType
-          areaName1: areaName1
-          streetName: streetName
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          propertyType: propertyType
-          geoId: geoId
-          addressNumber: addressNumber
-          propertyTypeDescription: propertyTypeDescription
-          pbKey: pbKey
-          postCode: postCode
-          geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          postCodeExt: postCodeExt
-          unitValue: unitValue
-        page: page
+        travelDistanceUnit: travelDistanceUnit
+        preferences:
+          maxCandidates: maxCandidates
+          page: page
+        travelTime: travelTime
+        latitude: 6.027456183070403
+        travelTimeUnit: travelTimeUnit
+        travelDistance: travelDistance
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        geometryAsText: geometryAsText
+        longitude: 1.4658129805029452
+        travelMode: travelMode
       properties:
-        page:
+        preferences:
+          $ref: '#/components/schemas/AddressesPreferences'
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+        geometryAsText:
           type: string
-          xml:
-            attribute: true
-        candidates:
+        latitude:
+          format: double
+          type: number
+        longitude:
+          format: double
+          type: number
+        travelTime:
           type: string
-          xml:
-            attribute: true
-        addressList:
-          items:
-            $ref: '#/components/schemas/AddressesDTO'
-          type: array
-          xml:
-            name: address
+        travelTimeUnit:
+          type: string
+        travelDistance:
+          type: string
+        travelDistanceUnit:
+          type: string
+        travelMode:
+          type: string
       type: object
       xml:
-        name: addresses
+        name: addressesByBoundaryRequest
   securitySchemes:
     oAuth2Password:
       flows:

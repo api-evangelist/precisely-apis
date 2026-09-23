@@ -3,9 +3,7 @@ info:
   contact:
     name: Precisely APIs Support
     url: https://support.precisely.com
-  description: '
-
-    Demographics. Audience Enrichment. Add local demographics and lifestyle
+  description: 'Demographics. Audience Enrichment. Add local demographics and lifestyle
 
     segmentation to your audience profiles. The Demographics API returns
 
@@ -84,7 +82,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Get Point of Interests Boundary by Location.
+      summary: Get Point of Interests Boundary by Location
       tags:
       - Zones
       x-accepts: application/json
@@ -118,7 +116,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Batch method for getting Point of Interests Boundary by Location.
+      summary: Batch method for getting Point of Interests Boundary by Location
       tags:
       - Zones
       x-contentType: application/json
@@ -173,7 +171,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Gets Point of Interests Boundary by Address.
+      summary: Gets Point of Interests Boundary by Address
       tags:
       - Zones
       x-accepts: application/json
@@ -207,7 +205,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Batch method for getting Point of Interests Boundary by Address.
+      summary: Batch method for getting Point of Interests Boundary by Address
       tags:
       - Zones
       x-contentType: application/json
@@ -341,7 +339,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Get TravelBoundary By Time.
+      summary: Get TravelBoundary By Time
       tags:
       - Zones
       x-accepts: application/json
@@ -474,7 +472,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Get TravelBoundary By Distance.
+      summary: Get TravelBoundary By Distance
       tags:
       - Zones
       x-accepts: application/json
@@ -543,7 +541,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Gets Basic Boundary by Location.
+      summary: Gets Basic Boundary by Location
       tags:
       - Zones
       x-accepts: application/json
@@ -606,7 +604,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Gets Basic Boundary by Address.
+      summary: Gets Basic Boundary by Address
       tags:
       - Zones
       x-accepts: application/json
@@ -662,46 +660,155 @@ components:
         travelBoundary:
           $ref: '#/components/schemas/TravelBoundary'
       type: object
-    Category:
+    ZonesPoiGeometry:
       example:
-        tradeGroup: tradeGroup
-        subClass: subClass
-        tradeDivision: tradeDivision
-        categoryCode: categoryCode
-        class: class
+        crs:
+          type: type
+          properties:
+            name: name
+        coordinates: '{}'
+        type: type
       properties:
-        categoryCode:
+        type:
           type: string
-        tradeDivision:
-          type: string
-        tradeGroup:
-          type: string
-        subClass:
-          type: string
-        class:
-          type: string
+        crs:
+          $ref: '#/components/schemas/GeometryCRC'
+        coordinates:
+          type: object
       type: object
-    ZonesPoiClassification:
+    POIBoundaryAddressRequest:
       example:
-        alternateIndustryCode: alternateIndustryCode
-        sic:
+        addresses:
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        preferences:
           sicCode: sicCode
-          primarySicCode: primarySicCode
-          businessLine: businessLine
-          sicCodeDescription: sicCodeDescription
-        category:
-          tradeGroup: tradeGroup
-          subClass: subClass
-          tradeDivision: tradeDivision
           categoryCode: categoryCode
-          class: class
+          naicsCode: naicsCode
       properties:
-        sic:
-          $ref: '#/components/schemas/ZonesSic'
-        category:
-          $ref: '#/components/schemas/Category'
-        alternateIndustryCode:
+        addresses:
+          items:
+            $ref: '#/components/schemas/ZonesAddress'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/POIBoundaryPreferences'
+      required:
+      - addresses
+      type: object
+    GeometryCRC:
+      example:
+        type: type
+        properties:
+          name: name
+      properties:
+        type:
           type: string
+        properties:
+          $ref: '#/components/schemas/GeometryProperties'
+      type: object
+    BoundaryPoint:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    POIBoundaryLocationRequest:
+      example:
+        preferences:
+          sicCode: sicCode
+          categoryCode: categoryCode
+          naicsCode: naicsCode
+        locations:
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+      properties:
+        locations:
+          items:
+            $ref: '#/components/schemas/POIBoundaryLocations'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/POIBoundaryPreferences'
+      required:
+      - locations
       type: object
     ZonesAddress:
       example:
@@ -851,570 +958,14 @@ components:
               type: boolean
           type: array
       type: object
-    basicBoundary:
+    EmployeeCount:
       example:
-        distance:
-          unit: unit
-          value: value
-        center:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
-        geometry:
-          coordinates:
-          - - - 6.027456183070403
-              - 6.027456183070403
-            - - 6.027456183070403
-              - 6.027456183070403
-          - - - 6.027456183070403
-              - 6.027456183070403
-            - - 6.027456183070403
-              - 6.027456183070403
-          type: type
-        matchedAddress:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
+        inLocalBranch: inLocalBranch
+        inOrganization: inOrganization
       properties:
-        center:
-          $ref: '#/components/schemas/BoundaryPoint'
-        distance:
-          $ref: '#/components/schemas/distance'
-        geometry:
-          $ref: '#/components/schemas/ZonesBoundaryGeometry'
-        matchedAddress:
-          $ref: '#/components/schemas/ZonesAddress'
-      type: object
-    ZonesGeometry:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
-      properties:
-        type:
+        inLocalBranch:
           type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      required:
-      - type
-      type: object
-    poiBoundary:
-      example:
-        countyfips: countyfips
-        center:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
-        poiList:
-        - brandName: brandName
-          open24Hours: open24Hours
-          tickerSymbol: tickerSymbol
-          contactDetails:
-            address:
-              country: country
-              streetSide: streetSide
-              city: city
-              displayName: displayName
-              postalCode: postalCode
-              latitude: latitude
-              businessName: businessName
-              county: county
-              unitType: unitType
-              streetName: streetName
-              formattedAddress: formattedAddress
-              addressLine1: addressLine1
-              mainAddressLine: mainAddressLine
-              addressLine2: addressLine2
-              addressLine3: addressLine3
-              objectId: objectId
-              addressLastLine: addressLastLine
-              longitude: longitude
-              unitValue: unitValue
-              stateProvince: stateProvince
-              urbanizationName: urbanizationName
-              areaName1: areaName1
-              areaName2: areaName2
-              areaName3: areaName3
-              areaName4: areaName4
-              addressNumber: addressNumber
-              postCode: postCode
-              postCodeExt: postCodeExt
-              placeName: placeName
-              status: status
-            propertyAddress:
-              country: country
-              streetSide: streetSide
-              city: city
-              displayName: displayName
-              postalCode: postalCode
-              latitude: latitude
-              businessName: businessName
-              county: county
-              unitType: unitType
-              streetName: streetName
-              formattedAddress: formattedAddress
-              addressLine1: addressLine1
-              mainAddressLine: mainAddressLine
-              addressLine2: addressLine2
-              addressLine3: addressLine3
-              objectId: objectId
-              addressLastLine: addressLastLine
-              longitude: longitude
-              unitValue: unitValue
-              stateProvince: stateProvince
-              urbanizationName: urbanizationName
-              areaName1: areaName1
-              areaName2: areaName2
-              areaName3: areaName3
-              areaName4: areaName4
-              addressNumber: addressNumber
-              postCode: postCode
-              postCodeExt: postCodeExt
-              placeName: placeName
-              status: status
-          employeeCount:
-            inLocalBranch: inLocalBranch
-            inOrganization: inOrganization
-          poiClassification:
-            alternateIndustryCode: alternateIndustryCode
-            sic:
-              sicCode: sicCode
-              primarySicCode: primarySicCode
-              businessLine: businessLine
-              sicCodeDescription: sicCodeDescription
-            category:
-              tradeGroup: tradeGroup
-              subClass: subClass
-              tradeDivision: tradeDivision
-              categoryCode: categoryCode
-              class: class
-          organizationStatusCode: organizationStatusCode
-          tradeName: tradeName
-          organizationStatusCodeDescription: organizationStatusCodeDescription
-          name: name
-          parentBusiness:
-            name: name
-          exchangeName: exchangeName
-          id: id
-          franchiseName: franchiseName
-        - brandName: brandName
-          open24Hours: open24Hours
-          tickerSymbol: tickerSymbol
-          contactDetails:
-            address:
-              country: country
-              streetSide: streetSide
-              city: city
-              displayName: displayName
-              postalCode: postalCode
-              latitude: latitude
-              businessName: businessName
-              county: county
-              unitType: unitType
-              streetName: streetName
-              formattedAddress: formattedAddress
-              addressLine1: addressLine1
-              mainAddressLine: mainAddressLine
-              addressLine2: addressLine2
-              addressLine3: addressLine3
-              objectId: objectId
-              addressLastLine: addressLastLine
-              longitude: longitude
-              unitValue: unitValue
-              stateProvince: stateProvince
-              urbanizationName: urbanizationName
-              areaName1: areaName1
-              areaName2: areaName2
-              areaName3: areaName3
-              areaName4: areaName4
-              addressNumber: addressNumber
-              postCode: postCode
-              postCodeExt: postCodeExt
-              placeName: placeName
-              status: status
-            propertyAddress:
-              country: country
-              streetSide: streetSide
-              city: city
-              displayName: displayName
-              postalCode: postalCode
-              latitude: latitude
-              businessName: businessName
-              county: county
-              unitType: unitType
-              streetName: streetName
-              formattedAddress: formattedAddress
-              addressLine1: addressLine1
-              mainAddressLine: mainAddressLine
-              addressLine2: addressLine2
-              addressLine3: addressLine3
-              objectId: objectId
-              addressLastLine: addressLastLine
-              longitude: longitude
-              unitValue: unitValue
-              stateProvince: stateProvince
-              urbanizationName: urbanizationName
-              areaName1: areaName1
-              areaName2: areaName2
-              areaName3: areaName3
-              areaName4: areaName4
-              addressNumber: addressNumber
-              postCode: postCode
-              postCodeExt: postCodeExt
-              placeName: placeName
-              status: status
-          employeeCount:
-            inLocalBranch: inLocalBranch
-            inOrganization: inOrganization
-          poiClassification:
-            alternateIndustryCode: alternateIndustryCode
-            sic:
-              sicCode: sicCode
-              primarySicCode: primarySicCode
-              businessLine: businessLine
-              sicCodeDescription: sicCodeDescription
-            category:
-              tradeGroup: tradeGroup
-              subClass: subClass
-              tradeDivision: tradeDivision
-              categoryCode: categoryCode
-              class: class
-          organizationStatusCode: organizationStatusCode
-          tradeName: tradeName
-          organizationStatusCodeDescription: organizationStatusCodeDescription
-          name: name
-          parentBusiness:
-            name: name
-          exchangeName: exchangeName
-          id: id
-          franchiseName: franchiseName
-        geometry:
-          crs:
-            type: type
-            properties:
-              name: name
-          coordinates: '{}'
-          type: type
-        id: id
-        objectId: objectId
-        matchedAddress:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-      properties:
-        objectId:
-          type: string
-        center:
-          $ref: '#/components/schemas/Center'
-        countyfips:
-          type: string
-        geometry:
-          $ref: '#/components/schemas/ZonesPoiGeometry'
-        poiList:
-          items:
-            $ref: '#/components/schemas/ZonesPoi'
-          type: array
-        matchedAddress:
-          $ref: '#/components/schemas/ZonesAddress'
-        id:
-          type: string
-      type: object
-    BoundaryPoint:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      type: object
-    GeometryProperties:
-      example:
-        name: name
-      properties:
-        name:
-          type: string
-      type: object
-    Center:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      type: object
-    ZonesSic:
-      example:
-        sicCode: sicCode
-        primarySicCode: primarySicCode
-        businessLine: businessLine
-        sicCodeDescription: sicCodeDescription
-      properties:
-        businessLine:
-          type: string
-        sicCode:
-          type: string
-        sicCodeDescription:
-          type: string
-        primarySicCode:
-          type: string
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    ZonesContactDetails:
-      example:
-        address:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        propertyAddress:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-      properties:
-        address:
-          $ref: '#/components/schemas/ZonesAddress'
-        propertyAddress:
-          $ref: '#/components/schemas/ZonesAddress'
-      type: object
-    POIBoundaryAddressRequest:
-      example:
-        addresses:
-        - country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        - country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        preferences:
-          sicCode: sicCode
-          categoryCode: categoryCode
-          naicsCode: naicsCode
-      properties:
-        addresses:
-          items:
-            $ref: '#/components/schemas/ZonesAddress'
-          type: array
-        preferences:
-          $ref: '#/components/schemas/POIBoundaryPreferences'
-      required:
-      - addresses
-      type: object
-    ZonesParentBusiness:
-      example:
-        name: name
-      properties:
-        name:
-          type: string
-      type: object
-    GeometryCRC:
-      example:
-        type: type
-        properties:
-          name: name
-      properties:
-        type:
-          type: string
-        properties:
-          $ref: '#/components/schemas/GeometryProperties'
-      type: object
-    POIBoundaryPreferences:
-      example:
-        sicCode: sicCode
-        categoryCode: categoryCode
-        naicsCode: naicsCode
-      properties:
-        categoryCode:
-          type: string
-        sicCode:
-          type: string
-        naicsCode:
+        inOrganization:
           type: string
       type: object
     ZonesBoundaryGeometry:
@@ -1441,37 +992,6 @@ components:
               type: array
             type: array
           type: array
-      type: object
-    POIBoundaryLocationRequest:
-      example:
-        preferences:
-          sicCode: sicCode
-          categoryCode: categoryCode
-          naicsCode: naicsCode
-        locations:
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-      properties:
-        locations:
-          items:
-            $ref: '#/components/schemas/POIBoundaryLocations'
-          type: array
-        preferences:
-          $ref: '#/components/schemas/POIBoundaryPreferences'
-      required:
-      - locations
       type: object
     Cost:
       example:
@@ -1504,14 +1024,28 @@ components:
         geometry:
           $ref: '#/components/schemas/DirectionGeometry'
       type: object
-    EmployeeCount:
+    distance:
       example:
-        inLocalBranch: inLocalBranch
-        inOrganization: inOrganization
+        unit: unit
+        value: value
       properties:
-        inLocalBranch:
+        unit:
           type: string
-        inOrganization:
+        value:
+          type: string
+      type: object
+    ZonesParentBusiness:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
           type: string
       type: object
     POIBoundaryLocations:
@@ -1532,6 +1066,23 @@ components:
           type: string
       required:
       - geometry
+      type: object
+    ZonesGeometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      required:
+      - type
       type: object
     POIBoundaryResponse:
       example:
@@ -2000,6 +1551,317 @@ components:
             $ref: '#/components/schemas/poiBoundary'
           type: array
       type: object
+    poiBoundary:
+      example:
+        countyfips: countyfips
+        center:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        poiList:
+        - brandName: brandName
+          open24Hours: open24Hours
+          tickerSymbol: tickerSymbol
+          contactDetails:
+            address:
+              country: country
+              streetSide: streetSide
+              city: city
+              displayName: displayName
+              postalCode: postalCode
+              latitude: latitude
+              businessName: businessName
+              county: county
+              unitType: unitType
+              streetName: streetName
+              formattedAddress: formattedAddress
+              addressLine1: addressLine1
+              mainAddressLine: mainAddressLine
+              addressLine2: addressLine2
+              addressLine3: addressLine3
+              objectId: objectId
+              addressLastLine: addressLastLine
+              longitude: longitude
+              unitValue: unitValue
+              stateProvince: stateProvince
+              urbanizationName: urbanizationName
+              areaName1: areaName1
+              areaName2: areaName2
+              areaName3: areaName3
+              areaName4: areaName4
+              addressNumber: addressNumber
+              postCode: postCode
+              postCodeExt: postCodeExt
+              placeName: placeName
+              status: status
+            propertyAddress:
+              country: country
+              streetSide: streetSide
+              city: city
+              displayName: displayName
+              postalCode: postalCode
+              latitude: latitude
+              businessName: businessName
+              county: county
+              unitType: unitType
+              streetName: streetName
+              formattedAddress: formattedAddress
+              addressLine1: addressLine1
+              mainAddressLine: mainAddressLine
+              addressLine2: addressLine2
+              addressLine3: addressLine3
+              objectId: objectId
+              addressLastLine: addressLastLine
+              longitude: longitude
+              unitValue: unitValue
+              stateProvince: stateProvince
+              urbanizationName: urbanizationName
+              areaName1: areaName1
+              areaName2: areaName2
+              areaName3: areaName3
+              areaName4: areaName4
+              addressNumber: addressNumber
+              postCode: postCode
+              postCodeExt: postCodeExt
+              placeName: placeName
+              status: status
+          employeeCount:
+            inLocalBranch: inLocalBranch
+            inOrganization: inOrganization
+          poiClassification:
+            alternateIndustryCode: alternateIndustryCode
+            sic:
+              sicCode: sicCode
+              primarySicCode: primarySicCode
+              businessLine: businessLine
+              sicCodeDescription: sicCodeDescription
+            category:
+              tradeGroup: tradeGroup
+              subClass: subClass
+              tradeDivision: tradeDivision
+              categoryCode: categoryCode
+              class: class
+          organizationStatusCode: organizationStatusCode
+          tradeName: tradeName
+          organizationStatusCodeDescription: organizationStatusCodeDescription
+          name: name
+          parentBusiness:
+            name: name
+          exchangeName: exchangeName
+          id: id
+          franchiseName: franchiseName
+        - brandName: brandName
+          open24Hours: open24Hours
+          tickerSymbol: tickerSymbol
+          contactDetails:
+            address:
+              country: country
+              streetSide: streetSide
+              city: city
+              displayName: displayName
+              postalCode: postalCode
+              latitude: latitude
+              businessName: businessName
+              county: county
+              unitType: unitType
+              streetName: streetName
+              formattedAddress: formattedAddress
+              addressLine1: addressLine1
+              mainAddressLine: mainAddressLine
+              addressLine2: addressLine2
+              addressLine3: addressLine3
+              objectId: objectId
+              addressLastLine: addressLastLine
+              longitude: longitude
+              unitValue: unitValue
+              stateProvince: stateProvince
+              urbanizationName: urbanizationName
+              areaName1: areaName1
+              areaName2: areaName2
+              areaName3: areaName3
+              areaName4: areaName4
+              addressNumber: addressNumber
+              postCode: postCode
+              postCodeExt: postCodeExt
+              placeName: placeName
+              status: status
+            propertyAddress:
+              country: country
+              streetSide: streetSide
+              city: city
+              displayName: displayName
+              postalCode: postalCode
+              latitude: latitude
+              businessName: businessName
+              county: county
+              unitType: unitType
+              streetName: streetName
+              formattedAddress: formattedAddress
+              addressLine1: addressLine1
+              mainAddressLine: mainAddressLine
+              addressLine2: addressLine2
+              addressLine3: addressLine3
+              objectId: objectId
+              addressLastLine: addressLastLine
+              longitude: longitude
+              unitValue: unitValue
+              stateProvince: stateProvince
+              urbanizationName: urbanizationName
+              areaName1: areaName1
+              areaName2: areaName2
+              areaName3: areaName3
+              areaName4: areaName4
+              addressNumber: addressNumber
+              postCode: postCode
+              postCodeExt: postCodeExt
+              placeName: placeName
+              status: status
+          employeeCount:
+            inLocalBranch: inLocalBranch
+            inOrganization: inOrganization
+          poiClassification:
+            alternateIndustryCode: alternateIndustryCode
+            sic:
+              sicCode: sicCode
+              primarySicCode: primarySicCode
+              businessLine: businessLine
+              sicCodeDescription: sicCodeDescription
+            category:
+              tradeGroup: tradeGroup
+              subClass: subClass
+              tradeDivision: tradeDivision
+              categoryCode: categoryCode
+              class: class
+          organizationStatusCode: organizationStatusCode
+          tradeName: tradeName
+          organizationStatusCodeDescription: organizationStatusCodeDescription
+          name: name
+          parentBusiness:
+            name: name
+          exchangeName: exchangeName
+          id: id
+          franchiseName: franchiseName
+        geometry:
+          crs:
+            type: type
+            properties:
+              name: name
+          coordinates: '{}'
+          type: type
+        id: id
+        objectId: objectId
+        matchedAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+      properties:
+        objectId:
+          type: string
+        center:
+          $ref: '#/components/schemas/Center'
+        countyfips:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/ZonesPoiGeometry'
+        poiList:
+          items:
+            $ref: '#/components/schemas/ZonesPoi'
+          type: array
+        matchedAddress:
+          $ref: '#/components/schemas/ZonesAddress'
+        id:
+          type: string
+      type: object
+    basicBoundary:
+      example:
+        distance:
+          unit: unit
+          value: value
+        center:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        geometry:
+          coordinates:
+          - - - 6.027456183070403
+              - 6.027456183070403
+            - - 6.027456183070403
+              - 6.027456183070403
+          - - - 6.027456183070403
+              - 6.027456183070403
+            - - 6.027456183070403
+              - 6.027456183070403
+          type: type
+        matchedAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+      properties:
+        center:
+          $ref: '#/components/schemas/BoundaryPoint'
+        distance:
+          $ref: '#/components/schemas/distance'
+        geometry:
+          $ref: '#/components/schemas/ZonesBoundaryGeometry'
+        matchedAddress:
+          $ref: '#/components/schemas/ZonesAddress'
+      type: object
     ZonesPoi:
       example:
         brandName: brandName
@@ -2130,31 +1992,53 @@ components:
             $ref: '#/components/schemas/ErrorCode'
           type: array
       type: object
-    distance:
+    Category:
       example:
-        unit: unit
-        value: value
+        tradeGroup: tradeGroup
+        subClass: subClass
+        tradeDivision: tradeDivision
+        categoryCode: categoryCode
+        class: class
       properties:
-        unit:
+        categoryCode:
           type: string
-        value:
+        tradeDivision:
+          type: string
+        tradeGroup:
+          type: string
+        subClass:
+          type: string
+        class:
           type: string
       type: object
-    ZonesPoiGeometry:
+    ZonesPoiClassification:
       example:
-        crs:
-          type: type
-          properties:
-            name: name
-        coordinates: '{}'
-        type: type
+        alternateIndustryCode: alternateIndustryCode
+        sic:
+          sicCode: sicCode
+          primarySicCode: primarySicCode
+          businessLine: businessLine
+          sicCodeDescription: sicCodeDescription
+        category:
+          tradeGroup: tradeGroup
+          subClass: subClass
+          tradeDivision: tradeDivision
+          categoryCode: categoryCode
+          class: class
       properties:
-        type:
+        sic:
+          $ref: '#/components/schemas/ZonesSic'
+        category:
+          $ref: '#/components/schemas/Category'
+        alternateIndustryCode:
           type: string
-        crs:
-          $ref: '#/components/schemas/GeometryCRC'
-        coordinates:
-          type: object
+      type: object
+    GeometryProperties:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
       type: object
     DirectionGeometry:
       example:
@@ -2190,6 +2074,120 @@ components:
               type: array
             type: array
           type: array
+      type: object
+    ZonesContactDetails:
+      example:
+        address:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        propertyAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+      properties:
+        address:
+          $ref: '#/components/schemas/ZonesAddress'
+        propertyAddress:
+          $ref: '#/components/schemas/ZonesAddress'
+      type: object
+    POIBoundaryPreferences:
+      example:
+        sicCode: sicCode
+        categoryCode: categoryCode
+        naicsCode: naicsCode
+      properties:
+        categoryCode:
+          type: string
+        sicCode:
+          type: string
+        naicsCode:
+          type: string
+      type: object
+    Center:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    ZonesSic:
+      example:
+        sicCode: sicCode
+        primarySicCode: primarySicCode
+        businessLine: businessLine
+        sicCodeDescription: sicCodeDescription
+      properties:
+        businessLine:
+          type: string
+        sicCode:
+          type: string
+        sicCodeDescription:
+          type: string
+        primarySicCode:
+          type: string
       type: object
   securitySchemes:
     oAuth2Password:

@@ -3,9 +3,7 @@ info:
   contact:
     name: Precisely APIs Support
     url: https://support.precisely.com
-  description: '
-
-    Demographics. Audience Enrichment. Add local demographics and lifestyle
+  description: 'Demographics. Audience Enrichment. Add local demographics and lifestyle
 
     segmentation to your audience profiles. The Demographics API returns
 
@@ -72,32 +70,18 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Place By Location.
+      summary: Place By Location
       tags:
       - Place
       x-accepts: application/json
 components:
   schemas:
-    place:
-      example:
-        level: level
-        name:
-        - langISOCode: langISOCode
-          langType: langType
-          value: value
-        - langISOCode: langISOCode
-          langType: langType
-          value: value
-        levelName: levelName
+    ErrorInfo_1:
       properties:
-        name:
+        errors:
           items:
-            $ref: '#/components/schemas/name'
+            $ref: '#/components/schemas/ErrorCode'
           type: array
-        levelName:
-          type: string
-        level:
-          type: string
       type: object
     ErrorCode:
       properties:
@@ -106,12 +90,34 @@ components:
         errorDescription:
           type: string
       type: object
-    ErrorInfo_1:
+    name:
+      example:
+        langISOCode: langISOCode
+        langType: langType
+        value: value
       properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
+        langISOCode:
+          type: string
+        langType:
+          type: string
+        value:
+          type: string
+      type: object
+    location:
+      example:
+        place:
+          level: level
+          name:
+          - langISOCode: langISOCode
+            langType: langType
+            value: value
+          - langISOCode: langISOCode
+            langType: langType
+            value: value
+          levelName: levelName
+      properties:
+        place:
+          $ref: '#/components/schemas/place'
       type: object
     NeighborhoodsResponse:
       example:
@@ -142,34 +148,26 @@ components:
             $ref: '#/components/schemas/location'
           type: array
       type: object
-    name:
+    place:
       example:
-        langISOCode: langISOCode
-        langType: langType
-        value: value
+        level: level
+        name:
+        - langISOCode: langISOCode
+          langType: langType
+          value: value
+        - langISOCode: langISOCode
+          langType: langType
+          value: value
+        levelName: levelName
       properties:
-        langISOCode:
+        name:
+          items:
+            $ref: '#/components/schemas/name'
+          type: array
+        levelName:
           type: string
-        langType:
+        level:
           type: string
-        value:
-          type: string
-      type: object
-    location:
-      example:
-        place:
-          level: level
-          name:
-          - langISOCode: langISOCode
-            langType: langType
-            value: value
-          - langISOCode: langISOCode
-            langType: langType
-            value: value
-          levelName: levelName
-      properties:
-        place:
-          $ref: '#/components/schemas/place'
       type: object
   securitySchemes:
     oAuth2Password:

@@ -3,9 +3,7 @@ info:
   contact:
     name: Precisely APIs Support
     url: https://support.precisely.com
-  description: '
-
-    Demographics. Audience Enrichment. Add local demographics and lifestyle
+  description: 'Demographics. Audience Enrichment. Add local demographics and lifestyle
 
     segmentation to your audience profiles. The Demographics API returns
 
@@ -124,138 +122,13 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Get IPD Tax for batch requests.
+      summary: Get IPD Tax for batch requests
       tags:
       - Taxdistrict
       x-contentType: application/json
       x-accepts: application/json
 components:
   schemas:
-    BoundaryBuffer:
-      example:
-        distanceToBorder:
-          unit: unit
-          value: value
-        bufferRelation:
-          description: description
-          value: value
-      properties:
-        bufferRelation:
-          $ref: '#/components/schemas/BufferRelation'
-        distanceToBorder:
-          $ref: '#/components/schemas/DistanceToBorder'
-      type: object
-    ErrorInfo:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-          xml:
-            name: error
-      type: object
-      xml:
-        name: errors
-    LocalTaxGeometry:
-      example:
-        coordinates:
-        - coordinates
-        - coordinates
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            type: string
-          type: array
-      required:
-      - type
-      type: object
-    ipd:
-      example:
-        districtName: districtName
-        taxCodeDescription: taxCodeDescription
-        rates:
-        - formatDescription: formatDescription
-          name: name
-          format: format
-          value: value
-        - formatDescription: formatDescription
-          name: name
-          format: format
-          value: value
-        districtType:
-          description: description
-          value: value
-        boundaryBuffer:
-          distanceToBorder:
-            unit: unit
-            value: value
-          bufferRelation:
-            description: description
-            value: value
-        id: id
-        effectiveDate: effectiveDate
-        expirationDate: expirationDate
-      properties:
-        id:
-          type: string
-          xml:
-            attribute: true
-        districtName:
-          type: string
-        districtType:
-          $ref: '#/components/schemas/DistrictType'
-        taxCodeDescription:
-          type: string
-        effectiveDate:
-          type: string
-        expirationDate:
-          type: string
-        boundaryBuffer:
-          $ref: '#/components/schemas/BoundaryBuffer'
-        rates:
-          items:
-            $ref: '#/components/schemas/rate'
-          type: array
-          xml:
-            wrapped: true
-      type: object
-      xml:
-        name: ipd
-    TaxCounty:
-      example:
-        code: code
-        name: name
-      properties:
-        code:
-          type: string
-        name:
-          type: string
-      type: object
-    Cbsa:
-      example:
-        code: code
-        name: name
-      properties:
-        name:
-          type: string
-        code:
-          type: string
-      type: object
-    BufferRelation:
-      example:
-        description: description
-        value: value
-      properties:
-        description:
-          type: string
-          xml:
-            attribute: true
-        value:
-          type: string
-      type: object
     TaxDistrictResponseList:
       example:
         taxDistrictResponse:
@@ -542,208 +415,58 @@ components:
         lastVerifiedDate:
           type: string
       type: object
-    DistrictType:
+    ipd:
       example:
-        description: description
-        value: value
+        districtName: districtName
+        taxCodeDescription: taxCodeDescription
+        rates:
+        - formatDescription: formatDescription
+          name: name
+          format: format
+          value: value
+        - formatDescription: formatDescription
+          name: name
+          format: format
+          value: value
+        districtType:
+          description: description
+          value: value
+        boundaryBuffer:
+          distanceToBorder:
+            unit: unit
+            value: value
+          bufferRelation:
+            description: description
+            value: value
+        id: id
+        effectiveDate: effectiveDate
+        expirationDate: expirationDate
       properties:
-        description:
+        id:
           type: string
           xml:
             attribute: true
-        value:
+        districtName:
           type: string
-      type: object
-    TaxRateMatchedAddress:
-      example:
-        country: country
-        streetSide: streetSide
-        city: city
-        displayName: displayName
-        postalCode: postalCode
-        latitude: latitude
-        businessName: businessName
-        county: county
-        unitType: unitType
-        streetName: streetName
-        formattedAddress: formattedAddress
-        addressLine1: addressLine1
-        mainAddressLine: mainAddressLine
-        addressLine2: addressLine2
-        addressLine3: addressLine3
-        objectId: objectId
-        addressLastLine: addressLastLine
-        longitude: longitude
-        unitValue: unitValue
-        stateProvince: stateProvince
-        urbanizationName: urbanizationName
-        areaName1: areaName1
-        postCode1: postCode1
-        areaName2: areaName2
-        areaName3: areaName3
-        areaName4: areaName4
-        addressNumber: addressNumber
-        postCode: postCode
-        postCodeExt: postCodeExt
-        placeName: placeName
-        status: status
-      properties:
-        objectId:
+        districtType:
+          $ref: '#/components/schemas/DistrictType'
+        taxCodeDescription:
           type: string
-        displayName:
+        effectiveDate:
           type: string
-        streetSide:
+        expirationDate:
           type: string
-        businessName:
-          type: string
-        addressLine1:
-          type: string
-        addressLine2:
-          type: string
-        addressLine3:
-          type: string
-        city:
-          type: string
-        stateProvince:
-          type: string
-        county:
-          type: string
-        postalCode:
-          type: string
-        latitude:
-          type: string
-        longitude:
-          type: string
-        status:
-          type: string
-        urbanizationName:
-          type: string
-        formattedAddress:
-          type: string
-        mainAddressLine:
-          type: string
-        addressLastLine:
-          type: string
-        placeName:
-          type: string
-        areaName1:
-          type: string
-        areaName2:
-          type: string
-        areaName3:
-          type: string
-        areaName4:
-          type: string
-        postCode:
-          type: string
-        postCode1:
-          type: string
-        postCodeExt:
-          type: string
-        country:
-          type: string
-        addressNumber:
-          type: string
-        streetName:
-          type: string
-        unitType:
-          type: string
-        unitValue:
-          type: string
+        boundaryBuffer:
+          $ref: '#/components/schemas/BoundaryBuffer'
+        rates:
+          items:
+            $ref: '#/components/schemas/rate'
+          type: array
+          xml:
+            wrapped: true
       type: object
       xml:
-        name: address
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    LocalTaxPreferences:
-      example:
-        squeeze: squeeze
-        customPreferences:
-          key: '{}'
-        defaultBufferWidth: defaultBufferWidth
-        taxRatetypeID: taxRatetypeID
-        latLongFormat: latLongFormat
-        outputCasing: outputCasing
-        useGeoTaxAuxiliaryFile: useGeoTaxAuxiliaryFile
-        returnLatLongFields: returnLatLongFields
-        distanceUnits: distanceUnits
-        fallbackToGeographic: fallbackToGeographic
-        latLongOffset: latLongOffset
-        matchMode: matchMode
-        returnCensusFields: returnCensusFields
-      properties:
-        customPreferences:
-          additionalProperties:
-            type: object
-          type: object
-        defaultBufferWidth:
-          type: string
-        distanceUnits:
-          type: string
-        fallbackToGeographic:
-          type: string
-        latLongFormat:
-          type: string
-        latLongOffset:
-          type: string
-        matchMode:
-          type: string
-        outputCasing:
-          type: string
-        returnCensusFields:
-          type: string
-        returnLatLongFields:
-          type: string
-        squeeze:
-          type: string
-        taxRatetypeID:
-          type: string
-        useGeoTaxAuxiliaryFile:
-          type: string
-      required:
-      - fallbackToGeographic
-      type: object
-    IPDTaxJurisdiction:
-      example:
-        county:
-          code: code
-          name: name
-        state:
-          code: code
-          name: name
-        place:
-          lastVerifiedDate: lastVerifiedDate
-          classCode: classCode
-          lastAnnexedDate: lastAnnexedDate
-          lastUpdatedDate: lastUpdatedDate
-          code: code
-          gnisCode: gnisCode
-          name: name
-          selfCollected: true
-          incorporatedFlag: incorporatedFlag
-      properties:
-        state:
-          $ref: '#/components/schemas/TaxState'
-        county:
-          $ref: '#/components/schemas/TaxCounty'
-        place:
-          $ref: '#/components/schemas/TaxPlace'
-      type: object
-    Mcd:
-      example:
-        code: code
-        name: name
-      properties:
-        name:
-          type: string
-        code:
-          type: string
-      type: object
+        name: ipd
     LatLongFields:
       example:
         matchCode: matchCode
@@ -791,18 +514,24 @@ components:
       type: object
       xml:
         name: rate
-    DistanceToBorder:
-      example:
-        unit: unit
-        value: value
+    ErrorCode:
       properties:
-        unit:
+        errorCode:
           type: string
-          xml:
-            attribute: true
-        value:
+        errorDescription:
           type: string
       type: object
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
     Census:
       example:
         cbsa:
@@ -825,6 +554,16 @@ components:
           type: string
         mcd:
           $ref: '#/components/schemas/Mcd'
+      type: object
+    Mcd:
+      example:
+        code: code
+        name: name
+      properties:
+        name:
+          type: string
+        code:
+          type: string
       type: object
     IPDTaxByAddressBatchRequest:
       example:
@@ -920,15 +659,21 @@ components:
       type: object
       xml:
         name: taxDistrictAddressRequest
-    TaxState:
+    LocalTaxGeometry:
       example:
-        code: code
-        name: name
+        coordinates:
+        - coordinates
+        - coordinates
+        type: type
       properties:
-        code:
+        type:
           type: string
-        name:
-          type: string
+        coordinates:
+          items:
+            type: string
+          type: array
+      required:
+      - type
       type: object
     TaxDistrictResponse:
       example:
@@ -1082,6 +827,259 @@ components:
       type: object
       xml:
         name: taxDistrictResponse
+    DistrictType:
+      example:
+        description: description
+        value: value
+      properties:
+        description:
+          type: string
+          xml:
+            attribute: true
+        value:
+          type: string
+      type: object
+    LocalTaxPreferences:
+      example:
+        squeeze: squeeze
+        customPreferences:
+          key: '{}'
+        defaultBufferWidth: defaultBufferWidth
+        taxRatetypeID: taxRatetypeID
+        latLongFormat: latLongFormat
+        outputCasing: outputCasing
+        useGeoTaxAuxiliaryFile: useGeoTaxAuxiliaryFile
+        returnLatLongFields: returnLatLongFields
+        distanceUnits: distanceUnits
+        fallbackToGeographic: fallbackToGeographic
+        latLongOffset: latLongOffset
+        matchMode: matchMode
+        returnCensusFields: returnCensusFields
+      properties:
+        customPreferences:
+          additionalProperties:
+            type: object
+          type: object
+        defaultBufferWidth:
+          type: string
+        distanceUnits:
+          type: string
+        fallbackToGeographic:
+          type: string
+        latLongFormat:
+          type: string
+        latLongOffset:
+          type: string
+        matchMode:
+          type: string
+        outputCasing:
+          type: string
+        returnCensusFields:
+          type: string
+        returnLatLongFields:
+          type: string
+        squeeze:
+          type: string
+        taxRatetypeID:
+          type: string
+        useGeoTaxAuxiliaryFile:
+          type: string
+      required:
+      - fallbackToGeographic
+      type: object
+    TaxState:
+      example:
+        code: code
+        name: name
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+      type: object
+    TaxRateMatchedAddress:
+      example:
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        postCode1: postCode1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
+      properties:
+        objectId:
+          type: string
+        displayName:
+          type: string
+        streetSide:
+          type: string
+        businessName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCode1:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+      type: object
+      xml:
+        name: address
+    Cbsa:
+      example:
+        code: code
+        name: name
+      properties:
+        name:
+          type: string
+        code:
+          type: string
+      type: object
+    IPDTaxJurisdiction:
+      example:
+        county:
+          code: code
+          name: name
+        state:
+          code: code
+          name: name
+        place:
+          lastVerifiedDate: lastVerifiedDate
+          classCode: classCode
+          lastAnnexedDate: lastAnnexedDate
+          lastUpdatedDate: lastUpdatedDate
+          code: code
+          gnisCode: gnisCode
+          name: name
+          selfCollected: true
+          incorporatedFlag: incorporatedFlag
+      properties:
+        state:
+          $ref: '#/components/schemas/TaxState'
+        county:
+          $ref: '#/components/schemas/TaxCounty'
+        place:
+          $ref: '#/components/schemas/TaxPlace'
+      type: object
+    BoundaryBuffer:
+      example:
+        distanceToBorder:
+          unit: unit
+          value: value
+        bufferRelation:
+          description: description
+          value: value
+      properties:
+        bufferRelation:
+          $ref: '#/components/schemas/BufferRelation'
+        distanceToBorder:
+          $ref: '#/components/schemas/DistanceToBorder'
+      type: object
+    BufferRelation:
+      example:
+        description: description
+        value: value
+      properties:
+        description:
+          type: string
+          xml:
+            attribute: true
+        value:
+          type: string
+      type: object
+    TaxCounty:
+      example:
+        code: code
+        name: name
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+      type: object
+    DistanceToBorder:
+      example:
+        unit: unit
+        value: value
+      properties:
+        unit:
+          type: string
+          xml:
+            attribute: true
+        value:
+          type: string
+      type: object
   securitySchemes:
     oAuth2Password:
       flows:

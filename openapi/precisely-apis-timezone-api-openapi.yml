@@ -3,9 +3,7 @@ info:
   contact:
     name: Precisely APIs Support
     url: https://support.precisely.com
-  description: '
-
-    Demographics. Audience Enrichment. Add local demographics and lifestyle
+  description: 'Demographics. Audience Enrichment. Add local demographics and lifestyle
 
     segmentation to your audience profiles. The Demographics API returns
 
@@ -72,7 +70,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Timezone By Location.
+      summary: Timezone By Location
       tags:
       - Timezone
       x-accepts: application/json
@@ -106,7 +104,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Timezone Batch by Location.
+      summary: Timezone Batch by Location
       tags:
       - Timezone
       x-contentType: application/json
@@ -163,7 +161,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Timezone By Address.
+      summary: Timezone By Address
       tags:
       - Timezone
       x-accepts: application/json
@@ -197,120 +195,24 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Timezone Batch by Address.
+      summary: Timezone Batch by Address
       tags:
       - Timezone
       x-contentType: application/json
       x-accepts: application/json
 components:
   schemas:
-    ErrorCode:
+    TimezoneGeometry:
       properties:
-        errorCode:
+        type:
           type: string
-        errorDescription:
-          type: string
-      type: object
-    addressTime:
-      properties:
-        timestamp:
-          type: string
-        address:
-          $ref: '#/components/schemas/address_1'
-      type: object
-    TimezoneResponse:
-      example:
-        tzValidFrom: tzValidFrom
-        country: country
-        dstEndTime: dstEndTime
-        dstEndDateFormat: dstEndDateFormat
-        utcOffset: 0
-        dstStartDate: dstStartDate
-        dstStartTime: dstStartTime
-        zoneType: zoneType
-        dstOffset: 6
-        dstValidFrom: dstValidFrom
-        tzValidUntill: tzValidUntill
-        matchedAddress:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        dstRule: dstRule
-        timezoneName: timezoneName
-        dstStartDateFormat: dstStartDateFormat
-        dstValidUntill: dstValidUntill
-        objectId: objectId
-        timestamp: 1
-        dstEndDate: dstEndDate
-      properties:
-        objectId:
-          type: string
-        timezoneName:
-          type: string
-        zoneType:
-          type: string
-        utcOffset:
-          format: int64
-          type: integer
-        dstOffset:
-          format: int64
-          type: integer
-        timestamp:
-          format: int64
-          type: integer
-        matchedAddress:
-          $ref: '#/components/schemas/address_1'
-        country:
-          type: string
-        tzValidFrom:
-          type: string
-        tzValidUntill:
-          type: string
-        dstRule:
-          type: string
-        dstValidFrom:
-          type: string
-        dstValidUntill:
-          type: string
-        dstStartDateFormat:
-          type: string
-        dstEndDateFormat:
-          type: string
-        dstStartDate:
-          type: string
-        dstStartTime:
-          type: string
-        dstEndTime:
-          type: string
-        dstEndDate:
-          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      required:
+      - type
       type: object
     ErrorInfo_1:
       properties:
@@ -319,98 +221,25 @@ components:
             $ref: '#/components/schemas/ErrorCode'
           type: array
       type: object
-    address_1:
-      example:
-        country: country
-        streetSide: streetSide
-        city: city
-        displayName: displayName
-        postalCode: postalCode
-        latitude: latitude
-        businessName: businessName
-        county: county
-        unitType: unitType
-        streetName: streetName
-        formattedAddress: formattedAddress
-        addressLine1: addressLine1
-        mainAddressLine: mainAddressLine
-        addressLine2: addressLine2
-        addressLine3: addressLine3
-        objectId: objectId
-        addressLastLine: addressLastLine
-        longitude: longitude
-        unitValue: unitValue
-        stateProvince: stateProvince
-        urbanizationName: urbanizationName
-        areaName1: areaName1
-        areaName2: areaName2
-        areaName3: areaName3
-        areaName4: areaName4
-        addressNumber: addressNumber
-        postCode: postCode
-        postCodeExt: postCodeExt
-        placeName: placeName
-        status: status
+    timezoneLocationRequest:
       properties:
-        objectId:
+        locationTime:
+          items:
+            $ref: '#/components/schemas/locationTime'
+          type: array
+      type: object
+    addressTime:
+      properties:
+        timestamp:
           type: string
-        displayName:
+        address:
+          $ref: '#/components/schemas/address_1'
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
           type: string
-        streetSide:
-          type: string
-        businessName:
-          type: string
-        addressLine1:
-          type: string
-        addressLine2:
-          type: string
-        addressLine3:
-          type: string
-        city:
-          type: string
-        stateProvince:
-          type: string
-        county:
-          type: string
-        postalCode:
-          type: string
-        latitude:
-          type: string
-        longitude:
-          type: string
-        status:
-          type: string
-        urbanizationName:
-          type: string
-        formattedAddress:
-          type: string
-        mainAddressLine:
-          type: string
-        addressLastLine:
-          type: string
-        placeName:
-          type: string
-        areaName1:
-          type: string
-        areaName2:
-          type: string
-        areaName3:
-          type: string
-        areaName4:
-          type: string
-        postCode:
-          type: string
-        postCodeExt:
-          type: string
-        country:
-          type: string
-        addressNumber:
-          type: string
-        streetName:
-          type: string
-        unitType:
-          type: string
-        unitValue:
+        errorDescription:
           type: string
       type: object
     locationTime:
@@ -425,15 +254,6 @@ components:
           type: string
       required:
       - geometry
-      type: object
-    timezoneAddressRequest:
-      properties:
-        preferences:
-          $ref: '#/components/schemas/PreferencTimeZone'
-        addressTime:
-          items:
-            $ref: '#/components/schemas/addressTime'
-          type: array
       type: object
     TimezoneResponseList:
       example:
@@ -542,29 +362,207 @@ components:
             $ref: '#/components/schemas/TimezoneResponse'
           type: array
       type: object
-    TimezoneGeometry:
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      required:
-      - type
-      type: object
-    timezoneLocationRequest:
-      properties:
-        locationTime:
-          items:
-            $ref: '#/components/schemas/locationTime'
-          type: array
-      type: object
     PreferencTimeZone:
       properties:
         matchMode:
           type: string
+      type: object
+    address_1:
+      example:
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
+      properties:
+        objectId:
+          type: string
+        displayName:
+          type: string
+        streetSide:
+          type: string
+        businessName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+      type: object
+    TimezoneResponse:
+      example:
+        tzValidFrom: tzValidFrom
+        country: country
+        dstEndTime: dstEndTime
+        dstEndDateFormat: dstEndDateFormat
+        utcOffset: 0
+        dstStartDate: dstStartDate
+        dstStartTime: dstStartTime
+        zoneType: zoneType
+        dstOffset: 6
+        dstValidFrom: dstValidFrom
+        tzValidUntill: tzValidUntill
+        matchedAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        dstRule: dstRule
+        timezoneName: timezoneName
+        dstStartDateFormat: dstStartDateFormat
+        dstValidUntill: dstValidUntill
+        objectId: objectId
+        timestamp: 1
+        dstEndDate: dstEndDate
+      properties:
+        objectId:
+          type: string
+        timezoneName:
+          type: string
+        zoneType:
+          type: string
+        utcOffset:
+          format: int64
+          type: integer
+        dstOffset:
+          format: int64
+          type: integer
+        timestamp:
+          format: int64
+          type: integer
+        matchedAddress:
+          $ref: '#/components/schemas/address_1'
+        country:
+          type: string
+        tzValidFrom:
+          type: string
+        tzValidUntill:
+          type: string
+        dstRule:
+          type: string
+        dstValidFrom:
+          type: string
+        dstValidUntill:
+          type: string
+        dstStartDateFormat:
+          type: string
+        dstEndDateFormat:
+          type: string
+        dstStartDate:
+          type: string
+        dstStartTime:
+          type: string
+        dstEndTime:
+          type: string
+        dstEndDate:
+          type: string
+      type: object
+    timezoneAddressRequest:
+      properties:
+        preferences:
+          $ref: '#/components/schemas/PreferencTimeZone'
+        addressTime:
+          items:
+            $ref: '#/components/schemas/addressTime'
+          type: array
       type: object
   securitySchemes:
     oAuth2Password:

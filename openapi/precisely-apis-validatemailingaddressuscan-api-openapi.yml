@@ -3,9 +3,7 @@ info:
   contact:
     name: Precisely APIs Support
     url: https://support.precisely.com
-  description: '
-
-    Demographics. Audience Enrichment. Add local demographics and lifestyle
+  description: 'Demographics. Audience Enrichment. Add local demographics and lifestyle
 
     segmentation to your audience profiles. The Demographics API returns
 
@@ -74,626 +72,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ValidateMailingAddressUSCANAPIInputRow:
-      example:
-        AddressLine3: AddressLine3
-        AddressLine2: AddressLine2
-        AddressLine1: AddressLine1
-        user_fields:
-        - name: name
-          value: value
-        - name: name
-          value: value
-        FirmName: FirmName
-        StateProvince: StateProvince
-        USUrbanName: USUrbanName
-        AddressLine4: AddressLine4
-        Country: Country
-        PostalCode: PostalCode
-        City: City
-        CanLanguage: CanLanguage
-      properties:
-        user_fields:
-          description: These fields are returned, unmodified, in the user_fields section of the response.
-          items:
-            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
-          type: array
-        AddressLine1:
-          description: The first address line.
-          type: string
-        AddressLine2:
-          description: The second address line.
-          type: string
-        AddressLine3:
-          description: The third address line.
-          type: string
-        AddressLine4:
-          description: The fourth address line.
-          type: string
-        FirmName:
-          description: The company or firm name.
-          type: string
-        City:
-          description: The city name.
-          type: string
-        StateProvince:
-          description: The state or province.
-          type: string
-        Country:
-          description: The country code or name.
-          type: string
-        PostalCode:
-          description: The postal code for the address.
-          type: string
-        USUrbanName:
-          description: U.S. address urbanization name. Used primarily for Puerto Rico addresses.
-          type: string
-        CanLanguage:
-          description: Canadian language.
-          type: string
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    ErrorInfo:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-          xml:
-            name: error
-      type: object
-      xml:
-        name: errors
-    ValidateMailingAddressUSCANAPIRequest:
-      example:
-        Input:
-          Row:
-          - AddressLine3: AddressLine3
-            AddressLine2: AddressLine2
-            AddressLine1: AddressLine1
-            user_fields:
-            - name: name
-              value: value
-            - name: name
-              value: value
-            FirmName: FirmName
-            StateProvince: StateProvince
-            USUrbanName: USUrbanName
-            AddressLine4: AddressLine4
-            Country: Country
-            PostalCode: PostalCode
-            City: City
-            CanLanguage: CanLanguage
-          - AddressLine3: AddressLine3
-            AddressLine2: AddressLine2
-            AddressLine1: AddressLine1
-            user_fields:
-            - name: name
-              value: value
-            - name: name
-              value: value
-            FirmName: FirmName
-            StateProvince: StateProvince
-            USUrbanName: USUrbanName
-            AddressLine4: AddressLine4
-            Country: Country
-            PostalCode: PostalCode
-            City: City
-            CanLanguage: CanLanguage
-        options:
-          CanOutputCityFormat: D
-          StandardAddressFormat: C
-          OutputPostalCodeSeparator: Y
-          OutputCasing: M
-          CanSSLVRFlg: N
-          CanDualAddressLogic: D
-          CanEnglishApartmentLabel: Apt
-          DPVDetermineNoStat: N
-          OutputPreferredCity: Z
-          PerformUSProcessing: Y
-          PerformLACSLink: Y
-          DPVSuccessfulStatusCondition: A
-          OutputFormattedOnFail: N
-          DPVDetermineVacancy: N
-          DualAddressLogic: N
-          PerformEWS: N
-          OutputMultinationalCharacters: N
-          OutputCountryFormat: E
-          ExtractUrb: N
-          StreetMatchingStrictness: M
-          CanOutputCityAlias: N
-          FailOnCMRAMatch: N
-          OutputRecordType: A
-          FirmMatchingStrictness: M
-          CanPreferHouseNum: N
-          OutputAddressBlocks: Y
-          OutputShortCityName: N
-          CanStandardAddressFormat: D
-          OutputAbbreviatedAlias: N
-          OutputFieldLevelReturnCodes: N
-          KeepMultimatch: N
-          MaximumResults: '10'
-          StandardAddressPMBLine: N
-          CanNonCivicFormat: A
-          CanRuralRouteFormat: A
-          CanFrenchFormat: C
-          OutputStreetNameAlias: Y
-          CanFrenchApartmentLabel: Appartement
-          SuppressZplusPhantomCarrierR777: N
-          ExtractFirm: N
-          CanDeliveryOfficeFormat: I
-          OutputPreferredAlias: N
-          DirectionalMatchingStrictness: M
-          PerformDPV: N
-          PerformSuiteLink: N
-      properties:
-        options:
-          $ref: '#/components/schemas/ValidateMailingAddressUSCANAPIOptions'
-        Input:
-          $ref: '#/components/schemas/ValidateMailingAddressUSCANAPIInput'
-      type: object
-    GetPostalCodesAPIOutput_user_fields:
-      example:
-        name: name
-        value: value
-      properties:
-        name:
-          type: string
-        value:
-          type: string
-      type: object
-    ValidateMailingAddressUSCANAPIOutput:
-      example:
-        PostalBarCode: PostalBarCode
-        Country.Input: Country.Input
-        CMRA: CMRA
-        StreetSuffix: StreetSuffix
-        USFIPSCountyNumber: USFIPSCountyNumber
-        LeadingDirectional: LeadingDirectional
-        USUrbanName.Result: USUrbanName.Result
-        FirmName.Input: FirmName.Input
-        RRHC: RRHC
-        Status: Status
-        PostalCode.Result: PostalCode.Result
-        Country.Result: Country.Result
-        StateProvince: StateProvince
-        LeadingDirectional.Input: LeadingDirectional.Input
-        PostalCode.Type: PostalCode.Type
-        AddressLine3: AddressLine3
-        StateProvince.Result: StateProvince.Result
-        AddressBlock5: AddressBlock5
-        AddressLine2: AddressLine2
-        AddressBlock6: AddressBlock6
-        AddressLine1: AddressLine1
-        AddressBlock7: AddressBlock7
-        USUrbanName.Input: USUrbanName.Input
-        AddressBlock8: AddressBlock8
-        AddressBlock1: AddressBlock1
-        AddressBlock2: AddressBlock2
-        AddressBlock3: AddressBlock3
-        AddressLine4: AddressLine4
-        HouseNumber.Input: HouseNumber.Input
-        AddressBlock4: AddressBlock4
-        Country: Country
-        HouseNumber.Result: HouseNumber.Result
-        LeadingDirectional.Result: LeadingDirectional.Result
-        PostalCode.AddOn: PostalCode.AddOn
-        StreetSuffix.Result: StreetSuffix.Result
-        TrailingDirectional.Input: TrailingDirectional.Input
-        USAltAddr: USAltAddr
-        FirmName.Result: FirmName.Result
-        HouseNumber: HouseNumber
-        BlockAddress: BlockAddress
-        ApartmentLabel: ApartmentLabel
-        ApartmentLabel.Input: ApartmentLabel.Input
-        USCongressionalDistrict: USCongressionalDistrict
-        DPV: DPV
-        AddressBlock9: AddressBlock9
-        POBox.Result: POBox.Result
-        PostalCodeCity.Result: PostalCodeCity.Result
-        ApartmentNumber.Result: ApartmentNumber.Result
-        PrivateMailbox.Type: PrivateMailbox.Type
-        RRHC.Result: RRHC.Result
-        RDI: RDI
-        USCarrierRouteCode: USCarrierRouteCode
-        ApartmentNumber.Input: ApartmentNumber.Input
-        City.Input: City.Input
-        PostalCode.Input: PostalCode.Input
-        USFinanceNumber: USFinanceNumber
-        SuiteLinkFidelity: SuiteLinkFidelity
-        USLastLineNumber: USLastLineNumber
-        USUrbanName: USUrbanName
-        Status.description: Status.description
-        StreetNameAbbreviatedAlias.Result: StreetNameAbbreviatedAlias.Result
-        USLACS.ReturnCode: USLACS.ReturnCode
-        City.Result: City.Result
-        StreetName: StreetName
-        USLACS: USLACS
-        POBox.Input: POBox.Input
-        RRHC.Input: RRHC.Input
-        TrailingDirectional: TrailingDirectional
-        Street.Result: Street.Result
-        PrivateMailbox: PrivateMailbox
-        PrivateMailbox.Input: PrivateMailbox.Input
-        DPVVacant: DPVVacant
-        PostalCode.Base: PostalCode.Base
-        user_fields:
-        - name: name
-          value: value
-        - name: name
-          value: value
-        Confidence: Confidence
-        StreetName.Input: StreetName.Input
-        StateProvince.Input: StateProvince.Input
-        MatchScore: MatchScore
-        FirmName: FirmName
-        ApartmentLabel.Result: ApartmentLabel.Result
-        StreetName.Alias.Type: StreetName.Alias.Type
-        CountryLevel: CountryLevel
-        City: City
-        CouldNotValidate: CouldNotValidate
-        MultimatchCount: MultimatchCount
-        USCountyName: USCountyName
-        TrailingDirectional.Result: TrailingDirectional.Result
-        POBox: POBox
-        StreetName.Result: StreetName.Result
-        PostalCode: PostalCode
-        ApartmentNumber: ApartmentNumber
-        AdditionalInputData: AdditionalInputData
-        PrivateMailbox.Type.Input: PrivateMailbox.Type.Input
-        RecordType: RecordType
-        StreetNamePreferredAlias.Result: StreetNamePreferredAlias.Result
-        AddressRecord.Result: AddressRecord.Result
-        DPVFootnote: DPVFootnote
-        StreetSuffix.Input: StreetSuffix.Input
-        DPVNoStat: DPVNoStat
-        AddressFormat: AddressFormat
-        PostalCode.Source: PostalCode.Source
-        Status.Code: Status.Code
-        CanLanguage: CanLanguage
-        SuiteLinkMatchCode: SuiteLinkMatchCode
-        SuiteLinkReturnCode: SuiteLinkReturnCode
-        USBCCheckDigit: USBCCheckDigit
-        RRHC.Type: RRHC.Type
-        RecordType.Default: RecordType.Default
-        MultipleMatches: MultipleMatches
-      properties:
-        user_fields:
-          description: These fields are returned, unmodified, in the user_fields section of the response.
-          items:
-            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
-          type: array
-        Status:
-          description: Reports the success or failure of the match attempt.
-          type: string
-        Status.Code:
-          description: Reason for failure, if there is one.
-          type: string
-        Status.description:
-          description: Specifies the description of the problem, if there is one.
-          type: string
-        AddressLine1:
-          description: Specifies the first line of the validated and standardized address.
-          type: string
-        AddressLine2:
-          description: Specifies the second line of the validated and standardized address.
-          type: string
-        City:
-          description: Specifies the validated city name.
-          type: string
-        StateProvince:
-          description: Specifies the validated state or province abbreviation.
-          type: string
-        PostalCode:
-          description: Specifies the validated ZIP Code or postal code.
-          type: string
-        Country:
-          description: Specifies the country in the format determined by the selection from ISO or UPO or English.
-          type: string
-        FirmName:
-          description: Specifies the validated firm or company name.
-          type: string
-        BlockAddress:
-          description: 'Specifies the formatted address, as it would appear on a physical mail piece. '
-          type: string
-        PostalCode.Base:
-          description: Specifies the 5-digit ZIP Code.
-          type: string
-        PostalCode.AddOn:
-          description: Specifies the 4-digit add-on part of the ZIP Code.
-          type: string
-        AdditionalInputData:
-          description: Specifies input data not used by the address validation process.
-          type: string
-        CouldNotValidate:
-          description: 'Specifies the address component that could not be validated, in case no match is found. '
-          type: string
-        AddressFormat:
-          description: Specifies the type of address data being returned.
-          type: string
-        AddressLine3:
-          description: Specifies the third line of the validated and standardized address. If the address could not be validated, the third line of the input address without any changes.
-          type: string
-        AddressLine4:
-          description: Specifies the fourth line of the validated and standardized address. If the address could not be validated, the fourth line of the input address without any changes.
-          type: string
-        AddressRecord.Result:
-          description: Specifies the result codes that apply to international addresses only.
-          type: string
-        ApartmentLabel:
-          description: Specifies the apartment designator such as STE or APT.
-          type: string
-        ApartmentLabel.Input:
-          description: Specifies the apartment designator such as STE or APT.
-          type: string
-        ApartmentLabel.Result:
-          description: Specifies the result of apartment label.
-          type: string
-        ApartmentNumber:
-          description: Specifies the apartment number.
-          type: string
-        ApartmentNumber.Input:
-          description: Specifies the apartment number.
-          type: string
-        ApartmentNumber.Result:
-          description: Specifies the result of apartment number.
-          type: string
-        City.Input:
-          description: Specifies the validated city name.
-          type: string
-        City.Result:
-          description: Specifies the result of the validated city name.
-          type: string
-        Confidence:
-          description: Specifies the the level of confidence assigned to the address being returned.
-          type: string
-        Country.Input:
-          description: Specifies the name of the country.
-          type: string
-        Country.Result:
-          description: Specifies the result code for the country.
-          type: string
-        CountryLevel:
-          description: Specifies the category of address matching available.
-          type: string
-        FirmName.Input:
-          description: Specifies the validated firm or company name.
-          type: string
-        FirmName.Result:
-          description: Specifies if the firm name got validated.
-          type: string
-        HouseNumber:
-          description: Specifies the house number.
-          type: string
-        HouseNumber.Input:
-          description: Specifies the house number.
-          type: string
-        HouseNumber.Result:
-          description: Specifies the result for house number.
-          type: string
-        LeadingDirectional:
-          description: Specifies the leading directional.
-          type: string
-        LeadingDirectional.Input:
-          description: Specifies the leading directional.
-          type: string
-        LeadingDirectional.Result:
-          description: Specifies the result of leading directional.
-          type: string
-        MultipleMatches:
-          description: 'Specifies the address component with multiple matches, if multiple matches were found: '
-          type: string
-        POBox:
-          description: Specifies the post office box number.
-          type: string
-        POBox.Input:
-          description: Specifies the post office box number.
-          type: string
-        POBox.Result:
-          description: Specifies the result of post office box number.
-          type: string
-        PostalCode.Input:
-          description: Specifies the validated postal code. For U.S. addresses, this is the ZIP code.
-          type: string
-        PostalCode.Result:
-          description: Specifies the result of validated postal code.
-          type: string
-        PostalCode.Source:
-          description: Specifies the result code.
-          type: string
-        PostalCode.Type:
-          description: Specifies the type of postal code returned.
-          type: string
-        PostalCodeCity.Result:
-          description: Specifies the international result code.
-          type: string
-        PrivateMailbox:
-          description: Specifies the private mailbox indicator.
-          type: string
-        PrivateMailbox.Input:
-          description: Specifies the private mailbox indicator.
-          type: string
-        PrivateMailbox.Type:
-          description: Specifies the type of private mailbox.
-          type: string
-        PrivateMailbox.Type.Input:
-          description: Specifies the type of private mailbox.
-          type: string
-        RecordType:
-          description: Specifies the type of address record, as defined by U.S. and Canadian postal authorities.
-          type: string
-        RecordType.Default:
-          description: Specifies the code indicating the default match.
-          type: string
-        RRHC:
-          description: Specifies the Rural Route/Highway Contract indicator.
-          type: string
-        RRHC.Input:
-          description: Specifies the Rural Route/Highway Contract indicator.
-          type: string
-        RRHC.Result:
-          description: Specifies the result for Rural Route/Highway Contract indicator.
-          type: string
-        RRHC.Type:
-          description: Specifies the result code for Rural Route/Highway Contract indicator.
-          type: string
-        StateProvince.Input:
-          description: Specifies the validated state or province abbreviation.
-          type: string
-        StateProvince.Result:
-          description: Specifies the result of validated state or province abbreviation.
-          type: string
-        Street.Result:
-          description: Specifies the result codes for international addresses.
-          type: string
-        StreetName:
-          description: Specifies the street name.
-          type: string
-        StreetName.Alias.Type:
-          description: Specifies result code that applies to U.S. addresses only.
-          type: string
-        StreetName.Input:
-          description: Specifies the street name.
-          type: string
-        StreetName.Result:
-          description: Specifies the result of the street name.
-          type: string
-        StreetNameAbbreviatedAlias.Result:
-          description: Indicates the result of abbreviated alias processing.
-          type: string
-        StreetNamePreferredAlias.Result:
-          description: Specifies the result of preferred alias processing.
-          type: string
-        StreetSuffix:
-          description: Specifies the street suffix.
-          type: string
-        StreetSuffix.Input:
-          description: Specifies the street suffix.
-          type: string
-        StreetSuffix.Result:
-          description: Specifies the result of the street suffix.
-          type: string
-        TrailingDirectional:
-          description: Specifies the trailing directional.
-          type: string
-        TrailingDirectional.Input:
-          description: Specifies the trailing directional.
-          type: string
-        TrailingDirectional.Result:
-          description: Specifies the result of the trailing directional.
-          type: string
-        MatchScore:
-          description: Specifies an indication of the degree to which the output address is correct.
-          type: string
-        USLACS:
-          description: Specifies whether the address is a candidate for LACS conversion. This is for U.S. addresses only).
-          type: string
-        USLACS.ReturnCode:
-          description: Specifies the the success or failure of LACS processing. This is for U.S. addresses only).
-          type: string
-        RDI:
-          description: Specifies the values indicating address type.
-          type: string
-        CMRA:
-          description: Specifies if the address is a Commercial Mail Receiving Agency (CMRA).
-          type: string
-        DPV:
-          description: Specifies the results of Delivery Point Validation (DPV) processing.
-          type: string
-        DPVFootnote:
-          description: Specifies the DPV footnote codes.
-          type: string
-        SuiteLinkReturnCode:
-          description: 'Indicates whether or not API corrected the secondary address information (U.S. addresses only). '
-          type: string
-        SuiteLinkMatchCode:
-          description: Provides additional information on the SuiteLink match attempt. (U.S. addresses only)
-          type: string
-        SuiteLinkFidelity:
-          description: Indicates how well ValidateAddress matched the firm name to the firm names in the SuiteLink database.
-          type: string
-        USBCCheckDigit:
-          description: Specifies the check-digit portion of the 11-digit delivery point barcode.
-          type: string
-        PostalBarCode:
-          description: Specifies the delivery point portion of the delivery point barcode.
-          type: string
-        USCarrierRouteCode:
-          description: Specifies carrier route code.
-          type: string
-        USFIPSCountyNumber:
-          description: Specifies FIPS (Federal Information Processing Standards) county number (U.S. addresses only).
-          type: string
-        USCountyName:
-          description: Specifies the county name (U.S. addresses only).
-          type: string
-        USCongressionalDistrict:
-          description: Specifies congressional district (U.S. addresses only).
-          type: string
-        USAltAddr:
-          description: Specifies whether the alternate address matching logic was used, and if so which logic was used (U.S. addresses only).
-          type: string
-        USLastLineNumber:
-          description: Specifies a six-character alphanumeric value that groups together ZIP Codes that share the same primary city.
-          type: string
-        USFinanceNumber:
-          description: Specifies the finance number in which the address resides (U.S. addresses only).
-          type: string
-        USUrbanName:
-          description: U.S. address urbanization name. Used primarily for Puerto Rico addresses.
-          type: string
-        USUrbanName.Input:
-          description: U.S. address urbanization name. Used primarily for Puerto Rico addresses.
-          type: string
-        USUrbanName.Result:
-          description: U.S. address urbanization name. Used primarily for Puerto Rico addresses.
-          type: string
-        MultimatchCount:
-          description: If the address was matched to multiple candidate addresses in the reference data, this field contains the number of candidate matches found.
-          type: string
-        AddressBlock1:
-          description: AddressBlock1
-          type: string
-        AddressBlock2:
-          description: AddressBlock2
-          type: string
-        AddressBlock3:
-          description: AddressBlock3
-          type: string
-        AddressBlock4:
-          description: AddressBlock4
-          type: string
-        AddressBlock5:
-          description: AddressBlock5
-          type: string
-        AddressBlock6:
-          description: AddressBlock6
-          type: string
-        AddressBlock7:
-          description: AddressBlock7
-          type: string
-        AddressBlock8:
-          description: AddressBlock8
-          type: string
-        AddressBlock9:
-          description: AddressBlock9
-          type: string
-        CanLanguage:
-          description: Specifies whether the address is in English or French. This is for Canadian address only.
-          type: string
-        DPVNoStat:
-          description: Specifies whether the building is a no stat building and therefore unable to receive mail.
-          type: string
-        DPVVacant:
-          description: Specifies whether the building is vacant, unoccupied for 90 days.
-          type: string
-      type: object
     ValidateMailingAddressUSCANAPIOptions:
       example:
         CanOutputCityFormat: D
@@ -1158,6 +536,112 @@ components:
             $ref: '#/components/schemas/ValidateMailingAddressUSCANAPIOutput'
           type: array
       type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    ValidateMailingAddressUSCANAPIRequest:
+      example:
+        Input:
+          Row:
+          - AddressLine3: AddressLine3
+            AddressLine2: AddressLine2
+            AddressLine1: AddressLine1
+            user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            FirmName: FirmName
+            StateProvince: StateProvince
+            USUrbanName: USUrbanName
+            AddressLine4: AddressLine4
+            Country: Country
+            PostalCode: PostalCode
+            City: City
+            CanLanguage: CanLanguage
+          - AddressLine3: AddressLine3
+            AddressLine2: AddressLine2
+            AddressLine1: AddressLine1
+            user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            FirmName: FirmName
+            StateProvince: StateProvince
+            USUrbanName: USUrbanName
+            AddressLine4: AddressLine4
+            Country: Country
+            PostalCode: PostalCode
+            City: City
+            CanLanguage: CanLanguage
+        options:
+          CanOutputCityFormat: D
+          StandardAddressFormat: C
+          OutputPostalCodeSeparator: Y
+          OutputCasing: M
+          CanSSLVRFlg: N
+          CanDualAddressLogic: D
+          CanEnglishApartmentLabel: Apt
+          DPVDetermineNoStat: N
+          OutputPreferredCity: Z
+          PerformUSProcessing: Y
+          PerformLACSLink: Y
+          DPVSuccessfulStatusCondition: A
+          OutputFormattedOnFail: N
+          DPVDetermineVacancy: N
+          DualAddressLogic: N
+          PerformEWS: N
+          OutputMultinationalCharacters: N
+          OutputCountryFormat: E
+          ExtractUrb: N
+          StreetMatchingStrictness: M
+          CanOutputCityAlias: N
+          FailOnCMRAMatch: N
+          OutputRecordType: A
+          FirmMatchingStrictness: M
+          CanPreferHouseNum: N
+          OutputAddressBlocks: Y
+          OutputShortCityName: N
+          CanStandardAddressFormat: D
+          OutputAbbreviatedAlias: N
+          OutputFieldLevelReturnCodes: N
+          KeepMultimatch: N
+          MaximumResults: '10'
+          StandardAddressPMBLine: N
+          CanNonCivicFormat: A
+          CanRuralRouteFormat: A
+          CanFrenchFormat: C
+          OutputStreetNameAlias: Y
+          CanFrenchApartmentLabel: Appartement
+          SuppressZplusPhantomCarrierR777: N
+          ExtractFirm: N
+          CanDeliveryOfficeFormat: I
+          OutputPreferredAlias: N
+          DirectionalMatchingStrictness: M
+          PerformDPV: N
+          PerformSuiteLink: N
+      properties:
+        options:
+          $ref: '#/components/schemas/ValidateMailingAddressUSCANAPIOptions'
+        Input:
+          $ref: '#/components/schemas/ValidateMailingAddressUSCANAPIInput'
+      type: object
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
     ValidateMailingAddressUSCANAPIInput:
       example:
         Row:
@@ -1198,6 +682,520 @@ components:
           items:
             $ref: '#/components/schemas/ValidateMailingAddressUSCANAPIInputRow'
           type: array
+      type: object
+    GetPostalCodesAPIOutput_user_fields:
+      example:
+        name: name
+        value: value
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+      type: object
+    ValidateMailingAddressUSCANAPIInputRow:
+      example:
+        AddressLine3: AddressLine3
+        AddressLine2: AddressLine2
+        AddressLine1: AddressLine1
+        user_fields:
+        - name: name
+          value: value
+        - name: name
+          value: value
+        FirmName: FirmName
+        StateProvince: StateProvince
+        USUrbanName: USUrbanName
+        AddressLine4: AddressLine4
+        Country: Country
+        PostalCode: PostalCode
+        City: City
+        CanLanguage: CanLanguage
+      properties:
+        user_fields:
+          description: These fields are returned, unmodified, in the user_fields section of the response.
+          items:
+            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
+          type: array
+        AddressLine1:
+          description: The first address line.
+          type: string
+        AddressLine2:
+          description: The second address line.
+          type: string
+        AddressLine3:
+          description: The third address line.
+          type: string
+        AddressLine4:
+          description: The fourth address line.
+          type: string
+        FirmName:
+          description: The company or firm name.
+          type: string
+        City:
+          description: The city name.
+          type: string
+        StateProvince:
+          description: The state or province.
+          type: string
+        Country:
+          description: The country code or name.
+          type: string
+        PostalCode:
+          description: The postal code for the address.
+          type: string
+        USUrbanName:
+          description: U.S. address urbanization name. Used primarily for Puerto Rico addresses.
+          type: string
+        CanLanguage:
+          description: Canadian language.
+          type: string
+      type: object
+    ValidateMailingAddressUSCANAPIOutput:
+      example:
+        PostalBarCode: PostalBarCode
+        Country.Input: Country.Input
+        CMRA: CMRA
+        StreetSuffix: StreetSuffix
+        USFIPSCountyNumber: USFIPSCountyNumber
+        LeadingDirectional: LeadingDirectional
+        USUrbanName.Result: USUrbanName.Result
+        FirmName.Input: FirmName.Input
+        RRHC: RRHC
+        Status: Status
+        PostalCode.Result: PostalCode.Result
+        Country.Result: Country.Result
+        StateProvince: StateProvince
+        LeadingDirectional.Input: LeadingDirectional.Input
+        PostalCode.Type: PostalCode.Type
+        AddressLine3: AddressLine3
+        StateProvince.Result: StateProvince.Result
+        AddressBlock5: AddressBlock5
+        AddressLine2: AddressLine2
+        AddressBlock6: AddressBlock6
+        AddressLine1: AddressLine1
+        AddressBlock7: AddressBlock7
+        USUrbanName.Input: USUrbanName.Input
+        AddressBlock8: AddressBlock8
+        AddressBlock1: AddressBlock1
+        AddressBlock2: AddressBlock2
+        AddressBlock3: AddressBlock3
+        AddressLine4: AddressLine4
+        HouseNumber.Input: HouseNumber.Input
+        AddressBlock4: AddressBlock4
+        Country: Country
+        HouseNumber.Result: HouseNumber.Result
+        LeadingDirectional.Result: LeadingDirectional.Result
+        PostalCode.AddOn: PostalCode.AddOn
+        StreetSuffix.Result: StreetSuffix.Result
+        TrailingDirectional.Input: TrailingDirectional.Input
+        USAltAddr: USAltAddr
+        FirmName.Result: FirmName.Result
+        HouseNumber: HouseNumber
+        BlockAddress: BlockAddress
+        ApartmentLabel: ApartmentLabel
+        ApartmentLabel.Input: ApartmentLabel.Input
+        USCongressionalDistrict: USCongressionalDistrict
+        DPV: DPV
+        AddressBlock9: AddressBlock9
+        POBox.Result: POBox.Result
+        PostalCodeCity.Result: PostalCodeCity.Result
+        ApartmentNumber.Result: ApartmentNumber.Result
+        PrivateMailbox.Type: PrivateMailbox.Type
+        RRHC.Result: RRHC.Result
+        RDI: RDI
+        USCarrierRouteCode: USCarrierRouteCode
+        ApartmentNumber.Input: ApartmentNumber.Input
+        City.Input: City.Input
+        PostalCode.Input: PostalCode.Input
+        USFinanceNumber: USFinanceNumber
+        SuiteLinkFidelity: SuiteLinkFidelity
+        USLastLineNumber: USLastLineNumber
+        USUrbanName: USUrbanName
+        Status.description: Status.description
+        StreetNameAbbreviatedAlias.Result: StreetNameAbbreviatedAlias.Result
+        USLACS.ReturnCode: USLACS.ReturnCode
+        City.Result: City.Result
+        StreetName: StreetName
+        USLACS: USLACS
+        POBox.Input: POBox.Input
+        RRHC.Input: RRHC.Input
+        TrailingDirectional: TrailingDirectional
+        Street.Result: Street.Result
+        PrivateMailbox: PrivateMailbox
+        PrivateMailbox.Input: PrivateMailbox.Input
+        DPVVacant: DPVVacant
+        PostalCode.Base: PostalCode.Base
+        user_fields:
+        - name: name
+          value: value
+        - name: name
+          value: value
+        Confidence: Confidence
+        StreetName.Input: StreetName.Input
+        StateProvince.Input: StateProvince.Input
+        MatchScore: MatchScore
+        FirmName: FirmName
+        ApartmentLabel.Result: ApartmentLabel.Result
+        StreetName.Alias.Type: StreetName.Alias.Type
+        CountryLevel: CountryLevel
+        City: City
+        CouldNotValidate: CouldNotValidate
+        MultimatchCount: MultimatchCount
+        USCountyName: USCountyName
+        TrailingDirectional.Result: TrailingDirectional.Result
+        POBox: POBox
+        StreetName.Result: StreetName.Result
+        PostalCode: PostalCode
+        ApartmentNumber: ApartmentNumber
+        AdditionalInputData: AdditionalInputData
+        PrivateMailbox.Type.Input: PrivateMailbox.Type.Input
+        RecordType: RecordType
+        StreetNamePreferredAlias.Result: StreetNamePreferredAlias.Result
+        AddressRecord.Result: AddressRecord.Result
+        DPVFootnote: DPVFootnote
+        StreetSuffix.Input: StreetSuffix.Input
+        DPVNoStat: DPVNoStat
+        AddressFormat: AddressFormat
+        PostalCode.Source: PostalCode.Source
+        Status.Code: Status.Code
+        CanLanguage: CanLanguage
+        SuiteLinkMatchCode: SuiteLinkMatchCode
+        SuiteLinkReturnCode: SuiteLinkReturnCode
+        USBCCheckDigit: USBCCheckDigit
+        RRHC.Type: RRHC.Type
+        RecordType.Default: RecordType.Default
+        MultipleMatches: MultipleMatches
+      properties:
+        user_fields:
+          description: These fields are returned, unmodified, in the user_fields section of the response.
+          items:
+            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
+          type: array
+        Status:
+          description: Reports the success or failure of the match attempt.
+          type: string
+        Status.Code:
+          description: Reason for failure, if there is one.
+          type: string
+        Status.description:
+          description: Specifies the description of the problem, if there is one.
+          type: string
+        AddressLine1:
+          description: Specifies the first line of the validated and standardized address.
+          type: string
+        AddressLine2:
+          description: Specifies the second line of the validated and standardized address.
+          type: string
+        City:
+          description: Specifies the validated city name.
+          type: string
+        StateProvince:
+          description: Specifies the validated state or province abbreviation.
+          type: string
+        PostalCode:
+          description: Specifies the validated ZIP Code or postal code.
+          type: string
+        Country:
+          description: Specifies the country in the format determined by the selection from ISO or UPO or English.
+          type: string
+        FirmName:
+          description: Specifies the validated firm or company name.
+          type: string
+        BlockAddress:
+          description: 'Specifies the formatted address, as it would appear on a physical mail piece. '
+          type: string
+        PostalCode.Base:
+          description: Specifies the 5-digit ZIP Code.
+          type: string
+        PostalCode.AddOn:
+          description: Specifies the 4-digit add-on part of the ZIP Code.
+          type: string
+        AdditionalInputData:
+          description: Specifies input data not used by the address validation process.
+          type: string
+        CouldNotValidate:
+          description: 'Specifies the address component that could not be validated, in case no match is found. '
+          type: string
+        AddressFormat:
+          description: Specifies the type of address data being returned.
+          type: string
+        AddressLine3:
+          description: Specifies the third line of the validated and standardized address. If the address could not be validated, the third line of the input address without any changes.
+          type: string
+        AddressLine4:
+          description: Specifies the fourth line of the validated and standardized address. If the address could not be validated, the fourth line of the input address without any changes.
+          type: string
+        AddressRecord.Result:
+          description: Specifies the result codes that apply to international addresses only.
+          type: string
+        ApartmentLabel:
+          description: Specifies the apartment designator such as STE or APT.
+          type: string
+        ApartmentLabel.Input:
+          description: Specifies the apartment designator such as STE or APT.
+          type: string
+        ApartmentLabel.Result:
+          description: Specifies the result of apartment label.
+          type: string
+        ApartmentNumber:
+          description: Specifies the apartment number.
+          type: string
+        ApartmentNumber.Input:
+          description: Specifies the apartment number.
+          type: string
+        ApartmentNumber.Result:
+          description: Specifies the result of apartment number.
+          type: string
+        City.Input:
+          description: Specifies the validated city name.
+          type: string
+        City.Result:
+          description: Specifies the result of the validated city name.
+          type: string
+        Confidence:
+          description: Specifies the the level of confidence assigned to the address being returned.
+          type: string
+        Country.Input:
+          description: Specifies the name of the country.
+          type: string
+        Country.Result:
+          description: Specifies the result code for the country.
+          type: string
+        CountryLevel:
+          description: Specifies the category of address matching available.
+          type: string
+        FirmName.Input:
+          description: Specifies the validated firm or company name.
+          type: string
+        FirmName.Result:
+          description: Specifies if the firm name got validated.
+          type: string
+        HouseNumber:
+          description: Specifies the house number.
+          type: string
+        HouseNumber.Input:
+          description: Specifies the house number.
+          type: string
+        HouseNumber.Result:
+          description: Specifies the result for house number.
+          type: string
+        LeadingDirectional:
+          description: Specifies the leading directional.
+          type: string
+        LeadingDirectional.Input:
+          description: Specifies the leading directional.
+          type: string
+        LeadingDirectional.Result:
+          description: Specifies the result of leading directional.
+          type: string
+        MultipleMatches:
+          description: 'Specifies the address component with multiple matches, if multiple matches were found: '
+          type: string
+        POBox:
+          description: Specifies the post office box number.
+          type: string
+        POBox.Input:
+          description: Specifies the post office box number.
+          type: string
+        POBox.Result:
+          description: Specifies the result of post office box number.
+          type: string
+        PostalCode.Input:
+          description: Specifies the validated postal code. For U.S. addresses, this is the ZIP code.
+          type: string
+        PostalCode.Result:
+          description: Specifies the result of validated postal code.
+          type: string
+        PostalCode.Source:
+          description: Specifies the result code.
+          type: string
+        PostalCode.Type:
+          description: Specifies the type of postal code returned.
+          type: string
+        PostalCodeCity.Result:
+          description: Specifies the international result code.
+          type: string
+        PrivateMailbox:
+          description: Specifies the private mailbox indicator.
+          type: string
+        PrivateMailbox.Input:
+          description: Specifies the private mailbox indicator.
+          type: string
+        PrivateMailbox.Type:
+          description: Specifies the type of private mailbox.
+          type: string
+        PrivateMailbox.Type.Input:
+          description: Specifies the type of private mailbox.
+          type: string
+        RecordType:
+          description: Specifies the type of address record, as defined by U.S. and Canadian postal authorities.
+          type: string
+        RecordType.Default:
+          description: Specifies the code indicating the default match.
+          type: string
+        RRHC:
+          description: Specifies the Rural Route/Highway Contract indicator.
+          type: string
+        RRHC.Input:
+          description: Specifies the Rural Route/Highway Contract indicator.
+          type: string
+        RRHC.Result:
+          description: Specifies the result for Rural Route/Highway Contract indicator.
+          type: string
+        RRHC.Type:
+          description: Specifies the result code for Rural Route/Highway Contract indicator.
+          type: string
+        StateProvince.Input:
+          description: Specifies the validated state or province abbreviation.
+          type: string
+        StateProvince.Result:
+          description: Specifies the result of validated state or province abbreviation.
+          type: string
+        Street.Result:
+          description: Specifies the result codes for international addresses.
+          type: string
+        StreetName:
+          description: Specifies the street name.
+          type: string
+        StreetName.Alias.Type:
+          description: Specifies result code that applies to U.S. addresses only.
+          type: string
+        StreetName.Input:
+          description: Specifies the street name.
+          type: string
+        StreetName.Result:
+          description: Specifies the result of the street name.
+          type: string
+        StreetNameAbbreviatedAlias.Result:
+          description: Indicates the result of abbreviated alias processing.
+          type: string
+        StreetNamePreferredAlias.Result:
+          description: Specifies the result of preferred alias processing.
+          type: string
+        StreetSuffix:
+          description: Specifies the street suffix.
+          type: string
+        StreetSuffix.Input:
+          description: Specifies the street suffix.
+          type: string
+        StreetSuffix.Result:
+          description: Specifies the result of the street suffix.
+          type: string
+        TrailingDirectional:
+          description: Specifies the trailing directional.
+          type: string
+        TrailingDirectional.Input:
+          description: Specifies the trailing directional.
+          type: string
+        TrailingDirectional.Result:
+          description: Specifies the result of the trailing directional.
+          type: string
+        MatchScore:
+          description: Specifies an indication of the degree to which the output address is correct.
+          type: string
+        USLACS:
+          description: Specifies whether the address is a candidate for LACS conversion. This is for U.S. addresses only).
+          type: string
+        USLACS.ReturnCode:
+          description: Specifies the the success or failure of LACS processing. This is for U.S. addresses only).
+          type: string
+        RDI:
+          description: Specifies the values indicating address type.
+          type: string
+        CMRA:
+          description: Specifies if the address is a Commercial Mail Receiving Agency (CMRA).
+          type: string
+        DPV:
+          description: Specifies the results of Delivery Point Validation (DPV) processing.
+          type: string
+        DPVFootnote:
+          description: Specifies the DPV footnote codes.
+          type: string
+        SuiteLinkReturnCode:
+          description: 'Indicates whether or not API corrected the secondary address information (U.S. addresses only). '
+          type: string
+        SuiteLinkMatchCode:
+          description: Provides additional information on the SuiteLink match attempt. (U.S. addresses only)
+          type: string
+        SuiteLinkFidelity:
+          description: Indicates how well ValidateAddress matched the firm name to the firm names in the SuiteLink database.
+          type: string
+        USBCCheckDigit:
+          description: Specifies the check-digit portion of the 11-digit delivery point barcode.
+          type: string
+        PostalBarCode:
+          description: Specifies the delivery point portion of the delivery point barcode.
+          type: string
+        USCarrierRouteCode:
+          description: Specifies carrier route code.
+          type: string
+        USFIPSCountyNumber:
+          description: Specifies FIPS (Federal Information Processing Standards) county number (U.S. addresses only).
+          type: string
+        USCountyName:
+          description: Specifies the county name (U.S. addresses only).
+          type: string
+        USCongressionalDistrict:
+          description: Specifies congressional district (U.S. addresses only).
+          type: string
+        USAltAddr:
+          description: Specifies whether the alternate address matching logic was used, and if so which logic was used (U.S. addresses only).
+          type: string
+        USLastLineNumber:
+          description: Specifies a six-character alphanumeric value that groups together ZIP Codes that share the same primary city.
+          type: string
+        USFinanceNumber:
+          description: Specifies the finance number in which the address resides (U.S. addresses only).
+          type: string
+        USUrbanName:
+          description: U.S. address urbanization name. Used primarily for Puerto Rico addresses.
+          type: string
+        USUrbanName.Input:
+          description: U.S. address urbanization name. Used primarily for Puerto Rico addresses.
+          type: string
+        USUrbanName.Result:
+          description: U.S. address urbanization name. Used primarily for Puerto Rico addresses.
+          type: string
+        MultimatchCount:
+          description: If the address was matched to multiple candidate addresses in the reference data, this field contains the number of candidate matches found.
+          type: string
+        AddressBlock1:
+          description: AddressBlock1
+          type: string
+        AddressBlock2:
+          description: AddressBlock2
+          type: string
+        AddressBlock3:
+          description: AddressBlock3
+          type: string
+        AddressBlock4:
+          description: AddressBlock4
+          type: string
+        AddressBlock5:
+          description: AddressBlock5
+          type: string
+        AddressBlock6:
+          description: AddressBlock6
+          type: string
+        AddressBlock7:
+          description: AddressBlock7
+          type: string
+        AddressBlock8:
+          description: AddressBlock8
+          type: string
+        AddressBlock9:
+          description: AddressBlock9
+          type: string
+        CanLanguage:
+          description: Specifies whether the address is in English or French. This is for Canadian address only.
+          type: string
+        DPVNoStat:
+          description: Specifies whether the building is a no stat building and therefore unable to receive mail.
+          type: string
+        DPVVacant:
+          description: Specifies whether the building is vacant, unoccupied for 90 days.
+          type: string
       type: object
   securitySchemes:
     oAuth2Password:

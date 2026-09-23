@@ -3,9 +3,7 @@ info:
   contact:
     name: Precisely APIs Support
     url: https://support.precisely.com
-  description: '
-
-    Demographics. Audience Enrichment. Add local demographics and lifestyle
+  description: 'Demographics. Audience Enrichment. Add local demographics and lifestyle
 
     segmentation to your audience profiles. The Demographics API returns
 
@@ -78,7 +76,7 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Rate Center By Location.
+      summary: Rate Center By Location
       tags:
       - Ratecenter
       x-accepts: application/json
@@ -132,17 +130,36 @@ paths:
           description: Internal Server Error
       security:
       - oAuth2Password: []
-      summary: Rate Center By Address.
+      summary: Rate Center By Address
       tags:
       - Ratecenter
       x-accepts: application/json
 components:
   schemas:
-    ErrorCode:
+    ErrorInfo_1:
       properties:
-        errorCode:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    match:
+      example:
+        matchCode: matchCode
+        confidence: confidence
+        percentGeocode: percentGeocode
+        locationCode: locationCode
+        precisionLevel: precisionLevel
+      properties:
+        confidence:
           type: string
-        errorDescription:
+        percentGeocode:
+          type: string
+        precisionLevel:
+          type: string
+        locationCode:
+          type: string
+        matchCode:
           type: string
       type: object
     RateCenterResponse:
@@ -244,47 +261,6 @@ components:
         product_code:
           type: string
       type: object
-    Geometry:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
-    match:
-      example:
-        matchCode: matchCode
-        confidence: confidence
-        percentGeocode: percentGeocode
-        locationCode: locationCode
-        precisionLevel: precisionLevel
-      properties:
-        confidence:
-          type: string
-        percentGeocode:
-          type: string
-        precisionLevel:
-          type: string
-        locationCode:
-          type: string
-        matchCode:
-          type: string
-      type: object
     areaCodeInfo:
       example:
         startRange: startRange
@@ -315,6 +291,28 @@ components:
           type: string
         areaName4:
           type: string
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    Geometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
       type: object
     county:
       example:
