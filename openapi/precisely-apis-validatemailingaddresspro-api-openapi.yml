@@ -72,6 +72,81 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    ValidateMailingAddressProRequest:
+      example:
+        Input:
+          Row:
+          - AddressLine2: AddressLine2
+            AddressLine1: AddressLine1
+            user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            FirmName: FirmName
+            StateProvince: StateProvince
+            Country: Country
+            PostalCode: PostalCode
+            City: City
+          - AddressLine2: AddressLine2
+            AddressLine1: AddressLine1
+            user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            FirmName: FirmName
+            StateProvince: StateProvince
+            Country: Country
+            PostalCode: PostalCode
+            City: City
+        options:
+          OutputCasing: M
+          OutputAddressBlocks: Y
+          OutputCountryFormat: E
+          OutputScript: InputScript
+          KeepMultimatch: N
+          MaximumResults: '10'
+      properties:
+        options:
+          $ref: '#/components/schemas/ValidateMailingAddressProOptions'
+        Input:
+          $ref: '#/components/schemas/ValidateMailingAddressProInput'
+      type: object
+    ValidateMailingAddressProOptions:
+      example:
+        OutputCasing: M
+        OutputAddressBlocks: Y
+        OutputCountryFormat: E
+        OutputScript: InputScript
+        KeepMultimatch: N
+        MaximumResults: '10'
+      properties:
+        OutputAddressBlocks:
+          default: Y
+          description: Specifies whether to return a formatted version of the address as it would be printed on a physical mail piece.
+          type: string
+        KeepMultimatch:
+          default: N
+          description: Specifies whether to return multiple address for those input addresses that have more than one possible match.
+          type: string
+        OutputCountryFormat:
+          default: E
+          description: Specifies the format to use for the country name returned in the Country output field.
+          type: string
+        OutputScript:
+          default: InputScript
+          description: Specifies the alphabet or script in which the output should be returned.
+          type: string
+        OutputCasing:
+          default: M
+          description: Specify the casing of the output data.
+          type: string
+        MaximumResults:
+          default: '10'
+          description: A number between 1 and 10 that indicates the maximum number of addresses to return.
+          type: string
+      type: object
     ValidateMailingAddressProOutput:
       example:
         Status: Status
@@ -170,54 +245,6 @@ components:
           description: Description of the problem, if there is one.
           type: string
       type: object
-    ValidateMailingAddressProRequest:
-      example:
-        Input:
-          Row:
-          - AddressLine2: AddressLine2
-            AddressLine1: AddressLine1
-            user_fields:
-            - name: name
-              value: value
-            - name: name
-              value: value
-            FirmName: FirmName
-            StateProvince: StateProvince
-            Country: Country
-            PostalCode: PostalCode
-            City: City
-          - AddressLine2: AddressLine2
-            AddressLine1: AddressLine1
-            user_fields:
-            - name: name
-              value: value
-            - name: name
-              value: value
-            FirmName: FirmName
-            StateProvince: StateProvince
-            Country: Country
-            PostalCode: PostalCode
-            City: City
-        options:
-          OutputCasing: M
-          OutputAddressBlocks: Y
-          OutputCountryFormat: E
-          OutputScript: InputScript
-          KeepMultimatch: N
-          MaximumResults: '10'
-      properties:
-        options:
-          $ref: '#/components/schemas/ValidateMailingAddressProOptions'
-        Input:
-          $ref: '#/components/schemas/ValidateMailingAddressProInput'
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
     ErrorInfo:
       properties:
         errors:
@@ -229,6 +256,39 @@ components:
       type: object
       xml:
         name: errors
+    ValidateMailingAddressProInput:
+      example:
+        Row:
+        - AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          FirmName: FirmName
+          StateProvince: StateProvince
+          Country: Country
+          PostalCode: PostalCode
+          City: City
+        - AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          FirmName: FirmName
+          StateProvince: StateProvince
+          Country: Country
+          PostalCode: PostalCode
+          City: City
+      properties:
+        Row:
+          items:
+            $ref: '#/components/schemas/ValidateMailingAddressProInputRow'
+          type: array
+      type: object
     ValidateMailingAddressProInputRow:
       example:
         AddressLine2: AddressLine2
@@ -281,71 +341,11 @@ components:
         value:
           type: string
       type: object
-    ValidateMailingAddressProInput:
-      example:
-        Row:
-        - AddressLine2: AddressLine2
-          AddressLine1: AddressLine1
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          FirmName: FirmName
-          StateProvince: StateProvince
-          Country: Country
-          PostalCode: PostalCode
-          City: City
-        - AddressLine2: AddressLine2
-          AddressLine1: AddressLine1
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          FirmName: FirmName
-          StateProvince: StateProvince
-          Country: Country
-          PostalCode: PostalCode
-          City: City
+    ErrorCode:
       properties:
-        Row:
-          items:
-            $ref: '#/components/schemas/ValidateMailingAddressProInputRow'
-          type: array
-      type: object
-    ValidateMailingAddressProOptions:
-      example:
-        OutputCasing: M
-        OutputAddressBlocks: Y
-        OutputCountryFormat: E
-        OutputScript: InputScript
-        KeepMultimatch: N
-        MaximumResults: '10'
-      properties:
-        OutputAddressBlocks:
-          default: Y
-          description: Specifies whether to return a formatted version of the address as it would be printed on a physical mail piece.
+        errorCode:
           type: string
-        KeepMultimatch:
-          default: N
-          description: Specifies whether to return multiple address for those input addresses that have more than one possible match.
-          type: string
-        OutputCountryFormat:
-          default: E
-          description: Specifies the format to use for the country name returned in the Country output field.
-          type: string
-        OutputScript:
-          default: InputScript
-          description: Specifies the alphabet or script in which the output should be returned.
-          type: string
-        OutputCasing:
-          default: M
-          description: Specify the casing of the output data.
-          type: string
-        MaximumResults:
-          default: '10'
-          description: A number between 1 and 10 that indicates the maximum number of addresses to return.
+        errorDescription:
           type: string
       type: object
     ValidateMailingAddressProResponse:

@@ -94,74 +94,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    EarthquakeEvent:
-      example:
-        dateTime:
-          date: date
-          time: time
-        intensity: 9
-        culturalEffect: culturalEffect
-        depth:
-          unit: unit
-          value: 6
-        diastrophism: diastrophism
-        cause: cause
-        magnitude:
-          surfaceWave: 5.637376656633329
-          bodyWave: 5.962133916683182
-          bodyWaveValue: 7.061401241503109
-          scale: scale
-          surfaceWaveValue: 2.3021358869347655
-          value: 1.4658129805029452
-        location:
-          coordinates:
-          - 3.616076749251911
-          - 3.616076749251911
-          type: type
-        miscPhenomena: miscPhenomena
-        seismicRegionNumber: 0
-      properties:
-        dateTime:
-          $ref: '#/components/schemas/EarthquakeDateTime'
-        seismicRegionNumber:
-          format: int32
-          type: integer
-        depth:
-          $ref: '#/components/schemas/Depth'
-        magnitude:
-          $ref: '#/components/schemas/Magnitude'
-        cause:
-          type: string
-        culturalEffect:
-          type: string
-        intensity:
-          format: int32
-          type: integer
-        diastrophism:
-          type: string
-        miscPhenomena:
-          type: string
-        location:
-          $ref: '#/components/schemas/EarthquakeLocation'
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
-    Depth:
-      example:
-        unit: unit
-        value: 6
-      properties:
-        unit:
-          type: string
-        value:
-          format: int32
-          type: integer
-      type: object
     earthquakeHistory:
       example:
         county: county
@@ -276,12 +208,66 @@ components:
         events:
           $ref: '#/components/schemas/EarthquakeEventsResponse'
       type: object
-    ErrorCode:
+    Depth:
+      example:
+        unit: unit
+        value: 6
       properties:
-        errorCode:
+        unit:
           type: string
-        errorDescription:
+        value:
+          format: int32
+          type: integer
+      type: object
+    EarthquakeEvent:
+      example:
+        dateTime:
+          date: date
+          time: time
+        intensity: 9
+        culturalEffect: culturalEffect
+        depth:
+          unit: unit
+          value: 6
+        diastrophism: diastrophism
+        cause: cause
+        magnitude:
+          surfaceWave: 5.637376656633329
+          bodyWave: 5.962133916683182
+          bodyWaveValue: 7.061401241503109
+          scale: scale
+          surfaceWaveValue: 2.3021358869347655
+          value: 1.4658129805029452
+        location:
+          coordinates:
+          - 3.616076749251911
+          - 3.616076749251911
+          type: type
+        miscPhenomena: miscPhenomena
+        seismicRegionNumber: 0
+      properties:
+        dateTime:
+          $ref: '#/components/schemas/EarthquakeDateTime'
+        seismicRegionNumber:
+          format: int32
+          type: integer
+        depth:
+          $ref: '#/components/schemas/Depth'
+        magnitude:
+          $ref: '#/components/schemas/Magnitude'
+        cause:
           type: string
+        culturalEffect:
+          type: string
+        intensity:
+          format: int32
+          type: integer
+        diastrophism:
+          type: string
+        miscPhenomena:
+          type: string
+        location:
+          $ref: '#/components/schemas/EarthquakeLocation'
       type: object
     EarthquakeDateTime:
       example:
@@ -291,6 +277,28 @@ components:
         date:
           type: string
         time:
+          type: string
+      type: object
+    EarthquakeLocation:
+      example:
+        coordinates:
+        - 3.616076749251911
+        - 3.616076749251911
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
           type: string
       type: object
     Magnitude:
@@ -433,19 +441,11 @@ components:
             $ref: '#/components/schemas/EarthquakeEvent'
           type: array
       type: object
-    EarthquakeLocation:
-      example:
-        coordinates:
-        - 3.616076749251911
-        - 3.616076749251911
-        type: type
+    ErrorInfo_1:
       properties:
-        type:
-          type: string
-        coordinates:
+        errors:
           items:
-            format: double
-            type: number
+            $ref: '#/components/schemas/ErrorCode'
           type: array
       type: object
   securitySchemes:

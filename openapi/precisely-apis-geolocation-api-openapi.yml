@@ -101,22 +101,25 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ConsistencyCode:
+    Accuracy:
       example:
-        description: description
+        unit: unit
         value: value
       properties:
-        description:
+        unit:
           type: string
         value:
           type: string
       type: object
-    Carrier:
+    GeoLocationCountry:
       example:
-        asn: asn
+        code: code
+        confidence: confidence
         value: value
       properties:
-        asn:
+        code:
+          type: string
+        confidence:
           type: string
         value:
           type: string
@@ -127,6 +130,16 @@ components:
         value: value
       properties:
         confidence:
+          type: string
+        value:
+          type: string
+      type: object
+    Carrier:
+      example:
+        asn: asn
+        value: value
+      properties:
+        asn:
           type: string
         value:
           type: string
@@ -146,27 +159,37 @@ components:
             type: number
           type: array
       type: object
-    Accuracy:
+    Network:
       example:
-        unit: unit
-        value: value
+        organizationType:
+          isicCode: isicCode
+          value: value
+          naicsCode: naicsCode
+        carrier:
+          asn: asn
+          value: value
+        ipRouteType: ipRouteType
+        connectionFromHome: connectionFromHome
+        lineSpeed: lineSpeed
+        organization: organization
+        hostingFacility: hostingFacility
+        connectionType: connectionType
       properties:
-        unit:
+        connectionFromHome:
           type: string
-        value:
+        organization:
           type: string
-      type: object
-    OrganizationType:
-      example:
-        isicCode: isicCode
-        value: value
-        naicsCode: naicsCode
-      properties:
-        naicsCode:
+        carrier:
+          $ref: '#/components/schemas/Carrier'
+        organizationType:
+          $ref: '#/components/schemas/OrganizationType'
+        connectionType:
           type: string
-        isicCode:
+        lineSpeed:
           type: string
-        value:
+        ipRouteType:
+          type: string
+        hostingFacility:
           type: string
       type: object
     GeoLocationIpAddr:
@@ -242,31 +265,18 @@ components:
         type:
           type: string
       type: object
-    City:
+    OrganizationType:
       example:
-        confidence: confidence
+        isicCode: isicCode
         value: value
+        naicsCode: naicsCode
       properties:
-        confidence:
+        naicsCode:
+          type: string
+        isicCode:
           type: string
         value:
           type: string
-      type: object
-    GeoLocationAccessPoint:
-      example:
-        accuracy:
-          unit: unit
-          value: value
-        geometry:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
-      properties:
-        geometry:
-          $ref: '#/components/schemas/GeolocationGeometry'
-        accuracy:
-          $ref: '#/components/schemas/Accuracy'
       type: object
     IpInfo:
       example:
@@ -318,51 +328,41 @@ components:
         place:
           $ref: '#/components/schemas/GeoLocationPlace'
       type: object
-    Network:
+    ConsistencyCode:
       example:
-        organizationType:
-          isicCode: isicCode
-          value: value
-          naicsCode: naicsCode
-        carrier:
-          asn: asn
-          value: value
-        ipRouteType: ipRouteType
-        connectionFromHome: connectionFromHome
-        lineSpeed: lineSpeed
-        organization: organization
-        hostingFacility: hostingFacility
-        connectionType: connectionType
+        description: description
+        value: value
       properties:
-        connectionFromHome:
+        description:
           type: string
-        organization:
-          type: string
-        carrier:
-          $ref: '#/components/schemas/Carrier'
-        organizationType:
-          $ref: '#/components/schemas/OrganizationType'
-        connectionType:
-          type: string
-        lineSpeed:
-          type: string
-        ipRouteType:
-          type: string
-        hostingFacility:
+        value:
           type: string
       type: object
-    GeoLocationCountry:
+    City:
       example:
-        code: code
         confidence: confidence
         value: value
       properties:
-        code:
-          type: string
         confidence:
           type: string
         value:
           type: string
+      type: object
+    GeoLocationAccessPoint:
+      example:
+        accuracy:
+          unit: unit
+          value: value
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+      properties:
+        geometry:
+          $ref: '#/components/schemas/GeolocationGeometry'
+        accuracy:
+          $ref: '#/components/schemas/Accuracy'
       type: object
     GeoLocationPlace:
       example:

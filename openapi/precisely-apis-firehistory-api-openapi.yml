@@ -136,12 +136,33 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ErrorInfo_1:
+    FireHistoryV2:
+      example:
+        stateCode: stateCode
+        postCode: postCode
+        events:
+          event:
+          - fireEndDate: fireEndDate
+            area:
+              unit: unit
+              value: value
+            fireName: fireName
+            agency: agency
+            fireStartDate: fireStartDate
+          - fireEndDate: fireEndDate
+            area:
+              unit: unit
+              value: value
+            fireName: fireName
+            agency: agency
+            fireStartDate: fireStartDate
       properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
+        stateCode:
+          type: string
+        postCode:
+          type: string
+        events:
+          $ref: '#/components/schemas/FireEventsV2Response'
       type: object
     FireEvent:
       example:
@@ -164,58 +185,15 @@ components:
         agency:
           type: string
       type: object
-    FireEventsV2Response:
+    AreaV2:
       example:
-        event:
-        - fireEndDate: fireEndDate
-          area:
-            unit: unit
-            value: value
-          fireName: fireName
-          agency: agency
-          fireStartDate: fireStartDate
-        - fireEndDate: fireEndDate
-          area:
-            unit: unit
-            value: value
-          fireName: fireName
-          agency: agency
-          fireStartDate: fireStartDate
+        unit: unit
+        value: value
       properties:
-        event:
-          items:
-            $ref: '#/components/schemas/FireEventV2'
-          type: array
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
+        unit:
           type: string
-        errorDescription:
+        value:
           type: string
-      type: object
-    FireEventsResponse:
-      example:
-        event:
-        - fireEndDate: fireEndDate
-          area:
-            unit: unit
-            value: value
-          fireName: fireName
-          agency: agency
-          fireStartDate: fireStartDate
-        - fireEndDate: fireEndDate
-          area:
-            unit: unit
-            value: value
-          fireName: fireName
-          agency: agency
-          fireStartDate: fireStartDate
-      properties:
-        event:
-          items:
-            $ref: '#/components/schemas/FireEvent'
-          type: array
       type: object
     FireHistory:
       example:
@@ -244,44 +222,6 @@ components:
           type: string
         events:
           $ref: '#/components/schemas/FireEventsResponse'
-      type: object
-    AreaV2:
-      example:
-        unit: unit
-        value: value
-      properties:
-        unit:
-          type: string
-        value:
-          type: string
-      type: object
-    FireHistoryV2:
-      example:
-        stateCode: stateCode
-        postCode: postCode
-        events:
-          event:
-          - fireEndDate: fireEndDate
-            area:
-              unit: unit
-              value: value
-            fireName: fireName
-            agency: agency
-            fireStartDate: fireStartDate
-          - fireEndDate: fireEndDate
-            area:
-              unit: unit
-              value: value
-            fireName: fireName
-            agency: agency
-            fireStartDate: fireStartDate
-      properties:
-        stateCode:
-          type: string
-        postCode:
-          type: string
-        events:
-          $ref: '#/components/schemas/FireEventsV2Response'
       type: object
     FireEventV2:
       example:
@@ -313,6 +253,66 @@ components:
           type: string
         value:
           type: string
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    FireEventsResponse:
+      example:
+        event:
+        - fireEndDate: fireEndDate
+          area:
+            unit: unit
+            value: value
+          fireName: fireName
+          agency: agency
+          fireStartDate: fireStartDate
+        - fireEndDate: fireEndDate
+          area:
+            unit: unit
+            value: value
+          fireName: fireName
+          agency: agency
+          fireStartDate: fireStartDate
+      properties:
+        event:
+          items:
+            $ref: '#/components/schemas/FireEvent'
+          type: array
+      type: object
+    FireEventsV2Response:
+      example:
+        event:
+        - fireEndDate: fireEndDate
+          area:
+            unit: unit
+            value: value
+          fireName: fireName
+          agency: agency
+          fireStartDate: fireStartDate
+        - fireEndDate: fireEndDate
+          area:
+            unit: unit
+            value: value
+          fireName: fireName
+          agency: agency
+          fireStartDate: fireStartDate
+      properties:
+        event:
+          items:
+            $ref: '#/components/schemas/FireEventV2'
+          type: array
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
       type: object
   securitySchemes:
     oAuth2Password:

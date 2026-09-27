@@ -283,6 +283,17 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
     AddressesResponse:
       example:
         candidates: candidates
@@ -354,16 +365,50 @@ components:
       type: object
       xml:
         name: addresses
-    addressesCount:
+    AddressesByBoundaryRequest:
       example:
-        totalAddressesFound: 0
+        travelDistanceUnit: travelDistanceUnit
+        preferences:
+          maxCandidates: maxCandidates
+          page: page
+        travelTime: travelTime
+        latitude: 6.027456183070403
+        travelTimeUnit: travelTimeUnit
+        travelDistance: travelDistance
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        geometryAsText: geometryAsText
+        longitude: 1.4658129805029452
+        travelMode: travelMode
       properties:
-        totalAddressesFound:
-          format: int32
-          type: integer
+        preferences:
+          $ref: '#/components/schemas/AddressesPreferences'
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+        geometryAsText:
+          type: string
+        latitude:
+          format: double
+          type: number
+        longitude:
+          format: double
+          type: number
+        travelTime:
+          type: string
+        travelTimeUnit:
+          type: string
+        travelDistance:
+          type: string
+        travelDistanceUnit:
+          type: string
+        travelMode:
+          type: string
       type: object
       xml:
-        name: addressesCount
+        name: addressesByBoundaryRequest
     AddressesPreferences:
       example:
         maxCandidates: maxCandidates
@@ -373,6 +418,21 @@ components:
           type: string
         page:
           type: string
+      type: object
+    Geometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
       type: object
     AddressesDTO:
       example:
@@ -445,32 +505,6 @@ components:
         errorDescription:
           type: string
       type: object
-    ErrorInfo:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-          xml:
-            name: error
-      type: object
-      xml:
-        name: errors
-    Geometry:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      type: object
     AddressType:
       example:
         description: description
@@ -481,50 +515,16 @@ components:
         description:
           type: string
       type: object
-    AddressesByBoundaryRequest:
+    addressesCount:
       example:
-        travelDistanceUnit: travelDistanceUnit
-        preferences:
-          maxCandidates: maxCandidates
-          page: page
-        travelTime: travelTime
-        latitude: 6.027456183070403
-        travelTimeUnit: travelTimeUnit
-        travelDistance: travelDistance
-        geometry:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
-        geometryAsText: geometryAsText
-        longitude: 1.4658129805029452
-        travelMode: travelMode
+        totalAddressesFound: 0
       properties:
-        preferences:
-          $ref: '#/components/schemas/AddressesPreferences'
-        geometry:
-          $ref: '#/components/schemas/Geometry'
-        geometryAsText:
-          type: string
-        latitude:
-          format: double
-          type: number
-        longitude:
-          format: double
-          type: number
-        travelTime:
-          type: string
-        travelTimeUnit:
-          type: string
-        travelDistance:
-          type: string
-        travelDistanceUnit:
-          type: string
-        travelMode:
-          type: string
+        totalAddressesFound:
+          format: int32
+          type: integer
       type: object
       xml:
-        name: addressesByBoundaryRequest
+        name: addressesCount
   securitySchemes:
     oAuth2Password:
       flows:

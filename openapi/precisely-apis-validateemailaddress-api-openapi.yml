@@ -72,6 +72,60 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
+    ValidateEmailAddressAPIRequest:
+      example:
+        Input:
+          Row:
+          - rtc: rtc
+            bogus: bogus
+            atc: atc
+            emailAddress: emailAddress
+            user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            role: role
+            emps: emps
+            fccwireless: fccwireless
+            rtc_timeout: rtc_timeout
+            language: language
+            complain: complain
+            disposable: disposable
+          - rtc: rtc
+            bogus: bogus
+            atc: atc
+            emailAddress: emailAddress
+            user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            role: role
+            emps: emps
+            fccwireless: fccwireless
+            rtc_timeout: rtc_timeout
+            language: language
+            complain: complain
+            disposable: disposable
+        options: '{}'
+      properties:
+        options:
+          type: object
+        Input:
+          $ref: '#/components/schemas/ValidateEmailAddressInput'
+      type: object
     ValidateEmailAddressOutput:
       example:
         SUGG_COMMENT: SUGG_COMMENT
@@ -127,47 +181,6 @@ components:
         Status.Description:
           type: string
       type: object
-    ValidateEmailAddressAPIResponse:
-      example:
-        Output:
-        - SUGG_COMMENT: SUGG_COMMENT
-          Status: Status
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          FINDING: FINDING
-          ERROR_RESPONSE: ERROR_RESPONSE
-          ERROR: ERROR
-          Status.Description: Status.Description
-          COMMENT_CODE: COMMENT_CODE
-          Status.Code: Status.Code
-          EMAIL: EMAIL
-          SUGG_EMAIL: SUGG_EMAIL
-          COMMENT: COMMENT
-        - SUGG_COMMENT: SUGG_COMMENT
-          Status: Status
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          FINDING: FINDING
-          ERROR_RESPONSE: ERROR_RESPONSE
-          ERROR: ERROR
-          Status.Description: Status.Description
-          COMMENT_CODE: COMMENT_CODE
-          Status.Code: Status.Code
-          EMAIL: EMAIL
-          SUGG_EMAIL: SUGG_EMAIL
-          COMMENT: COMMENT
-      properties:
-        Output:
-          items:
-            $ref: '#/components/schemas/ValidateEmailAddressOutput'
-          type: array
-      type: object
     ValidateEmailAddressInput:
       example:
         Row:
@@ -209,24 +222,6 @@ components:
             $ref: '#/components/schemas/ValidateEmailAddressInputRow'
           type: array
       type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    ErrorInfo:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-          xml:
-            name: error
-      type: object
-      xml:
-        name: errors
     GetPostalCodesAPIOutput_user_fields:
       example:
         name: name
@@ -295,48 +290,53 @@ components:
           description: Specifies the timeout for real-time confirmation. See the description of the rtc parameter. Specify the timeout value in milliseconds. Valid values are 0 to 4000. By default, the system allows 1200 milliseconds for this check.
           type: string
       type: object
-    ValidateEmailAddressAPIRequest:
-      example:
-        Input:
-          Row:
-          - rtc: rtc
-            bogus: bogus
-            atc: atc
-            emailAddress: emailAddress
-            user_fields:
-            - name: name
-              value: value
-            - name: name
-              value: value
-            role: role
-            emps: emps
-            fccwireless: fccwireless
-            rtc_timeout: rtc_timeout
-            language: language
-            complain: complain
-            disposable: disposable
-          - rtc: rtc
-            bogus: bogus
-            atc: atc
-            emailAddress: emailAddress
-            user_fields:
-            - name: name
-              value: value
-            - name: name
-              value: value
-            role: role
-            emps: emps
-            fccwireless: fccwireless
-            rtc_timeout: rtc_timeout
-            language: language
-            complain: complain
-            disposable: disposable
-        options: '{}'
+    ErrorCode:
       properties:
-        options:
-          type: object
-        Input:
-          $ref: '#/components/schemas/ValidateEmailAddressInput'
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    ValidateEmailAddressAPIResponse:
+      example:
+        Output:
+        - SUGG_COMMENT: SUGG_COMMENT
+          Status: Status
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          FINDING: FINDING
+          ERROR_RESPONSE: ERROR_RESPONSE
+          ERROR: ERROR
+          Status.Description: Status.Description
+          COMMENT_CODE: COMMENT_CODE
+          Status.Code: Status.Code
+          EMAIL: EMAIL
+          SUGG_EMAIL: SUGG_EMAIL
+          COMMENT: COMMENT
+        - SUGG_COMMENT: SUGG_COMMENT
+          Status: Status
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          FINDING: FINDING
+          ERROR_RESPONSE: ERROR_RESPONSE
+          ERROR: ERROR
+          Status.Description: Status.Description
+          COMMENT_CODE: COMMENT_CODE
+          Status.Code: Status.Code
+          EMAIL: EMAIL
+          SUGG_EMAIL: SUGG_EMAIL
+          COMMENT: COMMENT
+      properties:
+        Output:
+          items:
+            $ref: '#/components/schemas/ValidateEmailAddressOutput'
+          type: array
       type: object
   securitySchemes:
     oAuth2Password:

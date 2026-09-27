@@ -73,36 +73,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ValidatePhoneNumberAPIRequest_Input:
-      example:
-        Row:
-        - PhoneNumber: PhoneNumber
-          Country: Country
-        - PhoneNumber: PhoneNumber
-          Country: Country
-      properties:
-        Row:
-          items:
-            $ref: '#/components/schemas/ValidatePhoneNumberAPIRequest_Input_Row'
-          type: array
-      type: object
-    ValidatePhoneNumberAPIRequest_Input_Row:
-      example:
-        PhoneNumber: PhoneNumber
-        Country: Country
-      properties:
-        PhoneNumber:
-          type: string
-        Country:
-          type: string
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
     ErrorInfo:
       properties:
         errors:
@@ -114,18 +84,6 @@ components:
       type: object
       xml:
         name: errors
-    ValidatePhoneNumberAPIRequest:
-      example:
-        Input:
-          Row:
-          - PhoneNumber: PhoneNumber
-            Country: Country
-          - PhoneNumber: PhoneNumber
-            Country: Country
-      properties:
-        Input:
-          $ref: '#/components/schemas/ValidatePhoneNumberAPIRequest_Input'
-      type: object
     PhoneVerification:
       example:
         Output:
@@ -156,6 +114,35 @@ components:
           items:
             $ref: '#/components/schemas/PhoneVerification_Output'
           type: array
+      type: object
+    ValidatePhoneNumberAPIRequest_Input_Row:
+      example:
+        PhoneNumber: PhoneNumber
+        Country: Country
+      properties:
+        PhoneNumber:
+          type: string
+        Country:
+          type: string
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    ValidatePhoneNumberAPIRequest:
+      example:
+        Input:
+          Row:
+          - PhoneNumber: PhoneNumber
+            Country: Country
+          - PhoneNumber: PhoneNumber
+            Country: Country
+      properties:
+        Input:
+          $ref: '#/components/schemas/ValidatePhoneNumberAPIRequest_Input'
       type: object
     PhoneVerification_Output:
       example:
@@ -190,6 +177,19 @@ components:
         user_fields:
           items:
             type: string
+          type: array
+      type: object
+    ValidatePhoneNumberAPIRequest_Input:
+      example:
+        Row:
+        - PhoneNumber: PhoneNumber
+          Country: Country
+        - PhoneNumber: PhoneNumber
+          Country: Country
+      properties:
+        Row:
+          items:
+            $ref: '#/components/schemas/ValidatePhoneNumberAPIRequest_Input_Row'
           type: array
       type: object
   securitySchemes:

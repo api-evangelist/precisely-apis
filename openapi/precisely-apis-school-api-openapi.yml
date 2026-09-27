@@ -147,66 +147,111 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
-    FreeOrReducedPriceLunches:
+    Greatschools:
       example:
-        reducedPriceLunchedCount: reducedPriceLunchedCount
-        freeLunchesCount: freeLunchesCount
-        totalCount: totalCount
+        gsId: gsId
+        rating: rating
+        url: url
       properties:
-        freeLunchesCount:
+        gsId:
           type: string
-        reducedPriceLunchedCount:
+        url:
           type: string
-        totalCount:
+        rating:
           type: string
       type: object
-    SchoolRanking:
+    address_1:
       example:
-        avgMathScore: avgMathScore
-        current: current
-        statePercentileScore: statePercentileScore
-        stateRank: stateRank
-        numberOfSchools: numberOfSchools
-        avgReadingScore: avgReadingScore
-        rankYear: rankYear
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
       properties:
-        current:
+        objectId:
           type: string
-        rankYear:
+        displayName:
           type: string
-        stateRank:
+        streetSide:
           type: string
-        numberOfSchools:
+        businessName:
           type: string
-        avgMathScore:
+        addressLine1:
           type: string
-        avgReadingScore:
+        addressLine2:
           type: string
-        statePercentileScore:
+        addressLine3:
           type: string
-      type: object
-    distance:
-      example:
-        unit: unit
-        value: value
-      properties:
-        unit:
+        city:
           type: string
-        value:
+        stateProvince:
           type: string
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
+        county:
           type: string
-        errorDescription:
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
           type: string
       type: object
     Geometry:
@@ -223,6 +268,115 @@ components:
             format: double
             type: number
           type: array
+      type: object
+    SchoolProfile:
+      example:
+        titleI: titleI
+        freeOrReducedPriceLunches:
+          reducedPriceLunchedCount: reducedPriceLunchedCount
+          freeLunchesCount: freeLunchesCount
+          totalCount: totalCount
+        studentBelowPovertyPct: studentBelowPovertyPct
+        advancePlacementClasses: advancePlacementClasses
+        internationalBaccalaureate: internationalBaccalaureate
+        studentEthnicity:
+          twoOrMoreRaces: twoOrMoreRaces
+          hawaiianPacificlslander: hawaiianPacificlslander
+          white: white
+          asian: asian
+          hispanic: hispanic
+          black: black
+          indianAlaskaNative: indianAlaskaNative
+        blueRibbon: blueRibbon
+        expensePerStudent: expensePerStudent
+      properties:
+        blueRibbon:
+          type: string
+        internationalBaccalaureate:
+          type: string
+        titleI:
+          type: string
+        expensePerStudent:
+          type: string
+        studentBelowPovertyPct:
+          type: string
+        advancePlacementClasses:
+          type: string
+        freeOrReducedPriceLunches:
+          $ref: '#/components/schemas/FreeOrReducedPriceLunches'
+        studentEthnicity:
+          $ref: '#/components/schemas/StudentEthnicity'
+      type: object
+    StudentEthnicity:
+      example:
+        twoOrMoreRaces: twoOrMoreRaces
+        hawaiianPacificlslander: hawaiianPacificlslander
+        white: white
+        asian: asian
+        hispanic: hispanic
+        black: black
+        indianAlaskaNative: indianAlaskaNative
+      properties:
+        indianAlaskaNative:
+          type: string
+        asian:
+          type: string
+        hispanic:
+          type: string
+        black:
+          type: string
+        white:
+          type: string
+        hawaiianPacificlslander:
+          type: string
+        twoOrMoreRaces:
+          type: string
+      type: object
+    GradeLevelsTaught:
+      example:
+        tenth: tenth
+        eighth: eighth
+        eleventh: eleventh
+        second: second
+        sixth: sixth
+        third: third
+        seventh: seventh
+        twelfth: twelfth
+        ninth: ninth
+        fifth: fifth
+        pk: pk
+        fourth: fourth
+        kg: kg
+        first: first
+      properties:
+        pk:
+          type: string
+        kg:
+          type: string
+        first:
+          type: string
+        second:
+          type: string
+        third:
+          type: string
+        fourth:
+          type: string
+        fifth:
+          type: string
+        sixth:
+          type: string
+        seventh:
+          type: string
+        eighth:
+          type: string
+        ninth:
+          type: string
+        tenth:
+          type: string
+        eleventh:
+          type: string
+        twelfth:
+          type: string
       type: object
     School:
       example:
@@ -422,6 +576,36 @@ components:
           $ref: '#/components/schemas/distance'
         geometry:
           $ref: '#/components/schemas/Geometry'
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    FreeOrReducedPriceLunches:
+      example:
+        reducedPriceLunchedCount: reducedPriceLunchedCount
+        freeLunchesCount: freeLunchesCount
+        totalCount: totalCount
+      properties:
+        freeLunchesCount:
+          type: string
+        reducedPriceLunchedCount:
+          type: string
+        totalCount:
+          type: string
+      type: object
+    distance:
+      example:
+        unit: unit
+        value: value
+      properties:
+        unit:
+          type: string
+        value:
+          type: string
       type: object
     SchoolsNearByResponse:
       example:
@@ -731,44 +915,6 @@ components:
         schoolDistrict:
           $ref: '#/components/schemas/SchoolDistrict'
       type: object
-    StudentEthnicity:
-      example:
-        twoOrMoreRaces: twoOrMoreRaces
-        hawaiianPacificlslander: hawaiianPacificlslander
-        white: white
-        asian: asian
-        hispanic: hispanic
-        black: black
-        indianAlaskaNative: indianAlaskaNative
-      properties:
-        indianAlaskaNative:
-          type: string
-        asian:
-          type: string
-        hispanic:
-          type: string
-        black:
-          type: string
-        white:
-          type: string
-        hawaiianPacificlslander:
-          type: string
-        twoOrMoreRaces:
-          type: string
-      type: object
-    Greatschools:
-      example:
-        gsId: gsId
-        rating: rating
-        url: url
-      properties:
-        gsId:
-          type: string
-        url:
-          type: string
-        rating:
-          type: string
-      type: object
     SchoolDistrict:
       example:
         totalSchools: totalSchools
@@ -800,182 +946,36 @@ components:
         districtUrl:
           type: string
       type: object
-    address_1:
-      example:
-        country: country
-        streetSide: streetSide
-        city: city
-        displayName: displayName
-        postalCode: postalCode
-        latitude: latitude
-        businessName: businessName
-        county: county
-        unitType: unitType
-        streetName: streetName
-        formattedAddress: formattedAddress
-        addressLine1: addressLine1
-        mainAddressLine: mainAddressLine
-        addressLine2: addressLine2
-        addressLine3: addressLine3
-        objectId: objectId
-        addressLastLine: addressLastLine
-        longitude: longitude
-        unitValue: unitValue
-        stateProvince: stateProvince
-        urbanizationName: urbanizationName
-        areaName1: areaName1
-        areaName2: areaName2
-        areaName3: areaName3
-        areaName4: areaName4
-        addressNumber: addressNumber
-        postCode: postCode
-        postCodeExt: postCodeExt
-        placeName: placeName
-        status: status
+    ErrorInfo_1:
       properties:
-        objectId:
-          type: string
-        displayName:
-          type: string
-        streetSide:
-          type: string
-        businessName:
-          type: string
-        addressLine1:
-          type: string
-        addressLine2:
-          type: string
-        addressLine3:
-          type: string
-        city:
-          type: string
-        stateProvince:
-          type: string
-        county:
-          type: string
-        postalCode:
-          type: string
-        latitude:
-          type: string
-        longitude:
-          type: string
-        status:
-          type: string
-        urbanizationName:
-          type: string
-        formattedAddress:
-          type: string
-        mainAddressLine:
-          type: string
-        addressLastLine:
-          type: string
-        placeName:
-          type: string
-        areaName1:
-          type: string
-        areaName2:
-          type: string
-        areaName3:
-          type: string
-        areaName4:
-          type: string
-        postCode:
-          type: string
-        postCodeExt:
-          type: string
-        country:
-          type: string
-        addressNumber:
-          type: string
-        streetName:
-          type: string
-        unitType:
-          type: string
-        unitValue:
-          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
       type: object
-    SchoolProfile:
+    SchoolRanking:
       example:
-        titleI: titleI
-        freeOrReducedPriceLunches:
-          reducedPriceLunchedCount: reducedPriceLunchedCount
-          freeLunchesCount: freeLunchesCount
-          totalCount: totalCount
-        studentBelowPovertyPct: studentBelowPovertyPct
-        advancePlacementClasses: advancePlacementClasses
-        internationalBaccalaureate: internationalBaccalaureate
-        studentEthnicity:
-          twoOrMoreRaces: twoOrMoreRaces
-          hawaiianPacificlslander: hawaiianPacificlslander
-          white: white
-          asian: asian
-          hispanic: hispanic
-          black: black
-          indianAlaskaNative: indianAlaskaNative
-        blueRibbon: blueRibbon
-        expensePerStudent: expensePerStudent
+        avgMathScore: avgMathScore
+        current: current
+        statePercentileScore: statePercentileScore
+        stateRank: stateRank
+        numberOfSchools: numberOfSchools
+        avgReadingScore: avgReadingScore
+        rankYear: rankYear
       properties:
-        blueRibbon:
+        current:
           type: string
-        internationalBaccalaureate:
+        rankYear:
           type: string
-        titleI:
+        stateRank:
           type: string
-        expensePerStudent:
+        numberOfSchools:
           type: string
-        studentBelowPovertyPct:
+        avgMathScore:
           type: string
-        advancePlacementClasses:
+        avgReadingScore:
           type: string
-        freeOrReducedPriceLunches:
-          $ref: '#/components/schemas/FreeOrReducedPriceLunches'
-        studentEthnicity:
-          $ref: '#/components/schemas/StudentEthnicity'
-      type: object
-    GradeLevelsTaught:
-      example:
-        tenth: tenth
-        eighth: eighth
-        eleventh: eleventh
-        second: second
-        sixth: sixth
-        third: third
-        seventh: seventh
-        twelfth: twelfth
-        ninth: ninth
-        fifth: fifth
-        pk: pk
-        fourth: fourth
-        kg: kg
-        first: first
-      properties:
-        pk:
-          type: string
-        kg:
-          type: string
-        first:
-          type: string
-        second:
-          type: string
-        third:
-          type: string
-        fourth:
-          type: string
-        fifth:
-          type: string
-        sixth:
-          type: string
-        seventh:
-          type: string
-        eighth:
-          type: string
-        ninth:
-          type: string
-        tenth:
-          type: string
-        eleventh:
-          type: string
-        twelfth:
+        statePercentileScore:
           type: string
       type: object
   securitySchemes:

@@ -610,71 +610,90 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    TravelBoundaries:
+    ZonesContactDetails:
       example:
-        travelBoundary:
-          costs:
-          - costUnit: costUnit
-            cost: 0.8008281904610115
-            geometry:
-              coordinates:
-              - - - - 6.027456183070403
-                    - 6.027456183070403
-                  - - 6.027456183070403
-                    - 6.027456183070403
-                - - - 6.027456183070403
-                    - 6.027456183070403
-                  - - 6.027456183070403
-                    - 6.027456183070403
-              - - - - 6.027456183070403
-                    - 6.027456183070403
-                  - - 6.027456183070403
-                    - 6.027456183070403
-                - - - 6.027456183070403
-                    - 6.027456183070403
-                  - - 6.027456183070403
-                    - 6.027456183070403
-              type: type
-          - costUnit: costUnit
-            cost: 0.8008281904610115
-            geometry:
-              coordinates:
-              - - - - 6.027456183070403
-                    - 6.027456183070403
-                  - - 6.027456183070403
-                    - 6.027456183070403
-                - - - 6.027456183070403
-                    - 6.027456183070403
-                  - - 6.027456183070403
-                    - 6.027456183070403
-              - - - - 6.027456183070403
-                    - 6.027456183070403
-                  - - 6.027456183070403
-                    - 6.027456183070403
-                - - - 6.027456183070403
-                    - 6.027456183070403
-                  - - 6.027456183070403
-                    - 6.027456183070403
-              type: type
+        address:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        propertyAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
       properties:
-        travelBoundary:
-          $ref: '#/components/schemas/TravelBoundary'
+        address:
+          $ref: '#/components/schemas/ZonesAddress'
+        propertyAddress:
+          $ref: '#/components/schemas/ZonesAddress'
       type: object
-    ZonesPoiGeometry:
+    Center:
       example:
-        crs:
-          type: type
-          properties:
-            name: name
-        coordinates: '{}'
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
         type: type
       properties:
         type:
           type: string
-        crs:
-          $ref: '#/components/schemas/GeometryCRC'
         coordinates:
-          type: object
+          items:
+            format: double
+            type: number
+          type: array
       type: object
     POIBoundaryAddressRequest:
       example:
@@ -753,294 +772,6 @@ components:
       required:
       - addresses
       type: object
-    GeometryCRC:
-      example:
-        type: type
-        properties:
-          name: name
-      properties:
-        type:
-          type: string
-        properties:
-          $ref: '#/components/schemas/GeometryProperties'
-      type: object
-    BoundaryPoint:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      type: object
-    POIBoundaryLocationRequest:
-      example:
-        preferences:
-          sicCode: sicCode
-          categoryCode: categoryCode
-          naicsCode: naicsCode
-        locations:
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-      properties:
-        locations:
-          items:
-            $ref: '#/components/schemas/POIBoundaryLocations'
-          type: array
-        preferences:
-          $ref: '#/components/schemas/POIBoundaryPreferences'
-      required:
-      - locations
-      type: object
-    ZonesAddress:
-      example:
-        country: country
-        streetSide: streetSide
-        city: city
-        displayName: displayName
-        postalCode: postalCode
-        latitude: latitude
-        businessName: businessName
-        county: county
-        unitType: unitType
-        streetName: streetName
-        formattedAddress: formattedAddress
-        addressLine1: addressLine1
-        mainAddressLine: mainAddressLine
-        addressLine2: addressLine2
-        addressLine3: addressLine3
-        objectId: objectId
-        addressLastLine: addressLastLine
-        longitude: longitude
-        unitValue: unitValue
-        stateProvince: stateProvince
-        urbanizationName: urbanizationName
-        areaName1: areaName1
-        areaName2: areaName2
-        areaName3: areaName3
-        areaName4: areaName4
-        addressNumber: addressNumber
-        postCode: postCode
-        postCodeExt: postCodeExt
-        placeName: placeName
-        status: status
-      properties:
-        objectId:
-          type: string
-        displayName:
-          type: string
-        streetSide:
-          type: string
-        businessName:
-          type: string
-        addressLine1:
-          type: string
-        addressLine2:
-          type: string
-        addressLine3:
-          type: string
-        city:
-          type: string
-        stateProvince:
-          type: string
-        county:
-          type: string
-        postalCode:
-          type: string
-        latitude:
-          type: string
-        longitude:
-          type: string
-        status:
-          type: string
-        urbanizationName:
-          type: string
-        formattedAddress:
-          type: string
-        mainAddressLine:
-          type: string
-        addressLastLine:
-          type: string
-        placeName:
-          type: string
-        areaName1:
-          type: string
-        areaName2:
-          type: string
-        areaName3:
-          type: string
-        areaName4:
-          type: string
-        postCode:
-          type: string
-        postCodeExt:
-          type: string
-        country:
-          type: string
-        addressNumber:
-          type: string
-        streetName:
-          type: string
-        unitType:
-          type: string
-        unitValue:
-          type: string
-      type: object
-    TravelBoundary:
-      example:
-        costs:
-        - costUnit: costUnit
-          cost: 0.8008281904610115
-          geometry:
-            coordinates:
-            - - - - 6.027456183070403
-                  - 6.027456183070403
-                - - 6.027456183070403
-                  - 6.027456183070403
-              - - - 6.027456183070403
-                  - 6.027456183070403
-                - - 6.027456183070403
-                  - 6.027456183070403
-            - - - - 6.027456183070403
-                  - 6.027456183070403
-                - - 6.027456183070403
-                  - 6.027456183070403
-              - - - 6.027456183070403
-                  - 6.027456183070403
-                - - 6.027456183070403
-                  - 6.027456183070403
-            type: type
-        - costUnit: costUnit
-          cost: 0.8008281904610115
-          geometry:
-            coordinates:
-            - - - - 6.027456183070403
-                  - 6.027456183070403
-                - - 6.027456183070403
-                  - 6.027456183070403
-              - - - 6.027456183070403
-                  - 6.027456183070403
-                - - 6.027456183070403
-                  - 6.027456183070403
-            - - - - 6.027456183070403
-                  - 6.027456183070403
-                - - 6.027456183070403
-                  - 6.027456183070403
-              - - - 6.027456183070403
-                  - 6.027456183070403
-                - - 6.027456183070403
-                  - 6.027456183070403
-            type: type
-      properties:
-        costs:
-          items:
-            $ref: '#/components/schemas/Cost'
-          properties:
-            empty:
-              type: boolean
-          type: array
-      type: object
-    EmployeeCount:
-      example:
-        inLocalBranch: inLocalBranch
-        inOrganization: inOrganization
-      properties:
-        inLocalBranch:
-          type: string
-        inOrganization:
-          type: string
-      type: object
-    ZonesBoundaryGeometry:
-      example:
-        coordinates:
-        - - - 6.027456183070403
-            - 6.027456183070403
-          - - 6.027456183070403
-            - 6.027456183070403
-        - - - 6.027456183070403
-            - 6.027456183070403
-          - - 6.027456183070403
-            - 6.027456183070403
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            items:
-              items:
-                format: double
-                type: number
-              type: array
-            type: array
-          type: array
-      type: object
-    Cost:
-      example:
-        costUnit: costUnit
-        cost: 0.8008281904610115
-        geometry:
-          coordinates:
-          - - - - 6.027456183070403
-                - 6.027456183070403
-              - - 6.027456183070403
-                - 6.027456183070403
-            - - - 6.027456183070403
-                - 6.027456183070403
-              - - 6.027456183070403
-                - 6.027456183070403
-          - - - - 6.027456183070403
-                - 6.027456183070403
-              - - 6.027456183070403
-                - 6.027456183070403
-            - - - 6.027456183070403
-                - 6.027456183070403
-              - - 6.027456183070403
-                - 6.027456183070403
-          type: type
-      properties:
-        cost:
-          type: number
-        costUnit:
-          type: string
-        geometry:
-          $ref: '#/components/schemas/DirectionGeometry'
-      type: object
-    distance:
-      example:
-        unit: unit
-        value: value
-      properties:
-        unit:
-          type: string
-        value:
-          type: string
-      type: object
-    ZonesParentBusiness:
-      example:
-        name: name
-      properties:
-        name:
-          type: string
-      type: object
     ErrorCode:
       properties:
         errorCode:
@@ -1048,41 +779,21 @@ components:
         errorDescription:
           type: string
       type: object
-    POIBoundaryLocations:
+    ZonesPoiGeometry:
       example:
-        geometry:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
+        crs:
           type: type
-        objectId: objectId
-        purchaseAmount: purchaseAmount
-      properties:
-        geometry:
-          $ref: '#/components/schemas/ZonesGeometry'
-        purchaseAmount:
-          type: string
-        objectId:
-          type: string
-      required:
-      - geometry
-      type: object
-    ZonesGeometry:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
+          properties:
+            name: name
+        coordinates: '{}'
         type: type
       properties:
         type:
           type: string
+        crs:
+          $ref: '#/components/schemas/GeometryCRC'
         coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      required:
-      - type
+          type: object
       type: object
     POIBoundaryResponse:
       example:
@@ -1800,6 +1511,259 @@ components:
         id:
           type: string
       type: object
+    POIBoundaryLocationRequest:
+      example:
+        preferences:
+          sicCode: sicCode
+          categoryCode: categoryCode
+          naicsCode: naicsCode
+        locations:
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+      properties:
+        locations:
+          items:
+            $ref: '#/components/schemas/POIBoundaryLocations'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/POIBoundaryPreferences'
+      required:
+      - locations
+      type: object
+    ZonesBoundaryGeometry:
+      example:
+        coordinates:
+        - - - 6.027456183070403
+            - 6.027456183070403
+          - - 6.027456183070403
+            - 6.027456183070403
+        - - - 6.027456183070403
+            - 6.027456183070403
+          - - 6.027456183070403
+            - 6.027456183070403
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            items:
+              items:
+                format: double
+                type: number
+              type: array
+            type: array
+          type: array
+      type: object
+    ZonesPoiClassification:
+      example:
+        alternateIndustryCode: alternateIndustryCode
+        sic:
+          sicCode: sicCode
+          primarySicCode: primarySicCode
+          businessLine: businessLine
+          sicCodeDescription: sicCodeDescription
+        category:
+          tradeGroup: tradeGroup
+          subClass: subClass
+          tradeDivision: tradeDivision
+          categoryCode: categoryCode
+          class: class
+      properties:
+        sic:
+          $ref: '#/components/schemas/ZonesSic'
+        category:
+          $ref: '#/components/schemas/Category'
+        alternateIndustryCode:
+          type: string
+      type: object
+    GeometryProperties:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+      type: object
+    BoundaryPoint:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    GeometryCRC:
+      example:
+        type: type
+        properties:
+          name: name
+      properties:
+        type:
+          type: string
+        properties:
+          $ref: '#/components/schemas/GeometryProperties'
+      type: object
+    POIBoundaryPreferences:
+      example:
+        sicCode: sicCode
+        categoryCode: categoryCode
+        naicsCode: naicsCode
+      properties:
+        categoryCode:
+          type: string
+        sicCode:
+          type: string
+        naicsCode:
+          type: string
+      type: object
+    DirectionGeometry:
+      example:
+        coordinates:
+        - - - - 6.027456183070403
+              - 6.027456183070403
+            - - 6.027456183070403
+              - 6.027456183070403
+          - - - 6.027456183070403
+              - 6.027456183070403
+            - - 6.027456183070403
+              - 6.027456183070403
+        - - - - 6.027456183070403
+              - 6.027456183070403
+            - - 6.027456183070403
+              - 6.027456183070403
+          - - - 6.027456183070403
+              - 6.027456183070403
+            - - 6.027456183070403
+              - 6.027456183070403
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            items:
+              items:
+                items:
+                  format: double
+                  type: number
+                type: array
+              type: array
+            type: array
+          type: array
+      type: object
+    ZonesAddress:
+      example:
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
+      properties:
+        objectId:
+          type: string
+        displayName:
+          type: string
+        streetSide:
+          type: string
+        businessName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+      type: object
     basicBoundary:
       example:
         distance:
@@ -1985,12 +1949,203 @@ components:
         exchangeName:
           type: string
       type: object
-    ErrorInfo_1:
+    TravelBoundary:
+      example:
+        costs:
+        - costUnit: costUnit
+          cost: 0.8008281904610115
+          geometry:
+            coordinates:
+            - - - - 6.027456183070403
+                  - 6.027456183070403
+                - - 6.027456183070403
+                  - 6.027456183070403
+              - - - 6.027456183070403
+                  - 6.027456183070403
+                - - 6.027456183070403
+                  - 6.027456183070403
+            - - - - 6.027456183070403
+                  - 6.027456183070403
+                - - 6.027456183070403
+                  - 6.027456183070403
+              - - - 6.027456183070403
+                  - 6.027456183070403
+                - - 6.027456183070403
+                  - 6.027456183070403
+            type: type
+        - costUnit: costUnit
+          cost: 0.8008281904610115
+          geometry:
+            coordinates:
+            - - - - 6.027456183070403
+                  - 6.027456183070403
+                - - 6.027456183070403
+                  - 6.027456183070403
+              - - - 6.027456183070403
+                  - 6.027456183070403
+                - - 6.027456183070403
+                  - 6.027456183070403
+            - - - - 6.027456183070403
+                  - 6.027456183070403
+                - - 6.027456183070403
+                  - 6.027456183070403
+              - - - 6.027456183070403
+                  - 6.027456183070403
+                - - 6.027456183070403
+                  - 6.027456183070403
+            type: type
       properties:
-        errors:
+        costs:
           items:
-            $ref: '#/components/schemas/ErrorCode'
+            $ref: '#/components/schemas/Cost'
+          properties:
+            empty:
+              type: boolean
           type: array
+      type: object
+    EmployeeCount:
+      example:
+        inLocalBranch: inLocalBranch
+        inOrganization: inOrganization
+      properties:
+        inLocalBranch:
+          type: string
+        inOrganization:
+          type: string
+      type: object
+    Cost:
+      example:
+        costUnit: costUnit
+        cost: 0.8008281904610115
+        geometry:
+          coordinates:
+          - - - - 6.027456183070403
+                - 6.027456183070403
+              - - 6.027456183070403
+                - 6.027456183070403
+            - - - 6.027456183070403
+                - 6.027456183070403
+              - - 6.027456183070403
+                - 6.027456183070403
+          - - - - 6.027456183070403
+                - 6.027456183070403
+              - - 6.027456183070403
+                - 6.027456183070403
+            - - - 6.027456183070403
+                - 6.027456183070403
+              - - 6.027456183070403
+                - 6.027456183070403
+          type: type
+      properties:
+        cost:
+          type: number
+        costUnit:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/DirectionGeometry'
+      type: object
+    ZonesParentBusiness:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+      type: object
+    TravelBoundaries:
+      example:
+        travelBoundary:
+          costs:
+          - costUnit: costUnit
+            cost: 0.8008281904610115
+            geometry:
+              coordinates:
+              - - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+                - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+              - - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+                - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+              type: type
+          - costUnit: costUnit
+            cost: 0.8008281904610115
+            geometry:
+              coordinates:
+              - - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+                - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+              - - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+                - - - 6.027456183070403
+                    - 6.027456183070403
+                  - - 6.027456183070403
+                    - 6.027456183070403
+              type: type
+      properties:
+        travelBoundary:
+          $ref: '#/components/schemas/TravelBoundary'
+      type: object
+    POIBoundaryLocations:
+      example:
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        objectId: objectId
+        purchaseAmount: purchaseAmount
+      properties:
+        geometry:
+          $ref: '#/components/schemas/ZonesGeometry'
+        purchaseAmount:
+          type: string
+        objectId:
+          type: string
+      required:
+      - geometry
+      type: object
+    ZonesGeometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      required:
+      - type
+      type: object
+    distance:
+      example:
+        unit: unit
+        value: value
+      properties:
+        unit:
+          type: string
+        value:
+          type: string
       type: object
     Category:
       example:
@@ -2011,168 +2166,6 @@ components:
         class:
           type: string
       type: object
-    ZonesPoiClassification:
-      example:
-        alternateIndustryCode: alternateIndustryCode
-        sic:
-          sicCode: sicCode
-          primarySicCode: primarySicCode
-          businessLine: businessLine
-          sicCodeDescription: sicCodeDescription
-        category:
-          tradeGroup: tradeGroup
-          subClass: subClass
-          tradeDivision: tradeDivision
-          categoryCode: categoryCode
-          class: class
-      properties:
-        sic:
-          $ref: '#/components/schemas/ZonesSic'
-        category:
-          $ref: '#/components/schemas/Category'
-        alternateIndustryCode:
-          type: string
-      type: object
-    GeometryProperties:
-      example:
-        name: name
-      properties:
-        name:
-          type: string
-      type: object
-    DirectionGeometry:
-      example:
-        coordinates:
-        - - - - 6.027456183070403
-              - 6.027456183070403
-            - - 6.027456183070403
-              - 6.027456183070403
-          - - - 6.027456183070403
-              - 6.027456183070403
-            - - 6.027456183070403
-              - 6.027456183070403
-        - - - - 6.027456183070403
-              - 6.027456183070403
-            - - 6.027456183070403
-              - 6.027456183070403
-          - - - 6.027456183070403
-              - 6.027456183070403
-            - - 6.027456183070403
-              - 6.027456183070403
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            items:
-              items:
-                items:
-                  format: double
-                  type: number
-                type: array
-              type: array
-            type: array
-          type: array
-      type: object
-    ZonesContactDetails:
-      example:
-        address:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        propertyAddress:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-      properties:
-        address:
-          $ref: '#/components/schemas/ZonesAddress'
-        propertyAddress:
-          $ref: '#/components/schemas/ZonesAddress'
-      type: object
-    POIBoundaryPreferences:
-      example:
-        sicCode: sicCode
-        categoryCode: categoryCode
-        naicsCode: naicsCode
-      properties:
-        categoryCode:
-          type: string
-        sicCode:
-          type: string
-        naicsCode:
-          type: string
-      type: object
-    Center:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      type: object
     ZonesSic:
       example:
         sicCode: sicCode
@@ -2188,6 +2181,13 @@ components:
           type: string
         primarySicCode:
           type: string
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
       type: object
   securitySchemes:
     oAuth2Password:

@@ -200,12 +200,16 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ErrorInfo_1:
+    RisksGeometryCRC:
+      example:
+        type: type
+        properties:
+          name: name
       properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
+        type:
+          type: string
+        properties:
+          $ref: '#/components/schemas/GeometryProperties'
       type: object
     EarthquakeRiskResponse:
       example:
@@ -280,6 +284,105 @@ components:
           $ref: '#/components/schemas/Grid'
         matchedAddress:
           $ref: '#/components/schemas/RiskAddress'
+      type: object
+    CommonGeometry:
+      example:
+        crs:
+          type: type
+          properties:
+            name: name
+        coordinates: '{}'
+        type: type
+      properties:
+        type:
+          type: string
+        crs:
+          $ref: '#/components/schemas/RisksGeometryCRC'
+        coordinates:
+          type: object
+      type: object
+    Grid:
+      example:
+        code: code
+        geometry:
+          crs:
+            type: type
+            properties:
+              name: name
+          coordinates: '{}'
+          type: type
+      properties:
+        code:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/CommonGeometry'
+      type: object
+    RiskGeometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      required:
+      - type
+      type: object
+    RiskLocations:
+      example:
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        objectId: objectId
+        purchaseAmount: purchaseAmount
+      properties:
+        geometry:
+          $ref: '#/components/schemas/RiskGeometry'
+        purchaseAmount:
+          type: string
+        objectId:
+          type: string
+      required:
+      - geometry
+      type: object
+    EarthquakeRiskByLocationRequest:
+      example:
+        preferences:
+          richterValue: richterValue
+          includeZoneDesc: includeZoneDesc
+          includeGeometry: includeGeometry
+        locations:
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+      properties:
+        locations:
+          items:
+            $ref: '#/components/schemas/RiskLocations'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/RiskPreferences'
+      required:
+      - locations
       type: object
     RiskAddress:
       example:
@@ -375,37 +478,87 @@ components:
         unitValue:
           type: string
       type: object
-    CommonGeometry:
+    RiskPreferences:
       example:
-        crs:
-          type: type
-          properties:
-            name: name
-        coordinates: '{}'
-        type: type
+        richterValue: richterValue
+        includeZoneDesc: includeZoneDesc
+        includeGeometry: includeGeometry
       properties:
-        type:
+        includeGeometry:
           type: string
-        crs:
-          $ref: '#/components/schemas/RisksGeometryCRC'
-        coordinates:
-          type: object
+        includeZoneDesc:
+          type: string
+        richterValue:
+          type: string
       type: object
-    Grid:
+    EventsCount:
       example:
-        code: code
-        geometry:
-          crs:
-            type: type
-            properties:
-              name: name
-          coordinates: '{}'
-          type: type
+        r2: r2
+        r1_ge: r1_ge
+        r3: r3
+        r4: r4
+        r0_ge: r0_ge
+        r5: r5
+        r2_ge: r2_ge
+        r3_ge: r3_ge
+        r6: r6
+        r4_ge: r4_ge
+        r7: r7
+        total: total
+        r7_ge: r7_ge
+        r6_ge: r6_ge
+        r5_ge: r5_ge
+        r0: r0
+        r1: r1
       properties:
-        code:
+        total:
           type: string
-        geometry:
-          $ref: '#/components/schemas/CommonGeometry'
+        r0:
+          type: string
+        r1:
+          type: string
+        r2:
+          type: string
+        r3:
+          type: string
+        r4:
+          type: string
+        r5:
+          type: string
+        r6:
+          type: string
+        r7:
+          type: string
+        r0_ge:
+          type: string
+        r1_ge:
+          type: string
+        r2_ge:
+          type: string
+        r3_ge:
+          type: string
+        r4_ge:
+          type: string
+        r5_ge:
+          type: string
+        r6_ge:
+          type: string
+        r7_ge:
+          type: string
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    GeometryProperties:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
       type: object
     EarthquakeRiskResponseList:
       example:
@@ -536,85 +689,11 @@ components:
             $ref: '#/components/schemas/EarthquakeRiskResponse'
           type: array
       type: object
-    EarthquakeRiskByLocationRequest:
-      example:
-        preferences:
-          richterValue: richterValue
-          includeZoneDesc: includeZoneDesc
-          includeGeometry: includeGeometry
-        locations:
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-      properties:
-        locations:
-          items:
-            $ref: '#/components/schemas/RiskLocations'
-          type: array
-        preferences:
-          $ref: '#/components/schemas/RiskPreferences'
-      required:
-      - locations
-      type: object
-    RisksGeometryCRC:
-      example:
-        type: type
-        properties:
-          name: name
-      properties:
-        type:
-          type: string
-        properties:
-          $ref: '#/components/schemas/GeometryProperties'
-      type: object
-    RiskLocations:
-      example:
-        geometry:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
-        objectId: objectId
-        purchaseAmount: purchaseAmount
-      properties:
-        geometry:
-          $ref: '#/components/schemas/RiskGeometry'
-        purchaseAmount:
-          type: string
-        objectId:
-          type: string
-      required:
-      - geometry
-      type: object
     ErrorCode:
       properties:
         errorCode:
           type: string
         errorDescription:
-          type: string
-      type: object
-    RiskPreferences:
-      example:
-        richterValue: richterValue
-        includeZoneDesc: includeZoneDesc
-        includeGeometry: includeGeometry
-      properties:
-        includeGeometry:
-          type: string
-        includeZoneDesc:
-          type: string
-        richterValue:
           type: string
       type: object
     EarthquakeRiskByAddressRequest:
@@ -693,85 +772,6 @@ components:
           $ref: '#/components/schemas/RiskPreferences'
       required:
       - addresses
-      type: object
-    GeometryProperties:
-      example:
-        name: name
-      properties:
-        name:
-          type: string
-      type: object
-    EventsCount:
-      example:
-        r2: r2
-        r1_ge: r1_ge
-        r3: r3
-        r4: r4
-        r0_ge: r0_ge
-        r5: r5
-        r2_ge: r2_ge
-        r3_ge: r3_ge
-        r6: r6
-        r4_ge: r4_ge
-        r7: r7
-        total: total
-        r7_ge: r7_ge
-        r6_ge: r6_ge
-        r5_ge: r5_ge
-        r0: r0
-        r1: r1
-      properties:
-        total:
-          type: string
-        r0:
-          type: string
-        r1:
-          type: string
-        r2:
-          type: string
-        r3:
-          type: string
-        r4:
-          type: string
-        r5:
-          type: string
-        r6:
-          type: string
-        r7:
-          type: string
-        r0_ge:
-          type: string
-        r1_ge:
-          type: string
-        r2_ge:
-          type: string
-        r3_ge:
-          type: string
-        r4_ge:
-          type: string
-        r5_ge:
-          type: string
-        r6_ge:
-          type: string
-        r7_ge:
-          type: string
-      type: object
-    RiskGeometry:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      required:
-      - type
       type: object
   securitySchemes:
     oAuth2Password:

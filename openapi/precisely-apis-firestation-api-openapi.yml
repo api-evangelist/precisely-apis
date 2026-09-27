@@ -190,55 +190,73 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
-    FireStationContactDetails:
+    FireDepartment:
       example:
-        address:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        phone: phone
-        fax: fax
+        name: name
+        numberOfStations: 0
+        administrativeOfficeOnly: true
+        type: type
+        contactDetails:
+          address:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          phone: phone
+          fax: fax
       properties:
-        address:
-          $ref: '#/components/schemas/RiskAddress'
-        phone:
+        name:
           type: string
-        fax:
+        type:
           type: string
+        numberOfStations:
+          format: int32
+          type: integer
+        administrativeOfficeOnly:
+          type: boolean
+        contactDetails:
+          $ref: '#/components/schemas/FireStationContactDetails'
+      type: object
+    Geometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
       type: object
     fireStation:
       example:
@@ -344,6 +362,56 @@ components:
         geometry:
           $ref: '#/components/schemas/Geometry'
       type: object
+    FireStationContactDetails:
+      example:
+        address:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        phone: phone
+        fax: fax
+      properties:
+        address:
+          $ref: '#/components/schemas/RiskAddress'
+        phone:
+          type: string
+        fax:
+          type: string
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
     RiskAddress:
       example:
         country: country
@@ -438,16 +506,6 @@ components:
         unitValue:
           type: string
       type: object
-    Time:
-      example:
-        unit: unit
-        value: value
-      properties:
-        value:
-          type: string
-        unit:
-          type: string
-      type: object
     distance:
       example:
         unit: unit
@@ -458,27 +516,15 @@ components:
         value:
           type: string
       type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    Geometry:
+    Time:
       example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
+        unit: unit
+        value: value
       properties:
-        type:
+        value:
           type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
+        unit:
+          type: string
       type: object
     fireStations:
       example:
@@ -694,58 +740,12 @@ components:
         matchedAddress:
           $ref: '#/components/schemas/RiskAddress'
       type: object
-    FireDepartment:
-      example:
-        name: name
-        numberOfStations: 0
-        administrativeOfficeOnly: true
-        type: type
-        contactDetails:
-          address:
-            country: country
-            streetSide: streetSide
-            city: city
-            displayName: displayName
-            postalCode: postalCode
-            latitude: latitude
-            businessName: businessName
-            county: county
-            unitType: unitType
-            streetName: streetName
-            formattedAddress: formattedAddress
-            addressLine1: addressLine1
-            mainAddressLine: mainAddressLine
-            addressLine2: addressLine2
-            addressLine3: addressLine3
-            objectId: objectId
-            addressLastLine: addressLastLine
-            longitude: longitude
-            unitValue: unitValue
-            stateProvince: stateProvince
-            urbanizationName: urbanizationName
-            areaName1: areaName1
-            areaName2: areaName2
-            areaName3: areaName3
-            areaName4: areaName4
-            addressNumber: addressNumber
-            postCode: postCode
-            postCodeExt: postCodeExt
-            placeName: placeName
-            status: status
-          phone: phone
-          fax: fax
+    ErrorInfo_1:
       properties:
-        name:
-          type: string
-        type:
-          type: string
-        numberOfStations:
-          format: int32
-          type: integer
-        administrativeOfficeOnly:
-          type: boolean
-        contactDetails:
-          $ref: '#/components/schemas/FireStationContactDetails'
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
       type: object
   securitySchemes:
     oAuth2Password:

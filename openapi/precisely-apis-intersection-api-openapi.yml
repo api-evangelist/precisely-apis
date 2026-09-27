@@ -190,13 +190,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
     road:
       example:
         endingLevel: endingLevel
@@ -237,28 +230,6 @@ components:
         endingLevel:
           type: string
       type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    Geometry:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      type: object
     Unit:
       example:
         unit: unit
@@ -269,62 +240,6 @@ components:
           type: number
         unit:
           type: string
-      type: object
-    Intersection:
-      example:
-        driveDistance:
-          unit: unit
-          value: 0.8008281904610115
-        distance:
-          unit: unit
-          value: 0.8008281904610115
-        driveTime:
-          unit: unit
-          value: 0.8008281904610115
-        roads:
-        - endingLevel: endingLevel
-          routeNumber: routeNumber
-          trafficFlow: trafficFlow
-          surfaceType: surfaceType
-          roadClass: roadClass
-          beginningLevel: beginningLevel
-          name: name
-          lengthInMeters: lengthInMeters
-          id: id
-          altName: altName
-          type: type
-          isToll: isToll
-        - endingLevel: endingLevel
-          routeNumber: routeNumber
-          trafficFlow: trafficFlow
-          surfaceType: surfaceType
-          roadClass: roadClass
-          beginningLevel: beginningLevel
-          name: name
-          lengthInMeters: lengthInMeters
-          id: id
-          altName: altName
-          type: type
-          isToll: isToll
-        geometry:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
-      properties:
-        distance:
-          $ref: '#/components/schemas/Unit'
-        driveTime:
-          $ref: '#/components/schemas/Unit'
-        driveDistance:
-          $ref: '#/components/schemas/Unit'
-        geometry:
-          $ref: '#/components/schemas/Geometry'
-        roads:
-          items:
-            $ref: '#/components/schemas/road'
-          type: array
-          uniqueItems: true
       type: object
     address_1:
       example:
@@ -419,6 +334,84 @@ components:
           type: string
         unitValue:
           type: string
+      type: object
+    Geometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    Intersection:
+      example:
+        driveDistance:
+          unit: unit
+          value: 0.8008281904610115
+        distance:
+          unit: unit
+          value: 0.8008281904610115
+        driveTime:
+          unit: unit
+          value: 0.8008281904610115
+        roads:
+        - endingLevel: endingLevel
+          routeNumber: routeNumber
+          trafficFlow: trafficFlow
+          surfaceType: surfaceType
+          roadClass: roadClass
+          beginningLevel: beginningLevel
+          name: name
+          lengthInMeters: lengthInMeters
+          id: id
+          altName: altName
+          type: type
+          isToll: isToll
+        - endingLevel: endingLevel
+          routeNumber: routeNumber
+          trafficFlow: trafficFlow
+          surfaceType: surfaceType
+          roadClass: roadClass
+          beginningLevel: beginningLevel
+          name: name
+          lengthInMeters: lengthInMeters
+          id: id
+          altName: altName
+          type: type
+          isToll: isToll
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+      properties:
+        distance:
+          $ref: '#/components/schemas/Unit'
+        driveTime:
+          $ref: '#/components/schemas/Unit'
+        driveDistance:
+          $ref: '#/components/schemas/Unit'
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+        roads:
+          items:
+            $ref: '#/components/schemas/road'
+          type: array
+          uniqueItems: true
       type: object
     IntersectionResponse:
       example:
@@ -539,6 +532,13 @@ components:
           type: array
         matchedAddress:
           $ref: '#/components/schemas/address_1'
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
       type: object
   securitySchemes:
     oAuth2Password:
