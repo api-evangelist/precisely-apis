@@ -72,93 +72,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    GetPostalCodesAPIOptions:
-      example:
-        OutputVanityCity: N
-        OutputCityType: N
-      properties:
-        OutputCityType:
-          default: N
-          description: Output CityType.
-          type: string
-        OutputVanityCity:
-          default: N
-          description: Output VanityCity.
-          type: string
-      type: object
-    ErrorInfo:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-          xml:
-            name: error
-      type: object
-      xml:
-        name: errors
-    GetPostalCodesAPIResponse:
-      example:
-        Output:
-        - Status: Status
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          PostalCode: PostalCode
-          Status.Description: Status.Description
-          Status.Code: Status.Code
-          City.Type: City.Type
-        - Status: Status
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          PostalCode: PostalCode
-          Status.Description: Status.Description
-          Status.Code: Status.Code
-          City.Type: City.Type
-      properties:
-        Output:
-          items:
-            $ref: '#/components/schemas/GetPostalCodesAPIOutput'
-          type: array
-      type: object
-    GetPostalCodesAPIOutput_user_fields:
-      example:
-        name: name
-        value: value
-      properties:
-        name:
-          type: string
-        value:
-          type: string
-      type: object
-    GetPostalCodesAPIInput:
-      example:
-        Row:
-        - user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          StateProvince: StateProvince
-          City: City
-        - user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          StateProvince: StateProvince
-          City: City
-      properties:
-        Row:
-          items:
-            $ref: '#/components/schemas/GetPostalCodesAPIInputRow'
-          type: array
-      type: object
     GetPostalCodesAPIInputRow:
       example:
         user_fields:
@@ -181,11 +94,63 @@ components:
           description: The state or province.
           type: string
       type: object
+    GetPostalCodesAPIRequest:
+      example:
+        Input:
+          Row:
+          - user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            StateProvince: StateProvince
+            City: City
+          - user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            StateProvince: StateProvince
+            City: City
+        options:
+          OutputVanityCity: N
+          OutputCityType: N
+      properties:
+        options:
+          $ref: '#/components/schemas/GetPostalCodesAPIOptions'
+        Input:
+          $ref: '#/components/schemas/GetPostalCodesAPIInput'
+      type: object
     ErrorCode:
       properties:
         errorCode:
           type: string
         errorDescription:
+          type: string
+      type: object
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
+    GetPostalCodesAPIOptions:
+      example:
+        OutputVanityCity: N
+        OutputCityType: N
+      properties:
+        OutputCityType:
+          default: N
+          description: Output CityType.
+          type: string
+        OutputVanityCity:
+          default: N
+          description: Output VanityCity.
           type: string
       type: object
     GetPostalCodesAPIOutput:
@@ -222,32 +187,67 @@ components:
           description: Description of the problem, if there is one.
           type: string
       type: object
-    GetPostalCodesAPIRequest:
+    GetPostalCodesAPIResponse:
       example:
-        Input:
-          Row:
-          - user_fields:
-            - name: name
-              value: value
-            - name: name
-              value: value
-            StateProvince: StateProvince
-            City: City
-          - user_fields:
-            - name: name
-              value: value
-            - name: name
-              value: value
-            StateProvince: StateProvince
-            City: City
-        options:
-          OutputVanityCity: N
-          OutputCityType: N
+        Output:
+        - Status: Status
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          PostalCode: PostalCode
+          Status.Description: Status.Description
+          Status.Code: Status.Code
+          City.Type: City.Type
+        - Status: Status
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          PostalCode: PostalCode
+          Status.Description: Status.Description
+          Status.Code: Status.Code
+          City.Type: City.Type
       properties:
-        options:
-          $ref: '#/components/schemas/GetPostalCodesAPIOptions'
-        Input:
-          $ref: '#/components/schemas/GetPostalCodesAPIInput'
+        Output:
+          items:
+            $ref: '#/components/schemas/GetPostalCodesAPIOutput'
+          type: array
+      type: object
+    GetPostalCodesAPIInput:
+      example:
+        Row:
+        - user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          StateProvince: StateProvince
+          City: City
+        - user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          StateProvince: StateProvince
+          City: City
+      properties:
+        Row:
+          items:
+            $ref: '#/components/schemas/GetPostalCodesAPIInputRow'
+          type: array
+      type: object
+    GetPostalCodesAPIOutput_user_fields:
+      example:
+        name: name
+        value: value
+      properties:
+        name:
+          type: string
+        value:
+          type: string
       type: object
   securitySchemes:
     oAuth2Password:

@@ -219,7 +219,57 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    Center:
+    CoolingType:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    CaExemptions:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    PropSiteInfluene:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    PriorSaleCode:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    Stories:
+      example:
+        description: description
+        value: value
+      properties:
+        value:
+          type: string
+        description:
+          type: string
+      type: object
+    PropertyGeometry:
       example:
         coordinates:
         - 0.8008281904610115
@@ -233,6 +283,8 @@ components:
             format: double
             type: number
           type: array
+      required:
+      - type
       type: object
     RoofCoverType:
       example:
@@ -244,107 +296,12 @@ components:
         value:
           type: string
       type: object
-    PropertyInfoAddressRequest:
+    GeometryProperties:
       example:
-        preferences:
-          attributes: attributes
-        addresses:
-        - country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        - country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
+        name: name
       properties:
-        preferences:
-          $ref: '#/components/schemas/PropertyInfoPreferences'
-        addresses:
-          items:
-            $ref: '#/components/schemas/MatchedAddress'
-          type: array
-      required:
-      - addresses
-      - preferences
-      type: object
-    PropSiteInfluene:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
+        name:
           type: string
-        value:
-          type: string
-      type: object
-    PropertyInformationGeometry:
-      example:
-        crs:
-          type: type
-          properties:
-            name: name
-        coordinates: '{}'
-        type: type
-      properties:
-        type:
-          type: string
-        crs:
-          $ref: '#/components/schemas/PropertyInformationGeometryCRC'
-        coordinates:
-          type: object
       type: object
     BuildgQuality:
       example:
@@ -356,64 +313,63 @@ components:
         value:
           type: string
       type: object
-    BuildgStyle:
+    FormattedTaxAddress:
       example:
-        code: code
-        value: value
+        unitType: unitType
+        postCode2: postCode2
+        postCode1: postCode1
+        streetPreDirection: streetPreDirection
+        streetName: streetName
+        streetType: streetType
+        city: city
+        addressNumber: addressNumber
+        streetPostDirection: streetPostDirection
+        mainAddressLine: mainAddressLine
+        state: state
+        unitValue: unitValue
       properties:
-        code:
+        mainAddressLine:
           type: string
-        value:
+        addressNumber:
+          type: string
+        streetPreDirection:
+          type: string
+        streetName:
+          type: string
+        streetType:
+          type: string
+        streetPostDirection:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postCode1:
+          type: string
+        postCode2:
           type: string
       type: object
-    BasementType:
+    Owners:
       example:
-        code: code
-        value: value
+        firstName: firstName
+        lastName: lastName
+        ownerName: ownerName
+        middleName: middleName
+        ownerId: ownerId
       properties:
-        code:
+        ownerId:
           type: string
-        value:
+        firstName:
           type: string
-      type: object
-    PoolType:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
+        middleName:
           type: string
-        value:
+        lastName:
           type: string
-      type: object
-    FireplaceType:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    AbsenteeOwner:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    FloorType:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
+        ownerName:
           type: string
       type: object
     PropertyInfoResponses:
@@ -1017,836 +973,6 @@ components:
             $ref: '#/components/schemas/PropertyInfoResponse'
           type: array
       type: object
-    FormattedTaxAddress:
-      example:
-        unitType: unitType
-        postCode2: postCode2
-        postCode1: postCode1
-        streetPreDirection: streetPreDirection
-        streetName: streetName
-        streetType: streetType
-        city: city
-        addressNumber: addressNumber
-        streetPostDirection: streetPostDirection
-        mainAddressLine: mainAddressLine
-        state: state
-        unitValue: unitValue
-      properties:
-        mainAddressLine:
-          type: string
-        addressNumber:
-          type: string
-        streetPreDirection:
-          type: string
-        streetName:
-          type: string
-        streetType:
-          type: string
-        streetPostDirection:
-          type: string
-        unitType:
-          type: string
-        unitValue:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        postCode1:
-          type: string
-        postCode2:
-          type: string
-      type: object
-    Amenities:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    BuildgCondition:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    MatchedAddress:
-      example:
-        country: country
-        streetSide: streetSide
-        city: city
-        displayName: displayName
-        postalCode: postalCode
-        latitude: latitude
-        businessName: businessName
-        county: county
-        unitType: unitType
-        streetName: streetName
-        formattedAddress: formattedAddress
-        addressLine1: addressLine1
-        mainAddressLine: mainAddressLine
-        addressLine2: addressLine2
-        addressLine3: addressLine3
-        objectId: objectId
-        addressLastLine: addressLastLine
-        longitude: longitude
-        unitValue: unitValue
-        stateProvince: stateProvince
-        urbanizationName: urbanizationName
-        areaName1: areaName1
-        areaName2: areaName2
-        areaName3: areaName3
-        areaName4: areaName4
-        addressNumber: addressNumber
-        postCode: postCode
-        postCodeExt: postCodeExt
-        placeName: placeName
-        status: status
-      properties:
-        objectId:
-          type: string
-        displayName:
-          type: string
-        streetSide:
-          type: string
-        businessName:
-          type: string
-        addressLine1:
-          type: string
-        addressLine2:
-          type: string
-        addressLine3:
-          type: string
-        city:
-          type: string
-        stateProvince:
-          type: string
-        county:
-          type: string
-        postalCode:
-          type: string
-        latitude:
-          type: string
-        longitude:
-          type: string
-        status:
-          type: string
-        urbanizationName:
-          type: string
-        formattedAddress:
-          type: string
-        mainAddressLine:
-          type: string
-        addressLastLine:
-          type: string
-        placeName:
-          type: string
-        areaName1:
-          type: string
-        areaName2:
-          type: string
-        areaName3:
-          type: string
-        areaName4:
-          type: string
-        postCode:
-          type: string
-        postCodeExt:
-          type: string
-        country:
-          type: string
-        addressNumber:
-          type: string
-        streetName:
-          type: string
-        unitType:
-          type: string
-        unitValue:
-          type: string
-      type: object
-    BuildgImproveType:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    HeatingType:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    BuildgView:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    FuelType:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    OtherRooms:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    TaxDocType:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    ParcelBoundaryV2:
-      example:
-        adjacentParcelBoundary:
-        - null
-        - null
-        countyfips: countyfips
-        geoId: geoId
-        center:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
-        geometry:
-          crs:
-            type: type
-            properties:
-              name: name
-          coordinates: '{}'
-          type: type
-        parcelList:
-        - taxAccountNumber: taxAccountNumber
-          address:
-            country: country
-            streetSide: streetSide
-            city: city
-            displayName: displayName
-            postalCode: postalCode
-            latitude: latitude
-            businessName: businessName
-            county: county
-            unitType: unitType
-            streetName: streetName
-            formattedAddress: formattedAddress
-            addressLine1: addressLine1
-            mainAddressLine: mainAddressLine
-            addressLine2: addressLine2
-            addressLine3: addressLine3
-            objectId: objectId
-            addressLastLine: addressLastLine
-            longitude: longitude
-            unitValue: unitValue
-            stateProvince: stateProvince
-            urbanizationName: urbanizationName
-            areaName1: areaName1
-            areaName2: areaName2
-            areaName3: areaName3
-            areaName4: areaName4
-            addressNumber: addressNumber
-            postCode: postCode
-            postCodeExt: postCodeExt
-            placeName: placeName
-            status: status
-          taxApn: taxApn
-          preciselyId: preciselyId
-          propLinkId: propLinkId
-          id: id
-          parentPreciselyId: parentPreciselyId
-        - taxAccountNumber: taxAccountNumber
-          address:
-            country: country
-            streetSide: streetSide
-            city: city
-            displayName: displayName
-            postalCode: postalCode
-            latitude: latitude
-            businessName: businessName
-            county: county
-            unitType: unitType
-            streetName: streetName
-            formattedAddress: formattedAddress
-            addressLine1: addressLine1
-            mainAddressLine: mainAddressLine
-            addressLine2: addressLine2
-            addressLine3: addressLine3
-            objectId: objectId
-            addressLastLine: addressLastLine
-            longitude: longitude
-            unitValue: unitValue
-            stateProvince: stateProvince
-            urbanizationName: urbanizationName
-            areaName1: areaName1
-            areaName2: areaName2
-            areaName3: areaName3
-            areaName4: areaName4
-            addressNumber: addressNumber
-            postCode: postCode
-            postCodeExt: postCodeExt
-            placeName: placeName
-            status: status
-          taxApn: taxApn
-          preciselyId: preciselyId
-          propLinkId: propLinkId
-          id: id
-          parentPreciselyId: parentPreciselyId
-        parcelApn: parcelApn
-        objectId: objectId
-        parcelAreaSqFt: parcelAreaSqFt
-        matchedAddress:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-      properties:
-        objectId:
-          type: string
-        parcelApn:
-          type: string
-        geoId:
-          type: string
-        center:
-          $ref: '#/components/schemas/Center'
-        countyfips:
-          type: string
-        parcelAreaSqFt:
-          type: string
-        geometry:
-          $ref: '#/components/schemas/PropertyInformationGeometry'
-        parcelList:
-          items:
-            $ref: '#/components/schemas/ParcelV2'
-          type: array
-        adjacentParcelBoundary:
-          items:
-            $ref: '#/components/schemas/ParcelBoundaryV2'
-          type: array
-        matchedAddress:
-          $ref: '#/components/schemas/MatchedAddress'
-      type: object
-    BuildgType:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    CaExemptions:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    PropertyInfoResponse:
-      example:
-        propertyAttributes:
-          caExemptions:
-            code: code
-            value: value
-          buildgSqFtSource:
-            code: code
-            value: value
-          legalLotCode: legalLotCode
-          propSqFt: propSqFt
-          owners:
-          - firstName: firstName
-            lastName: lastName
-            ownerName: ownerName
-            middleName: middleName
-            ownerId: ownerId
-          - firstName: firstName
-            lastName: lastName
-            ownerName: ownerName
-            middleName: middleName
-            ownerId: ownerId
-          propFrontFootage: propFrontFootage
-          lastUpdated: lastUpdated
-          buildgCount: buildgCount
-          basementType:
-            code: code
-            value: value
-          marketValueYear: marketValueYear
-          formattedTaxAddress:
-            unitType: unitType
-            postCode2: postCode2
-            postCode1: postCode1
-            streetPreDirection: streetPreDirection
-            streetName: streetName
-            streetType: streetType
-            city: city
-            addressNumber: addressNumber
-            streetPostDirection: streetPostDirection
-            mainAddressLine: mainAddressLine
-            state: state
-            unitValue: unitValue
-          elevator: elevator
-          taxYear: taxYear
-          partialBaths: partialBaths
-          buildgUnitNo: buildgUnitNo
-          absenteeOwner:
-            code: code
-            value: value
-          priorSalePageNumber: priorSalePageNumber
-          ownerVestType:
-            code: code
-            value: value
-          buildgFeaturesSqFt:
-          - areaIndicator: areaIndicator
-            description: description
-            featureAreaSqFt: featureAreaSqFt
-          - areaIndicator: areaIndicator
-            description: description
-            featureAreaSqFt: featureAreaSqFt
-          legalLotNumber: legalLotNumber
-          roofCoverType:
-            code: code
-            value: value
-          assessedLandValue: assessedLandValue
-          salesDate: salesDate
-          pool: pool
-          propDepthFootage: propDepthFootage
-          propApn: propApn
-          mobileHome: mobileHome
-          bedrooms: bedrooms
-          taxSalesPriceCode:
-            code: code
-            value: value
-          priorSaleFolioNumber: priorSaleFolioNumber
-          coolingType:
-            code: code
-            value: value
-          vacancy:
-            code: code
-            value: value
-          taxRateCode: taxRateCode
-          legalDistrict: legalDistrict
-          amenities:
-            code: code
-            value: value
-          assessedYear: assessedYear
-          situsAddress:
-            unitType: unitType
-            postCode2: postCode2
-            postCode1: postCode1
-            streetPreDirection: streetPreDirection
-            streetName: streetName
-            streetType: streetType
-            city: city
-            addressNumber: addressNumber
-            streetPostDirection: streetPostDirection
-            mainAddressLine: mainAddressLine
-            state: state
-            unitValue: unitValue
-          foundation:
-            code: code
-            value: value
-          grossSqft: grossSqft
-          legalUnitNumber: legalUnitNumber
-          fireplace: fireplace
-          sewerType: sewerType
-          locCode:
-            code: code
-            value: value
-          recBookNumber: recBookNumber
-          legalSectionTownshipRange: legalSectionTownshipRange
-          pbKey: pbKey
-          propLinkId: propLinkId
-          taxAddress: taxAddress
-          assessedValue: assessedValue
-          taxAccountNumber: taxAccountNumber
-          priorSaleDocType: priorSaleDocType
-          buildgCondition:
-            code: code
-            value: value
-          interiorWall:
-            code: code
-            value: value
-          roofFrameType:
-            code: code
-            value: value
-          propAcres: propAcres
-          exteriorWalls:
-            code: code
-            value: value
-          buildgSqFt: buildgSqFt
-          baths: baths
-          fuelType:
-            code: code
-            value: value
-          garageType:
-            code: code
-            value: value
-          propZoning: propZoning
-          priorSaleCode:
-            code: code
-            value: value
-          marketValueImp: marketValueImp
-          priorSaleDocNumber: priorSaleDocNumber
-          buildgQuality:
-            code: code
-            value: value
-          geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          marketValueLand: marketValueLand
-          landUse:
-            code: code
-            value: value
-          bathFixtures: bathFixtures
-          basementSqFt: basementSqFt
-          ownerType: ownerType
-          rooms: rooms
-          heatingType:
-            code: code
-            value: value
-          recPageNumber: recPageNumber
-          taxExemptions:
-          - code: code
-            value: value
-          - code: code
-            value: value
-          taxDocType:
-            code: code
-            value: value
-          replacementCost: replacementCost
-          legalSubName: legalSubName
-          floorType:
-            code: code
-            value: value
-          assessedValueImp: assessedValueImp
-          roofShapeType:
-            code: code
-            value: value
-          geoId: geoId
-          taxTapeCutDate: taxTapeCutDate
-          legalSection: legalSection
-          otherRooms:
-            code: code
-            value: value
-          recDocNumber: recDocNumber
-          appraisedValueImp: appraisedValueImp
-          legalFullDesc: legalFullDesc
-          legalBlock: legalBlock
-          buildgView:
-            code: code
-            value: value
-          fipsCode: fipsCode
-          poolType:
-            code: code
-            value: value
-          legalLandLot: legalLandLot
-          plumbingFixtures: plumbingFixtures
-          energyType:
-            code: code
-            value: value
-          buildgName: buildgName
-          propApnSequence: propApnSequence
-          builtYear: builtYear
-          priorSaleDate: priorSaleDate
-          taxAmount: taxAmount
-          appraisedValue: appraisedValue
-          appraisedValueLand: appraisedValueLand
-          parkingCapacity: parkingCapacity
-          buildgType:
-            code: code
-            value: value
-          parkingSqFt: parkingSqFt
-          priorSalesPrice: priorSalesPrice
-          waterType: waterType
-          legalPhaseNumber: legalPhaseNumber
-          buildgStyle:
-            code: code
-            value: value
-          legalMapRef: legalMapRef
-          subdivision: subdivision
-          effectiveBuiltYear: effectiveBuiltYear
-          buildgImproveArea:
-          - improveArea: improveArea
-            areaIndicator: areaIndicator
-            description: description
-          - improveArea: improveArea
-            areaIndicator: areaIndicator
-            description: description
-          legalAssessorDesc: legalAssessorDesc
-          propSiteInfluene:
-            code: code
-            value: value
-          construction:
-            code: code
-            value: value
-          livingSqFt: livingSqFt
-          buildgImproveType:
-            code: code
-            value: value
-          fireplaceType:
-            code: code
-            value: value
-          taxDelYear: taxDelYear
-          stories:
-            description: description
-            value: value
-          taxSalesPrice: taxSalesPrice
-          marketValue: marketValue
-          extraFeatureSqft:
-          - areaIndicator: areaIndicator
-            description: description
-            featureAreaSqFt: featureAreaSqFt
-          - areaIndicator: areaIndicator
-            description: description
-            featureAreaSqFt: featureAreaSqFt
-          adjGrossSqft: adjGrossSqft
-          propType: propType
-          legalTractNumber: legalTractNumber
-          legalTownMuniName: legalTownMuniName
-          buildgClass:
-            code: code
-            value: value
-        objectId: objectId
-        matchedAddress:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-      properties:
-        objectId:
-          type: string
-        propertyAttributes:
-          $ref: '#/components/schemas/PropertyAttributes'
-        matchedAddress:
-          $ref: '#/components/schemas/MatchedAddress'
-      type: object
-    PriorSaleCode:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    TaxExemption:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    ParcelV2:
-      example:
-        taxAccountNumber: taxAccountNumber
-        address:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        taxApn: taxApn
-        preciselyId: preciselyId
-        propLinkId: propLinkId
-        id: id
-        parentPreciselyId: parentPreciselyId
-      properties:
-        id:
-          type: string
-        preciselyId:
-          type: string
-        parentPreciselyId:
-          type: string
-        address:
-          $ref: '#/components/schemas/MatchedAddress'
-        taxApn:
-          type: string
-        taxAccountNumber:
-          type: string
-        propLinkId:
-          type: string
-      type: object
-    PropertyGeometry:
-      example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
-        type: type
-      properties:
-        type:
-          type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      required:
-      - type
-      type: object
-    TaxSalesPriceCode:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    GarageType:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    GeometryProperties:
-      example:
-        name: name
-      properties:
-        name:
-          type: string
-      type: object
-    ExteriorWalls:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
     OwnerVestType:
       example:
         code: code
@@ -1857,101 +983,7 @@ components:
         value:
           type: string
       type: object
-    Stories:
-      example:
-        description: description
-        value: value
-      properties:
-        value:
-          type: string
-        description:
-          type: string
-      type: object
-    EnergyType:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    BuildingSqftSource:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    BuildgImproveArea:
-      example:
-        improveArea: improveArea
-        areaIndicator: areaIndicator
-        description: description
-      properties:
-        improveArea:
-          type: string
-        areaIndicator:
-          type: string
-        description:
-          type: string
-      type: object
-    Foundation:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    RoofFrameType:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    LandUse:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    PropertyInformationGeometryCRC:
-      example:
-        type: type
-        properties:
-          name: name
-      properties:
-        type:
-          type: string
-        properties:
-          $ref: '#/components/schemas/GeometryProperties'
-      type: object
-    RoofShapeType:
-      example:
-        code: code
-        value: value
-      properties:
-        code:
-          type: string
-        value:
-          type: string
-      type: object
-    BuildgFeaturesSqft:
+    ExtraFeatureSqft:
       example:
         areaIndicator: areaIndicator
         description: description
@@ -1964,11 +996,14 @@ components:
         description:
           type: string
       type: object
-    PropertyInfoPreferences:
+    FloorType:
       example:
-        attributes: attributes
+        code: code
+        value: value
       properties:
-        attributes:
+        code:
+          type: string
+        value:
           type: string
       type: object
     PropertyAttributes:
@@ -2506,6 +1541,46 @@ components:
         geoId:
           type: string
       type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    PropertyInformationGeometry:
+      example:
+        crs:
+          type: type
+          properties:
+            name: name
+        coordinates: '{}'
+        type: type
+      properties:
+        type:
+          type: string
+        crs:
+          $ref: '#/components/schemas/PropertyInformationGeometryCRC'
+        coordinates:
+          type: object
+      type: object
+    PoolType:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
     Vacancy:
       example:
         code: code
@@ -2516,39 +1591,17 @@ components:
         value:
           type: string
       type: object
-    Owners:
+    OtherRooms:
       example:
-        firstName: firstName
-        lastName: lastName
-        ownerName: ownerName
-        middleName: middleName
-        ownerId: ownerId
+        code: code
+        value: value
       properties:
-        ownerId:
+        code:
           type: string
-        firstName:
-          type: string
-        middleName:
-          type: string
-        lastName:
-          type: string
-        ownerName:
+        value:
           type: string
       type: object
-    ExtraFeatureSqft:
-      example:
-        areaIndicator: areaIndicator
-        description: description
-        featureAreaSqFt: featureAreaSqFt
-      properties:
-        featureAreaSqFt:
-          type: string
-        areaIndicator:
-          type: string
-        description:
-          type: string
-      type: object
-    BuildgClass:
+    Construction:
       example:
         code: code
         value: value
@@ -2598,14 +1651,510 @@ components:
         postCode2:
           type: string
       type: object
-    ErrorInfo_1:
+    PropertyInfoResponse:
+      example:
+        propertyAttributes:
+          caExemptions:
+            code: code
+            value: value
+          buildgSqFtSource:
+            code: code
+            value: value
+          legalLotCode: legalLotCode
+          propSqFt: propSqFt
+          owners:
+          - firstName: firstName
+            lastName: lastName
+            ownerName: ownerName
+            middleName: middleName
+            ownerId: ownerId
+          - firstName: firstName
+            lastName: lastName
+            ownerName: ownerName
+            middleName: middleName
+            ownerId: ownerId
+          propFrontFootage: propFrontFootage
+          lastUpdated: lastUpdated
+          buildgCount: buildgCount
+          basementType:
+            code: code
+            value: value
+          marketValueYear: marketValueYear
+          formattedTaxAddress:
+            unitType: unitType
+            postCode2: postCode2
+            postCode1: postCode1
+            streetPreDirection: streetPreDirection
+            streetName: streetName
+            streetType: streetType
+            city: city
+            addressNumber: addressNumber
+            streetPostDirection: streetPostDirection
+            mainAddressLine: mainAddressLine
+            state: state
+            unitValue: unitValue
+          elevator: elevator
+          taxYear: taxYear
+          partialBaths: partialBaths
+          buildgUnitNo: buildgUnitNo
+          absenteeOwner:
+            code: code
+            value: value
+          priorSalePageNumber: priorSalePageNumber
+          ownerVestType:
+            code: code
+            value: value
+          buildgFeaturesSqFt:
+          - areaIndicator: areaIndicator
+            description: description
+            featureAreaSqFt: featureAreaSqFt
+          - areaIndicator: areaIndicator
+            description: description
+            featureAreaSqFt: featureAreaSqFt
+          legalLotNumber: legalLotNumber
+          roofCoverType:
+            code: code
+            value: value
+          assessedLandValue: assessedLandValue
+          salesDate: salesDate
+          pool: pool
+          propDepthFootage: propDepthFootage
+          propApn: propApn
+          mobileHome: mobileHome
+          bedrooms: bedrooms
+          taxSalesPriceCode:
+            code: code
+            value: value
+          priorSaleFolioNumber: priorSaleFolioNumber
+          coolingType:
+            code: code
+            value: value
+          vacancy:
+            code: code
+            value: value
+          taxRateCode: taxRateCode
+          legalDistrict: legalDistrict
+          amenities:
+            code: code
+            value: value
+          assessedYear: assessedYear
+          situsAddress:
+            unitType: unitType
+            postCode2: postCode2
+            postCode1: postCode1
+            streetPreDirection: streetPreDirection
+            streetName: streetName
+            streetType: streetType
+            city: city
+            addressNumber: addressNumber
+            streetPostDirection: streetPostDirection
+            mainAddressLine: mainAddressLine
+            state: state
+            unitValue: unitValue
+          foundation:
+            code: code
+            value: value
+          grossSqft: grossSqft
+          legalUnitNumber: legalUnitNumber
+          fireplace: fireplace
+          sewerType: sewerType
+          locCode:
+            code: code
+            value: value
+          recBookNumber: recBookNumber
+          legalSectionTownshipRange: legalSectionTownshipRange
+          pbKey: pbKey
+          propLinkId: propLinkId
+          taxAddress: taxAddress
+          assessedValue: assessedValue
+          taxAccountNumber: taxAccountNumber
+          priorSaleDocType: priorSaleDocType
+          buildgCondition:
+            code: code
+            value: value
+          interiorWall:
+            code: code
+            value: value
+          roofFrameType:
+            code: code
+            value: value
+          propAcres: propAcres
+          exteriorWalls:
+            code: code
+            value: value
+          buildgSqFt: buildgSqFt
+          baths: baths
+          fuelType:
+            code: code
+            value: value
+          garageType:
+            code: code
+            value: value
+          propZoning: propZoning
+          priorSaleCode:
+            code: code
+            value: value
+          marketValueImp: marketValueImp
+          priorSaleDocNumber: priorSaleDocNumber
+          buildgQuality:
+            code: code
+            value: value
+          geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          marketValueLand: marketValueLand
+          landUse:
+            code: code
+            value: value
+          bathFixtures: bathFixtures
+          basementSqFt: basementSqFt
+          ownerType: ownerType
+          rooms: rooms
+          heatingType:
+            code: code
+            value: value
+          recPageNumber: recPageNumber
+          taxExemptions:
+          - code: code
+            value: value
+          - code: code
+            value: value
+          taxDocType:
+            code: code
+            value: value
+          replacementCost: replacementCost
+          legalSubName: legalSubName
+          floorType:
+            code: code
+            value: value
+          assessedValueImp: assessedValueImp
+          roofShapeType:
+            code: code
+            value: value
+          geoId: geoId
+          taxTapeCutDate: taxTapeCutDate
+          legalSection: legalSection
+          otherRooms:
+            code: code
+            value: value
+          recDocNumber: recDocNumber
+          appraisedValueImp: appraisedValueImp
+          legalFullDesc: legalFullDesc
+          legalBlock: legalBlock
+          buildgView:
+            code: code
+            value: value
+          fipsCode: fipsCode
+          poolType:
+            code: code
+            value: value
+          legalLandLot: legalLandLot
+          plumbingFixtures: plumbingFixtures
+          energyType:
+            code: code
+            value: value
+          buildgName: buildgName
+          propApnSequence: propApnSequence
+          builtYear: builtYear
+          priorSaleDate: priorSaleDate
+          taxAmount: taxAmount
+          appraisedValue: appraisedValue
+          appraisedValueLand: appraisedValueLand
+          parkingCapacity: parkingCapacity
+          buildgType:
+            code: code
+            value: value
+          parkingSqFt: parkingSqFt
+          priorSalesPrice: priorSalesPrice
+          waterType: waterType
+          legalPhaseNumber: legalPhaseNumber
+          buildgStyle:
+            code: code
+            value: value
+          legalMapRef: legalMapRef
+          subdivision: subdivision
+          effectiveBuiltYear: effectiveBuiltYear
+          buildgImproveArea:
+          - improveArea: improveArea
+            areaIndicator: areaIndicator
+            description: description
+          - improveArea: improveArea
+            areaIndicator: areaIndicator
+            description: description
+          legalAssessorDesc: legalAssessorDesc
+          propSiteInfluene:
+            code: code
+            value: value
+          construction:
+            code: code
+            value: value
+          livingSqFt: livingSqFt
+          buildgImproveType:
+            code: code
+            value: value
+          fireplaceType:
+            code: code
+            value: value
+          taxDelYear: taxDelYear
+          stories:
+            description: description
+            value: value
+          taxSalesPrice: taxSalesPrice
+          marketValue: marketValue
+          extraFeatureSqft:
+          - areaIndicator: areaIndicator
+            description: description
+            featureAreaSqFt: featureAreaSqFt
+          - areaIndicator: areaIndicator
+            description: description
+            featureAreaSqFt: featureAreaSqFt
+          adjGrossSqft: adjGrossSqft
+          propType: propType
+          legalTractNumber: legalTractNumber
+          legalTownMuniName: legalTownMuniName
+          buildgClass:
+            code: code
+            value: value
+        objectId: objectId
+        matchedAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
       properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
+        objectId:
+          type: string
+        propertyAttributes:
+          $ref: '#/components/schemas/PropertyAttributes'
+        matchedAddress:
+          $ref: '#/components/schemas/MatchedAddress'
       type: object
-    CoolingType:
+    FuelType:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    BuildgImproveType:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    Amenities:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    ExteriorWalls:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    PropertyInfoAddressRequest:
+      example:
+        preferences:
+          attributes: attributes
+        addresses:
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+      properties:
+        preferences:
+          $ref: '#/components/schemas/PropertyInfoPreferences'
+        addresses:
+          items:
+            $ref: '#/components/schemas/MatchedAddress'
+          type: array
+      required:
+      - addresses
+      - preferences
+      type: object
+    Foundation:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    BuildgFeaturesSqft:
+      example:
+        areaIndicator: areaIndicator
+        description: description
+        featureAreaSqFt: featureAreaSqFt
+      properties:
+        featureAreaSqFt:
+          type: string
+        areaIndicator:
+          type: string
+        description:
+          type: string
+      type: object
+    AbsenteeOwner:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    BuildgClass:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    RoofFrameType:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    TaxDocType:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    PropertyInfoPreferences:
+      example:
+        attributes: attributes
+      properties:
+        attributes:
+          type: string
+      type: object
+    PropertyInformationGeometryCRC:
+      example:
+        type: type
+        properties:
+          name: name
+      properties:
+        type:
+          type: string
+        properties:
+          $ref: '#/components/schemas/GeometryProperties'
+      type: object
+    FireplaceType:
       example:
         code: code
         value: value
@@ -2625,6 +2174,160 @@ components:
         value:
           type: string
       type: object
+    ParcelBoundaryV2:
+      example:
+        adjacentParcelBoundary:
+        - null
+        - null
+        countyfips: countyfips
+        geoId: geoId
+        center:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        geometry:
+          crs:
+            type: type
+            properties:
+              name: name
+          coordinates: '{}'
+          type: type
+        parcelList:
+        - taxAccountNumber: taxAccountNumber
+          address:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          taxApn: taxApn
+          preciselyId: preciselyId
+          propLinkId: propLinkId
+          id: id
+          parentPreciselyId: parentPreciselyId
+        - taxAccountNumber: taxAccountNumber
+          address:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          taxApn: taxApn
+          preciselyId: preciselyId
+          propLinkId: propLinkId
+          id: id
+          parentPreciselyId: parentPreciselyId
+        parcelApn: parcelApn
+        objectId: objectId
+        parcelAreaSqFt: parcelAreaSqFt
+        matchedAddress:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+      properties:
+        objectId:
+          type: string
+        parcelApn:
+          type: string
+        geoId:
+          type: string
+        center:
+          $ref: '#/components/schemas/Center'
+        countyfips:
+          type: string
+        parcelAreaSqFt:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/PropertyInformationGeometry'
+        parcelList:
+          items:
+            $ref: '#/components/schemas/ParcelV2'
+          type: array
+        adjacentParcelBoundary:
+          items:
+            $ref: '#/components/schemas/ParcelBoundaryV2'
+          type: array
+        matchedAddress:
+          $ref: '#/components/schemas/MatchedAddress'
+      type: object
     InteriorWall:
       example:
         code: code
@@ -2635,7 +2338,304 @@ components:
         value:
           type: string
       type: object
-    Construction:
+    GarageType:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    HeatingType:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    BuildgStyle:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    LandUse:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    BuildgCondition:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    BuildgView:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    BuildingSqftSource:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    EnergyType:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    MatchedAddress:
+      example:
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
+      properties:
+        objectId:
+          type: string
+        displayName:
+          type: string
+        streetSide:
+          type: string
+        businessName:
+          type: string
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+      type: object
+    BuildgType:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    Center:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    BuildgImproveArea:
+      example:
+        improveArea: improveArea
+        areaIndicator: areaIndicator
+        description: description
+      properties:
+        improveArea:
+          type: string
+        areaIndicator:
+          type: string
+        description:
+          type: string
+      type: object
+    BasementType:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    TaxSalesPriceCode:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    ParcelV2:
+      example:
+        taxAccountNumber: taxAccountNumber
+        address:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        taxApn: taxApn
+        preciselyId: preciselyId
+        propLinkId: propLinkId
+        id: id
+        parentPreciselyId: parentPreciselyId
+      properties:
+        id:
+          type: string
+        preciselyId:
+          type: string
+        parentPreciselyId:
+          type: string
+        address:
+          $ref: '#/components/schemas/MatchedAddress'
+        taxApn:
+          type: string
+        taxAccountNumber:
+          type: string
+        propLinkId:
+          type: string
+      type: object
+    RoofShapeType:
+      example:
+        code: code
+        value: value
+      properties:
+        code:
+          type: string
+        value:
+          type: string
+      type: object
+    TaxExemption:
       example:
         code: code
         value: value

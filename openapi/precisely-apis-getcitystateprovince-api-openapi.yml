@@ -72,6 +72,58 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    GetCityStateProvinceAPIInputRow:
+      example:
+        user_fields:
+        - name: name
+          value: value
+        - name: name
+          value: value
+        PostalCode: PostalCode
+      properties:
+        user_fields:
+          description: These fields are returned, unmodified, in the user_fields section of the response.
+          items:
+            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
+          type: array
+        PostalCode:
+          description: The validated ZIP Code or postal code.
+          type: string
+      type: object
+    GetCityStateProvinceAPIRequest:
+      example:
+        Input:
+          Row:
+          - user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            PostalCode: PostalCode
+          - user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            PostalCode: PostalCode
+        options:
+          OutputVanityCity: N
+          PerformCanadianProcessing: Y
+          MaximumResults: '10'
+          PerformUSProcessing: Y
+      properties:
+        options:
+          $ref: '#/components/schemas/GetCityStateProvinceAPIOptions'
+        Input:
+          $ref: '#/components/schemas/GetCityStateProvinceAPIInput'
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
     ErrorInfo:
       properties:
         errors:
@@ -83,6 +135,30 @@ components:
       type: object
       xml:
         name: errors
+    GetCityStateProvinceAPIOptions:
+      example:
+        OutputVanityCity: N
+        PerformCanadianProcessing: Y
+        MaximumResults: '10'
+        PerformUSProcessing: Y
+      properties:
+        OutputVanityCity:
+          default: N
+          description: Output VanityCity.
+          type: string
+        PerformCanadianProcessing:
+          default: Y
+          description: PerformCanadianProcessing.
+          type: string
+        MaximumResults:
+          default: '10'
+          description: MaximumResults.
+          type: string
+        PerformUSProcessing:
+          default: Y
+          description: PerformUSProcessing.
+          type: string
+      type: object
     GetCityStateProvinceAPIResponse:
       example:
         Output:
@@ -115,92 +191,6 @@ components:
           items:
             $ref: '#/components/schemas/GetCityStateProvinceAPIOutput'
           type: array
-      type: object
-    GetCityStateProvinceAPIOptions:
-      example:
-        OutputVanityCity: N
-        PerformCanadianProcessing: Y
-        MaximumResults: '10'
-        PerformUSProcessing: Y
-      properties:
-        OutputVanityCity:
-          default: N
-          description: Output VanityCity.
-          type: string
-        PerformCanadianProcessing:
-          default: Y
-          description: PerformCanadianProcessing.
-          type: string
-        MaximumResults:
-          default: '10'
-          description: MaximumResults.
-          type: string
-        PerformUSProcessing:
-          default: Y
-          description: PerformUSProcessing.
-          type: string
-      type: object
-    GetCityStateProvinceAPIRequest:
-      example:
-        Input:
-          Row:
-          - user_fields:
-            - name: name
-              value: value
-            - name: name
-              value: value
-            PostalCode: PostalCode
-          - user_fields:
-            - name: name
-              value: value
-            - name: name
-              value: value
-            PostalCode: PostalCode
-        options:
-          OutputVanityCity: N
-          PerformCanadianProcessing: Y
-          MaximumResults: '10'
-          PerformUSProcessing: Y
-      properties:
-        options:
-          $ref: '#/components/schemas/GetCityStateProvinceAPIOptions'
-        Input:
-          $ref: '#/components/schemas/GetCityStateProvinceAPIInput'
-      type: object
-    GetPostalCodesAPIOutput_user_fields:
-      example:
-        name: name
-        value: value
-      properties:
-        name:
-          type: string
-        value:
-          type: string
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    GetCityStateProvinceAPIInputRow:
-      example:
-        user_fields:
-        - name: name
-          value: value
-        - name: name
-          value: value
-        PostalCode: PostalCode
-      properties:
-        user_fields:
-          description: These fields are returned, unmodified, in the user_fields section of the response.
-          items:
-            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
-          type: array
-        PostalCode:
-          description: The validated ZIP Code or postal code.
-          type: string
       type: object
     GetCityStateProvinceAPIInput:
       example:
@@ -263,6 +253,16 @@ components:
           type: string
         Status.Description:
           description: Description of the problem, if there is one.
+          type: string
+      type: object
+    GetPostalCodesAPIOutput_user_fields:
+      example:
+        name: name
+        value: value
+      properties:
+        name:
+          type: string
+        value:
           type: string
       type: object
   securitySchemes:

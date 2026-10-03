@@ -76,6 +76,34 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    place:
+      example:
+        level: level
+        name:
+        - langISOCode: langISOCode
+          langType: langType
+          value: value
+        - langISOCode: langISOCode
+          langType: langType
+          value: value
+        levelName: levelName
+      properties:
+        name:
+          items:
+            $ref: '#/components/schemas/name'
+          type: array
+        levelName:
+          type: string
+        level:
+          type: string
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
     location:
       example:
         place:
@@ -103,6 +131,13 @@ components:
         langType:
           type: string
         value:
+          type: string
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
           type: string
       type: object
     NeighborhoodsResponse:
@@ -133,41 +168,6 @@ components:
           items:
             $ref: '#/components/schemas/location'
           type: array
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
-    place:
-      example:
-        level: level
-        name:
-        - langISOCode: langISOCode
-          langType: langType
-          value: value
-        - langISOCode: langISOCode
-          langType: langType
-          value: value
-        levelName: levelName
-      properties:
-        name:
-          items:
-            $ref: '#/components/schemas/name'
-          type: array
-        levelName:
-          type: string
-        level:
-          type: string
       type: object
   securitySchemes:
     oAuth2Password:

@@ -200,43 +200,183 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    RisksGeometryCRC:
+    CrimeBoundary:
       example:
+        ref: ref
+        geometry:
+          crs:
+            type: type
+            properties:
+              name: name
+          coordinates: '{}'
+          type: type
+        id: id
         type: type
-        properties:
-          name: name
       properties:
+        id:
+          type: string
         type:
           type: string
-        properties:
-          $ref: '#/components/schemas/GeometryProperties'
+        ref:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/CommonGeometry'
       type: object
-    State:
+    GeometryProperties:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+      type: object
+    FloodRiskPreferences:
+      example:
+        richterValue: richterValue
+        includeZoneDesc: includeZoneDesc
+        includeGeometry: includeGeometry
+      properties:
+        includeGeometry:
+          type: string
+        includeZoneDesc:
+          type: string
+        richterValue:
+          type: string
+      type: object
+    Status:
       example:
         code: code
-        fips: fips
+        description: description
       properties:
-        fips:
-          type: string
         code:
           type: string
+        description:
+          type: string
       type: object
-    RiskGeometry:
+    FloodZone:
       example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
+        primaryZone:
+          code: code
+          description: description
+        code: code
+        riskLevel: riskLevel
+        areaType: areaType
+        baseFloodElevation:
+          unit: unit
+          value: value
+        additionalInfo: additionalInfo
+      properties:
+        code:
+          type: string
+        areaType:
+          type: string
+        riskLevel:
+          type: string
+        primaryZone:
+          $ref: '#/components/schemas/PrimaryZone'
+        baseFloodElevation:
+          $ref: '#/components/schemas/BaseFloodElevation'
+        additionalInfo:
+          type: string
+      type: object
+    CommonGeometry:
+      example:
+        crs:
+          type: type
+          properties:
+            name: name
+        coordinates: '{}'
         type: type
       properties:
         type:
           type: string
+        crs:
+          $ref: '#/components/schemas/RisksGeometryCRC'
         coordinates:
+          type: object
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
           items:
-            format: double
-            type: number
+            $ref: '#/components/schemas/ErrorCode'
           type: array
+      type: object
+    FloodRiskByAddressRequest:
+      example:
+        addresses:
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        preferences:
+          richterValue: richterValue
+          includeZoneDesc: includeZoneDesc
+          includeGeometry: includeGeometry
+      properties:
+        addresses:
+          items:
+            $ref: '#/components/schemas/RiskAddress'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/FloodRiskPreferences'
       required:
-      - type
+      - addresses
       type: object
     ErrorCode:
       properties:
@@ -333,214 +473,6 @@ components:
         value:
           type: string
       type: object
-    FloodRiskByLocationRequest:
-      example:
-        preferences:
-          richterValue: richterValue
-          includeZoneDesc: includeZoneDesc
-          includeGeometry: includeGeometry
-        locations:
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-      properties:
-        locations:
-          items:
-            $ref: '#/components/schemas/RiskLocations'
-          type: array
-        preferences:
-          $ref: '#/components/schemas/FloodRiskPreferences'
-      required:
-      - locations
-      type: object
-    GeometryProperties:
-      example:
-        name: name
-      properties:
-        name:
-          type: string
-      type: object
-    CrimeBoundary:
-      example:
-        ref: ref
-        geometry:
-          crs:
-            type: type
-            properties:
-              name: name
-          coordinates: '{}'
-          type: type
-        id: id
-        type: type
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-        ref:
-          type: string
-        geometry:
-          $ref: '#/components/schemas/CommonGeometry'
-      type: object
-    CommonGeometry:
-      example:
-        crs:
-          type: type
-          properties:
-            name: name
-        coordinates: '{}'
-        type: type
-      properties:
-        type:
-          type: string
-        crs:
-          $ref: '#/components/schemas/RisksGeometryCRC'
-        coordinates:
-          type: object
-      type: object
-    PrimaryZone:
-      example:
-        code: code
-        description: description
-      properties:
-        code:
-          type: string
-        description:
-          type: string
-      type: object
-    RiskLocations:
-      example:
-        geometry:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
-        objectId: objectId
-        purchaseAmount: purchaseAmount
-      properties:
-        geometry:
-          $ref: '#/components/schemas/RiskGeometry'
-        purchaseAmount:
-          type: string
-        objectId:
-          type: string
-      required:
-      - geometry
-      type: object
-    FloodZone:
-      example:
-        primaryZone:
-          code: code
-          description: description
-        code: code
-        riskLevel: riskLevel
-        areaType: areaType
-        baseFloodElevation:
-          unit: unit
-          value: value
-        additionalInfo: additionalInfo
-      properties:
-        code:
-          type: string
-        areaType:
-          type: string
-        riskLevel:
-          type: string
-        primaryZone:
-          $ref: '#/components/schemas/PrimaryZone'
-        baseFloodElevation:
-          $ref: '#/components/schemas/BaseFloodElevation'
-        additionalInfo:
-          type: string
-      type: object
-    FloodRiskByAddressRequest:
-      example:
-        addresses:
-        - country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        - country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        preferences:
-          richterValue: richterValue
-          includeZoneDesc: includeZoneDesc
-          includeGeometry: includeGeometry
-      properties:
-        addresses:
-          items:
-            $ref: '#/components/schemas/RiskAddress'
-          type: array
-        preferences:
-          $ref: '#/components/schemas/FloodRiskPreferences'
-      required:
-      - addresses
-      type: object
     RiskAddress:
       example:
         country: country
@@ -633,19 +565,6 @@ components:
         unitType:
           type: string
         unitValue:
-          type: string
-      type: object
-    FloodRiskPreferences:
-      example:
-        richterValue: richterValue
-        includeZoneDesc: includeZoneDesc
-        includeGeometry: includeGeometry
-      properties:
-        includeGeometry:
-          type: string
-        includeZoneDesc:
-          type: string
-        richterValue:
           type: string
       type: object
     FloodRiskResponseList:
@@ -781,16 +700,6 @@ components:
             $ref: '#/components/schemas/FloodRiskResponse'
           type: array
       type: object
-    Status:
-      example:
-        code: code
-        description: description
-      properties:
-        code:
-          type: string
-        description:
-          type: string
-      type: object
     Community:
       example:
         number: number
@@ -803,12 +712,103 @@ components:
         status:
           $ref: '#/components/schemas/Status'
       type: object
-    ErrorInfo_1:
+    RiskLocations:
+      example:
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+        objectId: objectId
+        purchaseAmount: purchaseAmount
       properties:
-        errors:
+        geometry:
+          $ref: '#/components/schemas/RiskGeometry'
+        purchaseAmount:
+          type: string
+        objectId:
+          type: string
+      required:
+      - geometry
+      type: object
+    PrimaryZone:
+      example:
+        code: code
+        description: description
+      properties:
+        code:
+          type: string
+        description:
+          type: string
+      type: object
+    State:
+      example:
+        code: code
+        fips: fips
+      properties:
+        fips:
+          type: string
+        code:
+          type: string
+      type: object
+    FloodRiskByLocationRequest:
+      example:
+        preferences:
+          richterValue: richterValue
+          includeZoneDesc: includeZoneDesc
+          includeGeometry: includeGeometry
+        locations:
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+      properties:
+        locations:
           items:
-            $ref: '#/components/schemas/ErrorCode'
+            $ref: '#/components/schemas/RiskLocations'
           type: array
+        preferences:
+          $ref: '#/components/schemas/FloodRiskPreferences'
+      required:
+      - locations
+      type: object
+    RisksGeometryCRC:
+      example:
+        type: type
+        properties:
+          name: name
+      properties:
+        type:
+          type: string
+        properties:
+          $ref: '#/components/schemas/GeometryProperties'
+      type: object
+    RiskGeometry:
+      example:
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
+        type: type
+      properties:
+        type:
+          type: string
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      required:
+      - type
       type: object
   securitySchemes:
     oAuth2Password:

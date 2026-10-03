@@ -73,17 +73,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ErrorInfo:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-          xml:
-            name: error
-      type: object
-      xml:
-        name: errors
     PhoneVerification:
       example:
         Output:
@@ -115,6 +104,24 @@ components:
             $ref: '#/components/schemas/PhoneVerification_Output'
           type: array
       type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
     ValidatePhoneNumberAPIRequest_Input_Row:
       example:
         PhoneNumber: PhoneNumber
@@ -124,25 +131,6 @@ components:
           type: string
         Country:
           type: string
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    ValidatePhoneNumberAPIRequest:
-      example:
-        Input:
-          Row:
-          - PhoneNumber: PhoneNumber
-            Country: Country
-          - PhoneNumber: PhoneNumber
-            Country: Country
-      properties:
-        Input:
-          $ref: '#/components/schemas/ValidatePhoneNumberAPIRequest_Input'
       type: object
     PhoneVerification_Output:
       example:
@@ -178,6 +166,18 @@ components:
           items:
             type: string
           type: array
+      type: object
+    ValidatePhoneNumberAPIRequest:
+      example:
+        Input:
+          Row:
+          - PhoneNumber: PhoneNumber
+            Country: Country
+          - PhoneNumber: PhoneNumber
+            Country: Country
+      properties:
+        Input:
+          $ref: '#/components/schemas/ValidatePhoneNumberAPIRequest_Input'
       type: object
     ValidatePhoneNumberAPIRequest_Input:
       example:

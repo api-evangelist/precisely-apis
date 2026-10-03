@@ -236,6 +236,116 @@ components:
         unitValue:
           type: string
       type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
+    contactPerson:
+      example:
+        firstName: firstName
+        lastName: lastName
+        comments: comments
+        phone: phone
+        prefix: prefix
+        fullName: fullName
+        title: title
+        fax: fax
+        additionalDetails: additionalDetails
+        email: email
+      properties:
+        title:
+          type: string
+        fullName:
+          type: string
+        prefix:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        phone:
+          type: string
+        fax:
+          type: string
+        email:
+          type: string
+        comments:
+          type: string
+        additionalDetails:
+          type: string
+      type: object
+    siteDetails:
+      example:
+        address:
+          country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        phone: phone
+        contactName: contactName
+        fax: fax
+        email: email
+      properties:
+        phone:
+          type: string
+        fax:
+          type: string
+        contactName:
+          type: string
+        email:
+          type: string
+        address:
+          $ref: '#/components/schemas/AHJmailingAddress'
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    coverage:
+      example:
+        area: area
+        comments: comments
+        exceptions: exceptions
+      properties:
+        area:
+          type: string
+        comments:
+          type: string
+        exceptions:
+          type: string
+      type: object
     AHJ:
       example:
         coverage:
@@ -429,241 +539,6 @@ components:
         siteDetails:
           $ref: '#/components/schemas/siteDetails'
         mailingAddress:
-          $ref: '#/components/schemas/AHJmailingAddress'
-      type: object
-    coverage:
-      example:
-        area: area
-        comments: comments
-        exceptions: exceptions
-      properties:
-        area:
-          type: string
-        comments:
-          type: string
-        exceptions:
-          type: string
-      type: object
-    county:
-      example:
-        name: name
-        fips: fips
-      properties:
-        name:
-          type: string
-        fips:
-          type: string
-      type: object
-    AHJList:
-      example:
-        ahjs:
-        - coverage:
-            area: area
-            comments: comments
-            exceptions: exceptions
-          comments: comments
-          agency: agency
-          phone: phone
-          mailingAddress:
-            country: country
-            streetSide: streetSide
-            city: city
-            displayName: displayName
-            postalCode: postalCode
-            latitude: latitude
-            businessName: businessName
-            county: county
-            unitType: unitType
-            streetName: streetName
-            formattedAddress: formattedAddress
-            addressLine1: addressLine1
-            mainAddressLine: mainAddressLine
-            addressLine2: addressLine2
-            addressLine3: addressLine3
-            objectId: objectId
-            addressLastLine: addressLastLine
-            longitude: longitude
-            unitValue: unitValue
-            stateProvince: stateProvince
-            urbanizationName: urbanizationName
-            areaName1: areaName1
-            areaName2: areaName2
-            areaName3: areaName3
-            areaName4: areaName4
-            addressNumber: addressNumber
-            postCode: postCode
-            postCodeExt: postCodeExt
-            placeName: placeName
-            status: status
-          ahjId: ahjId
-          contactPerson:
-            firstName: firstName
-            lastName: lastName
-            comments: comments
-            phone: phone
-            prefix: prefix
-            fullName: fullName
-            title: title
-            fax: fax
-            additionalDetails: additionalDetails
-            email: email
-          fccId: fccId
-          type: type
-          ahjType: ahjType
-        - coverage:
-            area: area
-            comments: comments
-            exceptions: exceptions
-          comments: comments
-          agency: agency
-          phone: phone
-          mailingAddress:
-            country: country
-            streetSide: streetSide
-            city: city
-            displayName: displayName
-            postalCode: postalCode
-            latitude: latitude
-            businessName: businessName
-            county: county
-            unitType: unitType
-            streetName: streetName
-            formattedAddress: formattedAddress
-            addressLine1: addressLine1
-            mainAddressLine: mainAddressLine
-            addressLine2: addressLine2
-            addressLine3: addressLine3
-            objectId: objectId
-            addressLastLine: addressLastLine
-            longitude: longitude
-            unitValue: unitValue
-            stateProvince: stateProvince
-            urbanizationName: urbanizationName
-            areaName1: areaName1
-            areaName2: areaName2
-            areaName3: areaName3
-            areaName4: areaName4
-            addressNumber: addressNumber
-            postCode: postCode
-            postCodeExt: postCodeExt
-            placeName: placeName
-            status: status
-          ahjId: ahjId
-          contactPerson:
-            firstName: firstName
-            lastName: lastName
-            comments: comments
-            phone: phone
-            prefix: prefix
-            fullName: fullName
-            title: title
-            fax: fax
-            additionalDetails: additionalDetails
-            email: email
-          fccId: fccId
-          type: type
-          ahjType: ahjType
-      properties:
-        ahjs:
-          items:
-            $ref: '#/components/schemas/AHJ'
-          type: array
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
-    contactPerson:
-      example:
-        firstName: firstName
-        lastName: lastName
-        comments: comments
-        phone: phone
-        prefix: prefix
-        fullName: fullName
-        title: title
-        fax: fax
-        additionalDetails: additionalDetails
-        email: email
-      properties:
-        title:
-          type: string
-        fullName:
-          type: string
-        prefix:
-          type: string
-        firstName:
-          type: string
-        lastName:
-          type: string
-        phone:
-          type: string
-        fax:
-          type: string
-        email:
-          type: string
-        comments:
-          type: string
-        additionalDetails:
-          type: string
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    siteDetails:
-      example:
-        address:
-          country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        phone: phone
-        contactName: contactName
-        fax: fax
-        email: email
-      properties:
-        phone:
-          type: string
-        fax:
-          type: string
-        contactName:
-          type: string
-        email:
-          type: string
-        address:
           $ref: '#/components/schemas/AHJmailingAddress'
       type: object
     AHJPlusPSAPResponse:
@@ -877,6 +752,131 @@ components:
         count:
           format: int32
           type: integer
+      type: object
+    AHJList:
+      example:
+        ahjs:
+        - coverage:
+            area: area
+            comments: comments
+            exceptions: exceptions
+          comments: comments
+          agency: agency
+          phone: phone
+          mailingAddress:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          ahjId: ahjId
+          contactPerson:
+            firstName: firstName
+            lastName: lastName
+            comments: comments
+            phone: phone
+            prefix: prefix
+            fullName: fullName
+            title: title
+            fax: fax
+            additionalDetails: additionalDetails
+            email: email
+          fccId: fccId
+          type: type
+          ahjType: ahjType
+        - coverage:
+            area: area
+            comments: comments
+            exceptions: exceptions
+          comments: comments
+          agency: agency
+          phone: phone
+          mailingAddress:
+            country: country
+            streetSide: streetSide
+            city: city
+            displayName: displayName
+            postalCode: postalCode
+            latitude: latitude
+            businessName: businessName
+            county: county
+            unitType: unitType
+            streetName: streetName
+            formattedAddress: formattedAddress
+            addressLine1: addressLine1
+            mainAddressLine: mainAddressLine
+            addressLine2: addressLine2
+            addressLine3: addressLine3
+            objectId: objectId
+            addressLastLine: addressLastLine
+            longitude: longitude
+            unitValue: unitValue
+            stateProvince: stateProvince
+            urbanizationName: urbanizationName
+            areaName1: areaName1
+            areaName2: areaName2
+            areaName3: areaName3
+            areaName4: areaName4
+            addressNumber: addressNumber
+            postCode: postCode
+            postCodeExt: postCodeExt
+            placeName: placeName
+            status: status
+          ahjId: ahjId
+          contactPerson:
+            firstName: firstName
+            lastName: lastName
+            comments: comments
+            phone: phone
+            prefix: prefix
+            fullName: fullName
+            title: title
+            fax: fax
+            additionalDetails: additionalDetails
+            email: email
+          fccId: fccId
+          type: type
+          ahjType: ahjType
+      properties:
+        ahjs:
+          items:
+            $ref: '#/components/schemas/AHJ'
+          type: array
+      type: object
+    county:
+      example:
+        name: name
+        fips: fips
+      properties:
+        name:
+          type: string
+        fips:
+          type: string
       type: object
   securitySchemes:
     oAuth2Password:
