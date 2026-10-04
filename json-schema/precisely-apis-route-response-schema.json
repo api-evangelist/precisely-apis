@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-route-response-schema.json",
+  "title": "RouteResponse",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-routing-api-openapi.yml#/components/schemas/RouteResponse",
+  "properties": {
+    "directionsStyle": {
+      "type": "string"
+    },
+    "distance": {
+      "type": "number"
+    },
+    "distanceUnit": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "timeUnit": {
+      "type": "string"
+    },
+    "time": {
+      "type": "number"
+    },
+    "geometry": {
+      "$ref": "#/$defs/RouteGeometry"
+    },
+    "routeDirections": {
+      "items": {
+        "$ref": "#/$defs/RouteDirection"
+      },
+      "properties": {
+        "empty": {
+          "type": "boolean"
+        }
+      },
+      "type": "array"
+    },
+    "intermediatePoints": {
+      "$ref": "#/$defs/IntermediatePoints"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "IntermediatePoints": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "items": {
+            "items": {
+              "format": "double",
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "RouteDirection": {
+      "properties": {
+        "distance": {
+          "type": "number"
+        },
+        "distanceUnit": {
+          "type": "string"
+        },
+        "timeUnit": {
+          "type": "string"
+        },
+        "time": {
+          "type": "number"
+        },
+        "instruction": {
+          "type": "string"
+        },
+        "directionGeometry": {
+          "$ref": "#/$defs/RouteGeometry"
+        }
+      },
+      "type": "object"
+    },
+    "RouteGeometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "items": {
+            "items": {
+              "format": "double",
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

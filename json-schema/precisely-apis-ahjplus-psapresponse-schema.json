@@ -1,0 +1,284 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-ahjplus-psapresponse-schema.json",
+  "title": "AHJPlusPSAPResponse",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-ahj-api-openapi.yml#/components/schemas/AHJPlusPSAPResponse",
+  "properties": {
+    "ahjs": {
+      "$ref": "#/$defs/AHJList"
+    },
+    "psap": {
+      "$ref": "#/$defs/PSAPResponse"
+    },
+    "count": {
+      "format": "int32",
+      "type": "integer"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "AHJ": {
+      "properties": {
+        "ahjType": {
+          "type": "string"
+        },
+        "ahjId": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "fccId": {
+          "type": "string"
+        },
+        "agency": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "coverage": {
+          "$ref": "#/$defs/coverage"
+        },
+        "contactPerson": {
+          "$ref": "#/$defs/contactPerson"
+        },
+        "mailingAddress": {
+          "$ref": "#/$defs/AHJmailingAddress"
+        }
+      },
+      "type": "object"
+    },
+    "AHJList": {
+      "properties": {
+        "ahjs": {
+          "items": {
+            "$ref": "#/$defs/AHJ"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "AHJmailingAddress": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "streetSide": {
+          "type": "string"
+        },
+        "businessName": {
+          "type": "string"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stateProvince": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "urbanizationName": {
+          "type": "string"
+        },
+        "formattedAddress": {
+          "type": "string"
+        },
+        "mainAddressLine": {
+          "type": "string"
+        },
+        "addressLastLine": {
+          "type": "string"
+        },
+        "placeName": {
+          "type": "string"
+        },
+        "areaName1": {
+          "type": "string"
+        },
+        "areaName2": {
+          "type": "string"
+        },
+        "areaName3": {
+          "type": "string"
+        },
+        "areaName4": {
+          "type": "string"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "postCodeExt": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "addressNumber": {
+          "type": "string"
+        },
+        "streetName": {
+          "type": "string"
+        },
+        "unitType": {
+          "type": "string"
+        },
+        "unitValue": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PSAPResponse": {
+      "properties": {
+        "psapId": {
+          "type": "string"
+        },
+        "fccId": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "count": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "agency": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "county": {
+          "$ref": "#/$defs/county"
+        },
+        "coverage": {
+          "$ref": "#/$defs/coverage"
+        },
+        "contactPerson": {
+          "$ref": "#/$defs/contactPerson"
+        },
+        "siteDetails": {
+          "$ref": "#/$defs/siteDetails"
+        },
+        "mailingAddress": {
+          "$ref": "#/$defs/AHJmailingAddress"
+        }
+      },
+      "type": "object"
+    },
+    "contactPerson": {
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "fax": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "additionalDetails": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "county": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "fips": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "coverage": {
+      "properties": {
+        "area": {
+          "type": "string"
+        },
+        "comments": {
+          "type": "string"
+        },
+        "exceptions": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "siteDetails": {
+      "properties": {
+        "phone": {
+          "type": "string"
+        },
+        "fax": {
+          "type": "string"
+        },
+        "contactName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "#/$defs/AHJmailingAddress"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

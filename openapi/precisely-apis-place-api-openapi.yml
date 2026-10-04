@@ -76,6 +76,29 @@ paths:
       x-accepts: application/json
 components:
   schemas:
+    location:
+      example:
+        place:
+          level: level
+          name:
+          - langISOCode: langISOCode
+            langType: langType
+            value: value
+          - langISOCode: langISOCode
+            langType: langType
+            value: value
+          levelName: levelName
+      properties:
+        place:
+          $ref: '#/components/schemas/place'
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+      type: object
     place:
       example:
         level: level
@@ -97,28 +120,12 @@ components:
         level:
           type: string
       type: object
-    ErrorInfo_1:
+    ErrorCode:
       properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
-    location:
-      example:
-        place:
-          level: level
-          name:
-          - langISOCode: langISOCode
-            langType: langType
-            value: value
-          - langISOCode: langISOCode
-            langType: langType
-            value: value
-          levelName: levelName
-      properties:
-        place:
-          $ref: '#/components/schemas/place'
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
       type: object
     name:
       example:
@@ -131,13 +138,6 @@ components:
         langType:
           type: string
         value:
-          type: string
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
           type: string
       type: object
     NeighborhoodsResponse:

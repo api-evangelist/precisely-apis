@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-key-lookup-request-schema.json",
+  "title": "KeyLookupRequest",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-geocode-api-openapi.yml#/components/schemas/KeyLookupRequest",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "preferences": {
+      "$ref": "#/$defs/GeocodePreferences"
+    },
+    "keys": {
+      "items": {
+        "$ref": "#/$defs/keys"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "FieldsMatching": {
+      "properties": {
+        "matchOnAddressNumber": {
+          "type": "boolean"
+        },
+        "matchOnPostCode1": {
+          "type": "boolean"
+        },
+        "matchOnPostCode2": {
+          "type": "boolean"
+        },
+        "matchOnAreaName1": {
+          "type": "boolean"
+        },
+        "matchOnAreaName2": {
+          "type": "boolean"
+        },
+        "matchOnAreaName3": {
+          "type": "boolean"
+        },
+        "matchOnAreaName4": {
+          "type": "boolean"
+        },
+        "matchOnAllStreetFields": {
+          "type": "boolean"
+        },
+        "matchOnStreetName": {
+          "type": "boolean"
+        },
+        "matchOnStreetType": {
+          "type": "boolean"
+        },
+        "matchOnStreetDirectional": {
+          "type": "boolean"
+        },
+        "matchOnPlaceName": {
+          "type": "boolean"
+        },
+        "matchOnInputFields": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "GeocodePreferences": {
+      "properties": {
+        "returnAllCandidateInfo": {
+          "type": "boolean"
+        },
+        "fallbackToGeographic": {
+          "type": "string"
+        },
+        "fallbackToPostal": {
+          "type": "string"
+        },
+        "maxReturnedCandidates": {
+          "type": "string"
+        },
+        "distance": {
+          "type": "string"
+        },
+        "streetOffset": {
+          "type": "string"
+        },
+        "cornerOffset": {
+          "type": "string"
+        },
+        "matchMode": {
+          "type": "string"
+        },
+        "clientLocale": {
+          "type": "string"
+        },
+        "clientCoordSysName": {
+          "type": "string"
+        },
+        "distanceUnits": {
+          "type": "string"
+        },
+        "streetOffsetUnits": {
+          "type": "string"
+        },
+        "cornerOffsetUnits": {
+          "type": "string"
+        },
+        "mustMatchFields": {
+          "$ref": "#/$defs/FieldsMatching"
+        },
+        "returnFieldsDescriptor": {
+          "$ref": "#/$defs/ReturnFieldsDescriptor"
+        },
+        "outputRecordType": {
+          "type": "string"
+        },
+        "customPreferences": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        },
+        "preferredDictionaryOrders": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "outputCasing": {
+          "type": "string"
+        },
+        "latLongOffset": {
+          "type": "string"
+        },
+        "squeeze": {
+          "type": "string"
+        },
+        "returnLatLongFields": {
+          "type": "string"
+        },
+        "useGeoTaxAuxiliaryFile": {
+          "type": "string"
+        },
+        "latLongFormat": {
+          "type": "string"
+        },
+        "defaultBufferWidth": {
+          "type": "string"
+        },
+        "returnCensusFields": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "cornerOffset",
+        "distance",
+        "fallbackToGeographic",
+        "fallbackToPostal",
+        "maxReturnedCandidates",
+        "returnAllCandidateInfo",
+        "streetOffset"
+      ],
+      "type": "object"
+    },
+    "ReturnFieldsDescriptor": {
+      "properties": {
+        "returnAllCustomFields": {
+          "type": "boolean"
+        },
+        "returnMatchDescriptor": {
+          "type": "boolean"
+        },
+        "returnStreetAddressFields": {
+          "type": "boolean"
+        },
+        "returnUnitInformation": {
+          "type": "boolean"
+        },
+        "returnedCustomFieldKeys": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "keys": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

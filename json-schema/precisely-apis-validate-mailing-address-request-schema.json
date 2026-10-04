@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-validate-mailing-address-request-schema.json",
+  "title": "ValidateMailingAddressRequest",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-validatemailingaddress-api-openapi.yml#/components/schemas/ValidateMailingAddressRequest",
+  "properties": {
+    "options": {
+      "$ref": "#/$defs/ValidateMailingAddressOptions"
+    },
+    "Input": {
+      "$ref": "#/$defs/ValidateMailingAddressInput"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "GetPostalCodesAPIOutput_user_fields": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ValidateMailingAddressInput": {
+      "properties": {
+        "Row": {
+          "items": {
+            "$ref": "#/$defs/ValidateMailingAddressInputRow"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ValidateMailingAddressInputRow": {
+      "properties": {
+        "user_fields": {
+          "description": "These fields are returned, unmodified, in the user_fields section of the response.",
+          "items": {
+            "$ref": "#/$defs/GetPostalCodesAPIOutput_user_fields"
+          },
+          "type": "array"
+        },
+        "AddressLine1": {
+          "description": "The first address line.",
+          "type": "string"
+        },
+        "AddressLine2": {
+          "description": "The second address line.",
+          "type": "string"
+        },
+        "FirmName": {
+          "description": "The company or firm name.",
+          "type": "string"
+        },
+        "City": {
+          "description": "The city name.",
+          "type": "string"
+        },
+        "StateProvince": {
+          "description": "The state or province.",
+          "type": "string"
+        },
+        "Country": {
+          "description": "The country code or name.",
+          "type": "string"
+        },
+        "PostalCode": {
+          "description": "The postal code for the address.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ValidateMailingAddressOptions": {
+      "properties": {
+        "OutputCasing": {
+          "default": "M",
+          "description": "Specify the casing of the output data.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

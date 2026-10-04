@@ -1,0 +1,442 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-schools-near-by-response-schema.json",
+  "title": "SchoolsNearByResponse",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-school-api-openapi.yml#/components/schemas/SchoolsNearByResponse",
+  "properties": {
+    "matchedAddress": {
+      "$ref": "#/$defs/address_1"
+    },
+    "school": {
+      "items": {
+        "$ref": "#/$defs/School"
+      },
+      "type": "array"
+    },
+    "schoolDistrict": {
+      "$ref": "#/$defs/SchoolDistrict"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "FreeOrReducedPriceLunches": {
+      "properties": {
+        "freeLunchesCount": {
+          "type": "string"
+        },
+        "reducedPriceLunchedCount": {
+          "type": "string"
+        },
+        "totalCount": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Geometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "GradeLevelsTaught": {
+      "properties": {
+        "pk": {
+          "type": "string"
+        },
+        "kg": {
+          "type": "string"
+        },
+        "first": {
+          "type": "string"
+        },
+        "second": {
+          "type": "string"
+        },
+        "third": {
+          "type": "string"
+        },
+        "fourth": {
+          "type": "string"
+        },
+        "fifth": {
+          "type": "string"
+        },
+        "sixth": {
+          "type": "string"
+        },
+        "seventh": {
+          "type": "string"
+        },
+        "eighth": {
+          "type": "string"
+        },
+        "ninth": {
+          "type": "string"
+        },
+        "tenth": {
+          "type": "string"
+        },
+        "eleventh": {
+          "type": "string"
+        },
+        "twelfth": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Greatschools": {
+      "properties": {
+        "gsId": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "School": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "assigned": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "addressType": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "#/$defs/address_1"
+        },
+        "lowestGrade": {
+          "type": "string"
+        },
+        "highestGrade": {
+          "type": "string"
+        },
+        "schoolType": {
+          "type": "string"
+        },
+        "schoolTypeDesc": {
+          "type": "string"
+        },
+        "schoolSubType": {
+          "type": "string"
+        },
+        "schoolSubTypeDesc": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string"
+        },
+        "genderDesc": {
+          "type": "string"
+        },
+        "educationLevel": {
+          "type": "string"
+        },
+        "educationLevelDesc": {
+          "type": "string"
+        },
+        "greatschools": {
+          "$ref": "#/$defs/Greatschools"
+        },
+        "ncesSchoolId": {
+          "type": "string"
+        },
+        "ncesDistrictId": {
+          "type": "string"
+        },
+        "ncesDataYear": {
+          "type": "string"
+        },
+        "schoolRanking": {
+          "items": {
+            "$ref": "#/$defs/SchoolRanking"
+          },
+          "type": "array"
+        },
+        "students": {
+          "type": "string"
+        },
+        "teachers": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "studentTeacherRatio": {
+          "type": "string"
+        },
+        "choice": {
+          "type": "string"
+        },
+        "coextensiv": {
+          "type": "string"
+        },
+        "schoolDistricts": {
+          "$ref": "#/$defs/SchoolDistrict"
+        },
+        "schoolProfile": {
+          "$ref": "#/$defs/SchoolProfile"
+        },
+        "gradeLevelsTaught": {
+          "$ref": "#/$defs/GradeLevelsTaught"
+        },
+        "distance": {
+          "$ref": "#/$defs/distance"
+        },
+        "geometry": {
+          "$ref": "#/$defs/Geometry"
+        }
+      },
+      "type": "object"
+    },
+    "SchoolDistrict": {
+      "properties": {
+        "ncesDistrictId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "totalSchools": {
+          "type": "string"
+        },
+        "districtType": {
+          "type": "string"
+        },
+        "metro": {
+          "type": "string"
+        },
+        "areaInSqM": {
+          "type": "string"
+        },
+        "supervisoryUnionId": {
+          "type": "string"
+        },
+        "districtEnrollment": {
+          "type": "string"
+        },
+        "districtUrl": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SchoolProfile": {
+      "properties": {
+        "blueRibbon": {
+          "type": "string"
+        },
+        "internationalBaccalaureate": {
+          "type": "string"
+        },
+        "titleI": {
+          "type": "string"
+        },
+        "expensePerStudent": {
+          "type": "string"
+        },
+        "studentBelowPovertyPct": {
+          "type": "string"
+        },
+        "advancePlacementClasses": {
+          "type": "string"
+        },
+        "freeOrReducedPriceLunches": {
+          "$ref": "#/$defs/FreeOrReducedPriceLunches"
+        },
+        "studentEthnicity": {
+          "$ref": "#/$defs/StudentEthnicity"
+        }
+      },
+      "type": "object"
+    },
+    "SchoolRanking": {
+      "properties": {
+        "current": {
+          "type": "string"
+        },
+        "rankYear": {
+          "type": "string"
+        },
+        "stateRank": {
+          "type": "string"
+        },
+        "numberOfSchools": {
+          "type": "string"
+        },
+        "avgMathScore": {
+          "type": "string"
+        },
+        "avgReadingScore": {
+          "type": "string"
+        },
+        "statePercentileScore": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "StudentEthnicity": {
+      "properties": {
+        "indianAlaskaNative": {
+          "type": "string"
+        },
+        "asian": {
+          "type": "string"
+        },
+        "hispanic": {
+          "type": "string"
+        },
+        "black": {
+          "type": "string"
+        },
+        "white": {
+          "type": "string"
+        },
+        "hawaiianPacificlslander": {
+          "type": "string"
+        },
+        "twoOrMoreRaces": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "address_1": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "streetSide": {
+          "type": "string"
+        },
+        "businessName": {
+          "type": "string"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stateProvince": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "urbanizationName": {
+          "type": "string"
+        },
+        "formattedAddress": {
+          "type": "string"
+        },
+        "mainAddressLine": {
+          "type": "string"
+        },
+        "addressLastLine": {
+          "type": "string"
+        },
+        "placeName": {
+          "type": "string"
+        },
+        "areaName1": {
+          "type": "string"
+        },
+        "areaName2": {
+          "type": "string"
+        },
+        "areaName3": {
+          "type": "string"
+        },
+        "areaName4": {
+          "type": "string"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "postCodeExt": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "addressNumber": {
+          "type": "string"
+        },
+        "streetName": {
+          "type": "string"
+        },
+        "unitType": {
+          "type": "string"
+        },
+        "unitValue": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "distance": {
+      "properties": {
+        "unit": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

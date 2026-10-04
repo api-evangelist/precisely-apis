@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-validate-email-address-apirequest-schema.json",
+  "title": "ValidateEmailAddressAPIRequest",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-validateemailaddress-api-openapi.yml#/components/schemas/ValidateEmailAddressAPIRequest",
+  "properties": {
+    "options": {
+      "type": "object"
+    },
+    "Input": {
+      "$ref": "#/$defs/ValidateEmailAddressInput"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "GetPostalCodesAPIOutput_user_fields": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ValidateEmailAddressInput": {
+      "properties": {
+        "Row": {
+          "items": {
+            "$ref": "#/$defs/ValidateEmailAddressInputRow"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ValidateEmailAddressInputRow": {
+      "properties": {
+        "user_fields": {
+          "description": "These fields are returned, unmodified, in the user_fields section of the response.",
+          "items": {
+            "$ref": "#/$defs/GetPostalCodesAPIOutput_user_fields"
+          },
+          "type": "array"
+        },
+        "rtc": {
+          "description": "Enables or disables real-time confirmation. If the deliverability of an email address cannot be determined via our knowledge base, a real-time confirmation can be attempted.",
+          "type": "string"
+        },
+        "bogus": {
+          "description": "Specifies whether to check if the email address is fictitious. For example, bgates@microsoft.com.",
+          "type": "string"
+        },
+        "role": {
+          "description": "Specifies whether to check if the email address has a non-personal handle, such as info@, sales@, or webmaster@. For example, sales@example.com.",
+          "type": "string"
+        },
+        "emps": {
+          "description": "Specifies whether to check if the email address appears on the Direct Marketing Association's Do Not Email list (Electronic Mail Preference Service).",
+          "type": "string"
+        },
+        "fccwireless": {
+          "description": "Specifies whether to check if the email address is associated with a domain that has restrictions on commercial email per the FCC.",
+          "type": "string"
+        },
+        "language": {
+          "description": "Specifies whether to check if the email address handle contains derogatory words.",
+          "type": "string"
+        },
+        "complain": {
+          "description": "Specifies whether to check if the owner of the email address is known to submit spam complaints.",
+          "type": "string"
+        },
+        "disposable": {
+          "description": "Specifies whether to check if the email address originates from a website that provides temporary email addresses, or if the email address appears to be temporary",
+          "type": "string"
+        },
+        "atc": {
+          "description": "One character code controlling the advanced suggestion behavior.The possible values are: a, c, and n",
+          "type": "string"
+        },
+        "emailAddress": {
+          "description": "The email address you want to validate.",
+          "type": "string"
+        },
+        "rtc_timeout": {
+          "description": "Specifies the timeout for real-time confirmation. See the description of the rtc parameter. Specify the timeout value in milliseconds. Valid values are 0 to 4000. By default, the system allows 1200 milliseconds for this check.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

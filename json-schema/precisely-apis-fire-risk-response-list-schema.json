@@ -1,0 +1,261 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-fire-risk-response-list-schema.json",
+  "title": "FireRiskResponseList",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-fire-api-openapi.yml#/components/schemas/FireRiskResponseList",
+  "properties": {
+    "fireRisk": {
+      "items": {
+        "$ref": "#/$defs/FireRiskResponse"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "CommonGeometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "crs": {
+          "$ref": "#/$defs/RisksGeometryCRC"
+        },
+        "coordinates": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "FireRiskResponse": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/State"
+        },
+        "fireShed": {
+          "$ref": "#/$defs/FireShed"
+        },
+        "matchedAddress": {
+          "$ref": "#/$defs/RiskAddress"
+        }
+      },
+      "type": "object"
+    },
+    "FireShed": {
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "risk": {
+          "$ref": "#/$defs/Risk"
+        },
+        "geometry": {
+          "$ref": "#/$defs/CommonGeometry"
+        }
+      },
+      "type": "object"
+    },
+    "GeometryProperties": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Risk": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "risk50Rating": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "frequency": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nonburn": {
+          "type": "string"
+        },
+        "pastFires": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "severity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "continuity": {
+          "type": "string"
+        },
+        "adjustment": {
+          "type": "string"
+        },
+        "aspect": {
+          "type": "string"
+        },
+        "crownFire": {
+          "type": "string"
+        },
+        "vegetation": {
+          "type": "string"
+        },
+        "foehn": {
+          "type": "string"
+        },
+        "golfCourse": {
+          "type": "string"
+        },
+        "roadDist": {
+          "type": "string"
+        },
+        "slope": {
+          "type": "string"
+        },
+        "waterDist": {
+          "type": "string"
+        },
+        "tier": {
+          "type": "string"
+        },
+        "tierDescription": {
+          "type": "string"
+        },
+        "distanceToFireStation": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "RiskAddress": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "streetSide": {
+          "type": "string"
+        },
+        "businessName": {
+          "type": "string"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stateProvince": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "urbanizationName": {
+          "type": "string"
+        },
+        "formattedAddress": {
+          "type": "string"
+        },
+        "mainAddressLine": {
+          "type": "string"
+        },
+        "addressLastLine": {
+          "type": "string"
+        },
+        "placeName": {
+          "type": "string"
+        },
+        "areaName1": {
+          "type": "string"
+        },
+        "areaName2": {
+          "type": "string"
+        },
+        "areaName3": {
+          "type": "string"
+        },
+        "areaName4": {
+          "type": "string"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "postCodeExt": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "addressNumber": {
+          "type": "string"
+        },
+        "streetName": {
+          "type": "string"
+        },
+        "unitType": {
+          "type": "string"
+        },
+        "unitValue": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RisksGeometryCRC": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/$defs/GeometryProperties"
+        }
+      },
+      "type": "object"
+    },
+    "State": {
+      "properties": {
+        "fips": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

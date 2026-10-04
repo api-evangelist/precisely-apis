@@ -1,0 +1,424 @@
+generated: '2026-10-04'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/precisely-apis-addresses-api-openapi.yml
+- openapi/precisely-apis-ahj-api-openapi.yml
+- openapi/precisely-apis-crime-api-openapi.yml
+- openapi/precisely-apis-earthquake-api-openapi.yml
+- openapi/precisely-apis-earthquakehistory-api-openapi.yml
+vocabulary:
+  name: Precisely APIs Domain Vocabulary
+  description: 'Terms declared by Precisely APIs''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-04'
+  terms:
+  - term: AddressesDTO
+    definition: 'Object declared by the contract with fields: pbKey, addressNumber, streetName, unitType, unitValue, type, areaName1, areaName2,
+      areaName3, areaName4, postCode, postCodeExt. (6 more)'
+    tags:
+    - Object
+    source: openapi/precisely-apis-addresses-api-openapi.yml#/components/schemas/AddressesDTO
+  - term: Geometry
+    definition: 'Object declared by the contract with fields: type, coordinates.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-addresses-api-openapi.yml#/components/schemas/Geometry
+  - term: AddressType
+    definition: 'Object declared by the contract with fields: value, description.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-addresses-api-openapi.yml#/components/schemas/AddressType
+  - term: ErrorCode
+    definition: 'Object declared by the contract with fields: errorCode, errorDescription.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-addresses-api-openapi.yml#/components/schemas/ErrorCode
+  - term: AddressesByBoundaryRequest
+    definition: 'Object declared by the contract with fields: preferences, geometry, geometryAsText, latitude, longitude, travelTime, travelTimeUnit,
+      travelDistance, travelDistanceUnit, travelMode.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-addresses-api-openapi.yml#/components/schemas/AddressesByBoundaryRequest
+  - term: ErrorInfo
+    definition: 'Object declared by the contract with fields: errors.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-addresses-api-openapi.yml#/components/schemas/ErrorInfo
+  - term: addressesCount
+    definition: 'Object declared by the contract with fields: totalAddressesFound.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-addresses-api-openapi.yml#/components/schemas/addressesCount
+  - term: AddressesPreferences
+    definition: 'Object declared by the contract with fields: maxCandidates, page.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-addresses-api-openapi.yml#/components/schemas/AddressesPreferences
+  - term: AddressesResponse
+    definition: 'Object declared by the contract with fields: page, candidates, addressList.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-addresses-api-openapi.yml#/components/schemas/AddressesResponse
+  - term: AHJmailingAddress
+    definition: 'Object declared by the contract with fields: objectId, displayName, streetSide, businessName, addressLine1, addressLine2, addressLine3,
+      city, stateProvince, county, postalCode, latitude. (18 more)'
+    tags:
+    - Object
+    source: openapi/precisely-apis-ahj-api-openapi.yml#/components/schemas/AHJmailingAddress
+  - term: ErrorInfo_1
+    definition: 'Object declared by the contract with fields: errors.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-ahj-api-openapi.yml#/components/schemas/ErrorInfo_1
+  - term: contactPerson
+    definition: 'Object declared by the contract with fields: title, fullName, prefix, firstName, lastName, phone, fax, email, comments, additionalDetails.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-ahj-api-openapi.yml#/components/schemas/contactPerson
+  - term: siteDetails
+    definition: 'Object declared by the contract with fields: phone, fax, contactName, email, address.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-ahj-api-openapi.yml#/components/schemas/siteDetails
+  - term: coverage
+    definition: 'Object declared by the contract with fields: area, comments, exceptions.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-ahj-api-openapi.yml#/components/schemas/coverage
+  - term: AHJ
+    definition: 'Object declared by the contract with fields: ahjType, ahjId, type, fccId, agency, phone, comments, coverage, contactPerson, mailingAddress.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-ahj-api-openapi.yml#/components/schemas/AHJ
+  - term: PSAPResponse
+    definition: 'Object declared by the contract with fields: psapId, fccId, type, count, agency, phone, county, coverage, contactPerson, siteDetails,
+      mailingAddress.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-ahj-api-openapi.yml#/components/schemas/PSAPResponse
+  - term: AHJPlusPSAPResponse
+    definition: 'Object declared by the contract with fields: ahjs, psap, count.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-ahj-api-openapi.yml#/components/schemas/AHJPlusPSAPResponse
+  - term: AHJList
+    definition: 'Object declared by the contract with fields: ahjs.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-ahj-api-openapi.yml#/components/schemas/AHJList
+  - term: county
+    definition: 'Object declared by the contract with fields: name, fips.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-ahj-api-openapi.yml#/components/schemas/county
+  - term: CrimeBoundary
+    definition: 'Object declared by the contract with fields: id, type, ref, geometry.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/CrimeBoundary
+  - term: CrimeRiskByLocationBatchRequest
+    definition: 'Object declared by the contract with fields: locations, preferences.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/CrimeRiskByLocationBatchRequest
+  - term: CrimeRiskResponse
+    definition: 'Object declared by the contract with fields: objectId, themes, boundaries, matchedAddress.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/CrimeRiskResponse
+  - term: CrimeRiskPreferences
+    definition: 'Object declared by the contract with fields: includeGeometry, type.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/CrimeRiskPreferences
+  - term: CommonGeometry
+    definition: 'Object declared by the contract with fields: type, crs, coordinates.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/CommonGeometry
+  - term: RiskAddress
+    definition: 'Object declared by the contract with fields: objectId, displayName, streetSide, businessName, addressLine1, addressLine2, addressLine3,
+      city, stateProvince, county, postalCode, latitude. (18 more)'
+    tags:
+    - Object
+    source: openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/RiskAddress
+  - term: CrimeRiskResponseList
+    definition: 'Object declared by the contract with fields: crimeRisk.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/CrimeRiskResponseList
+  - term: CrimeRiskByAddressBatchRequest
+    definition: 'Object declared by the contract with fields: addresses, preferences.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/CrimeRiskByAddressBatchRequest
+  - term: CrimeIndexTheme
+    definition: 'Object declared by the contract with fields: source, boundaryRef, indexVariable.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/CrimeIndexTheme
+  - term: RisksGeometryCRC
+    definition: 'Object declared by the contract with fields: type, properties.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/RisksGeometryCRC
+  - term: GeometryProperties
+    definition: 'Object declared by the contract with fields: name.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/GeometryProperties
+  - term: RisksBoundaries
+    definition: 'Object declared by the contract with fields: boundary.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/RisksBoundaries
+  - term: RisksCrimeTheme
+    definition: 'Object declared by the contract with fields: crimeIndexTheme.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/RisksCrimeTheme
+  - term: RiskGeometry
+    definition: 'Object declared by the contract with fields: type, coordinates.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/RiskGeometry
+  - term: RiskLocations
+    definition: 'Object declared by the contract with fields: geometry, purchaseAmount, objectId.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/RiskLocations
+  - term: IndexVariable
+    definition: 'Object declared by the contract with fields: name, score, category, percentile, stateScore.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/IndexVariable
+  - term: EarthquakeRiskByAddressRequest
+    definition: 'Object declared by the contract with fields: addresses, preferences.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-earthquake-api-openapi.yml#/components/schemas/EarthquakeRiskByAddressRequest
+  - term: EarthquakeRiskByLocationRequest
+    definition: 'Object declared by the contract with fields: locations, preferences.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-earthquake-api-openapi.yml#/components/schemas/EarthquakeRiskByLocationRequest
+  - term: Grid
+    definition: 'Object declared by the contract with fields: code, geometry.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-earthquake-api-openapi.yml#/components/schemas/Grid
+  - term: EventsCount
+    definition: 'Object declared by the contract with fields: total, r0, r1, r2, r3, r4, r5, r6, r7, r0_ge, r1_ge, r2_ge. (5 more)'
+    tags:
+    - Object
+    source: openapi/precisely-apis-earthquake-api-openapi.yml#/components/schemas/EventsCount
+  - term: RiskPreferences
+    definition: 'Object declared by the contract with fields: includeGeometry, includeZoneDesc, richterValue.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-earthquake-api-openapi.yml#/components/schemas/RiskPreferences
+  - term: EarthquakeRiskResponseList
+    definition: 'Object declared by the contract with fields: earthquakeRisk.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-earthquake-api-openapi.yml#/components/schemas/EarthquakeRiskResponseList
+  - term: EarthquakeRiskResponse
+    definition: 'Object declared by the contract with fields: objectId, riskLevel, eventsCount, grid, matchedAddress.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-earthquake-api-openapi.yml#/components/schemas/EarthquakeRiskResponse
+  - term: EarthquakeEventsResponse
+    definition: 'Object declared by the contract with fields: earthuakeEvents, event.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-earthquakehistory-api-openapi.yml#/components/schemas/EarthquakeEventsResponse
+  - term: earthquakeHistory
+    definition: 'Object declared by the contract with fields: stateCode, county, postCode, events.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-earthquakehistory-api-openapi.yml#/components/schemas/earthquakeHistory
+  - term: EarthquakeLocation
+    definition: 'Object declared by the contract with fields: type, coordinates.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-earthquakehistory-api-openapi.yml#/components/schemas/EarthquakeLocation
+  - term: Depth
+    definition: 'Object declared by the contract with fields: unit, value.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-earthquakehistory-api-openapi.yml#/components/schemas/Depth
+  - term: EarthquakeEvent
+    definition: 'Object declared by the contract with fields: dateTime, seismicRegionNumber, depth, magnitude, cause, culturalEffect, intensity,
+      diastrophism, miscPhenomena, location.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-earthquakehistory-api-openapi.yml#/components/schemas/EarthquakeEvent
+  - term: EarthquakeDateTime
+    definition: 'Object declared by the contract with fields: date, time.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-earthquakehistory-api-openapi.yml#/components/schemas/EarthquakeDateTime
+  - term: Magnitude
+    definition: 'Object declared by the contract with fields: value, scale, bodyWave, surfaceWave, surfaceWaveValue, bodyWaveValue.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-earthquakehistory-api-openapi.yml#/components/schemas/Magnitude
+  - term: SeverityGroup
+    definition: 'Object declared by the contract with fields: intensity, crownFire, windSpd, emberCast.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-fire-api-openapi.yml#/components/schemas/SeverityGroup
+  - term: FireRiskResponseList
+    definition: 'Object declared by the contract with fields: fireRisk.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-fire-api-openapi.yml#/components/schemas/FireRiskResponseList
+  - term: FrequencyGroup
+    definition: 'Object declared by the contract with fields: burnProb, histPerim, probIgnit, lineDist.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-fire-api-openapi.yml#/components/schemas/FrequencyGroup
+  - term: MitigationGroup
+    definition: 'Object declared by the contract with fields: waterDist, topoPos, burnable, fStnDist.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-fire-api-openapi.yml#/components/schemas/MitigationGroup
+  - term: CommunityGroup
+    definition: 'Object declared by the contract with fields: structure, accEgress, vegCover, wAlignRd.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-fire-api-openapi.yml#/components/schemas/CommunityGroup
+  - term: FireRiskResponse
+    definition: 'Object declared by the contract with fields: objectId, state, fireShed, matchedAddress.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-fire-api-openapi.yml#/components/schemas/FireRiskResponse
+  - term: FireRiskByLocationRequest
+    definition: 'Object declared by the contract with fields: locations, preferences.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-fire-api-openapi.yml#/components/schemas/FireRiskByLocationRequest
+  - term: FireRiskByAddressRequest
+    definition: 'Object declared by the contract with fields: addresses, preferences.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-fire-api-openapi.yml#/components/schemas/FireRiskByAddressRequest
+  - term: FireRiskV2Response
+    definition: 'Object declared by the contract with fields: objectId, state, noharmId, noharmCls, noharmModel, riskDesc, risk50, severity, frequency,
+      community, damage, mitigation. (7 more)'
+    tags:
+    - Object
+    source: openapi/precisely-apis-fire-api-openapi.yml#/components/schemas/FireRiskV2Response
+  - term: State
+    definition: 'Object declared by the contract with fields: fips, code.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-fire-api-openapi.yml#/components/schemas/State
+  - term: FireShed
+    definition: 'Object declared by the contract with fields: id, risk, geometry.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-fire-api-openapi.yml#/components/schemas/FireShed
+  - term: DamageGroup
+    definition: 'Object declared by the contract with fields: histLoss, insectsAndDisease.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-fire-api-openapi.yml#/components/schemas/DamageGroup
+  - term: Risk
+    definition: 'Object declared by the contract with fields: type, description, risk50Rating, frequency, nonburn, pastFires, severity, continuity,
+      adjustment, aspect, crownFire, vegetation. (8 more)'
+    tags:
+    - Object
+    source: openapi/precisely-apis-fire-api-openapi.yml#/components/schemas/Risk
+  - term: FireRiskV2ResponseList
+    definition: 'Object declared by the contract with fields: fireRisk.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-fire-api-openapi.yml#/components/schemas/FireRiskV2ResponseList
+  - term: FireEvent
+    definition: 'Object declared by the contract with fields: fireStartDate, fireEndDate, fireName, area, agency.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-firehistory-api-openapi.yml#/components/schemas/FireEvent
+  - term: AreaV2
+    definition: 'Object declared by the contract with fields: unit, value.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-firehistory-api-openapi.yml#/components/schemas/AreaV2
+  - term: FireEventsV2Response
+    definition: 'Object declared by the contract with fields: event.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-firehistory-api-openapi.yml#/components/schemas/FireEventsV2Response
+  - term: FireHistory
+    definition: 'Object declared by the contract with fields: stateCode, postCode, events.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-firehistory-api-openapi.yml#/components/schemas/FireHistory
+  - term: Area
+    definition: 'Object declared by the contract with fields: unit, value.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-firehistory-api-openapi.yml#/components/schemas/Area
+  - term: FireHistoryV2
+    definition: 'Object declared by the contract with fields: stateCode, postCode, events.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-firehistory-api-openapi.yml#/components/schemas/FireHistoryV2
+  - term: FireEventsResponse
+    definition: 'Object declared by the contract with fields: event.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-firehistory-api-openapi.yml#/components/schemas/FireEventsResponse
+  - term: FireEventV2
+    definition: 'Object declared by the contract with fields: fireStartDate, fireEndDate, fireName, area, agency.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-firehistory-api-openapi.yml#/components/schemas/FireEventV2
+  - term: FireStationContactDetails
+    definition: 'Object declared by the contract with fields: address, phone, fax.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-firestation-api-openapi.yml#/components/schemas/FireStationContactDetails
+  - term: distance
+    definition: 'Object declared by the contract with fields: unit, value.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-firestation-api-openapi.yml#/components/schemas/distance
+  - term: FireDepartment
+    definition: 'Object declared by the contract with fields: name, type, numberOfStations, administrativeOfficeOnly, contactDetails.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-firestation-api-openapi.yml#/components/schemas/FireDepartment
+  - term: fireStation
+    definition: 'Object declared by the contract with fields: numWithinDepartment, locationReference, travelDistance, travelTime, contactDetails,
+      fireDepartment, geometry.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-firestation-api-openapi.yml#/components/schemas/fireStation
+  - term: Time
+    definition: 'Object declared by the contract with fields: value, unit.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-firestation-api-openapi.yml#/components/schemas/Time
+  - term: fireStations
+    definition: 'Object declared by the contract with fields: fireStation, matchedAddress.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-firestation-api-openapi.yml#/components/schemas/fireStations
+  - term: FloodRiskPreferences
+    definition: 'Object declared by the contract with fields: includeGeometry, includeZoneDesc, richterValue.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-flood-api-openapi.yml#/components/schemas/FloodRiskPreferences
+  - term: Status
+    definition: 'Object declared by the contract with fields: code, description.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-flood-api-openapi.yml#/components/schemas/Status
+  - term: FloodZone
+    definition: 'Object declared by the contract with fields: code, areaType, riskLevel, primaryZone, baseFloodElevation, additionalInfo.'
+    tags:
+    - Object
+    source: openapi/precisely-apis-flood-api-openapi.yml#/components/schemas/FloodZone

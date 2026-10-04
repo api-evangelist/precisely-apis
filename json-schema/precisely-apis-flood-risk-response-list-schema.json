@@ -1,0 +1,266 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-flood-risk-response-list-schema.json",
+  "title": "FloodRiskResponseList",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-flood-api-openapi.yml#/components/schemas/FloodRiskResponseList",
+  "properties": {
+    "floodRisk": {
+      "items": {
+        "$ref": "#/$defs/FloodRiskResponse"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "BaseFloodElevation": {
+      "properties": {
+        "unit": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CommonGeometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "crs": {
+          "$ref": "#/$defs/RisksGeometryCRC"
+        },
+        "coordinates": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "Community": {
+      "properties": {
+        "number": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/Status"
+        }
+      },
+      "type": "object"
+    },
+    "CrimeBoundary": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string"
+        },
+        "geometry": {
+          "$ref": "#/$defs/CommonGeometry"
+        }
+      },
+      "type": "object"
+    },
+    "FloodRiskResponse": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/State"
+        },
+        "floodZone": {
+          "$ref": "#/$defs/FloodZone"
+        },
+        "community": {
+          "$ref": "#/$defs/Community"
+        },
+        "boundary": {
+          "$ref": "#/$defs/CrimeBoundary"
+        },
+        "matchedAddress": {
+          "$ref": "#/$defs/RiskAddress"
+        }
+      },
+      "type": "object"
+    },
+    "FloodZone": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "areaType": {
+          "type": "string"
+        },
+        "riskLevel": {
+          "type": "string"
+        },
+        "primaryZone": {
+          "$ref": "#/$defs/PrimaryZone"
+        },
+        "baseFloodElevation": {
+          "$ref": "#/$defs/BaseFloodElevation"
+        },
+        "additionalInfo": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GeometryProperties": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PrimaryZone": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RiskAddress": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "streetSide": {
+          "type": "string"
+        },
+        "businessName": {
+          "type": "string"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stateProvince": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "urbanizationName": {
+          "type": "string"
+        },
+        "formattedAddress": {
+          "type": "string"
+        },
+        "mainAddressLine": {
+          "type": "string"
+        },
+        "addressLastLine": {
+          "type": "string"
+        },
+        "placeName": {
+          "type": "string"
+        },
+        "areaName1": {
+          "type": "string"
+        },
+        "areaName2": {
+          "type": "string"
+        },
+        "areaName3": {
+          "type": "string"
+        },
+        "areaName4": {
+          "type": "string"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "postCodeExt": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "addressNumber": {
+          "type": "string"
+        },
+        "streetName": {
+          "type": "string"
+        },
+        "unitType": {
+          "type": "string"
+        },
+        "unitValue": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RisksGeometryCRC": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/$defs/GeometryProperties"
+        }
+      },
+      "type": "object"
+    },
+    "State": {
+      "properties": {
+        "fips": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Status": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

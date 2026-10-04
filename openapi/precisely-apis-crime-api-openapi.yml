@@ -200,57 +200,81 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    CrimeBoundary:
+    RiskLocations:
       example:
-        ref: ref
         geometry:
-          crs:
-            type: type
-            properties:
-              name: name
-          coordinates: '{}'
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
           type: type
-        id: id
-        type: type
+        objectId: objectId
+        purchaseAmount: purchaseAmount
       properties:
-        id:
+        geometry:
+          $ref: '#/components/schemas/RiskGeometry'
+        purchaseAmount:
           type: string
+        objectId:
+          type: string
+      required:
+      - geometry
+      type: object
+    RisksCrimeTheme:
+      example:
+        crimeIndexTheme:
+          boundaryRef: boundaryRef
+          source: source
+          indexVariable:
+          - score: score
+            percentile: percentile
+            name: name
+            category: category
+            stateScore: stateScore
+          - score: score
+            percentile: percentile
+            name: name
+            category: category
+            stateScore: stateScore
+      properties:
+        crimeIndexTheme:
+          $ref: '#/components/schemas/CrimeIndexTheme'
+      type: object
+    RisksGeometryCRC:
+      example:
+        type: type
+        properties:
+          name: name
+      properties:
         type:
           type: string
-        ref:
-          type: string
-        geometry:
-          $ref: '#/components/schemas/CommonGeometry'
+        properties:
+          $ref: '#/components/schemas/GeometryProperties'
       type: object
-    CrimeRiskByLocationBatchRequest:
+    IndexVariable:
       example:
-        preferences:
-          includeGeometry: includeGeometry
-          type: type
-        locations:
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
-        - geometry:
-            coordinates:
-            - 0.8008281904610115
-            - 0.8008281904610115
-            type: type
-          objectId: objectId
-          purchaseAmount: purchaseAmount
+        score: score
+        percentile: percentile
+        name: name
+        category: category
+        stateScore: stateScore
       properties:
-        locations:
+        name:
+          type: string
+        score:
+          type: string
+        category:
+          type: string
+        percentile:
+          type: string
+        stateScore:
+          type: string
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
           items:
-            $ref: '#/components/schemas/RiskLocations'
+            $ref: '#/components/schemas/ErrorCode'
           type: array
-        preferences:
-          $ref: '#/components/schemas/CrimeRiskPreferences'
-      required:
-      - locations
       type: object
     CrimeRiskResponse:
       example:
@@ -349,15 +373,59 @@ components:
         matchedAddress:
           $ref: '#/components/schemas/RiskAddress'
       type: object
-    CrimeRiskPreferences:
+    CrimeIndexTheme:
       example:
-        includeGeometry: includeGeometry
+        boundaryRef: boundaryRef
+        source: source
+        indexVariable:
+        - score: score
+          percentile: percentile
+          name: name
+          category: category
+          stateScore: stateScore
+        - score: score
+          percentile: percentile
+          name: name
+          category: category
+          stateScore: stateScore
+      properties:
+        source:
+          type: string
+        boundaryRef:
+          type: string
+        indexVariable:
+          items:
+            $ref: '#/components/schemas/IndexVariable'
+          type: array
+      type: object
+    GeometryProperties:
+      example:
+        name: name
+      properties:
+        name:
+          type: string
+      type: object
+    CrimeBoundary:
+      example:
+        ref: ref
+        geometry:
+          crs:
+            type: type
+            properties:
+              name: name
+          coordinates: '{}'
+          type: type
+        id: id
         type: type
       properties:
-        includeGeometry:
+        id:
           type: string
         type:
           type: string
+        ref:
+          type: string
+        geometry:
+          $ref: '#/components/schemas/CommonGeometry'
       type: object
     CommonGeometry:
       example:
@@ -375,106 +443,157 @@ components:
         coordinates:
           type: object
       type: object
-    RiskAddress:
+    CrimeRiskPreferences:
       example:
-        country: country
-        streetSide: streetSide
-        city: city
-        displayName: displayName
-        postalCode: postalCode
-        latitude: latitude
-        businessName: businessName
-        county: county
-        unitType: unitType
-        streetName: streetName
-        formattedAddress: formattedAddress
-        addressLine1: addressLine1
-        mainAddressLine: mainAddressLine
-        addressLine2: addressLine2
-        addressLine3: addressLine3
-        objectId: objectId
-        addressLastLine: addressLastLine
-        longitude: longitude
-        unitValue: unitValue
-        stateProvince: stateProvince
-        urbanizationName: urbanizationName
-        areaName1: areaName1
-        areaName2: areaName2
-        areaName3: areaName3
-        areaName4: areaName4
-        addressNumber: addressNumber
-        postCode: postCode
-        postCodeExt: postCodeExt
-        placeName: placeName
-        status: status
+        includeGeometry: includeGeometry
+        type: type
       properties:
-        objectId:
+        includeGeometry:
           type: string
-        displayName:
-          type: string
-        streetSide:
-          type: string
-        businessName:
-          type: string
-        addressLine1:
-          type: string
-        addressLine2:
-          type: string
-        addressLine3:
-          type: string
-        city:
-          type: string
-        stateProvince:
-          type: string
-        county:
-          type: string
-        postalCode:
-          type: string
-        latitude:
-          type: string
-        longitude:
-          type: string
-        status:
-          type: string
-        urbanizationName:
-          type: string
-        formattedAddress:
-          type: string
-        mainAddressLine:
-          type: string
-        addressLastLine:
-          type: string
-        placeName:
-          type: string
-        areaName1:
-          type: string
-        areaName2:
-          type: string
-        areaName3:
-          type: string
-        areaName4:
-          type: string
-        postCode:
-          type: string
-        postCodeExt:
-          type: string
-        country:
-          type: string
-        addressNumber:
-          type: string
-        streetName:
-          type: string
-        unitType:
-          type: string
-        unitValue:
+        type:
           type: string
       type: object
-    ErrorInfo_1:
+    ErrorCode:
       properties:
-        errors:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    RisksBoundaries:
+      example:
+        boundary:
+        - ref: ref
+          geometry:
+            crs:
+              type: type
+              properties:
+                name: name
+            coordinates: '{}'
+            type: type
+          id: id
+          type: type
+        - ref: ref
+          geometry:
+            crs:
+              type: type
+              properties:
+                name: name
+            coordinates: '{}'
+            type: type
+          id: id
+          type: type
+      properties:
+        boundary:
           items:
-            $ref: '#/components/schemas/ErrorCode'
+            $ref: '#/components/schemas/CrimeBoundary'
           type: array
+      type: object
+    CrimeRiskByAddressBatchRequest:
+      example:
+        addresses:
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        - country: country
+          streetSide: streetSide
+          city: city
+          displayName: displayName
+          postalCode: postalCode
+          latitude: latitude
+          businessName: businessName
+          county: county
+          unitType: unitType
+          streetName: streetName
+          formattedAddress: formattedAddress
+          addressLine1: addressLine1
+          mainAddressLine: mainAddressLine
+          addressLine2: addressLine2
+          addressLine3: addressLine3
+          objectId: objectId
+          addressLastLine: addressLastLine
+          longitude: longitude
+          unitValue: unitValue
+          stateProvince: stateProvince
+          urbanizationName: urbanizationName
+          areaName1: areaName1
+          areaName2: areaName2
+          areaName3: areaName3
+          areaName4: areaName4
+          addressNumber: addressNumber
+          postCode: postCode
+          postCodeExt: postCodeExt
+          placeName: placeName
+          status: status
+        preferences:
+          includeGeometry: includeGeometry
+          type: type
+      properties:
+        addresses:
+          items:
+            $ref: '#/components/schemas/RiskAddress'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/CrimeRiskPreferences'
+      required:
+      - addresses
+      type: object
+    CrimeRiskByLocationBatchRequest:
+      example:
+        preferences:
+          includeGeometry: includeGeometry
+          type: type
+        locations:
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+        - geometry:
+            coordinates:
+            - 0.8008281904610115
+            - 0.8008281904610115
+            type: type
+          objectId: objectId
+          purchaseAmount: purchaseAmount
+      properties:
+        locations:
+          items:
+            $ref: '#/components/schemas/RiskLocations'
+          type: array
+        preferences:
+          $ref: '#/components/schemas/CrimeRiskPreferences'
+      required:
+      - locations
       type: object
     CrimeRiskResponseList:
       example:
@@ -651,180 +770,99 @@ components:
             $ref: '#/components/schemas/CrimeRiskResponse'
           type: array
       type: object
-    CrimeRiskByAddressBatchRequest:
+    RiskAddress:
       example:
-        addresses:
-        - country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        - country: country
-          streetSide: streetSide
-          city: city
-          displayName: displayName
-          postalCode: postalCode
-          latitude: latitude
-          businessName: businessName
-          county: county
-          unitType: unitType
-          streetName: streetName
-          formattedAddress: formattedAddress
-          addressLine1: addressLine1
-          mainAddressLine: mainAddressLine
-          addressLine2: addressLine2
-          addressLine3: addressLine3
-          objectId: objectId
-          addressLastLine: addressLastLine
-          longitude: longitude
-          unitValue: unitValue
-          stateProvince: stateProvince
-          urbanizationName: urbanizationName
-          areaName1: areaName1
-          areaName2: areaName2
-          areaName3: areaName3
-          areaName4: areaName4
-          addressNumber: addressNumber
-          postCode: postCode
-          postCodeExt: postCodeExt
-          placeName: placeName
-          status: status
-        preferences:
-          includeGeometry: includeGeometry
-          type: type
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
       properties:
-        addresses:
-          items:
-            $ref: '#/components/schemas/RiskAddress'
-          type: array
-        preferences:
-          $ref: '#/components/schemas/CrimeRiskPreferences'
-      required:
-      - addresses
-      type: object
-    CrimeIndexTheme:
-      example:
-        boundaryRef: boundaryRef
-        source: source
-        indexVariable:
-        - score: score
-          percentile: percentile
-          name: name
-          category: category
-          stateScore: stateScore
-        - score: score
-          percentile: percentile
-          name: name
-          category: category
-          stateScore: stateScore
-      properties:
-        source:
+        objectId:
           type: string
-        boundaryRef:
+        displayName:
           type: string
-        indexVariable:
-          items:
-            $ref: '#/components/schemas/IndexVariable'
-          type: array
-      type: object
-    RisksGeometryCRC:
-      example:
-        type: type
-        properties:
-          name: name
-      properties:
-        type:
+        streetSide:
           type: string
-        properties:
-          $ref: '#/components/schemas/GeometryProperties'
-      type: object
-    GeometryProperties:
-      example:
-        name: name
-      properties:
-        name:
+        businessName:
           type: string
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
+        addressLine1:
           type: string
-        errorDescription:
+        addressLine2:
           type: string
-      type: object
-    RisksBoundaries:
-      example:
-        boundary:
-        - ref: ref
-          geometry:
-            crs:
-              type: type
-              properties:
-                name: name
-            coordinates: '{}'
-            type: type
-          id: id
-          type: type
-        - ref: ref
-          geometry:
-            crs:
-              type: type
-              properties:
-                name: name
-            coordinates: '{}'
-            type: type
-          id: id
-          type: type
-      properties:
-        boundary:
-          items:
-            $ref: '#/components/schemas/CrimeBoundary'
-          type: array
-      type: object
-    RisksCrimeTheme:
-      example:
-        crimeIndexTheme:
-          boundaryRef: boundaryRef
-          source: source
-          indexVariable:
-          - score: score
-            percentile: percentile
-            name: name
-            category: category
-            stateScore: stateScore
-          - score: score
-            percentile: percentile
-            name: name
-            category: category
-            stateScore: stateScore
-      properties:
-        crimeIndexTheme:
-          $ref: '#/components/schemas/CrimeIndexTheme'
+        addressLine3:
+          type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
       type: object
     RiskGeometry:
       example:
@@ -842,44 +880,6 @@ components:
           type: array
       required:
       - type
-      type: object
-    RiskLocations:
-      example:
-        geometry:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
-        objectId: objectId
-        purchaseAmount: purchaseAmount
-      properties:
-        geometry:
-          $ref: '#/components/schemas/RiskGeometry'
-        purchaseAmount:
-          type: string
-        objectId:
-          type: string
-      required:
-      - geometry
-      type: object
-    IndexVariable:
-      example:
-        score: score
-        percentile: percentile
-        name: name
-        category: category
-        stateScore: stateScore
-      properties:
-        name:
-          type: string
-        score:
-          type: string
-        category:
-          type: string
-        percentile:
-          type: string
-        stateScore:
-          type: string
       type: object
   securitySchemes:
     oAuth2Password:

@@ -1,0 +1,395 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-tax-district-response-list-schema.json",
+  "title": "TaxDistrictResponseList",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-taxdistrict-api-openapi.yml#/components/schemas/TaxDistrictResponseList",
+  "properties": {
+    "taxDistrictResponse": {
+      "items": {
+        "$ref": "#/$defs/TaxDistrictResponse"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "BoundaryBuffer": {
+      "properties": {
+        "bufferRelation": {
+          "$ref": "#/$defs/BufferRelation"
+        },
+        "distanceToBorder": {
+          "$ref": "#/$defs/DistanceToBorder"
+        }
+      },
+      "type": "object"
+    },
+    "BufferRelation": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Cbsa": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Census": {
+      "properties": {
+        "cbsa": {
+          "$ref": "#/$defs/Cbsa"
+        },
+        "matchLevel": {
+          "type": "string"
+        },
+        "matchCode": {
+          "type": "string"
+        },
+        "tract": {
+          "type": "string"
+        },
+        "mcd": {
+          "$ref": "#/$defs/Mcd"
+        }
+      },
+      "type": "object"
+    },
+    "DistanceToBorder": {
+      "properties": {
+        "unit": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DistrictType": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "IPDTaxJurisdiction": {
+      "properties": {
+        "state": {
+          "$ref": "#/$defs/TaxState"
+        },
+        "county": {
+          "$ref": "#/$defs/TaxCounty"
+        },
+        "place": {
+          "$ref": "#/$defs/TaxPlace"
+        }
+      },
+      "type": "object"
+    },
+    "LatLongFields": {
+      "properties": {
+        "matchCode": {
+          "type": "string"
+        },
+        "matchLevel": {
+          "type": "string"
+        },
+        "streetMatchCode": {
+          "type": "string"
+        },
+        "streetMatchLevel": {
+          "type": "string"
+        },
+        "geometry": {
+          "$ref": "#/$defs/LocalTaxGeometry"
+        }
+      },
+      "type": "object"
+    },
+    "LocalTaxGeometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "Mcd": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TaxCounty": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TaxDistrictResponse": {
+      "properties": {
+        "vendorName": {
+          "type": "string"
+        },
+        "objectId": {
+          "type": "string"
+        },
+        "confidence": {
+          "format": "double",
+          "type": "number"
+        },
+        "jurisdiction": {
+          "$ref": "#/$defs/IPDTaxJurisdiction"
+        },
+        "numOfIpdsFound": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "ipds": {
+          "items": {
+            "$ref": "#/$defs/ipd"
+          },
+          "type": "array"
+        },
+        "matchedAddress": {
+          "$ref": "#/$defs/TaxRateMatchedAddress"
+        },
+        "census": {
+          "$ref": "#/$defs/Census"
+        },
+        "latLongFields": {
+          "$ref": "#/$defs/LatLongFields"
+        }
+      },
+      "type": "object"
+    },
+    "TaxPlace": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "gnisCode": {
+          "type": "string"
+        },
+        "selfCollected": {
+          "type": "boolean"
+        },
+        "classCode": {
+          "type": "string"
+        },
+        "incorporatedFlag": {
+          "type": "string"
+        },
+        "lastAnnexedDate": {
+          "type": "string"
+        },
+        "lastUpdatedDate": {
+          "type": "string"
+        },
+        "lastVerifiedDate": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TaxRateMatchedAddress": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "streetSide": {
+          "type": "string"
+        },
+        "businessName": {
+          "type": "string"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stateProvince": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "urbanizationName": {
+          "type": "string"
+        },
+        "formattedAddress": {
+          "type": "string"
+        },
+        "mainAddressLine": {
+          "type": "string"
+        },
+        "addressLastLine": {
+          "type": "string"
+        },
+        "placeName": {
+          "type": "string"
+        },
+        "areaName1": {
+          "type": "string"
+        },
+        "areaName2": {
+          "type": "string"
+        },
+        "areaName3": {
+          "type": "string"
+        },
+        "areaName4": {
+          "type": "string"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "postCode1": {
+          "type": "string"
+        },
+        "postCodeExt": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "addressNumber": {
+          "type": "string"
+        },
+        "streetName": {
+          "type": "string"
+        },
+        "unitType": {
+          "type": "string"
+        },
+        "unitValue": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TaxState": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ipd": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "districtName": {
+          "type": "string"
+        },
+        "districtType": {
+          "$ref": "#/$defs/DistrictType"
+        },
+        "taxCodeDescription": {
+          "type": "string"
+        },
+        "effectiveDate": {
+          "type": "string"
+        },
+        "expirationDate": {
+          "type": "string"
+        },
+        "boundaryBuffer": {
+          "$ref": "#/$defs/BoundaryBuffer"
+        },
+        "rates": {
+          "items": {
+            "$ref": "#/$defs/rate"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "rate": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        },
+        "formatDescription": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

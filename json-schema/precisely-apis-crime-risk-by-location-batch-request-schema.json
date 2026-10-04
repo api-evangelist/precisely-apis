@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-crime-risk-by-location-batch-request-schema.json",
+  "title": "CrimeRiskByLocationBatchRequest",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/CrimeRiskByLocationBatchRequest",
+  "properties": {
+    "locations": {
+      "items": {
+        "$ref": "#/$defs/RiskLocations"
+      },
+      "type": "array"
+    },
+    "preferences": {
+      "$ref": "#/$defs/CrimeRiskPreferences"
+    }
+  },
+  "required": [
+    "locations"
+  ],
+  "type": "object",
+  "$defs": {
+    "CrimeRiskPreferences": {
+      "properties": {
+        "includeGeometry": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RiskGeometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "RiskLocations": {
+      "properties": {
+        "geometry": {
+          "$ref": "#/$defs/RiskGeometry"
+        },
+        "purchaseAmount": {
+          "type": "string"
+        },
+        "objectId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "geometry"
+      ],
+      "type": "object"
+    }
+  }
+}

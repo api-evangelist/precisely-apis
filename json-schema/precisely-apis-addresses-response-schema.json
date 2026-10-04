@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-addresses-response-schema.json",
+  "title": "AddressesResponse",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-addresses-api-openapi.yml#/components/schemas/AddressesResponse",
+  "properties": {
+    "page": {
+      "type": "string"
+    },
+    "candidates": {
+      "type": "string"
+    },
+    "addressList": {
+      "items": {
+        "$ref": "#/$defs/AddressesDTO"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "AddressType": {
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "AddressesDTO": {
+      "properties": {
+        "pbKey": {
+          "type": "string"
+        },
+        "addressNumber": {
+          "type": "string"
+        },
+        "streetName": {
+          "type": "string"
+        },
+        "unitType": {
+          "type": "string"
+        },
+        "unitValue": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/$defs/AddressType"
+        },
+        "areaName1": {
+          "type": "string"
+        },
+        "areaName2": {
+          "type": "string"
+        },
+        "areaName3": {
+          "type": "string"
+        },
+        "areaName4": {
+          "type": "string"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "postCodeExt": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "geometry": {
+          "$ref": "#/$defs/Geometry"
+        },
+        "propertyType": {
+          "type": "string"
+        },
+        "propertyTypeDescription": {
+          "type": "string"
+        },
+        "parentPbKey": {
+          "type": "string"
+        },
+        "geoId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Geometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

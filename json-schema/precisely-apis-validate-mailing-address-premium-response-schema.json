@@ -1,0 +1,387 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-validate-mailing-address-premium-response-schema.json",
+  "title": "ValidateMailingAddressPremiumResponse",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-validatemailingaddresspremium-api-openapi.yml#/components/schemas/ValidateMailingAddressPremiumResponse",
+  "properties": {
+    "Output": {
+      "items": {
+        "$ref": "#/$defs/ValidateMailingAddressPremiumOutput"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "GetPostalCodesAPIOutput_user_fields": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ValidateMailingAddressPremiumOutput": {
+      "properties": {
+        "user_fields": {
+          "description": "These fields are returned, unmodified, in the user_fields section of the response.",
+          "items": {
+            "$ref": "#/$defs/GetPostalCodesAPIOutput_user_fields"
+          },
+          "type": "array"
+        },
+        "Status": {
+          "description": "Reports the success or failure of the match attempt.",
+          "type": "string"
+        },
+        "Status.Code": {
+          "description": "Reason for failure, if there is one.",
+          "type": "string"
+        },
+        "Status.Description": {
+          "description": "Description of the problem, if there is one.",
+          "type": "string"
+        },
+        "Confidence": {
+          "description": "The level of confidence assigned to the address being returned.",
+          "type": "string"
+        },
+        "RecordType": {
+          "description": "Type of address record.",
+          "type": "string"
+        },
+        "RecordType.Default": {
+          "description": "Code indicating the default match.",
+          "type": "string"
+        },
+        "MultipleMatches": {
+          "description": "Indicates which address component had multiple matches.",
+          "type": "string"
+        },
+        "CouldNotValidate": {
+          "description": "Mentions the address component that could not be validated, in case no match is found.",
+          "type": "string"
+        },
+        "CountryLevel": {
+          "description": "The category of address matching available.",
+          "type": "string"
+        },
+        "AddressFormat": {
+          "description": "The type of address data being returned.",
+          "type": "string"
+        },
+        "AddressLine1": {
+          "description": "The first line of the validated address.",
+          "type": "string"
+        },
+        "AddressLine2": {
+          "description": "The second line of the validated address.",
+          "type": "string"
+        },
+        "AddressLine3": {
+          "description": "The third line of the validated address.",
+          "type": "string"
+        },
+        "AddressLine4": {
+          "description": "The fourth line of the validated address.",
+          "type": "string"
+        },
+        "City": {
+          "description": "The validated city name.",
+          "type": "string"
+        },
+        "StateProvince": {
+          "description": "The validated state or province abbreviation.",
+          "type": "string"
+        },
+        "PostalCode": {
+          "description": "The validated ZIP Code or postal code.",
+          "type": "string"
+        },
+        "PostalCode.Base": {
+          "description": "The 5-digit ZIP Code.",
+          "type": "string"
+        },
+        "PostalCode.AddOn": {
+          "description": "The 4-digit add-on part of the ZIP Code.",
+          "type": "string"
+        },
+        "Country": {
+          "description": "The country in the format determined by what you selected.",
+          "type": "string"
+        },
+        "AdditionalInputData": {
+          "description": "Input data that could not be matched to a particular address component.",
+          "type": "string"
+        },
+        "FirmName": {
+          "description": "The validated firm or company name.",
+          "type": "string"
+        },
+        "HouseNumber": {
+          "description": "House number.",
+          "type": "string"
+        },
+        "LeadingDirectional": {
+          "description": "Leading directional.",
+          "type": "string"
+        },
+        "StreetName": {
+          "description": "Street name.",
+          "type": "string"
+        },
+        "StreetSuffix": {
+          "description": "Street suffix.",
+          "type": "string"
+        },
+        "TrailingDirectional": {
+          "description": "Trailing directional.",
+          "type": "string"
+        },
+        "ApartmentLabel": {
+          "description": "Apartment designator (such as STE or APT).",
+          "type": "string"
+        },
+        "ApartmentNumber": {
+          "description": "Apartment number.",
+          "type": "string"
+        },
+        "ApartmentLabel2": {
+          "description": "Secondary apartment designator.",
+          "type": "string"
+        },
+        "ApartmentNumber2": {
+          "description": "Secondary apartment number.",
+          "type": "string"
+        },
+        "RRHC": {
+          "description": "Rural Route/Highway Contract indicator.",
+          "type": "string"
+        },
+        "POBox": {
+          "description": "Post office box number.",
+          "type": "string"
+        },
+        "PrivateMailbox": {
+          "description": "Private mailbox indicator.",
+          "type": "string"
+        },
+        "PrivateMailbox.Type": {
+          "description": "The type of private mailbox.",
+          "type": "string"
+        },
+        "HouseNumber.Input": {
+          "description": "House number.",
+          "type": "string"
+        },
+        "LeadingDirectional.Input": {
+          "description": "Leading directional.",
+          "type": "string"
+        },
+        "StreetName.Input": {
+          "description": "Street name.",
+          "type": "string"
+        },
+        "StreetSuffix.Input": {
+          "description": "Street suffix.",
+          "type": "string"
+        },
+        "TrailingDirectional.Input": {
+          "description": "Trailing directional.",
+          "type": "string"
+        },
+        "ApartmentLabel.Input": {
+          "description": "Apartment designator (such as STE or APT).",
+          "type": "string"
+        },
+        "ApartmentNumber.Input": {
+          "description": "Apartment number.",
+          "type": "string"
+        },
+        "RRHC.Input": {
+          "description": "Rural Route/Highway Contract indicator.",
+          "type": "string"
+        },
+        "POBox.Input": {
+          "description": "Post office box number.",
+          "type": "string"
+        },
+        "PrivateMailbox.Input": {
+          "description": "Private mailbox indicator.",
+          "type": "string"
+        },
+        "PrivateMailbox.Type.Input": {
+          "description": "The type of private mailbox.",
+          "type": "string"
+        },
+        "City.Input": {
+          "description": "Validated city name.",
+          "type": "string"
+        },
+        "StateProvince.Input": {
+          "description": "Validated state or province name.",
+          "type": "string"
+        },
+        "PostalCode.Input": {
+          "description": "Validated postal code.",
+          "type": "string"
+        },
+        "Country.Input": {
+          "description": "Country. Format is determined by what you selected in OutputCountryFormat.",
+          "type": "string"
+        },
+        "FirmName.Input": {
+          "description": "The validated firm or company name.",
+          "type": "string"
+        },
+        "HouseNumber.Result": {
+          "description": "The field-level result indicator for HouseNumber.",
+          "type": "string"
+        },
+        "LeadingDirectional.Result": {
+          "description": "The field-level result indicator for LeadingDirectional.",
+          "type": "string"
+        },
+        "Street.Result": {
+          "description": "The field-level result indicator for Street.",
+          "type": "string"
+        },
+        "StreetName.Result": {
+          "description": "The field-level result indicator for StreetName.",
+          "type": "string"
+        },
+        "StreetName.Alias.Type": {
+          "description": "The field-level result indicator for StreetName Alias.",
+          "type": "string"
+        },
+        "StreetSuffix.Result": {
+          "description": "The field-level result indicator for StreetSuffix.",
+          "type": "string"
+        },
+        "TrailingDirectional.Result": {
+          "description": "The field-level result indicator for TrailingDirectional.",
+          "type": "string"
+        },
+        "ApartmentLabel.Result": {
+          "description": "The field-level result indicator for ApartmentLabel.",
+          "type": "string"
+        },
+        "ApartmentNumber.Result": {
+          "description": "The field-level result indicator for ApartmentNumber.",
+          "type": "string"
+        },
+        "ApartmentLabel2.Result": {
+          "description": "The field-level result indicator for ApartmentLabel2.",
+          "type": "string"
+        },
+        "ApartmentNumber2.Result": {
+          "description": "The field-level result indicator for ApartmentNumber2.",
+          "type": "string"
+        },
+        "RRHC.Result": {
+          "description": "The field-level result indicator for RRHC.",
+          "type": "string"
+        },
+        "RRHC.Type": {
+          "description": "The field-level result indicator for RRHC Type.",
+          "type": "string"
+        },
+        "POBox.Result": {
+          "description": "The field-level result indicator for POBox.",
+          "type": "string"
+        },
+        "City.Result": {
+          "description": "The field-level result indicator for City.",
+          "type": "string"
+        },
+        "StateProvince.Result": {
+          "description": "The field-level result indicator for StateProvince.",
+          "type": "string"
+        },
+        "PostalCode.Result": {
+          "description": "The field-level result indicator for PostalCode.",
+          "type": "string"
+        },
+        "PostalCodeCity.Result": {
+          "description": "The field-level result indicator for PostalCodeCity.",
+          "type": "string"
+        },
+        "AddressRecord.Result": {
+          "description": "The field-level result indicator for AddressRecord.",
+          "type": "string"
+        },
+        "PostalCode.Source": {
+          "description": "The field-level result indicator for PostalCode Source.",
+          "type": "string"
+        },
+        "PostalCode.Type": {
+          "description": "Indicates the type of postal code returned.",
+          "type": "string"
+        },
+        "Country.Result": {
+          "description": "The validated firm or company name.",
+          "type": "string"
+        },
+        "FirmName.Result": {
+          "description": "Indicates if the firm name got validated.",
+          "type": "string"
+        },
+        "StreetNamePreferredAlias.Result": {
+          "description": "Indicates the result of preferred alias processing.",
+          "type": "string"
+        },
+        "StreetNameAbbreviatedAlias.Result": {
+          "description": "Indicates the result of abbreviated alias processing.",
+          "type": "string"
+        },
+        "AddressLine5": {
+          "description": "The fifth line of the validated address.",
+          "type": "string"
+        },
+        "AddressQuality": {
+          "description": "A two character code indicating overall quality of the resulting address.",
+          "type": "string"
+        },
+        "Deliverability": {
+          "description": "An estimate of confidence that an item mailed or shipped to this address would be successfully delivered.",
+          "type": "string"
+        },
+        "AddressType": {
+          "description": "A single letter code that indicates the type of address.",
+          "type": "string"
+        },
+        "Locality": {
+          "description": "A locality is a village in rural areas or it may be a suburb in urban areas.",
+          "type": "string"
+        },
+        "ChangeScore": {
+          "description": "A value of 0 and 100 that reflects how much the address has changed to make it valid.",
+          "type": "string"
+        },
+        "Suburb": {
+          "description": "The validated firm or company name.",
+          "type": "string"
+        },
+        "BlockAddress": {
+          "description": "It is the formatted address, as it would appear on a physical mail piece.",
+          "type": "string"
+        },
+        "Latitude": {
+          "description": "Seven-digit number in degrees, calculated to four decimal places.",
+          "type": "string"
+        },
+        "Longitude": {
+          "description": "Seven-digit number in degrees, calculated to four decimal places.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

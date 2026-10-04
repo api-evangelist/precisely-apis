@@ -1,0 +1,313 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-fire-risk-v2-response-list-schema.json",
+  "title": "FireRiskV2ResponseList",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-fire-api-openapi.yml#/components/schemas/FireRiskV2ResponseList",
+  "properties": {
+    "fireRisk": {
+      "items": {
+        "$ref": "#/$defs/FireRiskV2Response"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "CommonGeometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "crs": {
+          "$ref": "#/$defs/RisksGeometryCRC"
+        },
+        "coordinates": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "CommunityGroup": {
+      "properties": {
+        "structure": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "accEgress": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "vegCover": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "wAlignRd": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "DamageGroup": {
+      "properties": {
+        "histLoss": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "insectsAndDisease": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "FireRiskV2Response": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "noharmId": {
+          "type": "string"
+        },
+        "noharmCls": {
+          "type": "string"
+        },
+        "noharmModel": {
+          "type": "string"
+        },
+        "riskDesc": {
+          "type": "string"
+        },
+        "risk50": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "severity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "frequency": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "community": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "damage": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "mitigation": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "severityGroupElements": {
+          "$ref": "#/$defs/SeverityGroup"
+        },
+        "frequencyGroupElements": {
+          "$ref": "#/$defs/FrequencyGroup"
+        },
+        "communityGroupElements": {
+          "$ref": "#/$defs/CommunityGroup"
+        },
+        "damageGroupElements": {
+          "$ref": "#/$defs/DamageGroup"
+        },
+        "mitigationGroupElements": {
+          "$ref": "#/$defs/MitigationGroup"
+        },
+        "geometry": {
+          "$ref": "#/$defs/CommonGeometry"
+        },
+        "matchedAddress": {
+          "$ref": "#/$defs/RiskAddress"
+        }
+      },
+      "type": "object"
+    },
+    "FrequencyGroup": {
+      "properties": {
+        "burnProb": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "histPerim": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "probIgnit": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "lineDist": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "GeometryProperties": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MitigationGroup": {
+      "properties": {
+        "waterDist": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "topoPos": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "burnable": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "fStnDist": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "RiskAddress": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "streetSide": {
+          "type": "string"
+        },
+        "businessName": {
+          "type": "string"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stateProvince": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "urbanizationName": {
+          "type": "string"
+        },
+        "formattedAddress": {
+          "type": "string"
+        },
+        "mainAddressLine": {
+          "type": "string"
+        },
+        "addressLastLine": {
+          "type": "string"
+        },
+        "placeName": {
+          "type": "string"
+        },
+        "areaName1": {
+          "type": "string"
+        },
+        "areaName2": {
+          "type": "string"
+        },
+        "areaName3": {
+          "type": "string"
+        },
+        "areaName4": {
+          "type": "string"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "postCodeExt": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "addressNumber": {
+          "type": "string"
+        },
+        "streetName": {
+          "type": "string"
+        },
+        "unitType": {
+          "type": "string"
+        },
+        "unitValue": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RisksGeometryCRC": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/$defs/GeometryProperties"
+        }
+      },
+      "type": "object"
+    },
+    "SeverityGroup": {
+      "properties": {
+        "intensity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "crownFire": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "windSpd": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "emberCast": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

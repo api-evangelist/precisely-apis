@@ -1,0 +1,439 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-tax-rate-response-schema.json",
+  "title": "TaxRateResponse",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-tax-api-openapi.yml#/components/schemas/TaxRateResponse",
+  "properties": {
+    "objectId": {
+      "type": "string"
+    },
+    "vendorName": {
+      "type": "string"
+    },
+    "gnisCode": {
+      "type": "string"
+    },
+    "confidence": {
+      "format": "double",
+      "type": "number"
+    },
+    "jurisdiction": {
+      "$ref": "#/$defs/TaxJurisdiction"
+    },
+    "matchedAddress": {
+      "$ref": "#/$defs/TaxRateMatchedAddress"
+    },
+    "salesTax": {
+      "$ref": "#/$defs/SalesTax"
+    },
+    "useTax": {
+      "$ref": "#/$defs/UseTax"
+    },
+    "census": {
+      "$ref": "#/$defs/Census"
+    },
+    "latLongFields": {
+      "$ref": "#/$defs/LatLongFields"
+    },
+    "address": {
+      "$ref": "#/$defs/TaxRateMatchedAddress"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "Cbsa": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Census": {
+      "properties": {
+        "cbsa": {
+          "$ref": "#/$defs/Cbsa"
+        },
+        "matchLevel": {
+          "type": "string"
+        },
+        "matchCode": {
+          "type": "string"
+        },
+        "tract": {
+          "type": "string"
+        },
+        "mcd": {
+          "$ref": "#/$defs/Mcd"
+        }
+      },
+      "type": "object"
+    },
+    "LatLongFields": {
+      "properties": {
+        "matchCode": {
+          "type": "string"
+        },
+        "matchLevel": {
+          "type": "string"
+        },
+        "streetMatchCode": {
+          "type": "string"
+        },
+        "streetMatchLevel": {
+          "type": "string"
+        },
+        "geometry": {
+          "$ref": "#/$defs/LocalTaxGeometry"
+        }
+      },
+      "type": "object"
+    },
+    "LocalTaxGeometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "Mcd": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SalesTax": {
+      "properties": {
+        "specialTaxRulesApplied": {
+          "type": "boolean"
+        },
+        "specialTaxRulesDescriptor": {
+          "type": "string"
+        },
+        "totalTaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "totalTaxAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "stateTaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "stateTaxAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "countyTaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "countyTaxAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "municipalTaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "municipalTaxAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "spdsTax": {
+          "items": {
+            "$ref": "#/$defs/SpecialPurposeDistrictTax"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "SpecialPurposeDistrict": {
+      "properties": {
+        "districtName": {
+          "type": "string"
+        },
+        "districtCode": {
+          "type": "string"
+        },
+        "districtNumber": {
+          "type": "string"
+        },
+        "versionDate": {
+          "type": "string"
+        },
+        "effectiveDate": {
+          "type": "string"
+        },
+        "compiledDate": {
+          "type": "string"
+        },
+        "updateDate": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "SpecialPurposeDistrictTax": {
+      "properties": {
+        "districtNumber": {
+          "type": "string"
+        },
+        "taxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "taxAmount": {
+          "format": "double",
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "TaxCounty": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TaxJurisdiction": {
+      "properties": {
+        "state": {
+          "$ref": "#/$defs/TaxState"
+        },
+        "county": {
+          "$ref": "#/$defs/TaxCounty"
+        },
+        "place": {
+          "$ref": "#/$defs/TaxPlace"
+        },
+        "spds": {
+          "items": {
+            "$ref": "#/$defs/SpecialPurposeDistrict"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "TaxPlace": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "gnisCode": {
+          "type": "string"
+        },
+        "selfCollected": {
+          "type": "boolean"
+        },
+        "classCode": {
+          "type": "string"
+        },
+        "incorporatedFlag": {
+          "type": "string"
+        },
+        "lastAnnexedDate": {
+          "type": "string"
+        },
+        "lastUpdatedDate": {
+          "type": "string"
+        },
+        "lastVerifiedDate": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TaxRateMatchedAddress": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "streetSide": {
+          "type": "string"
+        },
+        "businessName": {
+          "type": "string"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stateProvince": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "urbanizationName": {
+          "type": "string"
+        },
+        "formattedAddress": {
+          "type": "string"
+        },
+        "mainAddressLine": {
+          "type": "string"
+        },
+        "addressLastLine": {
+          "type": "string"
+        },
+        "placeName": {
+          "type": "string"
+        },
+        "areaName1": {
+          "type": "string"
+        },
+        "areaName2": {
+          "type": "string"
+        },
+        "areaName3": {
+          "type": "string"
+        },
+        "areaName4": {
+          "type": "string"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "postCode1": {
+          "type": "string"
+        },
+        "postCodeExt": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "addressNumber": {
+          "type": "string"
+        },
+        "streetName": {
+          "type": "string"
+        },
+        "unitType": {
+          "type": "string"
+        },
+        "unitValue": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "TaxState": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "UseTax": {
+      "properties": {
+        "specialTaxRulesApplied": {
+          "type": "boolean"
+        },
+        "specialTaxRulesDescriptor": {
+          "type": "string"
+        },
+        "totalTaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "totalTaxAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "stateTaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "stateTaxAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "countyTaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "countyTaxAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "municipalTaxRate": {
+          "format": "double",
+          "type": "number"
+        },
+        "municipalTaxAmount": {
+          "format": "double",
+          "type": "number"
+        },
+        "spdsTax": {
+          "items": {
+            "$ref": "#/$defs/SpecialPurposeDistrictTax"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

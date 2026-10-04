@@ -1,0 +1,430 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-demographics-schema.json",
+  "title": "Demographics",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-segmentation-api-openapi.yml#/components/schemas/Demographics",
+  "properties": {
+    "boundaries": {
+      "$ref": "#/$defs/Boundaries"
+    },
+    "themes": {
+      "$ref": "#/$defs/DemographicsThemesV2"
+    },
+    "boundaryThemes": {
+      "items": {
+        "$ref": "#/$defs/DemographicsThemesV2"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "boundaries",
+    "themes"
+  ],
+  "type": "object",
+  "$defs": {
+    "AssetsAndWealthTheme": {
+      "properties": {
+        "boundaryRef": {
+          "type": "string"
+        },
+        "individualValueVariable": {
+          "items": {
+            "$ref": "#/$defs/IndividualValueVariable"
+          },
+          "type": "array"
+        },
+        "rangeVariable": {
+          "items": {
+            "$ref": "#/$defs/RangeVariable"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Boundaries": {
+      "properties": {
+        "boundaryType": {
+          "type": "string"
+        },
+        "boundaryRef": {
+          "type": "string"
+        },
+        "boundary": {
+          "items": {
+            "$ref": "#/$defs/Boundary"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "boundary"
+      ],
+      "type": "object"
+    },
+    "Boundary": {
+      "properties": {
+        "boundaryId": {
+          "type": "string"
+        },
+        "boundaryType": {
+          "type": "string"
+        },
+        "boundaryRef": {
+          "type": "string"
+        },
+        "geometry": {
+          "$ref": "#/$defs/DemographicsGeometry"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DemographicsGeometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "crs": {
+          "$ref": "#/$defs/DemographicsGeometryCRC"
+        },
+        "coordinates": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "DemographicsGeometryCRC": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/$defs/GeometryProperties"
+        }
+      },
+      "type": "object"
+    },
+    "DemographicsThemesV2": {
+      "properties": {
+        "boundaryId": {
+          "type": "string"
+        },
+        "populationTheme": {
+          "$ref": "#/$defs/PopulationTheme"
+        },
+        "raceAndEthnicityTheme": {
+          "$ref": "#/$defs/RaceAndEthnicityTheme"
+        },
+        "healthTheme": {
+          "$ref": "#/$defs/HealthTheme"
+        },
+        "educationTheme": {
+          "$ref": "#/$defs/EducationTheme"
+        },
+        "incomeTheme": {
+          "$ref": "#/$defs/IncomeTheme"
+        },
+        "assetsAndWealthTheme": {
+          "$ref": "#/$defs/AssetsAndWealthTheme"
+        },
+        "householdsTheme": {
+          "$ref": "#/$defs/HouseholdsTheme"
+        },
+        "housingTheme": {
+          "$ref": "#/$defs/HousingTheme"
+        },
+        "employmentTheme": {
+          "$ref": "#/$defs/EmploymentTheme"
+        },
+        "expenditureTheme": {
+          "$ref": "#/$defs/ExpenditureTheme"
+        },
+        "supplyAndDemandTheme": {
+          "$ref": "#/$defs/SupplyAndDemandTheme"
+        }
+      },
+      "type": "object"
+    },
+    "EducationTheme": {
+      "properties": {
+        "boundaryRef": {
+          "type": "string"
+        },
+        "individualValueVariable": {
+          "items": {
+            "$ref": "#/$defs/IndividualValueVariable"
+          },
+          "type": "array"
+        },
+        "rangeVariable": {
+          "items": {
+            "$ref": "#/$defs/RangeVariable"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "EmploymentTheme": {
+      "properties": {
+        "boundaryRef": {
+          "type": "string"
+        },
+        "individualValueVariable": {
+          "items": {
+            "$ref": "#/$defs/IndividualValueVariable"
+          },
+          "type": "array"
+        },
+        "rangeVariable": {
+          "items": {
+            "$ref": "#/$defs/RangeVariable"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "ExpenditureTheme": {
+      "properties": {
+        "boundaryRef": {
+          "type": "string"
+        },
+        "individualValueVariable": {
+          "items": {
+            "$ref": "#/$defs/IndividualValueVariable"
+          },
+          "type": "array"
+        },
+        "rangeVariable": {
+          "items": {
+            "$ref": "#/$defs/RangeVariable"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Field": {
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GeometryProperties": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "HealthTheme": {
+      "properties": {
+        "boundaryRef": {
+          "type": "string"
+        },
+        "individualValueVariable": {
+          "items": {
+            "$ref": "#/$defs/IndividualValueVariable"
+          },
+          "type": "array"
+        },
+        "rangeVariable": {
+          "items": {
+            "$ref": "#/$defs/RangeVariable"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "HouseholdsTheme": {
+      "properties": {
+        "boundaryRef": {
+          "type": "string"
+        },
+        "individualValueVariable": {
+          "items": {
+            "$ref": "#/$defs/IndividualValueVariable"
+          },
+          "type": "array"
+        },
+        "rangeVariable": {
+          "items": {
+            "$ref": "#/$defs/RangeVariable"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "HousingTheme": {
+      "properties": {
+        "boundaryRef": {
+          "type": "string"
+        },
+        "individualValueVariable": {
+          "items": {
+            "$ref": "#/$defs/IndividualValueVariable"
+          },
+          "type": "array"
+        },
+        "rangeVariable": {
+          "items": {
+            "$ref": "#/$defs/RangeVariable"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "IncomeTheme": {
+      "properties": {
+        "boundaryRef": {
+          "type": "string"
+        },
+        "individualValueVariable": {
+          "items": {
+            "$ref": "#/$defs/IndividualValueVariable"
+          },
+          "type": "array"
+        },
+        "rangeVariable": {
+          "items": {
+            "$ref": "#/$defs/RangeVariable"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "IndividualValueVariable": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "year": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PopulationTheme": {
+      "properties": {
+        "boundaryRef": {
+          "type": "string"
+        },
+        "individualValueVariable": {
+          "items": {
+            "$ref": "#/$defs/IndividualValueVariable"
+          },
+          "type": "array"
+        },
+        "rangeVariable": {
+          "items": {
+            "$ref": "#/$defs/RangeVariable"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "RaceAndEthnicityTheme": {
+      "properties": {
+        "boundaryRef": {
+          "type": "string"
+        },
+        "individualValueVariable": {
+          "items": {
+            "$ref": "#/$defs/IndividualValueVariable"
+          },
+          "type": "array"
+        },
+        "rangeVariable": {
+          "items": {
+            "$ref": "#/$defs/RangeVariable"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "RangeVariable": {
+      "properties": {
+        "count": {
+          "type": "string"
+        },
+        "order": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "alias": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "baseVariable": {
+          "type": "string"
+        },
+        "year": {
+          "type": "string"
+        },
+        "field": {
+          "items": {
+            "$ref": "#/$defs/Field"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "field"
+      ],
+      "type": "object"
+    },
+    "SupplyAndDemandTheme": {
+      "properties": {
+        "boundaryRef": {
+          "type": "string"
+        },
+        "individualValueVariable": {
+          "items": {
+            "$ref": "#/$defs/IndividualValueVariable"
+          },
+          "type": "array"
+        },
+        "rangeVariable": {
+          "items": {
+            "$ref": "#/$defs/RangeVariable"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

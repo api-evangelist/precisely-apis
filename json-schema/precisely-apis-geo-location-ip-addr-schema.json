@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-geo-location-ip-addr-schema.json",
+  "title": "GeoLocationIpAddr",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-geolocation-api-openapi.yml#/components/schemas/GeoLocationIpAddr",
+  "properties": {
+    "geometry": {
+      "$ref": "#/$defs/GeolocationGeometry"
+    },
+    "accuracy": {
+      "$ref": "#/$defs/Accuracy"
+    },
+    "ipInfo": {
+      "$ref": "#/$defs/IpInfo"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "Accuracy": {
+      "properties": {
+        "unit": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Carrier": {
+      "properties": {
+        "asn": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "City": {
+      "properties": {
+        "confidence": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ConsistencyCode": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GeoLocationCountry": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GeoLocationPlace": {
+      "properties": {
+        "continent": {
+          "type": "string"
+        },
+        "country": {
+          "$ref": "#/$defs/GeoLocationCountry"
+        },
+        "consistencyCode": {
+          "$ref": "#/$defs/ConsistencyCode"
+        },
+        "region": {
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/$defs/GeoLocationState"
+        },
+        "city": {
+          "$ref": "#/$defs/City"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "postCodeConfidence": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GeoLocationState": {
+      "properties": {
+        "confidence": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GeolocationGeometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "IpInfo": {
+      "properties": {
+        "ipAddress": {
+          "type": "string"
+        },
+        "proxy": {
+          "$ref": "#/$defs/Proxy"
+        },
+        "network": {
+          "$ref": "#/$defs/Network"
+        },
+        "place": {
+          "$ref": "#/$defs/GeoLocationPlace"
+        }
+      },
+      "type": "object"
+    },
+    "Network": {
+      "properties": {
+        "connectionFromHome": {
+          "type": "string"
+        },
+        "organization": {
+          "type": "string"
+        },
+        "carrier": {
+          "$ref": "#/$defs/Carrier"
+        },
+        "organizationType": {
+          "$ref": "#/$defs/OrganizationType"
+        },
+        "connectionType": {
+          "type": "string"
+        },
+        "lineSpeed": {
+          "type": "string"
+        },
+        "ipRouteType": {
+          "type": "string"
+        },
+        "hostingFacility": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "OrganizationType": {
+      "properties": {
+        "naicsCode": {
+          "type": "string"
+        },
+        "isicCode": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Proxy": {
+      "properties": {
+        "anonymizerStatus": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string"
+        },
+        "lastDetected": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

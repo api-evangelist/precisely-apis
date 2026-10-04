@@ -1,0 +1,297 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-geocode-service-response-list-schema.json",
+  "title": "GeocodeServiceResponseList",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-geocode-api-openapi.yml#/components/schemas/GeocodeServiceResponseList",
+  "properties": {
+    "responses": {
+      "items": {
+        "$ref": "#/$defs/GeocodeServiceResponse"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "Candidate": {
+      "properties": {
+        "precisionLevel": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "formattedStreetAddress": {
+          "type": "string"
+        },
+        "formattedLocationAddress": {
+          "type": "string"
+        },
+        "identifier": {
+          "type": "string"
+        },
+        "precisionCode": {
+          "type": "string"
+        },
+        "sourceDictionary": {
+          "type": "string"
+        },
+        "matching": {
+          "$ref": "#/$defs/FieldsMatching"
+        },
+        "geometry": {
+          "$ref": "#/$defs/GeoPos"
+        },
+        "address": {
+          "$ref": "#/$defs/GeocodeAddress"
+        },
+        "ranges": {
+          "items": {
+            "$ref": "#/$defs/CandidateRange"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "CandidateRange": {
+      "properties": {
+        "placeName": {
+          "type": "string"
+        },
+        "lowHouse": {
+          "type": "string"
+        },
+        "highHouse": {
+          "type": "string"
+        },
+        "side": {
+          "enum": [
+            "UNKNOWN",
+            "LEFT",
+            "RIGHT",
+            "BOTH"
+          ],
+          "type": "string"
+        },
+        "oddEvenIndicator": {
+          "enum": [
+            "UNKNOWN",
+            "BOTH",
+            "ODD",
+            "EVEN",
+            "IRREGULAR"
+          ],
+          "type": "string"
+        },
+        "units": {
+          "items": {
+            "$ref": "#/$defs/CandidateRangeUnit"
+          },
+          "type": "array"
+        },
+        "customValues": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "CandidateRangeUnit": {
+      "properties": {
+        "placeName": {
+          "type": "string"
+        },
+        "unitType": {
+          "type": "string"
+        },
+        "highUnitValue": {
+          "type": "string"
+        },
+        "lowUnitValue": {
+          "type": "string"
+        },
+        "customValues": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "Crs": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/$defs/Properties"
+        }
+      },
+      "required": [
+        "properties",
+        "type"
+      ],
+      "type": "object"
+    },
+    "FieldsMatching": {
+      "properties": {
+        "matchOnAddressNumber": {
+          "type": "boolean"
+        },
+        "matchOnPostCode1": {
+          "type": "boolean"
+        },
+        "matchOnPostCode2": {
+          "type": "boolean"
+        },
+        "matchOnAreaName1": {
+          "type": "boolean"
+        },
+        "matchOnAreaName2": {
+          "type": "boolean"
+        },
+        "matchOnAreaName3": {
+          "type": "boolean"
+        },
+        "matchOnAreaName4": {
+          "type": "boolean"
+        },
+        "matchOnAllStreetFields": {
+          "type": "boolean"
+        },
+        "matchOnStreetName": {
+          "type": "boolean"
+        },
+        "matchOnStreetType": {
+          "type": "boolean"
+        },
+        "matchOnStreetDirectional": {
+          "type": "boolean"
+        },
+        "matchOnPlaceName": {
+          "type": "boolean"
+        },
+        "matchOnInputFields": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "GeoPos": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "crs": {
+          "$ref": "#/$defs/Crs"
+        }
+      },
+      "required": [
+        "crs",
+        "type"
+      ],
+      "type": "object"
+    },
+    "GeocodeAddress": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "mainAddressLine": {
+          "type": "string"
+        },
+        "addressLastLine": {
+          "type": "string"
+        },
+        "placeName": {
+          "type": "string"
+        },
+        "areaName1": {
+          "type": "string"
+        },
+        "areaName2": {
+          "type": "string"
+        },
+        "areaName3": {
+          "type": "string"
+        },
+        "areaName4": {
+          "type": "string"
+        },
+        "postCode1": {
+          "type": "string"
+        },
+        "postCode2": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "addressNumber": {
+          "type": "string"
+        },
+        "streetName": {
+          "type": "string"
+        },
+        "unitType": {
+          "type": "string"
+        },
+        "unitValue": {
+          "type": "string"
+        },
+        "customFields": {
+          "additionalProperties": {
+            "type": "object"
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "GeocodeServiceResponse": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "totalPossibleCandidates": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "totalMatches": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "candidates": {
+          "items": {
+            "$ref": "#/$defs/Candidate"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Properties": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    }
+  }
+}

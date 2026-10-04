@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-segmentation-schema.json",
+  "title": "Segmentation",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-segmentation-api-openapi.yml#/components/schemas/Segmentation",
+  "properties": {
+    "boundaries": {
+      "$ref": "#/$defs/Boundaries"
+    },
+    "themes": {
+      "$ref": "#/$defs/SegmentationThemes"
+    }
+  },
+  "required": [
+    "boundaries",
+    "themes"
+  ],
+  "type": "object",
+  "$defs": {
+    "Boundaries": {
+      "properties": {
+        "boundaryType": {
+          "type": "string"
+        },
+        "boundaryRef": {
+          "type": "string"
+        },
+        "boundary": {
+          "items": {
+            "$ref": "#/$defs/Boundary"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "boundary"
+      ],
+      "type": "object"
+    },
+    "Boundary": {
+      "properties": {
+        "boundaryId": {
+          "type": "string"
+        },
+        "boundaryType": {
+          "type": "string"
+        },
+        "boundaryRef": {
+          "type": "string"
+        },
+        "geometry": {
+          "$ref": "#/$defs/DemographicsGeometry"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DemographicsGeometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "crs": {
+          "$ref": "#/$defs/DemographicsGeometryCRC"
+        },
+        "coordinates": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "DemographicsGeometryCRC": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/$defs/GeometryProperties"
+        }
+      },
+      "type": "object"
+    },
+    "Field": {
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GeometryProperties": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "IndividualValueVariable": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "year": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LifeStyleTheme": {
+      "properties": {
+        "boundaryRef": {
+          "type": "string"
+        },
+        "individualValueVariable": {
+          "items": {
+            "$ref": "#/$defs/IndividualValueVariable"
+          },
+          "type": "array"
+        },
+        "rangeVariable": {
+          "items": {
+            "$ref": "#/$defs/RangeVariable"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "RangeVariable": {
+      "properties": {
+        "count": {
+          "type": "string"
+        },
+        "order": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "alias": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "baseVariable": {
+          "type": "string"
+        },
+        "year": {
+          "type": "string"
+        },
+        "field": {
+          "items": {
+            "$ref": "#/$defs/Field"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "field"
+      ],
+      "type": "object"
+    },
+    "SegmentationThemes": {
+      "properties": {
+        "lifeStyleTheme": {
+          "$ref": "#/$defs/LifeStyleTheme"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

@@ -307,63 +307,93 @@ components:
             $ref: '#/components/schemas/ValidateMailingAddressUSCANAPIOutput'
           type: array
       type: object
-    ValidateMailingAddressUSCANAPIInputRow:
+    ValidateMailingAddressUSCANAPIRequest:
       example:
-        AddressLine3: AddressLine3
-        AddressLine2: AddressLine2
-        AddressLine1: AddressLine1
-        user_fields:
-        - name: name
-          value: value
-        - name: name
-          value: value
-        FirmName: FirmName
-        StateProvince: StateProvince
-        USUrbanName: USUrbanName
-        AddressLine4: AddressLine4
-        Country: Country
-        PostalCode: PostalCode
-        City: City
-        CanLanguage: CanLanguage
+        Input:
+          Row:
+          - AddressLine3: AddressLine3
+            AddressLine2: AddressLine2
+            AddressLine1: AddressLine1
+            user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            FirmName: FirmName
+            StateProvince: StateProvince
+            USUrbanName: USUrbanName
+            AddressLine4: AddressLine4
+            Country: Country
+            PostalCode: PostalCode
+            City: City
+            CanLanguage: CanLanguage
+          - AddressLine3: AddressLine3
+            AddressLine2: AddressLine2
+            AddressLine1: AddressLine1
+            user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            FirmName: FirmName
+            StateProvince: StateProvince
+            USUrbanName: USUrbanName
+            AddressLine4: AddressLine4
+            Country: Country
+            PostalCode: PostalCode
+            City: City
+            CanLanguage: CanLanguage
+        options:
+          CanOutputCityFormat: D
+          StandardAddressFormat: C
+          OutputPostalCodeSeparator: Y
+          OutputCasing: M
+          CanSSLVRFlg: N
+          CanDualAddressLogic: D
+          CanEnglishApartmentLabel: Apt
+          DPVDetermineNoStat: N
+          OutputPreferredCity: Z
+          PerformUSProcessing: Y
+          PerformLACSLink: Y
+          DPVSuccessfulStatusCondition: A
+          OutputFormattedOnFail: N
+          DPVDetermineVacancy: N
+          DualAddressLogic: N
+          PerformEWS: N
+          OutputMultinationalCharacters: N
+          OutputCountryFormat: E
+          ExtractUrb: N
+          StreetMatchingStrictness: M
+          CanOutputCityAlias: N
+          FailOnCMRAMatch: N
+          OutputRecordType: A
+          FirmMatchingStrictness: M
+          CanPreferHouseNum: N
+          OutputAddressBlocks: Y
+          OutputShortCityName: N
+          CanStandardAddressFormat: D
+          OutputAbbreviatedAlias: N
+          OutputFieldLevelReturnCodes: N
+          KeepMultimatch: N
+          MaximumResults: '10'
+          StandardAddressPMBLine: N
+          CanNonCivicFormat: A
+          CanRuralRouteFormat: A
+          CanFrenchFormat: C
+          OutputStreetNameAlias: Y
+          CanFrenchApartmentLabel: Appartement
+          SuppressZplusPhantomCarrierR777: N
+          ExtractFirm: N
+          CanDeliveryOfficeFormat: I
+          OutputPreferredAlias: N
+          DirectionalMatchingStrictness: M
+          PerformDPV: N
+          PerformSuiteLink: N
       properties:
-        user_fields:
-          description: These fields are returned, unmodified, in the user_fields section of the response.
-          items:
-            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
-          type: array
-        AddressLine1:
-          description: The first address line.
-          type: string
-        AddressLine2:
-          description: The second address line.
-          type: string
-        AddressLine3:
-          description: The third address line.
-          type: string
-        AddressLine4:
-          description: The fourth address line.
-          type: string
-        FirmName:
-          description: The company or firm name.
-          type: string
-        City:
-          description: The city name.
-          type: string
-        StateProvince:
-          description: The state or province.
-          type: string
-        Country:
-          description: The country code or name.
-          type: string
-        PostalCode:
-          description: The postal code for the address.
-          type: string
-        USUrbanName:
-          description: U.S. address urbanization name. Used primarily for Puerto Rico addresses.
-          type: string
-        CanLanguage:
-          description: Canadian language.
-          type: string
+        options:
+          $ref: '#/components/schemas/ValidateMailingAddressUSCANAPIOptions'
+        Input:
+          $ref: '#/components/schemas/ValidateMailingAddressUSCANAPIInput'
       type: object
     ValidateMailingAddressUSCANAPIOptions:
       example:
@@ -594,152 +624,63 @@ components:
           description: Specifies how to format city names that have short city name or non-mailing city name alternatives.
           type: string
       type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    ValidateMailingAddressUSCANAPIInput:
+    ValidateMailingAddressUSCANAPIInputRow:
       example:
-        Row:
-        - AddressLine3: AddressLine3
-          AddressLine2: AddressLine2
-          AddressLine1: AddressLine1
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          FirmName: FirmName
-          StateProvince: StateProvince
-          USUrbanName: USUrbanName
-          AddressLine4: AddressLine4
-          Country: Country
-          PostalCode: PostalCode
-          City: City
-          CanLanguage: CanLanguage
-        - AddressLine3: AddressLine3
-          AddressLine2: AddressLine2
-          AddressLine1: AddressLine1
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          FirmName: FirmName
-          StateProvince: StateProvince
-          USUrbanName: USUrbanName
-          AddressLine4: AddressLine4
-          Country: Country
-          PostalCode: PostalCode
-          City: City
-          CanLanguage: CanLanguage
+        AddressLine3: AddressLine3
+        AddressLine2: AddressLine2
+        AddressLine1: AddressLine1
+        user_fields:
+        - name: name
+          value: value
+        - name: name
+          value: value
+        FirmName: FirmName
+        StateProvince: StateProvince
+        USUrbanName: USUrbanName
+        AddressLine4: AddressLine4
+        Country: Country
+        PostalCode: PostalCode
+        City: City
+        CanLanguage: CanLanguage
       properties:
-        Row:
+        user_fields:
+          description: These fields are returned, unmodified, in the user_fields section of the response.
           items:
-            $ref: '#/components/schemas/ValidateMailingAddressUSCANAPIInputRow'
+            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
           type: array
-      type: object
-    ErrorInfo:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-          xml:
-            name: error
-      type: object
-      xml:
-        name: errors
-    ValidateMailingAddressUSCANAPIRequest:
-      example:
-        Input:
-          Row:
-          - AddressLine3: AddressLine3
-            AddressLine2: AddressLine2
-            AddressLine1: AddressLine1
-            user_fields:
-            - name: name
-              value: value
-            - name: name
-              value: value
-            FirmName: FirmName
-            StateProvince: StateProvince
-            USUrbanName: USUrbanName
-            AddressLine4: AddressLine4
-            Country: Country
-            PostalCode: PostalCode
-            City: City
-            CanLanguage: CanLanguage
-          - AddressLine3: AddressLine3
-            AddressLine2: AddressLine2
-            AddressLine1: AddressLine1
-            user_fields:
-            - name: name
-              value: value
-            - name: name
-              value: value
-            FirmName: FirmName
-            StateProvince: StateProvince
-            USUrbanName: USUrbanName
-            AddressLine4: AddressLine4
-            Country: Country
-            PostalCode: PostalCode
-            City: City
-            CanLanguage: CanLanguage
-        options:
-          CanOutputCityFormat: D
-          StandardAddressFormat: C
-          OutputPostalCodeSeparator: Y
-          OutputCasing: M
-          CanSSLVRFlg: N
-          CanDualAddressLogic: D
-          CanEnglishApartmentLabel: Apt
-          DPVDetermineNoStat: N
-          OutputPreferredCity: Z
-          PerformUSProcessing: Y
-          PerformLACSLink: Y
-          DPVSuccessfulStatusCondition: A
-          OutputFormattedOnFail: N
-          DPVDetermineVacancy: N
-          DualAddressLogic: N
-          PerformEWS: N
-          OutputMultinationalCharacters: N
-          OutputCountryFormat: E
-          ExtractUrb: N
-          StreetMatchingStrictness: M
-          CanOutputCityAlias: N
-          FailOnCMRAMatch: N
-          OutputRecordType: A
-          FirmMatchingStrictness: M
-          CanPreferHouseNum: N
-          OutputAddressBlocks: Y
-          OutputShortCityName: N
-          CanStandardAddressFormat: D
-          OutputAbbreviatedAlias: N
-          OutputFieldLevelReturnCodes: N
-          KeepMultimatch: N
-          MaximumResults: '10'
-          StandardAddressPMBLine: N
-          CanNonCivicFormat: A
-          CanRuralRouteFormat: A
-          CanFrenchFormat: C
-          OutputStreetNameAlias: Y
-          CanFrenchApartmentLabel: Appartement
-          SuppressZplusPhantomCarrierR777: N
-          ExtractFirm: N
-          CanDeliveryOfficeFormat: I
-          OutputPreferredAlias: N
-          DirectionalMatchingStrictness: M
-          PerformDPV: N
-          PerformSuiteLink: N
-      properties:
-        options:
-          $ref: '#/components/schemas/ValidateMailingAddressUSCANAPIOptions'
-        Input:
-          $ref: '#/components/schemas/ValidateMailingAddressUSCANAPIInput'
+        AddressLine1:
+          description: The first address line.
+          type: string
+        AddressLine2:
+          description: The second address line.
+          type: string
+        AddressLine3:
+          description: The third address line.
+          type: string
+        AddressLine4:
+          description: The fourth address line.
+          type: string
+        FirmName:
+          description: The company or firm name.
+          type: string
+        City:
+          description: The city name.
+          type: string
+        StateProvince:
+          description: The state or province.
+          type: string
+        Country:
+          description: The country code or name.
+          type: string
+        PostalCode:
+          description: The postal code for the address.
+          type: string
+        USUrbanName:
+          description: U.S. address urbanization name. Used primarily for Puerto Rico addresses.
+          type: string
+        CanLanguage:
+          description: Canadian language.
+          type: string
       type: object
     GetPostalCodesAPIOutput_user_fields:
       example:
@@ -749,6 +690,13 @@ components:
         name:
           type: string
         value:
+          type: string
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
           type: string
       type: object
     ValidateMailingAddressUSCANAPIOutput:
@@ -1197,6 +1145,58 @@ components:
           description: Specifies whether the building is vacant, unoccupied for 90 days.
           type: string
       type: object
+    ValidateMailingAddressUSCANAPIInput:
+      example:
+        Row:
+        - AddressLine3: AddressLine3
+          AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          FirmName: FirmName
+          StateProvince: StateProvince
+          USUrbanName: USUrbanName
+          AddressLine4: AddressLine4
+          Country: Country
+          PostalCode: PostalCode
+          City: City
+          CanLanguage: CanLanguage
+        - AddressLine3: AddressLine3
+          AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          FirmName: FirmName
+          StateProvince: StateProvince
+          USUrbanName: USUrbanName
+          AddressLine4: AddressLine4
+          Country: Country
+          PostalCode: PostalCode
+          City: City
+          CanLanguage: CanLanguage
+      properties:
+        Row:
+          items:
+            $ref: '#/components/schemas/ValidateMailingAddressUSCANAPIInputRow'
+          type: array
+      type: object
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
   securitySchemes:
     oAuth2Password:
       flows:

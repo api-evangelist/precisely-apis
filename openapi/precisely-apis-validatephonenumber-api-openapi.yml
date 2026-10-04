@@ -73,55 +73,6 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    PhoneVerification:
-      example:
-        Output:
-        - CarrierName: CarrierName
-          MNC: MNC
-          user_fields:
-          - user_fields
-          - user_fields
-          PhoneType: PhoneType
-          PhoneNumberFormatted: PhoneNumberFormatted
-          PhoneNumber: PhoneNumber
-          MCC: MCC
-          CountryCode: CountryCode
-          ResultCode: ResultCode
-        - CarrierName: CarrierName
-          MNC: MNC
-          user_fields:
-          - user_fields
-          - user_fields
-          PhoneType: PhoneType
-          PhoneNumberFormatted: PhoneNumberFormatted
-          PhoneNumber: PhoneNumber
-          MCC: MCC
-          CountryCode: CountryCode
-          ResultCode: ResultCode
-      properties:
-        Output:
-          items:
-            $ref: '#/components/schemas/PhoneVerification_Output'
-          type: array
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    ErrorInfo:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-          xml:
-            name: error
-      type: object
-      xml:
-        name: errors
     ValidatePhoneNumberAPIRequest_Input_Row:
       example:
         PhoneNumber: PhoneNumber
@@ -130,6 +81,26 @@ components:
         PhoneNumber:
           type: string
         Country:
+          type: string
+      type: object
+    ValidatePhoneNumberAPIRequest_Input:
+      example:
+        Row:
+        - PhoneNumber: PhoneNumber
+          Country: Country
+        - PhoneNumber: PhoneNumber
+          Country: Country
+      properties:
+        Row:
+          items:
+            $ref: '#/components/schemas/ValidatePhoneNumberAPIRequest_Input_Row'
+          type: array
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
           type: string
       type: object
     PhoneVerification_Output:
@@ -167,6 +138,17 @@ components:
             type: string
           type: array
       type: object
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
     ValidatePhoneNumberAPIRequest:
       example:
         Input:
@@ -179,17 +161,35 @@ components:
         Input:
           $ref: '#/components/schemas/ValidatePhoneNumberAPIRequest_Input'
       type: object
-    ValidatePhoneNumberAPIRequest_Input:
+    PhoneVerification:
       example:
-        Row:
-        - PhoneNumber: PhoneNumber
-          Country: Country
-        - PhoneNumber: PhoneNumber
-          Country: Country
+        Output:
+        - CarrierName: CarrierName
+          MNC: MNC
+          user_fields:
+          - user_fields
+          - user_fields
+          PhoneType: PhoneType
+          PhoneNumberFormatted: PhoneNumberFormatted
+          PhoneNumber: PhoneNumber
+          MCC: MCC
+          CountryCode: CountryCode
+          ResultCode: ResultCode
+        - CarrierName: CarrierName
+          MNC: MNC
+          user_fields:
+          - user_fields
+          - user_fields
+          PhoneType: PhoneType
+          PhoneNumberFormatted: PhoneNumberFormatted
+          PhoneNumber: PhoneNumber
+          MCC: MCC
+          CountryCode: CountryCode
+          ResultCode: ResultCode
       properties:
-        Row:
+        Output:
           items:
-            $ref: '#/components/schemas/ValidatePhoneNumberAPIRequest_Input_Row'
+            $ref: '#/components/schemas/PhoneVerification_Output'
           type: array
       type: object
   securitySchemes:
