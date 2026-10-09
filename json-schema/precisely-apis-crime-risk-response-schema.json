@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-crime-risk-response-schema.json",
+  "title": "CrimeRiskResponse",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-crime-api-openapi.yml#/components/schemas/CrimeRiskResponse",
+  "properties": {
+    "objectId": {
+      "type": "string"
+    },
+    "themes": {
+      "items": {
+        "$ref": "#/$defs/RisksCrimeTheme"
+      },
+      "type": "array"
+    },
+    "boundaries": {
+      "$ref": "#/$defs/RisksBoundaries"
+    },
+    "matchedAddress": {
+      "$ref": "#/$defs/RiskAddress"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "CommonGeometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "crs": {
+          "$ref": "#/$defs/RisksGeometryCRC"
+        },
+        "coordinates": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "CrimeBoundary": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string"
+        },
+        "geometry": {
+          "$ref": "#/$defs/CommonGeometry"
+        }
+      },
+      "type": "object"
+    },
+    "CrimeIndexTheme": {
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "boundaryRef": {
+          "type": "string"
+        },
+        "indexVariable": {
+          "items": {
+            "$ref": "#/$defs/IndexVariable"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "GeometryProperties": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "IndexVariable": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "score": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "percentile": {
+          "type": "string"
+        },
+        "stateScore": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RiskAddress": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "streetSide": {
+          "type": "string"
+        },
+        "businessName": {
+          "type": "string"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stateProvince": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "urbanizationName": {
+          "type": "string"
+        },
+        "formattedAddress": {
+          "type": "string"
+        },
+        "mainAddressLine": {
+          "type": "string"
+        },
+        "addressLastLine": {
+          "type": "string"
+        },
+        "placeName": {
+          "type": "string"
+        },
+        "areaName1": {
+          "type": "string"
+        },
+        "areaName2": {
+          "type": "string"
+        },
+        "areaName3": {
+          "type": "string"
+        },
+        "areaName4": {
+          "type": "string"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "postCodeExt": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "addressNumber": {
+          "type": "string"
+        },
+        "streetName": {
+          "type": "string"
+        },
+        "unitType": {
+          "type": "string"
+        },
+        "unitValue": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RisksBoundaries": {
+      "properties": {
+        "boundary": {
+          "items": {
+            "$ref": "#/$defs/CrimeBoundary"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "RisksCrimeTheme": {
+      "properties": {
+        "crimeIndexTheme": {
+          "$ref": "#/$defs/CrimeIndexTheme"
+        }
+      },
+      "type": "object"
+    },
+    "RisksGeometryCRC": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/$defs/GeometryProperties"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

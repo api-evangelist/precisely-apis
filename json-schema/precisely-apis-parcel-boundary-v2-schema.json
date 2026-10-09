@@ -1,0 +1,260 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-parcel-boundary-v2-schema.json",
+  "title": "ParcelBoundaryV2",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-properties-api-openapi.yml#/components/schemas/ParcelBoundaryV2",
+  "properties": {
+    "objectId": {
+      "type": "string"
+    },
+    "parcelApn": {
+      "type": "string"
+    },
+    "geoId": {
+      "type": "string"
+    },
+    "center": {
+      "$ref": "#/$defs/Center"
+    },
+    "countyfips": {
+      "type": "string"
+    },
+    "parcelAreaSqFt": {
+      "type": "string"
+    },
+    "geometry": {
+      "$ref": "#/$defs/PropertyInformationGeometry"
+    },
+    "parcelList": {
+      "items": {
+        "$ref": "#/$defs/ParcelV2"
+      },
+      "type": "array"
+    },
+    "adjacentParcelBoundary": {
+      "items": {
+        "$ref": "#/$defs/ParcelBoundaryV2"
+      },
+      "type": "array"
+    },
+    "matchedAddress": {
+      "$ref": "#/$defs/MatchedAddress"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "Center": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "GeometryProperties": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MatchedAddress": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "streetSide": {
+          "type": "string"
+        },
+        "businessName": {
+          "type": "string"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stateProvince": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "urbanizationName": {
+          "type": "string"
+        },
+        "formattedAddress": {
+          "type": "string"
+        },
+        "mainAddressLine": {
+          "type": "string"
+        },
+        "addressLastLine": {
+          "type": "string"
+        },
+        "placeName": {
+          "type": "string"
+        },
+        "areaName1": {
+          "type": "string"
+        },
+        "areaName2": {
+          "type": "string"
+        },
+        "areaName3": {
+          "type": "string"
+        },
+        "areaName4": {
+          "type": "string"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "postCodeExt": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "addressNumber": {
+          "type": "string"
+        },
+        "streetName": {
+          "type": "string"
+        },
+        "unitType": {
+          "type": "string"
+        },
+        "unitValue": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ParcelBoundaryV2": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "parcelApn": {
+          "type": "string"
+        },
+        "geoId": {
+          "type": "string"
+        },
+        "center": {
+          "$ref": "#/$defs/Center"
+        },
+        "countyfips": {
+          "type": "string"
+        },
+        "parcelAreaSqFt": {
+          "type": "string"
+        },
+        "geometry": {
+          "$ref": "#/$defs/PropertyInformationGeometry"
+        },
+        "parcelList": {
+          "items": {
+            "$ref": "#/$defs/ParcelV2"
+          },
+          "type": "array"
+        },
+        "adjacentParcelBoundary": {
+          "items": {
+            "$ref": "#/$defs/ParcelBoundaryV2"
+          },
+          "type": "array"
+        },
+        "matchedAddress": {
+          "$ref": "#/$defs/MatchedAddress"
+        }
+      },
+      "type": "object"
+    },
+    "ParcelV2": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "preciselyId": {
+          "type": "string"
+        },
+        "parentPreciselyId": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "#/$defs/MatchedAddress"
+        },
+        "taxApn": {
+          "type": "string"
+        },
+        "taxAccountNumber": {
+          "type": "string"
+        },
+        "propLinkId": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PropertyInformationGeometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "crs": {
+          "$ref": "#/$defs/PropertyInformationGeometryCRC"
+        },
+        "coordinates": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "PropertyInformationGeometryCRC": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/$defs/GeometryProperties"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

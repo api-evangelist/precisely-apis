@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-validate-email-address-apiresponse-schema.json",
+  "title": "ValidateEmailAddressAPIResponse",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-validateemailaddress-api-openapi.yml#/components/schemas/ValidateEmailAddressAPIResponse",
+  "properties": {
+    "Output": {
+      "items": {
+        "$ref": "#/$defs/ValidateEmailAddressOutput"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "GetPostalCodesAPIOutput_user_fields": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ValidateEmailAddressOutput": {
+      "properties": {
+        "user_fields": {
+          "description": "These fields are returned, unmodified, in the user_fields section of the response.",
+          "items": {
+            "$ref": "#/$defs/GetPostalCodesAPIOutput_user_fields"
+          },
+          "type": "array"
+        },
+        "EMAIL": {
+          "description": "The email address submitted for verification.",
+          "type": "string"
+        },
+        "FINDING": {
+          "description": "One character code indicating the validity of the submitted email address.",
+          "type": "string"
+        },
+        "COMMENT": {
+          "description": "The comment string pertaining to the result of the submitted email address.",
+          "type": "string"
+        },
+        "COMMENT_CODE": {
+          "description": "A short code which maps to each returned COMMENT field value.",
+          "type": "string"
+        },
+        "SUGG_EMAIL": {
+          "description": "Suggested correction for submitted email address, if found. A suggestion will only be provided if it is valid and SafeToDeliver.",
+          "type": "string"
+        },
+        "SUGG_COMMENT": {
+          "description": "This field contains suggestion not SafeToDeliver when ValidateEmailAddress corrected the address and the corrected version of the email address failed one or more SafeToDeliver process checks.",
+          "type": "string"
+        },
+        "ERROR_RESPONSE": {
+          "description": "Pre-formatted response intended to be provided to user.",
+          "type": "string"
+        },
+        "ERROR": {
+          "description": "Field reserved for special features only.",
+          "type": "string"
+        },
+        "Status": {
+          "type": "string"
+        },
+        "Status.Code": {
+          "type": "string"
+        },
+        "Status.Description": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

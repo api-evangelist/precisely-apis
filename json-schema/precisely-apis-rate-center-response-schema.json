@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-rate-center-response-schema.json",
+  "title": "RateCenterResponse",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-ratecenter-api-openapi.yml#/components/schemas/RateCenterResponse",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "alternateName": {
+      "type": "string"
+    },
+    "areaName1": {
+      "type": "string"
+    },
+    "geometry": {
+      "$ref": "#/$defs/Geometry"
+    },
+    "areaCodeInfoList": {
+      "items": {
+        "$ref": "#/$defs/areaCodeInfo"
+      },
+      "type": "array"
+    },
+    "matchedAddress": {
+      "$ref": "#/$defs/address_1"
+    },
+    "match": {
+      "$ref": "#/$defs/match"
+    },
+    "county": {
+      "$ref": "#/$defs/county"
+    },
+    "count": {
+      "format": "int32",
+      "type": "integer"
+    },
+    "product_code": {
+      "type": "string"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "Geometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "address_1": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "streetSide": {
+          "type": "string"
+        },
+        "businessName": {
+          "type": "string"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stateProvince": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "urbanizationName": {
+          "type": "string"
+        },
+        "formattedAddress": {
+          "type": "string"
+        },
+        "mainAddressLine": {
+          "type": "string"
+        },
+        "addressLastLine": {
+          "type": "string"
+        },
+        "placeName": {
+          "type": "string"
+        },
+        "areaName1": {
+          "type": "string"
+        },
+        "areaName2": {
+          "type": "string"
+        },
+        "areaName3": {
+          "type": "string"
+        },
+        "areaName4": {
+          "type": "string"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "postCodeExt": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "addressNumber": {
+          "type": "string"
+        },
+        "streetName": {
+          "type": "string"
+        },
+        "unitType": {
+          "type": "string"
+        },
+        "unitValue": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "areaCodeInfo": {
+      "properties": {
+        "companyName": {
+          "type": "string"
+        },
+        "ocn": {
+          "type": "string"
+        },
+        "ocnCategory": {
+          "type": "string"
+        },
+        "npa": {
+          "type": "string"
+        },
+        "nxx": {
+          "type": "string"
+        },
+        "startRange": {
+          "type": "string"
+        },
+        "endRange": {
+          "type": "string"
+        },
+        "lata": {
+          "type": "string"
+        },
+        "areaName4": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "county": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "fips": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "match": {
+      "properties": {
+        "confidence": {
+          "type": "string"
+        },
+        "percentGeocode": {
+          "type": "string"
+        },
+        "precisionLevel": {
+          "type": "string"
+        },
+        "locationCode": {
+          "type": "string"
+        },
+        "matchCode": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

@@ -190,45 +190,177 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    road:
+    Geometry:
       example:
-        endingLevel: endingLevel
-        routeNumber: routeNumber
-        trafficFlow: trafficFlow
-        surfaceType: surfaceType
-        roadClass: roadClass
-        beginningLevel: beginningLevel
-        name: name
-        lengthInMeters: lengthInMeters
-        id: id
-        altName: altName
+        coordinates:
+        - 0.8008281904610115
+        - 0.8008281904610115
         type: type
-        isToll: isToll
       properties:
-        id:
-          type: string
-        name:
-          type: string
-        altName:
-          type: string
-        roadClass:
-          type: string
         type:
           type: string
-        lengthInMeters:
+        coordinates:
+          items:
+            format: double
+            type: number
+          type: array
+      type: object
+    Intersection:
+      example:
+        driveDistance:
+          unit: unit
+          value: 0.8008281904610115
+        distance:
+          unit: unit
+          value: 0.8008281904610115
+        driveTime:
+          unit: unit
+          value: 0.8008281904610115
+        roads:
+        - endingLevel: endingLevel
+          routeNumber: routeNumber
+          trafficFlow: trafficFlow
+          surfaceType: surfaceType
+          roadClass: roadClass
+          beginningLevel: beginningLevel
+          name: name
+          lengthInMeters: lengthInMeters
+          id: id
+          altName: altName
+          type: type
+          isToll: isToll
+        - endingLevel: endingLevel
+          routeNumber: routeNumber
+          trafficFlow: trafficFlow
+          surfaceType: surfaceType
+          roadClass: roadClass
+          beginningLevel: beginningLevel
+          name: name
+          lengthInMeters: lengthInMeters
+          id: id
+          altName: altName
+          type: type
+          isToll: isToll
+        geometry:
+          coordinates:
+          - 0.8008281904610115
+          - 0.8008281904610115
+          type: type
+      properties:
+        distance:
+          $ref: '#/components/schemas/Unit'
+        driveTime:
+          $ref: '#/components/schemas/Unit'
+        driveDistance:
+          $ref: '#/components/schemas/Unit'
+        geometry:
+          $ref: '#/components/schemas/Geometry'
+        roads:
+          items:
+            $ref: '#/components/schemas/road'
+          type: array
+          uniqueItems: true
+      type: object
+    address_1:
+      example:
+        country: country
+        streetSide: streetSide
+        city: city
+        displayName: displayName
+        postalCode: postalCode
+        latitude: latitude
+        businessName: businessName
+        county: county
+        unitType: unitType
+        streetName: streetName
+        formattedAddress: formattedAddress
+        addressLine1: addressLine1
+        mainAddressLine: mainAddressLine
+        addressLine2: addressLine2
+        addressLine3: addressLine3
+        objectId: objectId
+        addressLastLine: addressLastLine
+        longitude: longitude
+        unitValue: unitValue
+        stateProvince: stateProvince
+        urbanizationName: urbanizationName
+        areaName1: areaName1
+        areaName2: areaName2
+        areaName3: areaName3
+        areaName4: areaName4
+        addressNumber: addressNumber
+        postCode: postCode
+        postCodeExt: postCodeExt
+        placeName: placeName
+        status: status
+      properties:
+        objectId:
           type: string
-        routeNumber:
+        displayName:
           type: string
-        surfaceType:
+        streetSide:
           type: string
-        trafficFlow:
+        businessName:
           type: string
-        isToll:
+        addressLine1:
           type: string
-        beginningLevel:
+        addressLine2:
           type: string
-        endingLevel:
+        addressLine3:
           type: string
+        city:
+          type: string
+        stateProvince:
+          type: string
+        county:
+          type: string
+        postalCode:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+        status:
+          type: string
+        urbanizationName:
+          type: string
+        formattedAddress:
+          type: string
+        mainAddressLine:
+          type: string
+        addressLastLine:
+          type: string
+        placeName:
+          type: string
+        areaName1:
+          type: string
+        areaName2:
+          type: string
+        areaName3:
+          type: string
+        areaName4:
+          type: string
+        postCode:
+          type: string
+        postCodeExt:
+          type: string
+        country:
+          type: string
+        addressNumber:
+          type: string
+        streetName:
+          type: string
+        unitType:
+          type: string
+        unitValue:
+          type: string
+      type: object
+    ErrorInfo_1:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
       type: object
     IntersectionResponse:
       example:
@@ -350,127 +482,44 @@ components:
         matchedAddress:
           $ref: '#/components/schemas/address_1'
       type: object
-    Geometry:
+    road:
       example:
-        coordinates:
-        - 0.8008281904610115
-        - 0.8008281904610115
+        endingLevel: endingLevel
+        routeNumber: routeNumber
+        trafficFlow: trafficFlow
+        surfaceType: surfaceType
+        roadClass: roadClass
+        beginningLevel: beginningLevel
+        name: name
+        lengthInMeters: lengthInMeters
+        id: id
+        altName: altName
         type: type
+        isToll: isToll
       properties:
+        id:
+          type: string
+        name:
+          type: string
+        altName:
+          type: string
+        roadClass:
+          type: string
         type:
           type: string
-        coordinates:
-          items:
-            format: double
-            type: number
-          type: array
-      type: object
-    ErrorInfo_1:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
+        lengthInMeters:
           type: string
-        errorDescription:
+        routeNumber:
           type: string
-      type: object
-    address_1:
-      example:
-        country: country
-        streetSide: streetSide
-        city: city
-        displayName: displayName
-        postalCode: postalCode
-        latitude: latitude
-        businessName: businessName
-        county: county
-        unitType: unitType
-        streetName: streetName
-        formattedAddress: formattedAddress
-        addressLine1: addressLine1
-        mainAddressLine: mainAddressLine
-        addressLine2: addressLine2
-        addressLine3: addressLine3
-        objectId: objectId
-        addressLastLine: addressLastLine
-        longitude: longitude
-        unitValue: unitValue
-        stateProvince: stateProvince
-        urbanizationName: urbanizationName
-        areaName1: areaName1
-        areaName2: areaName2
-        areaName3: areaName3
-        areaName4: areaName4
-        addressNumber: addressNumber
-        postCode: postCode
-        postCodeExt: postCodeExt
-        placeName: placeName
-        status: status
-      properties:
-        objectId:
+        surfaceType:
           type: string
-        displayName:
+        trafficFlow:
           type: string
-        streetSide:
+        isToll:
           type: string
-        businessName:
+        beginningLevel:
           type: string
-        addressLine1:
-          type: string
-        addressLine2:
-          type: string
-        addressLine3:
-          type: string
-        city:
-          type: string
-        stateProvince:
-          type: string
-        county:
-          type: string
-        postalCode:
-          type: string
-        latitude:
-          type: string
-        longitude:
-          type: string
-        status:
-          type: string
-        urbanizationName:
-          type: string
-        formattedAddress:
-          type: string
-        mainAddressLine:
-          type: string
-        addressLastLine:
-          type: string
-        placeName:
-          type: string
-        areaName1:
-          type: string
-        areaName2:
-          type: string
-        areaName3:
-          type: string
-        areaName4:
-          type: string
-        postCode:
-          type: string
-        postCodeExt:
-          type: string
-        country:
-          type: string
-        addressNumber:
-          type: string
-        streetName:
-          type: string
-        unitType:
-          type: string
-        unitValue:
+        endingLevel:
           type: string
       type: object
     Unit:
@@ -484,61 +533,12 @@ components:
         unit:
           type: string
       type: object
-    Intersection:
-      example:
-        driveDistance:
-          unit: unit
-          value: 0.8008281904610115
-        distance:
-          unit: unit
-          value: 0.8008281904610115
-        driveTime:
-          unit: unit
-          value: 0.8008281904610115
-        roads:
-        - endingLevel: endingLevel
-          routeNumber: routeNumber
-          trafficFlow: trafficFlow
-          surfaceType: surfaceType
-          roadClass: roadClass
-          beginningLevel: beginningLevel
-          name: name
-          lengthInMeters: lengthInMeters
-          id: id
-          altName: altName
-          type: type
-          isToll: isToll
-        - endingLevel: endingLevel
-          routeNumber: routeNumber
-          trafficFlow: trafficFlow
-          surfaceType: surfaceType
-          roadClass: roadClass
-          beginningLevel: beginningLevel
-          name: name
-          lengthInMeters: lengthInMeters
-          id: id
-          altName: altName
-          type: type
-          isToll: isToll
-        geometry:
-          coordinates:
-          - 0.8008281904610115
-          - 0.8008281904610115
-          type: type
+    ErrorCode:
       properties:
-        distance:
-          $ref: '#/components/schemas/Unit'
-        driveTime:
-          $ref: '#/components/schemas/Unit'
-        driveDistance:
-          $ref: '#/components/schemas/Unit'
-        geometry:
-          $ref: '#/components/schemas/Geometry'
-        roads:
-          items:
-            $ref: '#/components/schemas/road'
-          type: array
-          uniqueItems: true
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
       type: object
   securitySchemes:
     oAuth2Password:

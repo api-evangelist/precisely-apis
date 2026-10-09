@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-earthquake-history-schema.json",
+  "title": "earthquakeHistory",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-earthquakehistory-api-openapi.yml#/components/schemas/earthquakeHistory",
+  "properties": {
+    "stateCode": {
+      "type": "string"
+    },
+    "county": {
+      "type": "string"
+    },
+    "postCode": {
+      "type": "string"
+    },
+    "events": {
+      "$ref": "#/$defs/EarthquakeEventsResponse"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "Depth": {
+      "properties": {
+        "unit": {
+          "type": "string"
+        },
+        "value": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "EarthquakeDateTime": {
+      "properties": {
+        "date": {
+          "type": "string"
+        },
+        "time": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "EarthquakeEvent": {
+      "properties": {
+        "dateTime": {
+          "$ref": "#/$defs/EarthquakeDateTime"
+        },
+        "seismicRegionNumber": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "depth": {
+          "$ref": "#/$defs/Depth"
+        },
+        "magnitude": {
+          "$ref": "#/$defs/Magnitude"
+        },
+        "cause": {
+          "type": "string"
+        },
+        "culturalEffect": {
+          "type": "string"
+        },
+        "intensity": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "diastrophism": {
+          "type": "string"
+        },
+        "miscPhenomena": {
+          "type": "string"
+        },
+        "location": {
+          "$ref": "#/$defs/EarthquakeLocation"
+        }
+      },
+      "type": "object"
+    },
+    "EarthquakeEventsResponse": {
+      "properties": {
+        "earthuakeEvents": {
+          "items": {
+            "$ref": "#/$defs/EarthquakeEvent"
+          },
+          "type": "array",
+          "writeOnly": true
+        },
+        "event": {
+          "items": {
+            "$ref": "#/$defs/EarthquakeEvent"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "EarthquakeLocation": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "Magnitude": {
+      "properties": {
+        "value": {
+          "format": "double",
+          "type": "number"
+        },
+        "scale": {
+          "type": "string"
+        },
+        "bodyWave": {
+          "format": "double",
+          "type": "number"
+        },
+        "surfaceWave": {
+          "format": "double",
+          "type": "number"
+        },
+        "surfaceWaveValue": {
+          "format": "double",
+          "type": "number",
+          "writeOnly": true
+        },
+        "bodyWaveValue": {
+          "format": "double",
+          "type": "number",
+          "writeOnly": true
+        }
+      },
+      "type": "object"
+    }
+  }
+}

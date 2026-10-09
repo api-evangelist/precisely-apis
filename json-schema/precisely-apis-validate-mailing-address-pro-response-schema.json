@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-validate-mailing-address-pro-response-schema.json",
+  "title": "ValidateMailingAddressProResponse",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-validatemailingaddresspro-api-openapi.yml#/components/schemas/ValidateMailingAddressProResponse",
+  "properties": {
+    "Output": {
+      "items": {
+        "$ref": "#/$defs/ValidateMailingAddressProOutput"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "GetPostalCodesAPIOutput_user_fields": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ValidateMailingAddressProOutput": {
+      "properties": {
+        "user_fields": {
+          "description": "These fields are returned, unmodified, in the user_fields section of the response.",
+          "items": {
+            "$ref": "#/$defs/GetPostalCodesAPIOutput_user_fields"
+          },
+          "type": "array"
+        },
+        "AddressLine1": {
+          "description": "The first line of the validated address.",
+          "type": "string"
+        },
+        "AddressLine2": {
+          "description": "The second line of the validated address.",
+          "type": "string"
+        },
+        "FirmName": {
+          "description": "The validated firm or company name.",
+          "type": "string"
+        },
+        "ChangeScore": {
+          "description": "A value of 0 and 100 that reflects how much the address has changed to make it valid.",
+          "type": "string"
+        },
+        "Locality": {
+          "description": "Generally a locality is a village in rural areas or it may be a suburb in urban areas.",
+          "type": "string"
+        },
+        "Suburb": {
+          "description": "The suburb name.",
+          "type": "string"
+        },
+        "AddressType": {
+          "description": "A single letter code that indicates the type of address.",
+          "type": "string"
+        },
+        "Deliverability": {
+          "description": "An estimate of confidence that an item mailed or shipped to this address would be successfully delivered.",
+          "type": "string"
+        },
+        "AddressQuality": {
+          "description": "A two character code indicating overall quality of the resulting address.",
+          "type": "string"
+        },
+        "CouldNotValidate": {
+          "description": "Mentions the address component that could not be validated, in case no match is found.",
+          "type": "string"
+        },
+        "City": {
+          "description": "The validated city name.",
+          "type": "string"
+        },
+        "PostalCode": {
+          "description": "The validated ZIP Code or postal code.",
+          "type": "string"
+        },
+        "Country": {
+          "description": "The country in the format determined by what you selected.",
+          "type": "string"
+        },
+        "StateProvince": {
+          "description": "The validated state or province abbreviation.",
+          "type": "string"
+        },
+        "BlockAddress": {
+          "description": "The formatted address, as it would appear on a physical mail piece.",
+          "type": "string"
+        },
+        "AdditionalInputData": {
+          "description": "Input data that could not be matched to a particular address component.",
+          "type": "string"
+        },
+        "PostalCode.Base": {
+          "description": "The 5-digit ZIP Code.",
+          "type": "string"
+        },
+        "PostalCode.AddOn": {
+          "description": "The 4-digit add-on part of the ZIP Code.",
+          "type": "string"
+        },
+        "Status": {
+          "description": "Reports the success or failure of the match attempt.",
+          "type": "string"
+        },
+        "Status.Code": {
+          "description": "Reason for failure, if there is one.",
+          "type": "string"
+        },
+        "Status.Description": {
+          "description": "Description of the problem, if there is one.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

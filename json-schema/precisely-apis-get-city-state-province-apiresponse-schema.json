@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-get-city-state-province-apiresponse-schema.json",
+  "title": "GetCityStateProvinceAPIResponse",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-getcitystateprovince-api-openapi.yml#/components/schemas/GetCityStateProvinceAPIResponse",
+  "properties": {
+    "Output": {
+      "items": {
+        "$ref": "#/$defs/GetCityStateProvinceAPIOutput"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "GetCityStateProvinceAPIOutput": {
+      "properties": {
+        "user_fields": {
+          "description": "These fields are returned, unmodified, in the user_fields section of the response.",
+          "items": {
+            "$ref": "#/$defs/GetPostalCodesAPIOutput_user_fields"
+          },
+          "type": "array"
+        },
+        "PostalCode": {
+          "description": "The validated ZIP Code or postal code.",
+          "type": "string"
+        },
+        "City": {
+          "description": "City",
+          "type": "string"
+        },
+        "City.Type": {
+          "description": "City.Type",
+          "type": "string"
+        },
+        "StateProvince": {
+          "description": "The state or province.",
+          "type": "string"
+        },
+        "Status": {
+          "description": "Reports the success or failure of the match attempt.",
+          "type": "string"
+        },
+        "Status.Code": {
+          "description": "Reason for failure, if there is one.",
+          "type": "string"
+        },
+        "Status.Description": {
+          "description": "Description of the problem, if there is one.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GetPostalCodesAPIOutput_user_fields": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

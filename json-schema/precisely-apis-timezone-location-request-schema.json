@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-timezone-location-request-schema.json",
+  "title": "timezoneLocationRequest",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-timezone-api-openapi.yml#/components/schemas/timezoneLocationRequest",
+  "properties": {
+    "locationTime": {
+      "items": {
+        "$ref": "#/$defs/locationTime"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "TimezoneGeometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "type": "object"
+    },
+    "locationTime": {
+      "properties": {
+        "geometry": {
+          "$ref": "#/$defs/TimezoneGeometry"
+        },
+        "purchaseAmount": {
+          "type": "string"
+        },
+        "objectId": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "geometry"
+      ],
+      "type": "object"
+    }
+  }
+}

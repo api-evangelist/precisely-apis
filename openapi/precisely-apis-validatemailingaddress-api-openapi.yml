@@ -72,14 +72,41 @@ paths:
       x-accepts: application/json
 components:
   schemas:
-    ValidateMailingAddressOptions:
+    ValidateMailingAddressRequest:
       example:
-        OutputCasing: M
+        Input:
+          Row:
+          - AddressLine2: AddressLine2
+            AddressLine1: AddressLine1
+            user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            FirmName: FirmName
+            StateProvince: StateProvince
+            Country: Country
+            PostalCode: PostalCode
+            City: City
+          - AddressLine2: AddressLine2
+            AddressLine1: AddressLine1
+            user_fields:
+            - name: name
+              value: value
+            - name: name
+              value: value
+            FirmName: FirmName
+            StateProvince: StateProvince
+            Country: Country
+            PostalCode: PostalCode
+            City: City
+        options:
+          OutputCasing: M
       properties:
-        OutputCasing:
-          default: M
-          description: Specify the casing of the output data.
-          type: string
+        options:
+          $ref: '#/components/schemas/ValidateMailingAddressOptions'
+        Input:
+          $ref: '#/components/schemas/ValidateMailingAddressInput'
       type: object
     ValidateMailingAddressInput:
       example:
@@ -114,6 +141,132 @@ components:
             $ref: '#/components/schemas/ValidateMailingAddressInputRow'
           type: array
       type: object
+    ValidateMailingAddressResponse:
+      example:
+        Output:
+        - Status: Status
+          BlockAddress: BlockAddress
+          FirmName: FirmName
+          StateProvince: StateProvince
+          PostalCode: PostalCode
+          City: City
+          Status.Code: Status.Code
+          AdditionalInputData: AdditionalInputData
+          AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          PostalCode.Base: PostalCode.Base
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          Country: Country
+          Status.Description: Status.Description
+          PostalCode.AddOn: PostalCode.AddOn
+        - Status: Status
+          BlockAddress: BlockAddress
+          FirmName: FirmName
+          StateProvince: StateProvince
+          PostalCode: PostalCode
+          City: City
+          Status.Code: Status.Code
+          AdditionalInputData: AdditionalInputData
+          AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          PostalCode.Base: PostalCode.Base
+          user_fields:
+          - name: name
+            value: value
+          - name: name
+            value: value
+          Country: Country
+          Status.Description: Status.Description
+          PostalCode.AddOn: PostalCode.AddOn
+      properties:
+        Output:
+          items:
+            $ref: '#/components/schemas/ValidateMailingAddressOutput'
+          type: array
+      type: object
+    GetPostalCodesAPIOutput_user_fields:
+      example:
+        name: name
+        value: value
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+      type: object
+    ValidateMailingAddressOptions:
+      example:
+        OutputCasing: M
+      properties:
+        OutputCasing:
+          default: M
+          description: Specify the casing of the output data.
+          type: string
+      type: object
+    ErrorCode:
+      properties:
+        errorCode:
+          type: string
+        errorDescription:
+          type: string
+      type: object
+    ValidateMailingAddressInputRow:
+      example:
+        AddressLine2: AddressLine2
+        AddressLine1: AddressLine1
+        user_fields:
+        - name: name
+          value: value
+        - name: name
+          value: value
+        FirmName: FirmName
+        StateProvince: StateProvince
+        Country: Country
+        PostalCode: PostalCode
+        City: City
+      properties:
+        user_fields:
+          description: These fields are returned, unmodified, in the user_fields section of the response.
+          items:
+            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
+          type: array
+        AddressLine1:
+          description: The first address line.
+          type: string
+        AddressLine2:
+          description: The second address line.
+          type: string
+        FirmName:
+          description: The company or firm name.
+          type: string
+        City:
+          description: The city name.
+          type: string
+        StateProvince:
+          description: The state or province.
+          type: string
+        Country:
+          description: The country code or name.
+          type: string
+        PostalCode:
+          description: The postal code for the address.
+          type: string
+      type: object
+    ErrorInfo:
+      properties:
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorCode'
+          type: array
+          xml:
+            name: error
+      type: object
+      xml:
+        name: errors
     ValidateMailingAddressOutput:
       example:
         Status: Status
@@ -182,159 +335,6 @@ components:
           type: string
         Status.Description:
           description: Description of the problem, if there is one.
-          type: string
-      type: object
-    ValidateMailingAddressResponse:
-      example:
-        Output:
-        - Status: Status
-          BlockAddress: BlockAddress
-          FirmName: FirmName
-          StateProvince: StateProvince
-          PostalCode: PostalCode
-          City: City
-          Status.Code: Status.Code
-          AdditionalInputData: AdditionalInputData
-          AddressLine2: AddressLine2
-          AddressLine1: AddressLine1
-          PostalCode.Base: PostalCode.Base
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          Country: Country
-          Status.Description: Status.Description
-          PostalCode.AddOn: PostalCode.AddOn
-        - Status: Status
-          BlockAddress: BlockAddress
-          FirmName: FirmName
-          StateProvince: StateProvince
-          PostalCode: PostalCode
-          City: City
-          Status.Code: Status.Code
-          AdditionalInputData: AdditionalInputData
-          AddressLine2: AddressLine2
-          AddressLine1: AddressLine1
-          PostalCode.Base: PostalCode.Base
-          user_fields:
-          - name: name
-            value: value
-          - name: name
-            value: value
-          Country: Country
-          Status.Description: Status.Description
-          PostalCode.AddOn: PostalCode.AddOn
-      properties:
-        Output:
-          items:
-            $ref: '#/components/schemas/ValidateMailingAddressOutput'
-          type: array
-      type: object
-    ErrorCode:
-      properties:
-        errorCode:
-          type: string
-        errorDescription:
-          type: string
-      type: object
-    ValidateMailingAddressRequest:
-      example:
-        Input:
-          Row:
-          - AddressLine2: AddressLine2
-            AddressLine1: AddressLine1
-            user_fields:
-            - name: name
-              value: value
-            - name: name
-              value: value
-            FirmName: FirmName
-            StateProvince: StateProvince
-            Country: Country
-            PostalCode: PostalCode
-            City: City
-          - AddressLine2: AddressLine2
-            AddressLine1: AddressLine1
-            user_fields:
-            - name: name
-              value: value
-            - name: name
-              value: value
-            FirmName: FirmName
-            StateProvince: StateProvince
-            Country: Country
-            PostalCode: PostalCode
-            City: City
-        options:
-          OutputCasing: M
-      properties:
-        options:
-          $ref: '#/components/schemas/ValidateMailingAddressOptions'
-        Input:
-          $ref: '#/components/schemas/ValidateMailingAddressInput'
-      type: object
-    ErrorInfo:
-      properties:
-        errors:
-          items:
-            $ref: '#/components/schemas/ErrorCode'
-          type: array
-          xml:
-            name: error
-      type: object
-      xml:
-        name: errors
-    ValidateMailingAddressInputRow:
-      example:
-        AddressLine2: AddressLine2
-        AddressLine1: AddressLine1
-        user_fields:
-        - name: name
-          value: value
-        - name: name
-          value: value
-        FirmName: FirmName
-        StateProvince: StateProvince
-        Country: Country
-        PostalCode: PostalCode
-        City: City
-      properties:
-        user_fields:
-          description: These fields are returned, unmodified, in the user_fields section of the response.
-          items:
-            $ref: '#/components/schemas/GetPostalCodesAPIOutput_user_fields'
-          type: array
-        AddressLine1:
-          description: The first address line.
-          type: string
-        AddressLine2:
-          description: The second address line.
-          type: string
-        FirmName:
-          description: The company or firm name.
-          type: string
-        City:
-          description: The city name.
-          type: string
-        StateProvince:
-          description: The state or province.
-          type: string
-        Country:
-          description: The country code or name.
-          type: string
-        PostalCode:
-          description: The postal code for the address.
-          type: string
-      type: object
-    GetPostalCodesAPIOutput_user_fields:
-      example:
-        name: name
-        value: value
-      properties:
-        name:
-          type: string
-        value:
           type: string
       type: object
   securitySchemes:

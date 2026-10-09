@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-fire-history-schema.json",
+  "title": "FireHistory",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-firehistory-api-openapi.yml#/components/schemas/FireHistory",
+  "properties": {
+    "stateCode": {
+      "type": "string"
+    },
+    "postCode": {
+      "type": "string"
+    },
+    "events": {
+      "$ref": "#/$defs/FireEventsResponse"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "Area": {
+      "properties": {
+        "unit": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "FireEvent": {
+      "properties": {
+        "fireStartDate": {
+          "type": "string"
+        },
+        "fireEndDate": {
+          "type": "string"
+        },
+        "fireName": {
+          "type": "string"
+        },
+        "area": {
+          "$ref": "#/$defs/Area"
+        },
+        "agency": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "FireEventsResponse": {
+      "properties": {
+        "event": {
+          "items": {
+            "$ref": "#/$defs/FireEvent"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

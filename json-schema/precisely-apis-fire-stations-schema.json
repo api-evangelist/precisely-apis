@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-fire-stations-schema.json",
+  "title": "fireStations",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-firestation-api-openapi.yml#/components/schemas/fireStations",
+  "properties": {
+    "fireStation": {
+      "items": {
+        "$ref": "#/$defs/fireStation"
+      },
+      "type": "array"
+    },
+    "matchedAddress": {
+      "$ref": "#/$defs/RiskAddress"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "FireDepartment": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "numberOfStations": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "administrativeOfficeOnly": {
+          "type": "boolean"
+        },
+        "contactDetails": {
+          "$ref": "#/$defs/FireStationContactDetails"
+        }
+      },
+      "type": "object"
+    },
+    "FireStationContactDetails": {
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/RiskAddress"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "fax": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Geometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "RiskAddress": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "streetSide": {
+          "type": "string"
+        },
+        "businessName": {
+          "type": "string"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stateProvince": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "urbanizationName": {
+          "type": "string"
+        },
+        "formattedAddress": {
+          "type": "string"
+        },
+        "mainAddressLine": {
+          "type": "string"
+        },
+        "addressLastLine": {
+          "type": "string"
+        },
+        "placeName": {
+          "type": "string"
+        },
+        "areaName1": {
+          "type": "string"
+        },
+        "areaName2": {
+          "type": "string"
+        },
+        "areaName3": {
+          "type": "string"
+        },
+        "areaName4": {
+          "type": "string"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "postCodeExt": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "addressNumber": {
+          "type": "string"
+        },
+        "streetName": {
+          "type": "string"
+        },
+        "unitType": {
+          "type": "string"
+        },
+        "unitValue": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Time": {
+      "properties": {
+        "value": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "distance": {
+      "properties": {
+        "unit": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "fireStation": {
+      "properties": {
+        "numWithinDepartment": {
+          "type": "string"
+        },
+        "locationReference": {
+          "type": "string"
+        },
+        "travelDistance": {
+          "$ref": "#/$defs/distance"
+        },
+        "travelTime": {
+          "$ref": "#/$defs/Time"
+        },
+        "contactDetails": {
+          "$ref": "#/$defs/FireStationContactDetails"
+        },
+        "fireDepartment": {
+          "$ref": "#/$defs/FireDepartment"
+        },
+        "geometry": {
+          "$ref": "#/$defs/Geometry"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

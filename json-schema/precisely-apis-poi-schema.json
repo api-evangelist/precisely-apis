@@ -1,0 +1,401 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-poi-schema.json",
+  "title": "poi",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-places-api-openapi.yml#/components/schemas/poi",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "poiId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pbkey": {
+      "type": "string"
+    },
+    "parentPbkey": {
+      "type": "string"
+    },
+    "geocodeConfidence": {
+      "type": "string"
+    },
+    "brandName": {
+      "type": "string"
+    },
+    "tradeName": {
+      "type": "string"
+    },
+    "franchiseName": {
+      "type": "string"
+    },
+    "open24Hours": {
+      "type": "string"
+    },
+    "distance": {
+      "$ref": "#/$defs/distance"
+    },
+    "businessId": {
+      "$ref": "#/$defs/businessId"
+    },
+    "relevanceScore": {
+      "type": "string"
+    },
+    "contactDetails": {
+      "$ref": "#/$defs/ContactDetails"
+    },
+    "poiClassification": {
+      "$ref": "#/$defs/PoiClassification"
+    },
+    "salesVolume": {
+      "items": {
+        "$ref": "#/$defs/salesVolume"
+      },
+      "type": "array"
+    },
+    "employeeCount": {
+      "$ref": "#/$defs/EmployeeCount"
+    },
+    "yearStart": {
+      "type": "string"
+    },
+    "goodsAgentCode": {
+      "type": "string"
+    },
+    "goodsAgentCodeDescription": {
+      "type": "string"
+    },
+    "legalStatusCode": {
+      "type": "string"
+    },
+    "organizationStatusCode": {
+      "type": "string"
+    },
+    "organizationStatusCodeDescription": {
+      "type": "string"
+    },
+    "subsidaryIndicator": {
+      "type": "string"
+    },
+    "subsidaryIndicatorDescription": {
+      "type": "string"
+    },
+    "parentBusiness": {
+      "$ref": "#/$defs/ParentBusiness"
+    },
+    "domesticUltimateBusiness": {
+      "$ref": "#/$defs/DomesticUltimateBusiness"
+    },
+    "globalUltimateIndicator": {
+      "type": "string"
+    },
+    "globalUltimateBusiness": {
+      "$ref": "#/$defs/GlobalUltimateBusiness"
+    },
+    "familyMembers": {
+      "type": "string"
+    },
+    "hierarchyCode": {
+      "type": "string"
+    },
+    "tickerSymbol": {
+      "type": "string"
+    },
+    "exchangeName": {
+      "type": "string"
+    },
+    "ceoName": {
+      "type": "string"
+    },
+    "ceoTitle": {
+      "type": "string"
+    },
+    "geometry": {
+      "$ref": "#/$defs/Geometry"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "Category": {
+      "properties": {
+        "categoryCode": {
+          "type": "string"
+        },
+        "tradeDivision": {
+          "type": "string"
+        },
+        "tradeGroup": {
+          "type": "string"
+        },
+        "subClass": {
+          "type": "string"
+        },
+        "class": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ContactDetails": {
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/address_1"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "fax": {
+          "type": "string"
+        },
+        "countryAccessCode": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DomesticUltimateBusiness": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "#/$defs/address_1"
+        }
+      },
+      "type": "object"
+    },
+    "EmployeeCount": {
+      "properties": {
+        "inLocalBranch": {
+          "type": "string"
+        },
+        "inOrganization": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Geometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "coordinates": {
+          "items": {
+            "format": "double",
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "GlobalUltimateBusiness": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "#/$defs/address_1"
+        }
+      },
+      "type": "object"
+    },
+    "ParentBusiness": {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "#/$defs/address_1"
+        }
+      },
+      "type": "object"
+    },
+    "PoiClassification": {
+      "properties": {
+        "sic": {
+          "$ref": "#/$defs/Sic"
+        },
+        "category": {
+          "$ref": "#/$defs/Category"
+        },
+        "alternateIndustryCode": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Sic": {
+      "properties": {
+        "businessLine": {
+          "type": "string"
+        },
+        "sicCode": {
+          "type": "string"
+        },
+        "sicCodeDescription": {
+          "type": "string"
+        },
+        "primarySicCode": {
+          "type": "string"
+        },
+        "secondarySicCode": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "address_1": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "streetSide": {
+          "type": "string"
+        },
+        "businessName": {
+          "type": "string"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stateProvince": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "urbanizationName": {
+          "type": "string"
+        },
+        "formattedAddress": {
+          "type": "string"
+        },
+        "mainAddressLine": {
+          "type": "string"
+        },
+        "addressLastLine": {
+          "type": "string"
+        },
+        "placeName": {
+          "type": "string"
+        },
+        "areaName1": {
+          "type": "string"
+        },
+        "areaName2": {
+          "type": "string"
+        },
+        "areaName3": {
+          "type": "string"
+        },
+        "areaName4": {
+          "type": "string"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "postCodeExt": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "addressNumber": {
+          "type": "string"
+        },
+        "streetName": {
+          "type": "string"
+        },
+        "unitType": {
+          "type": "string"
+        },
+        "unitValue": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "businessId": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "distance": {
+      "properties": {
+        "unit": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "salesVolume": {
+      "properties": {
+        "currencyCode": {
+          "type": "string"
+        },
+        "worldBaseCurrencyCode": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

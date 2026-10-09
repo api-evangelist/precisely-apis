@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-earthquake-risk-response-schema.json",
+  "title": "EarthquakeRiskResponse",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-earthquake-api-openapi.yml#/components/schemas/EarthquakeRiskResponse",
+  "properties": {
+    "objectId": {
+      "type": "string"
+    },
+    "riskLevel": {
+      "type": "string"
+    },
+    "eventsCount": {
+      "$ref": "#/$defs/EventsCount"
+    },
+    "grid": {
+      "$ref": "#/$defs/Grid"
+    },
+    "matchedAddress": {
+      "$ref": "#/$defs/RiskAddress"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "CommonGeometry": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "crs": {
+          "$ref": "#/$defs/RisksGeometryCRC"
+        },
+        "coordinates": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "EventsCount": {
+      "properties": {
+        "total": {
+          "type": "string"
+        },
+        "r0": {
+          "type": "string"
+        },
+        "r1": {
+          "type": "string"
+        },
+        "r2": {
+          "type": "string"
+        },
+        "r3": {
+          "type": "string"
+        },
+        "r4": {
+          "type": "string"
+        },
+        "r5": {
+          "type": "string"
+        },
+        "r6": {
+          "type": "string"
+        },
+        "r7": {
+          "type": "string"
+        },
+        "r0_ge": {
+          "type": "string"
+        },
+        "r1_ge": {
+          "type": "string"
+        },
+        "r2_ge": {
+          "type": "string"
+        },
+        "r3_ge": {
+          "type": "string"
+        },
+        "r4_ge": {
+          "type": "string"
+        },
+        "r5_ge": {
+          "type": "string"
+        },
+        "r6_ge": {
+          "type": "string"
+        },
+        "r7_ge": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GeometryProperties": {
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Grid": {
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "geometry": {
+          "$ref": "#/$defs/CommonGeometry"
+        }
+      },
+      "type": "object"
+    },
+    "RiskAddress": {
+      "properties": {
+        "objectId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "streetSide": {
+          "type": "string"
+        },
+        "businessName": {
+          "type": "string"
+        },
+        "addressLine1": {
+          "type": "string"
+        },
+        "addressLine2": {
+          "type": "string"
+        },
+        "addressLine3": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "stateProvince": {
+          "type": "string"
+        },
+        "county": {
+          "type": "string"
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "urbanizationName": {
+          "type": "string"
+        },
+        "formattedAddress": {
+          "type": "string"
+        },
+        "mainAddressLine": {
+          "type": "string"
+        },
+        "addressLastLine": {
+          "type": "string"
+        },
+        "placeName": {
+          "type": "string"
+        },
+        "areaName1": {
+          "type": "string"
+        },
+        "areaName2": {
+          "type": "string"
+        },
+        "areaName3": {
+          "type": "string"
+        },
+        "areaName4": {
+          "type": "string"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "postCodeExt": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "addressNumber": {
+          "type": "string"
+        },
+        "streetName": {
+          "type": "string"
+        },
+        "unitType": {
+          "type": "string"
+        },
+        "unitValue": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "RisksGeometryCRC": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "properties": {
+          "$ref": "#/$defs/GeometryProperties"
+        }
+      },
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/precisely-apis/main/json-schema/precisely-apis-get-postal-codes-apirequest-schema.json",
+  "title": "GetPostalCodesAPIRequest",
+  "x-generated": "2026-10-04",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/precisely-apis-getpostalcodes-api-openapi.yml#/components/schemas/GetPostalCodesAPIRequest",
+  "properties": {
+    "options": {
+      "$ref": "#/$defs/GetPostalCodesAPIOptions"
+    },
+    "Input": {
+      "$ref": "#/$defs/GetPostalCodesAPIInput"
+    }
+  },
+  "type": "object",
+  "$defs": {
+    "GetPostalCodesAPIInput": {
+      "properties": {
+        "Row": {
+          "items": {
+            "$ref": "#/$defs/GetPostalCodesAPIInputRow"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "GetPostalCodesAPIInputRow": {
+      "properties": {
+        "user_fields": {
+          "description": "These fields are returned, unmodified, in the user_fields section of the response.",
+          "items": {
+            "$ref": "#/$defs/GetPostalCodesAPIOutput_user_fields"
+          },
+          "type": "array"
+        },
+        "City": {
+          "description": "The city name.",
+          "type": "string"
+        },
+        "StateProvince": {
+          "description": "The state or province.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GetPostalCodesAPIOptions": {
+      "properties": {
+        "OutputCityType": {
+          "default": "N",
+          "description": "Output CityType.",
+          "type": "string"
+        },
+        "OutputVanityCity": {
+          "default": "N",
+          "description": "Output VanityCity.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "GetPostalCodesAPIOutput_user_fields": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  }
+}
